@@ -1,0 +1,129 @@
+Templatic theme - Anchor( Version 1.0 - Launched at 29th Jan 2013 )
+=====================================================================================================================================
+5th August 2013 (Version : 1.0.5)
+---------------------------------------------------------------------
+FIX : Slider and list post widget were not working with multiple category.
+---------------------------------------------------------------------
+functions/widget_functions.php
+
+
+------------------------------------------------------------------------------------------------------------
+FIX : Header right area was not getting displayed berause of wrong wrong widget area name forheader right area.
+------------------------------------------------------------------------------------------------------------
+functions/widget_functions.php
+header.php
+
+
+
+17th June 2013 (Version : 1.0.4)
+----------------------------------------------------------
+FIX :
+Issue of short code page with large button text colour.
+Twitter widget design issue.
+----------------------------------------------------------
+style.css
+
+--------------------------------
+FIX : Slider images display issue.
+--------------------------------
+css/flexslider.css
+
+--------------------------------------------------------------------
+FIX : Added warning before anyone accidently delete the sample data.
+--------------------------------------------------------------------
+functions/auto_install/auto_install.php
+
+----------------------------------------
+FIX : Mega menu  plugin related changes.
+----------------------------------------
+functions/widget_functions.php
+
+
+
+18th April 2013 (Version : 1.0.3)
+--------------------------------
+Added Auto update script - Done.
+--------------------------------
+functions.php
+functions/custom_functions.php
+templatic_login.php
+wp-updates-theme.php
+
+------------------------------------------------
+Sidebar overlapping in content area on home page - Solved.
+Style implemented for social media widget - Done.
+------------------------------------------------
+style.css
+
+---------------
+Solved warnings
+---------------
+functions/widget_functions.php
+
+
+
+19th March 2013 (Version : 1.0.2)
+---------------------------------------
+Compatibility for WooCommerce2 - Done.
+---------------------------------------
+footer.php
+functions/widget_functions.php
+style.css
+
+
+6th March 2013 (V:1.0.1)
+-------------------------------------------------------------
+Issue of shipping country not display in woo commerce - Solved.
+Mega menu font changed & press effect on buttons
+Footer strip text align center - Done.
+-------------------------------------------------------------
+style.css
+
+---------------------------------------------
+put post by category widget in primary - Done.
+removed calender from autoinstall - Done.
+Theme guide links were wrong - Solved.
+---------------------------------------------
+functions/auto_install/auto_install_data.php
+
+---------------------------------------------------------
+changed the child theme directory name in autoupdate file.
+Issue of the auto update theme on multisite issue - Solved.
+Issues of warning comes when theme activated - Solved.
+update function modify - Solved.
+Fixed an update issue.
+---------------------------------------------------------
+wp-updates-theme.php
+templatic_login.php
+
+-------------------------------
+Make title short in slider - Done.
+-------------------------------
+functions/widget_functions.php
+
+------------------------------------
+Issue of set featured image - Solved.
+------------------------------------
+functions/custom_functions.php
+
+-------------------------------------------------------------------------
+Showing and error for multitext_box function when loading the site - Solved.
+tabber widget not working when slider widget remove - Solved.
+-------------------------------------------------------------------------
+functions/widget_functions.php
+header.php
+
+-------------------------------------
+added woocommerce 2.0 compatability
+-------------------------------------
+Modified files :
+css/admin-style.php
+footer.php
+
+New Added file :
+woocommerce.php
+
+------------------------------------
+add theme support for slider - Solved.
+------------------------------------
+functions.php

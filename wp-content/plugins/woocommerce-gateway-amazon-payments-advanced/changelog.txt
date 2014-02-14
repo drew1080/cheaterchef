@@ -1,0 +1,13 @@
+*** Amazon Payments Advanced Changelog ***
+
+2013.10.30 - version 1.2.0
+ * Support for authorizing (and capturing) after an order is placed
+ * DE and UK support
+
+2013.09.16 - version 1.1.0
+ * Added global to allow hook manipulation.
+ * Added img for login button to improve performance.
+ * Added option to control the cart button display (button, banner or disabled)
+
+2013.08.01 - version 1.0.0
+ * First Release

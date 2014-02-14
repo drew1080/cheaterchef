@@ -1,0 +1,234 @@
+/*
+
+File:	 custom.css
+
+Description:	Custom styles for your theme
+
+
+To properly utilize custom.css you will have to mention a CSS class and it's new properties/values. For 
+
+instructions open the following article:
+
+http://templatic.com/docs/using-custom-css-for-theme-customizations/
+
+
+PS: Don't forget to activate custom.css in your theme settings area
+
+
+ADD YOUR CODE AFTER THIS ENDING COMMENT TAG -----------> */ 
+
+body {
+	background: white;
+}
+
+.header-wrap .header_featured_event {
+	margin: 0px;
+}
+
+
+.header_bg1 {
+	border-top: none;
+	background-repeat: initial;
+	background-color: #8fc17e;
+}
+
+.header_bg1 {
+	background-image: none;
+	background: #ffffff;
+}
+
+#header .header_right {
+	margin-top: 25px;
+}
+
+div#menu-secondary .wrap {
+	border-bottom: 3px double rgba(0, 0, 0, 0.1);
+}
+
+#site-description {
+	color: #2F4328;
+	text-shadow:none;
+	font-family: "Comic Sans MS", sans-serif;
+}
+
+.blog-listing li {
+	margin: 0 4.1% 25px 0;
+}
+
+div#menu-secondary .menu li a {
+	color: #73B15E;
+	text-shadow:none;
+}
+
+div#menu-secondary .menu .sub-menu li a {
+	color: #73B15E;
+	text-shadow:none;
+}
+
+#sidebar-after-header-2c {
+	display:none;
+}
+
+div#sidebar-subsidiary {
+	padding-top: 20px !important;
+}
+
+div#sidebar-subsidiary .widget-title {
+	color: #73B15E;
+}
+
+
+div#sidebar-subsidiary, div#sidebar-subsidiary-2c {
+	background: #f7f7f7;
+}
+
+.flexslider {
+	border-bottom: 3px double rgba(0, 0, 0, 0.1);
+	padding: 25px 0 25px !important;
+	margin: 0px auto 20px !important;
+}
+
+.flexslider .slides {
+	height: 415px;
+	overflow: hidden;
+}
+
+.flexslider .slides img {
+	max-width:685px !important;
+}
+
+div.flex-caption {
+	background: #ffffff;
+	/*background: #3c302c;
+	background: #73B15E;*/
+}
+
+.flex-caption .slide_content h4 a {
+  color: #000000 !important;
+}
+
+.flex-direction-nav a.flex-next {
+	background-color: #54413c;
+}
+
+.flex-direction-nav a.flex-prev {
+	background-color: #54413c;
+}
+
+div.flex-caption .slide_content span {
+	color: #73B15E;
+}
+
+.flex-caption .slide_content p {
+	/*color: #d5d5d5 !important;*/
+	color: #000000 !important;
+}
+
+.flex-direction-nav a.flex-next {
+	background-position: 6px 4px !important;
+}
+
+.flex-direction-nav a.flex-prev {
+	background: #000000 url(images/s_icons_left_arrow.png) no-repeat !important;
+	background-position: 4px 4px !important;
+}
+
+#sidebar-subsidiary .textwidget {
+	font-size: 20px;
+	line-height: 28px;
+}
+
+#site-title {
+	padding: 12px 0;
+}
+
+#site-description {
+	padding: 13px 0 0;
+}
+
+.blog-listing li span.top_line {
+  display: none;
+}
+
+/* Hide categories on slider */
+.home .slide_content span {
+  display: none;
+}
+
+/* Hide categories on 3 Category section */
+#sidebar-subsidiary span.category {
+  display: none;
+}
+
+/* Right sidebar twitter */
+#text-14 {
+	margin-top: 38px;
+}
+
+/* Right sidebar ad */
+#text-15 {
+	text-align: center;
+}
+
+
+.social_media ul li {
+	width: 61px !important;
+}
+
+ul.mc_list li {
+	width: 55px !important;
+}
+
+#testimonials_widget-4 {
+	float:right !important;
+	width: 440px !important;
+}
+
+.footer {
+	/*background-color: #8fc17e;*/
+	background: #f7f7f7;
+}
+
+#footer .credit, #footer .temp-logo {
+	display:none;
+}
+
+.footer .textwidget {
+	text-align: center;
+}
+
+.footer_widget h3, .footer h3, .footer a {
+	color: #2F4328;
+	text-shadow:none;
+}
+
+.footer a:hover {
+	color: black !important;
+	text-shadow:none;
+}
+
+.footer_widget ul li a {
+	color: #2F4328;
+	text-shadow:none;
+}
+
+.footer_widget ul li a:hover {
+	color: black !important;
+	text-shadow:none;
+}
+
+.footer_widget .column02 ol {
+	color: #d5d5d5;
+}
+
+.copyright {
+	color: #2F4328;
+}
+
+#footer .footer-content p > a {
+	color: #2F4328;
+}
+
+#main .wrap {
+	margin-bottom: 0px;
+}

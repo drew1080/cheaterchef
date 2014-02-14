@@ -1,0 +1,487 @@
+/*   
+Theme Name: Responsive Child Theme
+Theme URI: http://themeid.com/responsive-theme
+Description: Responsive Child Theme
+Author: Emil Uzelac
+Author URI: http://themeid.com
+Template: responsive
+Version: 1.0
+*/
+
+/* Import Responsive Styles */
+@import url('../responsive/style.css');
+
+/* =Start Here
+-------------------------------------------------------------- */
+
+body {
+  color: black;
+  background: white;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  line-height: 1em;
+}
+
+ol, li {
+  vertical-align: top;
+}
+
+#widgets a {
+  vertical-align: top;
+}
+
+a {
+  color: #933;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+form {
+  margin: 0em 0;
+}
+
+.widget-wrapper {
+  padding: 25px;
+}
+
+.widget-title-home h3 {
+   font-size:20px;
+   line-height:19px;
+   padding:0 0 5px 0;
+}
+
+.menu {
+	background-color:#ffffcc;
+  background-image:-webkit-gradient(linear, left top, left bottom, from(#ffffcc), to(#ffcc66));
+  background-image:-webkit-linear-gradient(top, #ffffcc, #ffcc66);
+  background-image:-moz-linear-gradient(top, #ffffcc, #ffcc66);
+  background-image:-ms-linear-gradient(top, #ffffcc, #ffcc66);
+  background-image:-o-linear-gradient(top, #ffffcc, #ffcc66);
+  background-image:linear-gradient(top, #ffffcc, #ffcc66);
+	clear:both;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffcc, endColorstr=#ffcc66);
+	margin:0 auto;
+}
+
+.menu a {
+  text-shadow: none !important;
+  border-left:1px solid #993333;
+  color:#993333;
+}
+
+.menu a:hover {
+  background-color:#ff9933;
+  background-image:-webkit-gradient(linear, left top, left bottom, from(#ff9933), to(#cc6633));
+  background-image:-webkit-linear-gradient(top, #ff9933, #cc6633);
+  background-image:-moz-linear-gradient(top, #ff9933, #cc6633);
+  background-image:-ms-linear-gradient(top, #ff9933, #cc6633);
+  background-image:-o-linear-gradient(top, #ff9933, #cc6633);
+  background-image:linear-gradient(top, #ff9933, #cc6633);
+  color:white;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9933, endColorstr=#cc6633);
+}
+
+.menu .current_page_item a {
+  background-color:#993300;
+  color:#ffffcc;
+}
+
+.menu .current-menu-item a {
+  background-color:#993300;
+  color:#ffffcc;
+}
+
+.menu .current-menu-item .sub-menu a {
+  color:#933;
+}
+
+.menu .children a {
+  color:#933;
+}
+
+.menu li li a {
+  color:#933;
+}
+
+.home .menu .current_page_item a {
+  color: #933;
+}
+
+
+
+/* Custom Special Recent Posts */
+.srp-content-box {
+  float: left;
+}
+
+/* Home */
+.home-widgets .widget-wrapper {
+  min-height: 331px;
+}
+
+#cheater-featured-post {
+  background-color: white;
+}
+
+#cheater-featured-post div.srp-content-box {
+  float: inherit;
+}
+
+#cheater-featured-post div.srp-thumbnail-box {
+  float: right;
+  padding-right: 0px !important;
+}
+
+#cheater-featured-post .srp-post-title {
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: -1px;
+  margin: 15px 0px;
+}
+
+#cheater-featured-post p {
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 27px;
+  padding: 0 15px 0 15px;
+  text-align: left;
+}
+
+#cheater-feature-post .srp-widget-singlepost {
+  border-bottom: none !important;
+}
+
+a.srp-widget-stringbreak-link {
+  padding-left:3px !important;
+}
+
+.home-widgets h3 {
+  color: #933;
+}
+
+.menu li.search-nav {
+  float: right;
+  padding: 6px 6px 0 0;
+}
+
+/* Search*/
+#searchform #s {
+  width: 180px;
+  font-size: 12px;
+}
+
+#searchform #searchsubmit {
+  color: #933;
+}
+
+#cc-widgets.top-widget {
+  margin: 36px 20px 0 0;
+  padding: 0px;
+  width: 50%;
+}
+
+#logo {
+  margin: 10px 0 5px 20px;
+}
+
+.srp-post-title {
+  font-size: 20px;
+}
+
+.srp-widget-excerpt {
+  font-size: 15px;
+}
+
+.srp-thumbnail-box {
+  padding: 0 10px 10px 0;
+}
+
+h4.srp-post-title {
+  margin: 0 0 .615em;
+}
+
+.post-entry {
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.srp-widget-thmblink img.srp-widget-thmb {
+  max-width: 100% !important;
+}
+
+.home #wrapper {
+  margin: 20px auto 0px auto;
+}
+
+#footer-wrapper .grid.col-940 {
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+#narrow-tall-ad {
+  text-align: center;
+}
+
+/* Small homepage boxes */
+#widgets div.srp-thumbnail-box {
+  display: block !important;
+  text-align: center;
+}
+
+div.srp-widget-container {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =Media Print
+    If you're working on a Child Theme, make sure that all
+	media queries are included in your style.css
+-------------------------------------------------------------- */
+@media print {
+
+    h1 {
+	    page-break-before: always;
+    }
+
+    h1,  h2,  h3,  h4,  h5,  h6 {
+	    page-break-after: avoid;
+    }
+
+    ul,  ol,  dl {
+	    page-break-before: avoid;
+    }
+}
+
+/*	Retina (HiDPI) Display
+    http://www.quirksmode.org/blog/archives/2012/06/devicepixelrati.html
+-------------------------------------------------------------- */
+@media 
+    only screen and (-moz-min-device-pixel-ratio:1.5), 
+    only screen and (-o-min-device-pixel-ratio:3/2), 
+    only screen and (-webkit-min-device-pixel-ratio:1.5), 
+    only screen and (min-device-pixel-ratio:1.5) {
+    
+    body {}
+}
+
+/* =Responsive (Mobile) Design
+-------------------------------------------------------------- */
+@media screen and (max-width: 980px) {
+
+    body {}
+	
+    .grid, 
+	.grid-right {
+	    float: none;
+    }
+	
+	#featured-image .fluid-width-video-wrapper {
+	    margin: 20px 0 0 0;
+    }
+	
+	.home #widgets {
+		margin-top: 40px;
+	}
+    
+    #widgets.top-widget,
+    .home #widgets.top-widget {
+        margin-top: 0 !important;
+    }
+    
+}
+
+@media screen and (max-width: 650px) {
+
+    body {}
+
+    #logo {
+	    float: none;
+        margin: 0;
+	    text-align: center;
+    }
+
+    .grid, 
+	.grid-right {
+	    float: none;
+    }
+
+	#featured-image .fluid-width-video-wrapper {
+	    margin: 20px 0 0 0;
+    }
+    
+    .top-widget {
+        clear: none;
+        float: none;
+        margin: 0 auto 10px auto;
+        text-align: center;
+    }
+    
+    .top-widget .widget-title {
+        text-align: center;
+    }
+	
+    .js .menu,
+	.js .sub-header-menu {
+		display: none;
+	}
+	
+	.top-menu, 
+	.footer-menu li {
+	    float: none;
+        font-size: 11px;
+	    text-align: center;
+    }
+	
+	.tinynav { 
+	    display: block;
+		margin: 0 auto;
+		width: 100%;
+	}
+	
+	.tinynav {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		background: #fff url(images/bg-select.png) no-repeat right;
+		border: 1px solid #ccc;
+        font-size: 12px;
+		overflow: hidden;
+		padding: 0.5em 1em 0.5em 0.75em;
+	}
+	
+	.ie7 .tinynav,
+	.ie8 .tinynav {
+		padding-right: 10px;
+	}
+	
+	.ie9 .tinynav  {
+		padding-right: 8px;
+	}
+	
+    #footer {
+	    text-align: center;
+    }
+
+    #footer .social-icons {
+	    text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    body {}
+
+    #logo {
+	    float: none;
+	    text-align: center;
+    }
+
+    .grid, 
+	.grid-right {
+	    float: none;
+    }
+	
+	#featured-image .fluid-width-video-wrapper {
+	    margin: 20px 0 0 0;
+	}
+	
+	.featured-title {
+	    font-size: 40px;
+	    padding: 40px 20px 0 20px
+    }
+    
+    .navigation .next,
+    .navigation .previous {
+        text-align: center;
+    }
+	
+    .menu ul, 
+	.menu li, 
+	.top-menu, 
+	.footer-menu li, 
+	.sub-header-menu li {
+	    float: none;
+	    text-align: center;
+    }
+	
+    #footer {
+	    text-align: center;
+    }
+
+    #footer .social-icons {
+	    text-align: center;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    
+    body {}
+	
+	#featured p {
+	    font-size: 12px;
+		line-height: 1.2em;
+    }
+
+    .featured-title {
+	    font-size: 35px;
+    }
+	
+	.featured-subtitle {
+		font-size: 15px;
+	}
+
+    .call-to-action a.button {
+	    font-size: 14px;
+	    padding: 7px 17px;
+    }
+}
+
+@media screen and (max-width: 240px) {
+    
+    body {}
+	
+	#featured p {
+	    font-size: 11px;
+		line-height: 1.1em;
+    }
+
+    .featured-title {
+	    font-size: 20px;
+    }
+	
+	.featured-subtitle {
+		font-size: 11px;
+	}
+
+    .call-to-action a.button {
+	    font-size: 12px;
+	    padding: 5px 15px;
+    }
+    
+    .widget-title,
+    .widget-title-home h3 {
+        font-size: 14px;
+        height: 13px;
+        line-height: 13px;
+        text-align: center;
+    }
+}
+
+/*The last 29 days of the month are the hardest."- Nikola Tesla*/

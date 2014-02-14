@@ -1,0 +1,9 @@
+.wp-pinterest-pinboard{-moz-column-gap:10px;-moz-column-fill:auto;-webkit-column-gap:10px;-webkit-column-fill:auto;column-gap:15px;column-fill:auto;}
+.wp-pinterest-pinboard .wp-pinterest-pin{display:inline-block;background:#FEFEFE;border:2px solid #FAFAFA;box-shadow:0 1px 2px rgba(34, 25, 25, 0.4);-webkit-column-break-inside:avoid;-moz-column-break-inside:avoid;column-break-inside:avoid;text-align:center;margin:0 2px 15px;}
+.wp-pinterest-pinboard .wp-pinterest-pin img{border:none !important;background:#fff;width:100%;margin:0 !important;padding:0 !important;}
+.wp-pinterest-pinboard .wp-pinterest-pin .pin-title{background:#F2F0F0;column-break-after:avoid;padding:2px 5px;}
+.wp-pinterest-pinboard .wp-pinterest-pin a{color:#8C7E7E !important;}
+.wp-pinterest-pinboard .wp-pinterest-pin a:hover{color:#524D4D !important;}
+.wp-pinterest-icon-text-white,.wp-pinterest-icon-text-red{background-position:0 0;background-repeat:no-repeat;font-size:12px;padding:1px 0 1px 22px;}
+.wp-pinterest-icon-text-white{background-image:url('http://passets-cdn.pinterest.com/images/about/buttons/small-p-button.png');}
+.wp-pinterest-icon-text-red{background-image:url('http://passets-cdn.pinterest.com/images/small-p-button.png');}

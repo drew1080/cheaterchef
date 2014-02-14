@@ -1,0 +1,137 @@
+/*
+ * jQuery FlexSlider v1.8
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+/* Browser Resets */
+.flex-container a,
+.flexslider a,
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider { margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {display: block; width:auto; }
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { position: relative; zoom: 1; width: 974px; margin: 0 auto; padding: 45px 0 25px; }
+.flexslider .slides {zoom: 1;}
+.flexslider .slides > li {position: relative; text-align: left; padding: 0;}
+/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
+.flex-container {zoom: 1; position: relative;}
+
+/* Caption style */
+/* IE rgba() hack */
+.flex-caption { background:none; -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); zoom: 1;}
+.flex-caption { background: #73B15E; width: 289px; min-height: 99.8%; padding: 0; margin: 0; position: absolute; right: 0; top: 0; color: #fff; }
+
+.flex-caption .slide_content span {
+	font-size: 10px;
+	color: #2F4328;
+	}
+	
+.flex-caption .slide_content h4 {
+	font-size: 26px;
+	color: #ffffff;
+	line-height: 32px;
+	padding-top: 0;
+	}
+	
+.flex-caption .slide_content h4 a {
+	color: #ffffff;
+	}
+
+.flex-caption .slide_content h4 a:hover {
+	color: #000000;
+	text-decoration: none;
+	}
+	
+.flex-caption .slide_content h4 a:hover hr {
+	width:200px !important;
+	}
+	
+.flex-caption .slide_content hr {
+	border: none;
+	background: #96C486;
+	width: 42px; 
+	height: 2px;
+	margin-bottom: 0;
+	}
+	
+.flex-caption .slide_content p {
+	color: #D3E8C7;
+	line-height: 20px;
+	}
+	
+.flex-caption .slide_content .readmore {
+	background-image: url(../images/s_icons.png);
+	background-repeat: no-repeat;
+	background-position: right -355px;
+	color: #73B15E;
+	padding-right: 40px;
+	}
+	
+.slide_content {
+	padding: 42px 34px;
+	}
+	
+/* Direction Nav */
+.flex-direction-nav { height: 0; }
+.flex-direction-nav a { width: 50px; height: 50px; margin: 0; display: block; background: #000000 url(../images/s_icons.png) no-repeat; opacity: .2; position: absolute; top: 44%; cursor: pointer; text-indent: -999em; }
+.flex-direction-nav a.flex-next { background-position: 5px -2048px; right: 0px; border-radius: 4px 0 0 4px; }
+.flex-direction-nav a.flex-next:hover {background-position: 8px -2048px;}
+.flex-direction-nav a.flex-prev { background-position: 5px -1998px; left: 0px; border-radius: 0 4px 4px 0; }
+.flex-direction-nav a.flex-prev:hover {background-position: 2px -1998px;}
+.flex-direction-nav a:hover {
+	-webkit-transition:all ease-in-out .2s;
+	-moz-transition:all ease-in-out .2s;
+	-o-transition:all ease-in-out .2s;
+	transition:all ease-in-out .2s;
+	opacity: .7;
+	}
+.flex-direction-nav .flex-disabled { opacity: .3; filter:alpha(opacity=30); cursor: default; }
+
+.flexslider .slides > li:hover .flex-direction-nav a { opacity: .8; }
+
+.flexslider:after{
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+	}
+
+/* Control Nav */
+.flex-control-nav { width: auto; position: absolute; top: 75px; left: 30px; text-align: left; }
+.flex-control-nav li {margin: 0 0 0 5px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-nav li:first-child {margin: 0;}
+.flex-control-nav a { width: 25px; height: 25px; display: block; background: #ffffff; color: #5C6F51; line-height: 26px; text-align: center; vertical-align: middle; cursor: pointer; }
+.flex-control-nav a:hover { background: #75B561; color: #ffffff; text-decoration: none; }
+.flex-control-nav a.flex-active { background: #75B561; color: #ffffff; text-decoration: none; }
