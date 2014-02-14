@@ -2,9 +2,10 @@
 /* Register widgetized areas */
 if ( function_exists('register_sidebar') )
 {
+	
 	register_sidebars(1,array('name' => 'Homepage silder','id' => 'homepage-silder','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));
 	register_sidebars(1,array('name' => 'Header Search','id' => 'header_search','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));
-	register_sidebars(1,array('name' => 'Header Right','id' => 'header_right','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));
+	register_sidebars(1,array('name' => 'Header Right','id' => 'secondary_navigation_right','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));
 	register_sidebars(1,array('name' => 'After Header','id' => 'after_header','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));
 	register_sidebars(1,array('name' => 'Homepage Content Area','id' => 'home_content_area','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));
 	register_sidebars(1,array('name' => 'Footer Area Wide','id' => 'footer-one','before_widget' => '<div class="widget">','after_widget' => '</div>','before_title' => '<h3 class="widget-title">','after_title' => '</h3>'));
@@ -16,6 +17,7 @@ if ( function_exists('register_sidebar') )
 
 /* Unregister sidebar */
 function templ_remove_widgetareas(){
+unregister_sidebar( 'secondary_navigation_right-2' );
 	unregister_sidebar( 'after-content' );
 	unregister_sidebar( 'after-header' );
 	unregister_sidebar( 'subsidiary-3c' );
@@ -31,8 +33,11 @@ function templ_remove_widgetareas(){
 	unregister_sidebar( 'after-singular' );
 	unregister_sidebar( 'entry' );
 	unregister_sidebar( 'header' );
+	unregister_widget('templatic_slider');
+	unregister_widget('supreme_popular_post');
+	unregister_widget('templatic_recent_post');
 }
-add_action( 'init', 'templ_remove_widgetareas');
+add_action( 'widgets_init', 'templ_remove_widgetareas',11);
 
 /* Anchor Slider WIDGET STARTS ======================================================================================*/
 
@@ -75,6 +80,7 @@ class anchor_slider extends WP_Widget {
 	</script>
     <?php
 	if($category_slug != ""):
+		$category_slug = explode(",",$category_slug);
 		$args=array(
 			  'post_type' => 'post',
 			  'posts_per_page' => $number_posts,												  
@@ -94,7 +100,7 @@ class anchor_slider extends WP_Widget {
 			  );
 	endif;
 	$silder_post = null;
-	$silder_post = new WP_Query($args);																				
+	$silder_post = new WP_Query($args);	
 	?>
     <div class="flexslider">
         <ul class="slides">
@@ -296,6 +302,7 @@ class anchor_recent_post extends WP_Widget {
 		$posts_per_page = intval(get_query_var('posts_per_page'));
 		$args = array();
 		if($category_slug != ""):
+			$category_slug = explode(",",$category_slug);
 			$args=array(
 				  'post_type' => 'post',
 				  'posts_per_page' => $posts_per_page,
@@ -328,7 +335,7 @@ class anchor_recent_post extends WP_Widget {
 		<ul class="blog-listing">
 			 <?php while ($listing_post->have_posts()) : $listing_post->the_post(); ?>
 				 <?php
-                    $post_images = bdw_get_images_anchor($post->ID,'thumbnail');
+                    $post_images = bdw_get_images_anchor($post->ID,'anchor-listing-thumb');
                     $post_images = $post_images[0]['file'];
                  ?>
                 <li class="blog-listing">
@@ -452,37 +459,33 @@ class post_by_category extends WP_Widget {
 						  'order' => 'DESC');
 					$category_post = null;
 					$category_post = new WP_Query($args);
-					
-					$counter = 0;
-          					?>
-          					<?php while ($category_post->have_posts() && $counter < 3) : $category_post->the_post(); ?>
-          					<li class="blog-listing">
-          						 <?php
-          							global $post;
-          							$post_images = bdw_get_images_anchor($post->ID,'post-by-category');
-          							$post_images = $post_images[0]['file'];
-          						 ?>
-          						 <a class="post-image" href="<?php the_permalink(); ?>">
-          							 <?php if($post_images != ""):?>
-          								 <img src="<?php echo $post_images; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-          							 <?php else: ?>
-          								 <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/list_noimage.png" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-          							 <?php endif; ?>
-          						 </a>
-          							<?php 
-          								$cat_name = array();
-          								foreach(get_the_category($post->ID) as $_category):
-          								  if ($_category->cat_name != "Featured Home Static") {
-          								    $cat_name[] = $_category->cat_name;
-          								  }
-          								endforeach;
-          							?>
-          						 <span class="category"><a rel="tag"><?php echo implode(",",$cat_name); ?></a></span>
-          						 <h2 class="post-title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-          						 <p><?php _e(anchor_excerpt(15)); ?></p>
-          						 <a href="<?php the_permalink(); ?>" class="moretag"> <?php _e('Read more',T_DOMAIN); ?> &#187; </a>
-          					</li>
-          				<?php $counter++; endwhile; ?>
+					?>
+					<?php while ($category_post->have_posts()) : $category_post->the_post(); ?>
+					<li class="blog-listing">
+						 <?php
+							global $post;
+							$post_images = bdw_get_images_anchor($post->ID,'post-by-category');
+							$post_images = $post_images[0]['file'];
+						 ?>
+						 <a class="post-image" href="<?php the_permalink(); ?>">
+							 <?php if($post_images != ""):?>
+								 <img src="<?php echo $post_images; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+							 <?php else: ?>
+								 <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/list_noimage.png" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+							 <?php endif; ?>
+						 </a>
+							<?php 
+								$cat_name = array();
+								foreach(get_the_category($post->ID) as $_category):
+										$cat_name[] = $_category->cat_name;
+								endforeach;
+							?>
+						 <span class="category"><a rel="tag"><?php echo implode(",",$cat_name); ?></a></span>
+						 <h2 class="post-title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						 <p><?php _e(anchor_excerpt(15)); ?></p>
+						 <a href="<?php the_permalink(); ?>" class="moretag"> <?php _e('Read more',T_DOMAIN); ?> &#187; </a>
+					</li>
+				<?php break;endwhile; ?>
            <?php endforeach; ?>     
     </ul>
    <?php

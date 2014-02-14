@@ -1289,7 +1289,7 @@ class templatic_recent_post extends WP_Widget {
 			$taxonomies[0]=$taxonomies[1];
 		}
 		if($instance['post_type_taxonomy'])
-			$cat_id=$instance['post_type_taxonomy'];
+			$cat_id=array($instance['post_type_taxonomy']);
 		else
 		{
 			$args=array('type'=> 'post','child_of'=> 0,'taxonomy'=> $taxonomies[0]);
@@ -1297,12 +1297,13 @@ class templatic_recent_post extends WP_Widget {
 			foreach($categories as $cat)
 				$cat_id.=$cat->term_id.",";				
 			$cat_id=substr($cat_id,0,-1);
+			$cat_id = explode(",",$cat_id);
 		}
 		$featured_arg=array('post_type' => $instance['post_type'], 'showposts' => $instance['post_number'],'orderby' => $instance['orderby'], 'order' => $instance['order'],'tax_query' => array(                
 							array(
 								'taxonomy' =>$taxonomies[0],
 								'field' => 'id',
-								'terms' =>array($cat_id),
+								'terms' =>$cat_id,
 								'operator'  => 'IN'
 							)            
 						 ));		

@@ -81,7 +81,7 @@ if ( post_password_required() || ( !have_comments() && !comments_open() && !ping
 						'title_reply' => __( 'Add a comment', 'supreme' ),
 					);
 					if(get_option('default_comment_status') =='open'){
-						comment_form($comment_args); } // Loads the comment form.  ?>
+						comment_form(); } // Loads the comment form.  ?>
 
 	</div><!-- .comments-wrap -->
 

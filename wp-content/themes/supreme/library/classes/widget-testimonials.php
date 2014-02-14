@@ -1,9 +1,9 @@
 <?php
-define('TITLE_TEXT',__('Title','supreme'));
-define('SET_TIME_OUT_TEXT',__('Set Time Out','supreme'));
-define('SET_THE_SPEED_TEXT',__('Set the speed','supreme'));
-define('QUOTE_TEXT',__('Quote text','supreme'));
-define('AUTHOR_NAME_TEXT',__('Author name','supreme'));
+@define('TITLE_TEXT',__('Title','supreme'));
+@define('SET_TIME_OUT_TEXT',__('Set Time Out','supreme'));
+@define('SET_THE_SPEED_TEXT',__('Set the speed','supreme'));
+@define('QUOTE_TEXT',__('Quote text','supreme'));
+@define('AUTHOR_NAME_TEXT',__('Author name','supreme'));
 // =============================== Testimonials  Widget======================================
 if(!class_exists('templ_testimonials_widget')){
 class templ_testimonials_widget extends WP_Widget {
@@ -195,8 +195,4 @@ function tmpl_add_script_addnew_()
 		    counter--;							
 		    jQuery(".TextDiv" + counter).remove();
 		}
-	</script>
-     <?php
-}
-}
-?>
+	</script><?php } } ?>

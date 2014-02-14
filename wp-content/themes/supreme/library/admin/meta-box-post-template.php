@@ -14,7 +14,8 @@
  */
 
 /* Add the post template meta box on the 'add_meta_boxes' hook. */
-add_action( 'add_meta_boxes', 'hybrid_meta_box_post_add_template', 10, 2 );
+if(function_exists('hybrid_meta_box_post_add_template'))
+	add_action( 'add_meta_boxes', 'hybrid_meta_box_post_add_template', 10, 2 );
 add_action( 'add_meta_boxes', 'hybrid_meta_box_post_remove_template', 10, 2 );
 
 /* Save the post template meta box data on the 'save_post' hook. */

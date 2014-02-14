@@ -2,7 +2,7 @@
  * Theme Name: Supreme
  * Theme URI: http://templatic.com/ecommerce-themes/supreme/
  * Description: A powerful parent theme with bbPress, Jigoshop, and WooCommerce integrations.
- * Version: 1.0.6
+ * Version: 1.0.8
  * Author: Templatic
  * Author URI: http://templatic.com
  * Tags: theme-options, threaded-comments, microformats, translation-ready, rtl-language-support, one-column, two-columns, three-columns, left-sidebar, right-sidebar, fixed-width, featured-images, full-width-template
@@ -1827,134 +1827,21 @@ div#menu-footer{
 			}
 					
 		/* Entry content gallery */
-				
-		.gallery {
-			clear: both;
-			margin: 0 -40px;
-			}
-			.gallery-row:after{
-				clear: both;
-				content: ".";
-				display: block;
-				font-size: 0;
-				height: 0;
-				line-height: 0;
-				visibility: hidden;
-				}
-					
-				.gallery-item, .gallery-icon, .gallery-caption{
-					background: transparent;
-					border: 0;
-					margin: 0;
-					padding: 0;
-					}
-				.gallery-item{
-					display: block;
-					float: left;
-					margin: 18px 0 18px 40px;
-					text-align: center;
-					}
-					.gallery-icon {
-						margin: 0;
-						padding: 0;
-						text-align: center;
-						}
-					.gallery-icon img {
-						display: block;
-						height: auto;
-						margin: 0 auto;
-						width: auto;
-						}
-
-					.gallery-caption{
-						padding: 10px 20px 0;
-						}
-								
-				.gallery .col-0,
-				.gallery .col-1 {width: 600px;}
-				.gallery .col-2 {width: 280px;}
-				.gallery .col-3 {width: 173px;}
-				.gallery .col-4 {width: 120px;}
-				.gallery .col-5 {width: 88px;}
-				.gallery .col-6,
-				.gallery .col-7,
-				.gallery .col-8,
-				.gallery .col-9  {width: 66px;}
-								
-						.gallery .col-5 .gallery-caption,
-						.gallery .col-6 .gallery-caption,
-						.gallery .col-7 .gallery-caption,
-						.gallery .col-8 .gallery-caption,
-						.gallery .col-9 .gallery-caption {display: none;}
-							
-				/* Gallery variations for full-width (layout-1c) layout */
-
-				.layout-1c .gallery .col-0,
-				.layout-1c .gallery .col-1 {width: 920px;}
-				.layout-1c .gallery .col-2 {width: 440px;}
-				.layout-1c .gallery .col-3 {width: 280px;}
-				.layout-1c .gallery .col-4 {width: 200px;}
-				.layout-1c .gallery .col-5 {width: 152px;}
-				.layout-1c .gallery .col-6 {width: 120px;}
-				.layout-1c .gallery .col-7 {width: 97px;}
-				.layout-1c .gallery .col-8 {width: 80px;}
-				.layout-1c .gallery .col-9 {width: 66px;}
-				
-				/* Gallery variations for all narrow-width layouts */
-
-				.layout-3c-c .gallery-item,
-				.layout-3c-l .gallery-item,
-				.layout-3c-r .gallery-item,
-				.layout-hl-2c-l .gallery-item,
-				.layout-hl-2c-r .gallery-item,
-				.layout-hr-2c-l .gallery-item,
-				.layout-hr-2c-r .gallery-item {width: 66px;} /* For narrow-width layouts, set all gallery items to 66px first, regardless of column setting or image size. */
-
-					.layout-3c-c .gallery-caption,
-					.layout-3c-l .gallery-caption,
-					.layout-3c-r .gallery-caption,
-					.layout-hl-2c-l .gallery-caption,
-					.layout-hl-2c-r .gallery-caption,
-					.layout-hr-2c-l .gallery-caption,
-					.layout-hr-2c-r .gallery-caption {display: none;} /* For narrow-width layouts, hide all gallery item captions by default. */
-
-				.layout-3c-c .gallery .col-0,
-				.layout-3c-l .gallery .col-0,
-				.layout-3c-r .gallery .col-0,
-				.layout-hl-2c-l .gallery .col-0,
-				.layout-hl-2c-r .gallery .col-0,
-				.layout-hr-2c-l .gallery .col-0,
-				.layout-hr-2c-r .gallery .col-0,
-				.layout-3c-c .gallery .col-1,
-				.layout-3c-l .gallery .col-1,
-				.layout-3c-r .gallery .col-1,
-				.layout-hl-2c-l .gallery .col-1,
-				.layout-hl-2c-r .gallery .col-1,
-				.layout-hr-2c-l .gallery .col-1,
-				.layout-hr-2c-r .gallery .col-1 {width: 280px;} /* For single-column galleries in narrow-width layouts, set each item to 280px */
-
-				.layout-3c-c .gallery .col-2,
-				.layout-3c-l .gallery .col-2,
-				.layout-3c-r .gallery .col-2,
-				.layout-hl-2c-l .gallery .col-2,
-				.layout-hl-2c-r .gallery .col-2,
-				.layout-hr-2c-l .gallery .col-2,
-				.layout-hr-2c-r .gallery .col-2 {width: 120px;} /* For two-column galleries in narrow-width layouts, set each item to 120px */
-
-					.layout-3c-c .gallery .col-0 .gallery-caption,
-					.layout-3c-l .gallery .col-0 .gallery-caption,
-					.layout-3c-r .gallery .col-0 .gallery-caption,
-					.layout-hl-2c-l .gallery .col-0 .gallery-caption,
-					.layout-hl-2c-r .gallery .col-0 .gallery-caption,
-					.layout-hr-2c-l .gallery .col-0 .gallery-caption,
-					.layout-hr-2c-r .gallery .col-0 .gallery-caption,
-					.layout-3c-c .gallery .col-1 .gallery-caption,
-					.layout-3c-l .gallery .col-1 .gallery-caption,
-					.layout-3c-r .gallery .col-1 .gallery-caption,
-					.layout-hl-2c-l .gallery .col-1 .gallery-caption,
-					.layout-hl-2c-r .gallery .col-1 .gallery-caption,
-					.layout-hr-2c-l .gallery .col-1 .gallery-caption,
-					.layout-hr-2c-r .gallery .col-1 .gallery-caption {display: block;} /* For single-column galleries in narrow-width layouts, display gallery item captions. */
+    .gallery { clear: both; margin: 0 -40px; }
+    .gallery-row:after { clear: both; content: "."; display: block; font-size: 0; height: 0; line-height: 0; visibility: hidden; }
+    .gallery-item, .gallery-icon, .gallery-caption { background: transparent; border: 0; margin: 0; padding: 0; }
+    .gallery-item { display: block; float: left; height: auto !important; text-align: center; }
+    .gallery-icon { margin: 0; padding: 0; text-align: center; }
+    .gallery-icon img { height: auto !important; max-width: 90%; padding: 5%; margin: 0; }
+    .gallery-item a, .gallery-caption { display: block; width: 90%; }
+    .gallery-caption { padding: 10px 20px 0; }
+    .gallery .col-0, .gallery .col-1 { width: 600px; }
+    .gallery .col-2 { width: 280px; }
+    .gallery .col-3 { width: 173px; }
+    .gallery .col-4 { width: 120px; }
+    .gallery .col-5 { width: 88px; }
+    .gallery .col-6, .gallery .col-7, .gallery .col-8, .gallery .col-9 { width: 66px; }
+    .gallery .col-5 .gallery-caption, .gallery .col-6 .gallery-caption, .gallery .col-7 .gallery-caption, .gallery .col-8 .gallery-caption, .gallery .col-9 .gallery-caption { display: none; }
 
 		/* Entry content page links */
 				
@@ -2295,15 +2182,20 @@ div#menu-footer{
 						padding: 3px 0;
 						}
 					
-					form#commentform input[type="text"],
+					form#commentform p input[type="text"],
 					form#commentform textarea{
-						/*display: block;*/
+						display: block;
 						width: 100%;
-						}
+					}
+     form#commentform p input[type="text"] {
+        max-width: 370px;
+     }
+     form#commentform p.form-submit {
+        padding: 12px 0 0;
+     }
 				
 					#respond #cancel-comment-reply-link {
 						color: #e00;
-						/*font: normal normal 12px/22px Verdana, Georgia, serif;*/
 						padding: 0 21px 0 0; 
 						}
 
@@ -2323,8 +2215,6 @@ div#menu-footer{
 		/* Comment form inside a comment */
 		
 		#comments #respond {
-			/*background: #fff;
-			border-top: 1px dotted #f8f8f8;*/
 			border-bottom: 0;
 			}
 		
@@ -3282,3 +3172,4 @@ div#menu-primary,
 				}
 
 } /* End @media max-width: 359px */
+

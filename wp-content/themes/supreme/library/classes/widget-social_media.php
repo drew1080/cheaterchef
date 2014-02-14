@@ -28,11 +28,14 @@ if(!class_exists('social_media')){
                <?php endif;?>
 			<div class="social_media">
                  <ul class="social_media_list">
-					<?php for($c=0; $c < count($social_icon); $c++){
+					<?php 
+					if(count($social_icon) >0){
+					for($c=0; $c < count($social_icon); $c++){
 							?>	
-								<li><a href="<?php echo $social_link[$c]; ?>" target="_blank" ><?php if($social_icon[$c]!=''):?><span class="social_icon"><img src="<?php echo $social_icon[$c];?>" alt="<?php echo $social_text[$c];?>" /></span><?php endif;?><span class="social_text"><?php echo sprintf(__('%s','supreme'), $social_text[$c]);?></span></a></li>
+								<li><a href="<?php echo @$social_link[$c]; ?>" target="_blank" ><?php if(@$social_icon[$c]!=''):?><span class="social_icon"><img src="<?php echo @$social_icon[$c];?>" alt="<?php echo @$social_text[$c];?>" /></span><?php endif;?><span class="social_text"><?php echo sprintf(__('%s','supreme'), @$social_text[$c]);?></span></a></li>
                      <?php 
 						  }
+						 }
 					 ?> 
                  </ul>
              </div>

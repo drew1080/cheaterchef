@@ -115,29 +115,12 @@ function get_the_image( $args = array() ) {
 	if ( !isset( $image_cache[$key] ) || empty( $cache ) ) {
 
 		/* If a custom field key (array) is defined, check for images by custom field. */
-		if ( !empty( $meta_key ) )
-			$image = get_the_image_by_meta_key( $args );
+		
 
-		/* If no image found and $the_post_thumbnail is set to true, check for a post image (WP feature). */
-		if ( empty( $image ) && !empty( $the_post_thumbnail ) )
-			$image = get_the_image_by_post_thumbnail( $args );
-
-		/* If no image found and $attachment is set to true, check for an image by attachment. */
-		if ( empty( $image ) && !empty( $attachment ) )
 			$image = get_the_image_by_attachment( $args );
 
-		/* If no image found and $image_scan is set to true, scan the post for images. */
-		if ( empty( $image ) && !empty( $image_scan ) )
-			$image = get_the_image_by_scan( $args );
-
-		/* If no image found and a callback function was given. Callback function must pass back array of <img> attributes. */
-		if ( empty( $image ) && !is_null( $callback ) && function_exists( $callback ) )
-			$image = call_user_func( $callback, $args );
-
-		/* If no image found and a $default_image is set, get the default image. */
-		if ( empty( $image ) && !empty( $default_image ) )
-			$image = get_the_image_by_default( $args );
-
+	
+		
 		/* If an image was found. */
 		if ( !empty( $image ) ) {
 
@@ -324,7 +307,8 @@ function get_the_image_by_attachment( $args = array() ) {
 
 		/* Get the attachment image. */
 		$image = wp_get_attachment_image_src( $id, $args['size'] );
-
+		$imageid = get_post_thumbnail_id( $args['post_id'] );
+		$img_alt = get_post_meta($imageid, '_wp_attachment_image_alt', true);
 		/* Get the attachment excerpt. */
 		$alt = trim( strip_tags( get_post_field( 'post_excerpt', $id ) ) );
 
@@ -333,7 +317,7 @@ function get_the_image_by_attachment( $args = array() ) {
 			set_post_thumbnail( $args['post_id'], $id );
 
 		/* Return the image URL. */
-		return array( 'src' => $image[0], 'alt' => $alt );
+		return array( 'src' => $image[0], 'alt' => $img_alt );
 	}
 
 	/* Return false for anything else. */

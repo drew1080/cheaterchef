@@ -49,8 +49,7 @@ if( !class_exists('WPSupremeUpdater') ) {
 			
 			$update_themes=get_option('_site_transient_update_themes');
 			$theme_name = basename(get_template_directory_uri());
-    			$theme_data = get_theme_data(get_template_directory().'/style.css');	
-			
+    			$theme_data = supreme_get_theme_data(get_template_directory().'/style.css');	
 			$supreme_version = $theme_data['Version'];
 			$remote_version = (!empty($update_themes) && $update_themes!="" && !empty($update_themes->response))?$update_themes->response[$theme_name]['new_version']:$supreme_response[$theme_name]['new_version'];				
 			if (version_compare($supreme_version, $remote_version, '<') && $supreme_version!='')
@@ -104,7 +103,7 @@ if( !class_exists('WPSupremeUpdater') ) {
 			
 			$update_themes=get_option('_site_transient_update_themes');
 			$theme_name = basename(get_template_directory_uri());
-    			$theme_data = get_theme_data(get_template_directory().'/style.css');	
+    			$theme_data = supreme_get_theme_data(get_template_directory().'/style.css');	
 			
 			$supreme_version = $theme_data['Version'];
 			$remote_version = (!empty($update_themes) && $update_themes!="")?$update_themes->response[$theme_name]['new_version']:$supreme_response[$theme_name]['new_version'];	

@@ -197,7 +197,7 @@ function hybrid_singular_template( $template ) {
 	$templates[] = "{@$post->post_type}.php";
 
 	/* Allow for WP standard 'single' templates for compatibility. */
-	$templates[] = "single-{@$post->post_type}.php";
+	$templates[] = "single-".$post->post_type.".php";
 	$templates[] = 'single.php';
 
 	/* Add a general template of singular.php. */

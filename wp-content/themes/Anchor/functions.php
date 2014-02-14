@@ -34,7 +34,8 @@ global $extension_file, $pagenow, $theme_name;
 
 if(is_admin() && ($pagenow =='themes.php' || $pagenow =='post.php' || $pagenow =='edit.php'|| $pagenow =='admin-ajax.php'  || @$_REQUEST['page'] == 'Anchor_tmpl_theme_update')){
 	require_once('wp-updates-theme.php');
-	$theme_data = get_theme_data(get_stylesheet_directory().'/style.css');
+	if(function_exists('supreme_get_theme_data'))
+	$theme_data = supreme_get_theme_data(get_stylesheet_directory().'/style.css');
 	new WPUpdatesAnchorUpdater( 'http://templatic.com/updates/api/index.php',basename(get_stylesheet_directory()));
 }
 
@@ -118,7 +119,7 @@ function supreme_child_theme_setup() {
 add_action('admin_head', 'Anchorfavocin_icon');
 function Anchorfavocin_icon() {
 	$GetSupremeThemeOptions = get_option('supreme_theme_settings');
-	$GetFaviconIcon = $GetSupremeThemeOptions['supreme_favicon_icon'];
+	$GetFaviconIcon = @$GetSupremeThemeOptions['supreme_favicon_icon'];
 	if($GetFaviconIcon!=""){
 		echo '<link rel="shortcut icon" href="' . $GetFaviconIcon . '" />';
 	}

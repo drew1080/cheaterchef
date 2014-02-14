@@ -163,7 +163,14 @@ function hybrid_gettext( $translated, $text, $domain ) {
 	if ( 'hybrid-core' == $domain && !hybrid_is_textdomain_loaded( 'hybrid-core' ) && hybrid_is_textdomain_loaded( hybrid_get_parent_textdomain() ) ) {
 
 		/* Get the translations for the theme. */
-		$translations = &get_translations_for_domain( hybrid_get_parent_textdomain() );
+		if($domain == hybrid_get_child_textdomain()){
+			if ( hybrid_is_textdomain_loaded( hybrid_get_child_textdomain() ))
+				$translations = get_translations_for_domain(hybrid_get_child_textdomain());
+		
+		}else{
+			if ( hybrid_is_textdomain_loaded( hybrid_get_parent_textdomain() ))
+				$translations = get_translations_for_domain( hybrid_get_parent_textdomain() );
+		}
 
 		/* Translate the text using the theme's translation. */
 		$translated = $translations->translate( $text );
@@ -190,14 +197,17 @@ function hybrid_extensions_gettext( $translated, $text, $domain ) {
 
 		/* If the theme supports the extension, switch the translations. */
 		if ( current_theme_supports( $domain ) ) {
-
 			/* If the framework mofile is loaded, use its translations. */
 			if ( hybrid_is_textdomain_loaded( 'hybrid-core' ) )
 				$translations = &get_translations_for_domain( 'hybrid-core' );
+			if ( hybrid_is_textdomain_loaded( 'theme-layouts' ) )
+				$translations = &get_translations_for_domain( 'theme-layouts' );
 
 			/* If the theme mofile is loaded, use its translations. */
-			elseif ( hybrid_is_textdomain_loaded( hybrid_get_parent_textdomain() ) )
+			elseif ( hybrid_is_textdomain_loaded( hybrid_get_parent_textdomain() ) && $domain == hybrid_get_parent_textdomain())
 				$translations = &get_translations_for_domain( hybrid_get_parent_textdomain() );
+			elseif ( hybrid_is_textdomain_loaded( hybrid_get_child_textdomain() ) && $domain == hybrid_get_child_textdomain())
+				$translations = &get_translations_for_domain( hybrid_get_child_textdomain() );
 
 			/* If translations were found, translate the text. */
 			if ( !empty( $translations ) )

@@ -192,7 +192,7 @@ function templatic_register_customizer_settings( $wp_customize ){
 			//'transport' => 'postMessage',
 		));
 		
-		if($support_jigoshop){
+		if(@$support_jigoshop){
 			$wp_customize->add_setting('supreme_theme_settings[supreme_jigoshop_layout]',array(
 				'default' => '',
 				'type' => 'option',
@@ -203,7 +203,7 @@ function templatic_register_customizer_settings( $wp_customize ){
 			));
 		}
 		
-		if($support_woocommerce){
+		if(@$support_woocommerce){
 			$wp_customize->add_setting('supreme_theme_settings[supreme_woocommerce_layout]',array(
 				'default' => '',
 				'type' => 'option',
@@ -250,7 +250,7 @@ function templatic_register_customizer_settings( $wp_customize ){
 		));
 		
 		$wp_customize->add_control('hide_ajax_notification', array(
-			'label'   => __( 'Hide autoinstall section', T_DOMAIN ),
+			'label'   => __( 'Hide autoinstall section', 'supreme' ),
 			'section' => 'templatic_theme_settings',
 			'settings'   => 'hide_ajax_notification',
 			'type' => 'checkbox',
@@ -306,7 +306,7 @@ function templatic_register_customizer_settings( $wp_customize ){
 		));
 		
 	
-		if($support_jigoshop){
+		if(@$support_jigoshop){
 			$wp_customize->add_control( 'supreme_jigoshop_layout', array(
 				'label' => __('Jigoshop Layout','supreme'),
 				'section' => 'templatic_layout_settings',
@@ -320,7 +320,7 @@ function templatic_register_customizer_settings( $wp_customize ){
 								  ),
 			));
 		}
-		if($support_woocommerce){
+		if(@$support_woocommerce){
 			$wp_customize->add_control( 'supreme_woocommerce_layout', array(
 				'label' => __('WooCommerce Layout','supreme'),
 				'section' => 'templatic_layout_settings',

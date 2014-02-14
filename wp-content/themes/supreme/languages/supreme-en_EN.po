@@ -2,10 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Supreme v1.0.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-06-04 09:44+0530\n"
+"POT-Creation-Date: 2014-01-03 14:42+0530\n"
+"PO-Revision-Date: 2014-01-03 14:42+0530\n"
 "Last-Translator: admin <shakil@templatic.net>\n"
 "Language-Team: \n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,8 +16,7 @@ msgstr ""
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
 "X-Poedit-Basepath: ../\n"
 "X-Textdomain-Support: yes\n"
-"Language: en_US\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
 # @ supreme
@@ -37,9 +37,8 @@ msgstr ""
 
 # @ supreme
 # @ hybrid-core
-#: 404.php:52 library/classes/widget-pages.php:44
-#: library/classes/widget-pages.php:123 loop-error.php:25
-#: page-template-sitemap.php:34
+#: 404.php:52 loop-error.php:25 page-template-sitemap.php:34
+#: library/classes/widget-pages.php:44
 msgid "Pages"
 msgstr ""
 
@@ -47,6 +46,904 @@ msgstr ""
 #: 404.php:86 loop-error.php:61
 #, php-format
 msgid "%s Categories"
+msgstr ""
+
+# @ supreme
+#: attachment.php:52
+#, php-format
+msgid "Download \"%s\";"
+msgstr ""
+
+# @ supreme
+#: attachment.php:57 index.php:44 loop.php:30 page-template-contact.php:121
+#: page.php:39 post.php:44 singular.php:44
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+# @ supreme
+#: attachment.php:58 index.php:45 loop.php:31 page.php:40 post.php:45
+#: singular.php:45
+msgid "Pages:"
+msgstr ""
+
+# @ supreme
+#: attachment.php:63
+msgid "Gallery"
+msgstr ""
+
+# @ supreme
+#: comment.php:32
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+# @ supreme
+#: comments.php:14
+msgid "Please do not load this page directly. Thanks!"
+msgstr ""
+
+# @ supreme
+#: comments.php:29
+msgid "No Comments"
+msgstr ""
+
+# @ supreme
+#: comments.php:29
+msgid "One Comment"
+msgstr ""
+
+# @ supreme
+#: comments.php:29 page-template-archives.php:65
+msgid "% Comments"
+msgstr ""
+
+# @ supreme
+#: comments.php:35
+#, php-format
+msgid "Page %1$s of %2$s"
+msgstr ""
+
+# @ supreme
+#: comments.php:51
+#, php-format
+msgid ""
+"Comments are closed, but <a href=\"%1$s\" title=\"Trackback URL for this post"
+"\">trackbacks</a> and pingbacks are open."
+msgstr ""
+
+# @ supreme
+#: comments.php:57
+msgid "Comments are closed."
+msgstr ""
+
+# @ supreme
+#: comments.php:67
+msgid "Your name"
+msgstr ""
+
+# @ supreme
+#: comments.php:71
+msgid "Email Address"
+msgstr ""
+
+# @ bbpress
+# @ supreme
+# @ hybrid-core
+#: comments.php:75 bbpress/form-user-edit.php:50
+#: library/functions/comments.php:189
+msgid "Website"
+msgstr ""
+
+# @ supreme
+#: comments.php:77 library/functions/loadpopularpost.php:91
+msgid "Comments"
+msgstr ""
+
+# @ supreme
+#: comments.php:81
+msgid "Add a comment"
+msgstr ""
+
+# @ supreme
+#: content-aside.php:1 content-gallery.php:8 content-image.php:8
+#: content-link.php:2 content-quote.php:2 content-status.php:1
+msgid "Published by [entry-author] on [entry-published] [entry-permalink]"
+msgstr ""
+
+# @ supreme
+#: content.php:15
+msgid "by [entry-author] on [entry-published] [entry-permalink]"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:524 functions/admin.php:172 functions/admin.php:224
+#: functions/admin.php:251 functions/admin.php:301
+#: library/extensions/theme-layouts.php:295
+msgid "Default"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:525 functions/admin.php:174 functions/admin.php:225
+#: functions/admin.php:253 functions/admin.php:303
+#: library/extensions/theme-layouts.php:296
+msgid "One Column"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:526 functions/admin.php:177 functions/admin.php:226
+#: functions/admin.php:256 functions/admin.php:306
+#: library/extensions/theme-layouts.php:297
+msgid "Two Columns, Left"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:527 functions/admin.php:180 functions/admin.php:227
+#: functions/admin.php:259 functions/admin.php:309
+#: library/extensions/theme-layouts.php:298
+msgid "Two Columns, Right"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:528 functions/admin.php:183 functions/admin.php:228
+#: functions/admin.php:262 functions/admin.php:312
+#: library/extensions/theme-layouts.php:301
+msgid "Three Columns, Center"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:529 functions/admin.php:186 functions/admin.php:229
+#: functions/admin.php:265 functions/admin.php:315
+#: library/extensions/theme-layouts.php:299
+msgid "Three Columns, Left"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:530 functions/admin.php:189 functions/admin.php:230
+#: functions/admin.php:268 functions/admin.php:318
+#: library/extensions/theme-layouts.php:300
+msgid "Three Columns, Right"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:531 functions/admin.php:192 functions/admin.php:231
+#: functions/admin.php:271 functions/admin.php:321
+msgid "Header Left One Column"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:532 functions/admin.php:195 functions/admin.php:232
+#: functions/admin.php:324
+msgid "Header Left Two Columns, Left"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:533 functions/admin.php:233 functions/admin.php:278
+#: functions/admin.php:328 functions/admin.php:337
+msgid "Header Left Two Columns, Right"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:534 functions/admin.php:202 functions/admin.php:234
+#: functions/admin.php:281 functions/admin.php:331
+msgid "Header Right One Column"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:535 functions/admin.php:205 functions/admin.php:235
+#: functions/admin.php:284 functions/admin.php:334
+msgid "Header Right Two Columns, Left"
+msgstr ""
+
+# @ supreme
+# @ theme-layouts
+#: functions.php:536 functions/admin.php:209 functions/admin.php:236
+#: functions/admin.php:287
+msgid "Header Right Two Columns, Right"
+msgstr ""
+
+# @ bbpress
+#: functions.php:665
+msgid "favorites"
+msgstr ""
+
+# @ bbpress
+#: functions.php:666
+msgid "?"
+msgstr ""
+
+# @ bbpress
+#: functions.php:667
+msgid "This topic is one of your %favLinkYes% [%favDel%]"
+msgstr ""
+
+# @ bbpress
+#: functions.php:668
+msgid "%favAdd% (%favLinkNo%)"
+msgstr ""
+
+# @ bbpress
+#: functions.php:669
+msgid "&times;"
+msgstr ""
+
+# @ bbpress
+#: functions.php:670
+msgid "Add this topic to your favorites"
+msgstr ""
+
+# @ bbpress
+# @ supreme
+#: functions.php:679 library/classes/widget-subscribe.php:29
+msgid "Subscribe"
+msgstr ""
+
+# @ bbpress
+#: functions.php:680
+msgid "Unsubscribe"
+msgstr ""
+
+# @ supreme
+#: functions.php:776
+msgctxt "nav menu location"
+msgid "Header Primary"
+msgstr ""
+
+# @ supreme
+#: functions.php:777
+msgctxt "nav menu location"
+msgid "Header Secondary"
+msgstr ""
+
+# @ supreme
+#: functions.php:778
+msgctxt "nav menu location"
+msgid "Header Horizontal"
+msgstr ""
+
+# @ supreme
+#: functions.php:779
+msgctxt "nav menu location"
+msgid "Footer"
+msgstr ""
+
+# @ supreme
+#: functions.php:793
+msgctxt "sidebar"
+msgid "Subsidiary 2 Columns"
+msgstr ""
+
+# @ supreme
+#: functions.php:794
+msgid "A 2-column widget area loaded before the footer of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:803
+msgctxt "sidebar"
+msgid "Subsidiary 3 Columns"
+msgstr ""
+
+# @ supreme
+#: functions.php:804
+msgid "A 3-column widget area loaded before the footer of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:813
+msgctxt "sidebar"
+msgid "Subsidiary 4 Columns"
+msgstr ""
+
+# @ supreme
+#: functions.php:814
+msgid "A 4-column widget area loaded before the footer of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:823
+msgctxt "sidebar"
+msgid "Subsidiary 5 Columns"
+msgstr ""
+
+# @ supreme
+#: functions.php:824
+msgid "A 5-column widget area loaded before the footer of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:833
+msgctxt "sidebar"
+msgid "After Header"
+msgstr ""
+
+# @ supreme
+#: functions.php:834
+msgid "A 1-column widget area loaded after the header of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:843
+msgctxt "sidebar"
+msgid "After Header 2 Columns"
+msgstr ""
+
+# @ supreme
+#: functions.php:844
+msgid "A 2-column widget area loaded after the header of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:853
+msgctxt "sidebar"
+msgid "After Header 3 Columns"
+msgstr ""
+
+# @ supreme
+#: functions.php:854
+msgid "A 3-column widget area loaded after the header of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:863
+msgctxt "sidebar"
+msgid "After Header 4 Columns"
+msgstr ""
+
+# @ supreme
+#: functions.php:864
+msgid "A 4-column widget area loaded after the header of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:873
+msgctxt "sidebar"
+msgid "After Header 5 Columns"
+msgstr ""
+
+# @ supreme
+#: functions.php:874
+msgid "A 5-column widget area loaded after the header of the site."
+msgstr ""
+
+# @ supreme
+#: functions.php:883
+msgctxt "sidebar"
+msgid "Entry"
+msgstr ""
+
+# @ supreme
+#: functions.php:884
+msgid "Loaded directly before the entry content texts."
+msgstr ""
+
+# @ sidebar
+#: functions.php:893
+msgid "Widgets Template"
+msgstr ""
+
+# @ supreme
+#: functions.php:894
+msgid "Used on widgets only page template."
+msgstr ""
+
+# @ supreme
+#: functions.php:904
+msgid "JQuery Mega Menu"
+msgstr ""
+
+# @ supreme
+#: functions.php:905
+msgid ""
+"Place the jQuery Mega menu widget in this area. Create a menu first in "
+"Appearance -> Menus."
+msgstr ""
+
+# @ supreme
+#: functions.php:914
+msgid "Contact Page Widget Area"
+msgstr ""
+
+# @ supreme
+#: functions.php:915
+msgid "Displays widgets on contact us page."
+msgstr ""
+
+# @ supreme
+#: functions.php:1036
+msgid "Read more &raquo;"
+msgstr ""
+
+# @ supreme
+#: functions.php:1048
+#, php-format
+msgid "<a href=\"%s\" class=\"more\">%s</a>"
+msgstr ""
+
+# @ supreme
+#: functions.php:1050
+#, php-format
+msgid "<a href=\"%s\" class=\"more\">Read More...</a>"
+msgstr ""
+
+# @ supreme
+# @ dcjq-mega-menu
+# @ dcjqmegamenu
+#: functions.php:1063 functions.php:1065 page-template-sitemap.php:108
+#: page-template-sitemap.php:141 templatic_login.php:117
+#: library/classes/widget-mega_menu.php:15
+#: library/classes/widget-mega_menu.php:19
+#: library/classes/widget-social_media.php:33
+#: library/classes/widget-testimonials.php:49
+#: library/classes/widget-testimonials.php:56
+#: library/classes/widget-testimonials.php:57
+#: library/classes/widget_flicker.php:16
+#: library/functions/loadpopularpost.php:127
+#, php-format
+msgid "%s"
+msgstr ""
+
+# @ supreme
+#: functions.php:1082
+#, php-format
+msgid "<a href='%s'>%s</a>"
+msgstr ""
+
+# @ supreme
+#: functions.php:1084
+#, php-format
+msgid "<a href='%s'>Read More...</a>"
+msgstr ""
+
+#: functions.php:1146
+msgid "[entry-terms taxonomy=\""
+msgstr ""
+
+#: functions.php:1239
+msgid "Post Review"
+msgstr ""
+
+# @ supreme
+#: index.php:38 loop.php:24
+#, php-format
+msgid ""
+"Published by [entry-author] on [entry-published] [entry-comments-link zero="
+"\"Respond\" one=\"%1$s\" more=\"%1$s\"] [entry-edit-link] [entry-permalink]"
+msgstr ""
+
+# @ supreme
+#: index.php:49 loop.php:35 post.php:55 singular.php:51
+msgid ""
+"Filed under: [entry-terms taxonomy=\"category\"] [entry-terms taxonomy="
+"\"post_tag\" before=\"and Tagged: \"]"
+msgstr ""
+
+# @ supreme
+#: index.php:63
+msgid "No Entries"
+msgstr ""
+
+# @ supreme
+#: index.php:66
+msgid "Apologies, but no entries were found."
+msgstr ""
+
+# @ supreme
+#: loop-entry-author.php:19
+msgid "Published by [entry-author]"
+msgstr ""
+
+# @ supreme
+#: loop-error.php:16
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr ""
+
+# @ supreme
+#: loop-meta.php:91
+#, php-format
+msgid "You are browsing the search results for \"%s\""
+msgstr ""
+
+# @ supreme
+#: loop-meta.php:100
+msgid "Archives by date"
+msgstr ""
+
+# @ supreme
+#: loop-meta.php:104
+msgid "You are browsing the site archives by date."
+msgstr ""
+
+# @ hybrid-core
+# @ supreme
+#: loop-meta.php:128 page-template-sitemap.php:163
+#: library/classes/widget-archives.php:44 library/functions/context.php:446
+msgid "Archives"
+msgstr ""
+
+# @ supreme
+#: loop-meta.php:132
+msgid "You are browsing the site archives."
+msgstr ""
+
+# @ supreme
+#: loop-nav.php:16
+msgid "<span class=\"meta-nav\">&larr;</span> Return to entry"
+msgstr ""
+
+# @ supreme
+#: loop-nav.php:23 loop-nav.php:27 loop-nav.php:29
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
+
+# @ supreme
+#: loop-nav.php:24 loop-nav.php:27
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+# @ supreme
+#: loop-nav.php:29
+msgid "Next &rarr;"
+msgstr ""
+
+# @ supreme
+#: menu-header-horizontal.php:22 menu-header-primary.php:22
+#: menu-header-secondary.php:22 menu-primary.php:20 menu-secondary.php:20
+#: menu-subsidiary.php:20 library/classes/widget-mega_menu.php:59
+msgid "Menu"
+msgstr ""
+
+# @ supreme
+#: page-template-archives.php:60
+msgid "&nbsp;by&nbsp;"
+msgstr ""
+
+# @ supreme
+#: page-template-archives.php:62
+msgid "&nbsp;on&nbsp;"
+msgstr ""
+
+# @ supreme
+#: page-template-archives.php:65
+msgid "&nbsp;No Comments&nbsp;"
+msgstr ""
+
+# @ supreme
+#: page-template-archives.php:65
+msgid "&nbsp;1 Comment&nbsp;"
+msgstr ""
+
+# @ supreme
+#: page-template-archives.php:65
+msgid "&nbsp;Comments Closed&nbsp;"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:149
+msgid "Contact mail successfully sent."
+msgstr ""
+
+#: page-template-contact.php:162
+msgid "ERROR: Please play the game to register."
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:168
+msgid "Inquiry Form"
+msgstr ""
+
+# @ bbpress
+# @ jigoshop
+# @ hybrid-core
+# @ supreme
+#: page-template-contact.php:172 bbpress/form-user-edit.php:17
+#: jigoshop/single-product-reviews.php:97 library/functions/comments.php:187
+msgid "Name"
+msgstr ""
+
+# @ bbpress
+# @ jigoshop
+# @ hybrid-core
+# @ supreme
+#: page-template-contact.php:180 bbpress/form-user-edit.php:88
+#: bbpress/form-user-register.php:27 jigoshop/single-product-reviews.php:99
+#: library/functions/comments.php:188
+msgid "Email"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:188
+msgid "Subject"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:196
+msgid "Message"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:209
+msgid "Verify words"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:223
+msgid "Send"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:287
+msgid "Please enter your name"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:322
+msgid "Please enter valid email address"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:341
+msgid "Please enter a subject"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:358
+msgid "Please enter message"
+msgstr ""
+
+# @ supreme
+#: page-template-contact.php:375
+msgid "Please enter captcha"
+msgstr ""
+
+# @ supreme
+#: page-template-sitemap.php:56
+msgid "Posts"
+msgstr ""
+
+# @ supreme
+#: page-template-sitemap.php:65 page-template-sitemap.php:122
+msgid "0 comment"
+msgstr ""
+
+# @ supreme
+#: page-template-sitemap.php:65 page-template-sitemap.php:122
+msgid "1 comment"
+msgstr ""
+
+# @ supreme
+#: page-template-sitemap.php:65 page-template-sitemap.php:122
+#, php-format
+msgid "% comments"
+msgstr ""
+
+# @ supreme
+#: page-template-sitemap.php:81
+msgid "Post Categories"
+msgstr ""
+
+# @ supreme
+#: post.php:38
+#, php-format
+msgid ""
+"[entry-author] [entry-published] [entry-comments-link zero=\"Respond\" one="
+"\"%1$s Comment\" more=\"%1$s Comments\"] [entry-edit-link]"
+msgstr ""
+
+# @ bbpress
+# @ hybrid-core
+#: single-reply.php:34 bbpress/content-single-topic-lead.php:14
+#: bbpress/loop-single-reply.php:26 library/functions/shortcodes.php:376
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+# @ supreme
+#: singular.php:38
+#, php-format
+msgid ""
+"[entry-author] [entry-published] [entry-comments-link zero=\"Respond\" one="
+"\"%1$s\" more=\"%1$s\"] [entry-edit-link]"
+msgstr ""
+
+# @ bbpress
+#: taxonomy-topic-tag-edit.php:27 taxonomy-topic-tag.php:30
+#, php-format
+msgid "Topic Tag: %s"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:8
+msgid "You do not have sufficient permissions to access this section."
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:234
+msgid " Upload image for logo"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:240
+msgid " Upload favicon icon"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:246 admin/functions-admin.php:85
+#: functions/admin.php:85
+msgid "Hide Site Description"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:253
+msgid "Hide autoinstall section"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:261
+msgid "Use custom css"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:268
+msgid "Enable comments on pages and posts"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:276
+msgid "Show author biography on posts"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:282
+msgid "Show author biography on pages"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:289
+msgid "Show Breadcrumb"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:296
+msgid "Global Layout"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:311
+msgid "Jigoshop Layout"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:325
+msgid "WooCommerce Layout"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:339
+msgid "Contact Us Captcha Setting"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:349
+msgid "Display excerpts on Search Result Pages"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:356
+msgid "Display excerpts on archive pages"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:363
+msgid "Excerpt length"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:370
+msgid "Text for Continue reading"
+msgstr ""
+
+# @ supreme
+#: templatic_customizer.php:391
+msgid ""
+"Enter comma saperated post type slug(s) which you want to display on 404 and "
+"on search result not found page"
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:100
+msgid "The new version of supreme is available."
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:102
+msgid ""
+"you can update to the latest version automatically , or download the latest "
+"version of the theme."
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:103
+msgid "Warning"
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:103
+msgid ""
+"Updating will undo all your file customizations so make sure to keep backup "
+"of all files before updating."
+msgstr ""
+
+# @ templatic
+#: templatic_login.php:104
+msgid "Download latest Version"
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:122
+msgid ""
+"Templatic Login , enter your templatic credentials to take the updates of "
+"supreme."
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:126
+msgid "User Name"
+msgstr ""
+
+# @ bbpress
+# @ supreme
+#: templatic_login.php:130 bbpress/form-user-login.php:22
+msgid "Password"
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:135
+msgid "Cancel"
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:151
+msgid "You have the latest version of supreme parent theme."
+msgstr ""
+
+# @ supreme
+#: templatic_login.php:152
+#, php-format
+msgid "<strong>Your version:</strong> %s"
+msgstr ""
+
+# @ supreme
+#: wp-updates-theme.php:59 wp-updates-theme.php:114
+msgid "New Version of supreme is available now ."
+msgstr ""
+
+# @ supreme
+#: wp-updates-theme.php:59 wp-updates-theme.php:114
+#, php-format
+msgid "View version %s Details"
+msgstr ""
+
+# @ supreme
+#: wp-updates-theme.php:65
+#, php-format
+msgid "or <a href=\"%s\"  title=\"Supreme Update\">update now</a>."
+msgstr ""
+
+#: wp-updates-theme.php:119
+msgid "or <a href=\""
 msgstr ""
 
 # @ supreme
@@ -74,12 +971,6 @@ msgid ""
 "fails, just copy-paste image address in the above input field, now click "
 "&quot;Settings&quot; button (At the page bottom). Image displays "
 "automatically after settings are saved."
-msgstr ""
-
-# @ supreme
-#: admin/functions-admin.php:85 functions/admin.php:85
-#: templatic_customizer.php:246
-msgid "Hide Site Description"
 msgstr ""
 
 # @ supreme
@@ -324,37 +1215,6 @@ msgid ""
 "Choose your forum/topic to edit via &quot;All Forums&quot; or &quot;All "
 "Topics&quot; management page & click the \"Edit link\" to set the custom "
 "layout."
-msgstr ""
-
-# @ supreme
-#: attachment.php:52
-#, php-format
-msgid "Download \"%s\";"
-msgstr ""
-
-# @ supreme
-#: attachment.php:57 index.php:44 loop.php:30 page-template-contact.php:91
-#: page.php:39 post.php:44 singular.php:44
-msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-# @ supreme
-#: attachment.php:58 index.php:45 loop.php:31 page.php:40 post.php:45
-#: singular.php:45
-msgid "Pages:"
-msgstr ""
-
-# @ supreme
-#: attachment.php:63
-msgid "Gallery"
-msgstr ""
-
-# @ bbpress
-# @ hybrid-core
-#: bbpress/content-single-topic-lead.php:14 bbpress/loop-single-reply.php:26
-#: library/functions/shortcodes.php:376 single-reply.php:34
-#, php-format
-msgid "%1$s at %2$s"
 msgstr ""
 
 # @ fanwood
@@ -771,14 +1631,8 @@ msgid "Slug:"
 msgstr ""
 
 # @ bbpress
-#: bbpress/form-topic-tag.php:43
-msgid "Update"
-msgstr ""
-
-# @ bbpress
 # @ breadcrumb-trail
-#: bbpress/form-topic-tag.php:57 bbpress/form-topic-tag.php:71
-#: library/extensions/breadcrumb-trail.php:418
+#: bbpress/form-topic-tag.php:57 library/extensions/breadcrumb-trail.php:418
 msgid "Merge"
 msgstr ""
 
@@ -877,19 +1731,6 @@ msgid "You must be logged in to create new topics."
 msgstr ""
 
 # @ bbpress
-# @ jigoshop
-# @ hybrid-core
-# @ supreme
-#: bbpress/form-user-edit.php:17 jigoshop/single-product-reviews.php:97
-#: library/classes/widget-bookmarks.php:179
-#: library/classes/widget-bookmarks.php:181
-#: library/classes/widget-categories.php:163
-#: library/classes/widget-tags.php:168 library/functions/comments.php:187
-#: page-template-contact.php:138
-msgid "Name"
-msgstr ""
-
-# @ bbpress
 #: bbpress/form-user-edit.php:22
 msgid "First Name"
 msgstr ""
@@ -912,14 +1753,6 @@ msgstr ""
 # @ bbpress
 #: bbpress/form-user-edit.php:45
 msgid "Contact Info"
-msgstr ""
-
-# @ bbpress
-# @ supreme
-# @ hybrid-core
-#: bbpress/form-user-edit.php:50 comments.php:75
-#: library/functions/comments.php:189
-msgid "Website"
 msgstr ""
 
 # @ bbpress
@@ -958,17 +1791,6 @@ msgstr ""
 # @ bbpress
 #: bbpress/form-user-edit.php:84
 msgid "Usernames cannot be changed."
-msgstr ""
-
-# @ bbpress
-# @ jigoshop
-# @ hybrid-core
-# @ supreme
-#: bbpress/form-user-edit.php:88 bbpress/form-user-register.php:27
-#: jigoshop/single-product-reviews.php:99
-#: library/classes/widget-authors.php:137 library/functions/comments.php:188
-#: page-template-contact.php:146
-msgid "Email"
 msgstr ""
 
 # @ bbpress
@@ -1031,12 +1853,6 @@ msgstr ""
 # @ bbpress
 #: bbpress/form-user-login.php:14 bbpress/form-user-login.php:33
 msgid "Log In"
-msgstr ""
-
-# @ bbpress
-# @ supreme
-#: bbpress/form-user-login.php:22 templatic_login.php:130
-msgid "Password"
 msgstr ""
 
 # @ bbpress
@@ -1165,81 +1981,6 @@ msgid "This user has not created any topics."
 msgstr ""
 
 # @ supreme
-#: comment.php:32
-msgid "Your comment is awaiting moderation."
-msgstr ""
-
-# @ supreme
-#: comments.php:14
-msgid "Please do not load this page directly. Thanks!"
-msgstr ""
-
-# @ supreme
-#: comments.php:29
-msgid "No Comments"
-msgstr ""
-
-# @ supreme
-#: comments.php:29
-msgid "One Comment"
-msgstr ""
-
-# @ supreme
-#: comments.php:29 page-template-archives.php:65
-msgid "% Comments"
-msgstr ""
-
-# @ supreme
-#: comments.php:35
-#, php-format
-msgid "Page %1$s of %2$s"
-msgstr ""
-
-# @ supreme
-#: comments.php:51
-#, php-format
-msgid ""
-"Comments are closed, but <a href=\"%1$s\" title=\"Trackback URL for this post"
-"\">trackbacks</a> and pingbacks are open."
-msgstr ""
-
-# @ supreme
-#: comments.php:57
-msgid "Comments are closed."
-msgstr ""
-
-# @ supreme
-#: comments.php:67
-msgid "Your name"
-msgstr ""
-
-# @ supreme
-#: comments.php:71
-msgid "Email Address"
-msgstr ""
-
-# @ supreme
-#: comments.php:77 library/functions/loadpopularpost.php:92
-msgid "Comments"
-msgstr ""
-
-# @ supreme
-#: comments.php:81
-msgid "Add a comment"
-msgstr ""
-
-# @ supreme
-#: content-aside.php:1 content-gallery.php:8 content-image.php:8
-#: content-link.php:2 content-quote.php:2 content-status.php:1
-msgid "Published by [entry-author] on [entry-published] [entry-permalink]"
-msgstr ""
-
-# @ supreme
-#: content.php:15
-msgid "by [entry-author] on [entry-published] [entry-permalink]"
-msgstr ""
-
-# @ supreme
 #: functions/admin.php:82
 msgid "Site Description:"
 msgstr ""
@@ -1256,99 +1997,8 @@ msgid "Author's Biography and Avatar"
 msgstr ""
 
 # @ supreme
-# @ theme-layouts
-#: functions/admin.php:172 functions/admin.php:224 functions/admin.php:251
-#: functions/admin.php:301 functions.php:526
-#: library/extensions/theme-layouts.php:295
-msgid "Default"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:174 functions/admin.php:225 functions/admin.php:253
-#: functions/admin.php:303 functions.php:527
-#: library/extensions/theme-layouts.php:296
-msgid "One Column"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:177 functions/admin.php:226 functions/admin.php:256
-#: functions/admin.php:306 functions.php:528
-#: library/extensions/theme-layouts.php:297
-msgid "Two Columns, Left"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:180 functions/admin.php:227 functions/admin.php:259
-#: functions/admin.php:309 functions.php:529
-#: library/extensions/theme-layouts.php:298
-msgid "Two Columns, Right"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:183 functions/admin.php:228 functions/admin.php:262
-#: functions/admin.php:312 functions.php:530
-#: library/extensions/theme-layouts.php:301
-msgid "Three Columns, Center"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:186 functions/admin.php:229 functions/admin.php:265
-#: functions/admin.php:315 functions.php:531
-#: library/extensions/theme-layouts.php:299
-msgid "Three Columns, Left"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:189 functions/admin.php:230 functions/admin.php:268
-#: functions/admin.php:318 functions.php:532
-#: library/extensions/theme-layouts.php:300
-msgid "Three Columns, Right"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:192 functions/admin.php:231 functions/admin.php:271
-#: functions/admin.php:321 functions.php:533
-msgid "Header Left One Column"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:195 functions/admin.php:232 functions/admin.php:324
-#: functions.php:534
-msgid "Header Left Two Columns, Left"
-msgstr ""
-
-# @ supreme
 #: functions/admin.php:198
 msgid "Header Left, Two Columns Right"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:202 functions/admin.php:234 functions/admin.php:281
-#: functions/admin.php:331 functions.php:536
-msgid "Header Right One Column"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:205 functions/admin.php:235 functions/admin.php:284
-#: functions/admin.php:334 functions.php:537
-msgid "Header Right Two Columns, Left"
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:209 functions/admin.php:236 functions/admin.php:287
-#: functions.php:538
-msgid "Header Right Two Columns, Right"
 msgstr ""
 
 # @ supreme
@@ -1356,13 +2006,6 @@ msgstr ""
 msgid ""
 "Set the layout for the entire site. The default design is Two Columns Left, "
 "therefore, Default and Two Columns Left will display the same layout."
-msgstr ""
-
-# @ supreme
-# @ theme-layouts
-#: functions/admin.php:233 functions/admin.php:278 functions/admin.php:328
-#: functions/admin.php:337 functions.php:535
-msgid "Header Left Two Columns, Right"
 msgstr ""
 
 # @ supreme
@@ -1397,292 +2040,6 @@ msgstr ""
 # @ supreme
 #: functions/templatic_news.php:11
 msgid "Templatic News"
-msgstr ""
-
-# @ bbpress
-#: functions.php:667
-msgid "favorites"
-msgstr ""
-
-# @ bbpress
-#: functions.php:668
-msgid "?"
-msgstr ""
-
-# @ bbpress
-#: functions.php:669
-#, php-format
-msgid "This topic is one of your %favLinkYes% [%favDel%]"
-msgstr ""
-
-# @ bbpress
-#: functions.php:670
-#, php-format
-msgid "%favAdd% (%favLinkNo%)"
-msgstr ""
-
-# @ bbpress
-#: functions.php:671
-msgid "&times;"
-msgstr ""
-
-# @ bbpress
-#: functions.php:672
-msgid "Add this topic to your favorites"
-msgstr ""
-
-# @ bbpress
-# @ supreme
-#: functions.php:681 library/classes/widget-subscribe.php:29
-msgid "Subscribe"
-msgstr ""
-
-# @ bbpress
-#: functions.php:682
-msgid "Unsubscribe"
-msgstr ""
-
-# @ supreme
-#: functions.php:778
-msgctxt "nav menu location"
-msgid "Header Primary"
-msgstr ""
-
-# @ supreme
-#: functions.php:779
-msgctxt "nav menu location"
-msgid "Header Secondary"
-msgstr ""
-
-# @ supreme
-#: functions.php:780
-msgctxt "nav menu location"
-msgid "Header Horizontal"
-msgstr ""
-
-# @ supreme
-#: functions.php:781
-msgctxt "nav menu location"
-msgid "Footer"
-msgstr ""
-
-# @ supreme
-#: functions.php:795
-msgctxt "sidebar"
-msgid "Subsidiary 2 Columns"
-msgstr ""
-
-# @ supreme
-#: functions.php:796
-msgid "A 2-column widget area loaded before the footer of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:805
-msgctxt "sidebar"
-msgid "Subsidiary 3 Columns"
-msgstr ""
-
-# @ supreme
-#: functions.php:806
-msgid "A 3-column widget area loaded before the footer of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:815
-msgctxt "sidebar"
-msgid "Subsidiary 4 Columns"
-msgstr ""
-
-# @ supreme
-#: functions.php:816
-msgid "A 4-column widget area loaded before the footer of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:825
-msgctxt "sidebar"
-msgid "Subsidiary 5 Columns"
-msgstr ""
-
-# @ supreme
-#: functions.php:826
-msgid "A 5-column widget area loaded before the footer of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:835
-msgctxt "sidebar"
-msgid "After Header"
-msgstr ""
-
-# @ supreme
-#: functions.php:836
-msgid "A 1-column widget area loaded after the header of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:845
-msgctxt "sidebar"
-msgid "After Header 2 Columns"
-msgstr ""
-
-# @ supreme
-#: functions.php:846
-msgid "A 2-column widget area loaded after the header of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:855
-msgctxt "sidebar"
-msgid "After Header 3 Columns"
-msgstr ""
-
-# @ supreme
-#: functions.php:856
-msgid "A 3-column widget area loaded after the header of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:865
-msgctxt "sidebar"
-msgid "After Header 4 Columns"
-msgstr ""
-
-# @ supreme
-#: functions.php:866
-msgid "A 4-column widget area loaded after the header of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:875
-msgctxt "sidebar"
-msgid "After Header 5 Columns"
-msgstr ""
-
-# @ supreme
-#: functions.php:876
-msgid "A 5-column widget area loaded after the header of the site."
-msgstr ""
-
-# @ supreme
-#: functions.php:885
-msgctxt "sidebar"
-msgid "Entry"
-msgstr ""
-
-# @ supreme
-#: functions.php:886
-msgid "Loaded directly before the entry content texts."
-msgstr ""
-
-# @ sidebar
-#: functions.php:895
-msgid "Widgets Template"
-msgstr ""
-
-# @ supreme
-#: functions.php:896
-msgid "Used on widgets only page template."
-msgstr ""
-
-# @ supreme
-#: functions.php:906
-msgid "JQuery Mega Menu"
-msgstr ""
-
-# @ supreme
-#: functions.php:907
-msgid ""
-"Place the jQuery Mega menu widget in this area. Create a menu first in "
-"Appearance -> Menus."
-msgstr ""
-
-# @ supreme
-#: functions.php:916
-msgid "Contact Page Widget Area"
-msgstr ""
-
-# @ supreme
-#: functions.php:917
-msgid "Displays widgets on contact us page."
-msgstr ""
-
-# @ supreme
-#: functions.php:1038
-msgid "Read more &raquo;"
-msgstr ""
-
-# @ supreme
-#: functions.php:1050
-#, php-format
-msgid "<a href=\"%s\" class=\"more\">%s</a>"
-msgstr ""
-
-# @ supreme
-#: functions.php:1052
-#, php-format
-msgid "<a href=\"%s\" class=\"more\">Read More...</a>"
-msgstr ""
-
-# @ supreme
-# @ dcjq-mega-menu
-# @ dcjqmegamenu
-#: functions.php:1065 functions.php:1067
-#: library/classes/widget-mega_menu.php:15
-#: library/classes/widget-mega_menu.php:19
-#: library/classes/widget-social_media.php:33
-#: library/classes/widget-testimonials.php:49
-#: library/classes/widget-testimonials.php:56
-#: library/classes/widget-testimonials.php:57
-#: library/classes/widget_flicker.php:16
-#: library/functions/loadpopularpost.php:128 library/functions/widgets.php:312
-#: library/functions/widgets.php:419 page-template-sitemap.php:108
-#: page-template-sitemap.php:141 templatic_login.php:117
-#, php-format
-msgid "%s"
-msgstr ""
-
-# @ supreme
-#: functions.php:1084
-#, php-format
-msgid "<a href='%s'>%s</a>"
-msgstr ""
-
-# @ supreme
-#: functions.php:1086
-#, php-format
-msgid "<a href='%s'>Read More...</a>"
-msgstr ""
-
-# @ supreme
-#: functions.php:1148
-msgid "[entry-terms taxonomy=\"\"] [entry-terms taxonomy=\"\" before=\""
-msgstr ""
-
-# @ supreme
-#: index.php:38 loop.php:24
-#, php-format
-msgid ""
-"Published by [entry-author] on [entry-published] [entry-comments-link zero="
-"\"Respond\" one=\"%1$s\" more=\"%1$s\"] [entry-edit-link] [entry-permalink]"
-msgstr ""
-
-# @ supreme
-#: index.php:49 loop.php:35 post.php:55 singular.php:51
-msgid ""
-"Filed under: [entry-terms taxonomy=\"category\"] [entry-terms taxonomy="
-"\"post_tag\" before=\"and Tagged: \"]"
-msgstr ""
-
-# @ supreme
-#: index.php:63
-msgid "No Entries"
-msgstr ""
-
-# @ supreme
-#: index.php:66
-msgid "Apologies, but no entries were found."
 msgstr ""
 
 # @ jigoshop
@@ -1750,7 +2107,6 @@ msgstr ""
 # @ jigoshop
 # @ hybrid-core
 #: jigoshop/single-product-reviews.php:105
-#: library/classes/widget-bookmarks.php:181
 msgid "Rating"
 msgstr ""
 
@@ -1811,98 +2167,8 @@ msgid "Meta Keywords:"
 msgstr ""
 
 # @ hybrid-core
-#: library/admin/meta-box-post-template.php:36
-msgid "Template"
-msgstr ""
-
-# @ hybrid-core
-#: library/admin/meta-box-post-template.php:87
+#: library/admin/meta-box-post-template.php:79
 msgid "No templates exist for this post type."
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:32
-msgid ""
-"An advanced widget that gives you total control over the output of your "
-"archives."
-msgstr ""
-
-# @ hybrid-core
-# @ supreme
-#: library/classes/widget-archives.php:44
-#: library/classes/widget-archives.php:141 library/functions/context.php:446
-#: loop-meta.php:128 page-template-sitemap.php:163
-msgid "Archives"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:79
-msgid "Select Year"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:82
-msgid "Select Month"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:85
-msgid "Select Week"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:88
-msgid "Select Day"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:91
-msgid "Select Post"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:154
-msgid "Alphabetical"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:154
-msgid "Daily"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:154
-msgid "Monthly"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:154
-msgid "Post By Post"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:154
-msgid "Weekly"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:154
-msgid "Yearly"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:157
-msgid "Custom"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:157
-msgid "HTML"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-archives.php:157
-msgid "Option"
 msgstr ""
 
 # @ hybrid-core
@@ -1916,7 +2182,7 @@ msgstr ""
 #: library/classes/widget-nav-menu.php:133
 #: library/classes/widget-pages.php:157 library/classes/widget-search.php:143
 #: library/classes/widget-subscribe.php:56 library/classes/widget-tags.php:175
-#: library/classes/widget_flicker.php:30 library/functions/widgets.php:1475
+#: library/classes/widget_flicker.php:30 library/functions/widgets.php:1383
 msgid "Title:"
 msgstr ""
 
@@ -1927,88 +2193,8 @@ msgid "Show post count?"
 msgstr ""
 
 # @ hybrid-core
-#: library/classes/widget-authors.php:32
-msgid ""
-"An advanced widget that gives you total control over the output of your "
-"author lists."
-msgstr ""
-
-# @ hybrid-core
 #: library/classes/widget-authors.php:44
-#: library/classes/widget-authors.php:119
 msgid "Authors"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:136
-#: library/classes/widget-bookmarks.php:178
-#: library/classes/widget-bookmarks.php:180
-#: library/classes/widget-categories.php:162
-#: library/classes/widget-pages.php:148 library/classes/widget-tags.php:167
-msgid "Ascending"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:136
-#: library/classes/widget-bookmarks.php:178
-#: library/classes/widget-bookmarks.php:180
-#: library/classes/widget-categories.php:162
-#: library/classes/widget-pages.php:148 library/classes/widget-tags.php:167
-msgid "Descending"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:137
-msgid "Display Name"
-msgstr ""
-
-# @ hybrid-core
-# @ supreme
-#: library/classes/widget-authors.php:137
-#: library/classes/widget-bookmarks.php:179
-#: library/classes/widget-bookmarks.php:181
-#: library/classes/widget-categories.php:163
-#: library/classes/widget-pages.php:149 library/functions/widgets.php:1534
-msgid "ID"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:137
-msgid "Nice Name"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:137
-msgid "Post Count"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:137
-msgid "Registered"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:137
-#: library/classes/widget-bookmarks.php:181
-msgid "URL"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:137
-msgid "Login"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:169
-#: library/classes/widget-categories.php:161
-#: library/classes/widget-tags.php:166
-msgid "List"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-authors.php:169
-#: library/classes/widget-categories.php:161
-msgid "None"
 msgstr ""
 
 # @ hybrid-core
@@ -2034,81 +2220,9 @@ msgid "Hide empty?"
 msgstr ""
 
 # @ hybrid-core
-#: library/classes/widget-bookmarks.php:32
-msgid ""
-"An advanced widget that gives you total control over the output of your "
-"bookmarks (links)."
-msgstr ""
-
-# @ hybrid-core
 #: library/classes/widget-bookmarks.php:44
 #: library/classes/widget-bookmarks.php:85
-#: library/classes/widget-bookmarks.php:148
 msgid "Bookmarks"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:179
-#: library/classes/widget-categories.php:163
-#: library/classes/widget-tags.php:168
-msgid "Count"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:179
-#: library/classes/widget-categories.php:163
-#: library/classes/widget-pages.php:149
-msgid "Slug"
-msgstr ""
-
-# @ hybrid-core
-# @ supreme
-#: library/classes/widget-bookmarks.php:181
-#: library/classes/widget-social_media.php:69
-msgid "Description"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:181
-msgid "Length"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:181
-msgid "Notes"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:181
-msgid "Owner"
-msgstr ""
-
-# @ hybrid-core
-# @ supreme
-#: library/classes/widget-bookmarks.php:181
-#: library/classes/widget-tags.php:167 library/functions/widgets.php:1536
-msgid "Random"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:181
-msgid "Rel"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:181
-#: library/classes/widget-categories.php:164
-msgid "RSS"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:181
-msgid "Target"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-bookmarks.php:181
-msgid "Updated"
 msgstr ""
 
 # @ hybrid-core
@@ -2152,15 +2266,7 @@ msgid "Show private?"
 msgstr ""
 
 # @ hybrid-core
-#: library/classes/widget-calendar.php:32
-msgid ""
-"An advanced widget that gives you total control over the output of your "
-"calendar."
-msgstr ""
-
-# @ hybrid-core
 #: library/classes/widget-calendar.php:44
-#: library/classes/widget-calendar.php:99
 msgid "Calendar"
 msgstr ""
 
@@ -2170,36 +2276,8 @@ msgid "One-letter abbreviation?"
 msgstr ""
 
 # @ hybrid-core
-#: library/classes/widget-categories.php:32
-msgid ""
-"An advanced widget that gives you total control over the output of your "
-"category links."
-msgstr ""
-
-# @ hybrid-core
 #: library/classes/widget-categories.php:44
-#: library/classes/widget-categories.php:133
 msgid "Categories"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-categories.php:163
-msgid "Term Group"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-categories.php:164
-msgid "Atom"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-categories.php:164
-msgid "RDF"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-categories.php:164
-msgid "RSS 2.0"
 msgstr ""
 
 # @ hybrid-core
@@ -2219,13 +2297,6 @@ msgid "Show count?"
 msgstr ""
 
 # @ templatic
-#: library/classes/widget-google_map.php:18
-msgid ""
-"Display a map of a specific location, Use in: Footer areas, Homepage Content "
-"area, Primary, Subsidiary, Subsidiary 2 columns, Contact Page widget area"
-msgstr ""
-
-# @ templatic
 #: library/classes/widget-google_map.php:30
 msgid "T &rarr; Google Map Widget"
 msgstr ""
@@ -2233,11 +2304,10 @@ msgstr ""
 # @ supreme
 # @ hybrid-core
 #: library/classes/widget-google_map.php:115
-#: library/classes/widget-pages.php:149
 #: library/classes/widget-social_media.php:64
-#: library/classes/widget-testimonials.php:2 library/functions/widgets.php:358
-#: library/functions/widgets.php:1279 library/functions/widgets.php:1532
-#: library/functions/widgets.php:1779
+#: library/classes/widget-testimonials.php:2 library/functions/widgets.php:174
+#: library/functions/widgets.php:1187 library/functions/widgets.php:1440
+#: library/functions/widgets.php:1687
 msgid "Title"
 msgstr ""
 
@@ -2276,13 +2346,6 @@ msgstr ""
 # @ Templatic
 #: library/classes/widget-mega_menu.php:17
 msgid "Custom Menu"
-msgstr ""
-
-# @ supreme
-#: library/classes/widget-mega_menu.php:59 menu-header-horizontal.php:22
-#: menu-header-primary.php:22 menu-header-secondary.php:22 menu-primary.php:20
-#: menu-secondary.php:20 menu-subsidiary.php:20
-msgid "Menu"
 msgstr ""
 
 # @ default
@@ -2357,66 +2420,13 @@ msgid "Set Sub Menu To Full Width"
 msgstr ""
 
 # @ hybrid-core
-#: library/classes/widget-nav-menu.php:32
-msgid ""
-"An advanced widget that gives you total control over the output of your "
-"menus."
-msgstr ""
-
-# @ hybrid-core
 #: library/classes/widget-nav-menu.php:44
 msgid "Navigation Menu"
 msgstr ""
 
 # @ hybrid-core
-#: library/classes/widget-nav-menu.php:109
-msgid "Navigation"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-pages.php:32
-msgid ""
-"An advanced widget that gives you total control over the output of your page "
-"links."
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-pages.php:149
-msgid "Author"
-msgstr ""
-
-# @ hybrid-core
 # @ supreme
-#: library/classes/widget-pages.php:149 library/functions/widgets.php:1531
-msgid "Date"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-pages.php:149
-msgid "Menu Order"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-pages.php:149 library/classes/widget-pages.php:150
-msgid "Modified"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-pages.php:150
-msgid "Created"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-search.php:33
-msgid ""
-"An advanced widget that gives you total control over the output of your "
-"search form."
-msgstr ""
-
-# @ hybrid-core
-# @ supreme
-#: library/classes/widget-search.php:45 library/classes/widget-search.php:131
-#: searchform.php:15
+#: library/classes/widget-search.php:45
 msgid "Search"
 msgstr ""
 
@@ -2438,6 +2448,12 @@ msgstr ""
 # @ hybrid-core
 #: library/classes/widget-search.php:163
 msgid "Use theme's <code>searchform.php</code>?"
+msgstr ""
+
+# @ hybrid-core
+# @ supreme
+#: library/classes/widget-social_media.php:69
+msgid "Description"
 msgstr ""
 
 # @ supreme
@@ -2488,37 +2504,8 @@ msgid "Feedburner ID:"
 msgstr ""
 
 # @ hybrid-core
-#: library/classes/widget-tags.php:32
-msgid ""
-"An advanced widget that gives you total control over the output of your tags."
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-tags.php:44 library/classes/widget-tags.php:137
+#: library/classes/widget-tags.php:44
 msgid "Tags"
-msgstr ""
-
-# @ hybrid-core
-# @ supreme
-#: library/classes/widget-tags.php:165
-#: library/functions/loadpopularpost.php:77
-msgid "View"
-msgstr ""
-
-# @ hybrid-core
-# @ breadcrumb-trail
-#: library/classes/widget-tags.php:165
-#: library/extensions/breadcrumb-trail.php:389
-#: library/extensions/breadcrumb-trail.php:422
-#: library/extensions/breadcrumb-trail.php:437
-#: library/extensions/breadcrumb-trail.php:465
-#: library/functions/shortcodes.php:204 library/functions/shortcodes.php:446
-msgid "Edit"
-msgstr ""
-
-# @ hybrid-core
-#: library/classes/widget-tags.php:166
-msgid "Flat"
 msgstr ""
 
 # @ hybrid-core
@@ -2559,7 +2546,7 @@ msgstr ""
 # @ supreme
 # @ templatic
 #: library/classes/widget-testimonials.php:105
-#: library/functions/widgets.php:761
+#: library/functions/widgets.php:669
 msgid "Fade"
 msgstr ""
 
@@ -2653,7 +2640,7 @@ msgstr ""
 #: library/extensions/breadcrumb-trail.php:334
 #: library/extensions/breadcrumb-trail.php:521
 #: library/functions/context.php:435 library/functions/context.php:441
-#: library/functions/core-seo.php:90 library/functions/shortcodes.php:70
+#: library/functions/shortcodes.php:70
 msgid "Y"
 msgstr ""
 
@@ -2678,13 +2665,6 @@ msgstr ""
 
 # @ breadcrumb-trail
 # @ hybrid-core
-#: library/extensions/breadcrumb-trail.php:325
-#: library/functions/context.php:435
-msgid "W"
-msgstr ""
-
-# @ breadcrumb-trail
-# @ hybrid-core
 #: library/extensions/breadcrumb-trail.php:341
 #: library/functions/context.php:452
 #, php-format
@@ -2698,21 +2678,19 @@ msgstr ""
 msgid "404 Not Found"
 msgstr ""
 
+# @ hybrid-core
+# @ breadcrumb-trail
+#: library/extensions/breadcrumb-trail.php:389
+#: library/extensions/breadcrumb-trail.php:422
+#: library/extensions/breadcrumb-trail.php:437
+#: library/extensions/breadcrumb-trail.php:465
+#: library/functions/shortcodes.php:204 library/functions/shortcodes.php:446
+msgid "Edit"
+msgstr ""
+
 # @ breadcrumb-trail
 #: library/extensions/breadcrumb-trail.php:414
 msgid "Split"
-msgstr ""
-
-# @ breadcrumb-trail
-# @ hybrid-core
-#: library/extensions/breadcrumb-trail.php:525
-#: library/functions/core-seo.php:86
-msgid "F Y"
-msgstr ""
-
-# @ breadcrumb-trail
-#: library/extensions/breadcrumb-trail.php:529
-msgid "F j, Y"
 msgstr ""
 
 # @ custom-field-series
@@ -2742,7 +2720,7 @@ msgstr ""
 
 # @ hybrid-core
 # @ supreme
-#: library/functions/comments.php:195 library/functions/loadpopularpost.php:90
+#: library/functions/comments.php:195 library/functions/loadpopularpost.php:89
 msgid "Comment"
 msgstr ""
 
@@ -2758,11 +2736,6 @@ msgstr ""
 #: library/functions/comments.php:197
 #, php-format
 msgid "Logged in as <a href=\"%1$s\" title=\"%2$s\">%2$s</a>."
-msgstr ""
-
-# @ hybrid-core
-#: library/functions/comments.php:197
-msgid "Log out of this account"
 msgstr ""
 
 # @ hybrid-core
@@ -2816,27 +2789,16 @@ msgstr ""
 msgid "Archive for week %1$s of %2$s"
 msgstr ""
 
+# @ breadcrumb-trail
+# @ hybrid-core
+#: library/functions/context.php:435
+msgid "W"
+msgstr ""
+
 # @ hybrid-core
 #: library/functions/context.php:460
 #, php-format
 msgid "%1$s Page %2$s"
-msgstr ""
-
-# @ hybrid-core
-#: library/functions/core-seo.php:93
-#, php-format
-msgid "Copyright (c) %1$s"
-msgstr ""
-
-# @ hybrid-core
-#: library/functions/core-seo.php:112 library/functions/shortcodes.php:218
-#: library/functions/shortcodes.php:376
-msgid "l, F jS, Y, g:i a"
-msgstr ""
-
-# @ hybrid-core
-#: library/functions/customize.php:63 library/functions/customize.php:88
-msgid "Footer"
 msgstr ""
 
 # @ hybrid-core
@@ -2847,33 +2809,39 @@ msgid ""
 "another function."
 msgstr ""
 
+# @ hybrid-core
 # @ supreme
-#: library/functions/loadpopularpost.php:79
+#: library/functions/loadpopularpost.php:76
+msgid "View"
+msgstr ""
+
+# @ supreme
+#: library/functions/loadpopularpost.php:78
 msgid "Views"
 msgstr ""
 
 # @ supreme
-#: library/functions/loadpopularpost.php:85
+#: library/functions/loadpopularpost.php:84
 msgid "Daily View"
 msgstr ""
 
 # @ supreme
-#: library/functions/loadpopularpost.php:87
+#: library/functions/loadpopularpost.php:86
 msgid "Daily Views"
 msgstr ""
 
 # @ supreme
-#: library/functions/loadpopularpost.php:118 library/functions/widgets.php:337
+#: library/functions/loadpopularpost.php:117 library/functions/widgets.php:311
 msgid "ago"
 msgstr ""
 
 # @ supreme
-#: library/functions/loadpopularpost.php:130
+#: library/functions/loadpopularpost.php:129
 msgid "No Popular post found."
 msgstr ""
 
 # @ supreme
-#: library/functions/loadpopularpost.php:236
+#: library/functions/loadpopularpost.php:235
 msgid ""
 "GD Library Error: imagecreatetruecolor does not exist - please contact your "
 "webhost and ask them to install the GD library"
@@ -2914,18 +2882,7 @@ msgstr ""
 
 # @ hybrid-core
 #: library/functions/shortcodes.php:93
-msgid "State-of-the-art semantic personal publishing platform"
-msgstr ""
-
-# @ hybrid-core
-#: library/functions/shortcodes.php:93
 msgid "WordPress"
-msgstr ""
-
-# @ hybrid-core
-#: library/functions/shortcodes.php:106
-#, php-format
-msgid "%s WordPress Theme"
 msgstr ""
 
 # @ hybrid-core
@@ -2942,12 +2899,6 @@ msgstr ""
 #: library/functions/shortcodes.php:151
 #, php-format
 msgid "This page loaded in %1$s seconds with %2$s database queries."
-msgstr ""
-
-# @ hybrid-core
-#: library/functions/shortcodes.php:204 library/functions/shortcodes.php:446
-#, php-format
-msgid "Edit %1$s"
 msgstr ""
 
 # @ hybrid-core
@@ -2968,13 +2919,6 @@ msgid "%1$s Responses"
 msgstr ""
 
 # @ hybrid-core
-#: library/functions/shortcodes.php:241 library/functions/shortcodes.php:243
-#: library/functions/shortcodes.php:245
-#, php-format
-msgid "Comment on %1$s"
-msgstr ""
-
-# @ hybrid-core
 #: library/functions/shortcodes.php:305
 msgid "(Untitled)"
 msgstr ""
@@ -2987,12 +2931,6 @@ msgstr ""
 # @ hybrid-core
 #: library/functions/shortcodes.php:348 library/functions/shortcodes.php:425
 msgid "Permalink"
-msgstr ""
-
-# @ hybrid-core
-#: library/functions/shortcodes.php:425
-#, php-format
-msgid "Permalink to comment %1$s"
 msgstr ""
 
 # @ hybrid-core
@@ -3087,948 +3025,587 @@ msgid ""
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:164
-msgid "Twitter username not configured"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:168
-msgid "Number of tweets not valid"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:212
-msgid "Error retrieving tweets"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:233
-msgid "No public tweets"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:241
-#, php-format
-msgid "Unable to get tweets %s"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:322
-msgid "0 seconds"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:325
-msgid "year"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:326
-msgid "month"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:327
-msgid "day"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:328
-msgid "hour"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:329
-msgid "minute"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:330
-msgid "second"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:337
-msgid "s"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:363
+#: library/functions/widgets.php:179
 msgid "Twitter Username"
 msgstr ""
 
-# @ supreme
-#: library/functions/widgets.php:368
-msgid "Show # of Tweets"
+#: library/functions/widgets.php:184
+msgid "Consumer Key"
+msgstr ""
+
+#: library/functions/widgets.php:189
+msgid "Consumer Secret"
+msgstr ""
+
+#: library/functions/widgets.php:194
+msgid "Access Token"
+msgstr ""
+
+#: library/functions/widgets.php:199
+msgid "Access Token Secret"
+msgstr ""
+
+#: library/functions/widgets.php:204
+msgid "Number Of Tweets"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:373
-msgid "Show this linked text for each Tweet"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:378
+#: library/functions/widgets.php:209
 msgid ""
 "Twitter button text <small>(for eg. Follow us, Join me on Twitter, etc.)</"
 "small>"
 msgstr ""
 
+#: library/functions/widgets.php:215
+msgid "Show your latest tweets on your site."
+msgstr ""
+
+#: library/functions/widgets.php:217
+msgid "T &rarr; Latest Twitter Feeds"
+msgstr ""
+
+#: library/functions/widgets.php:237
+msgid "cURL is NOT installed on this server"
+msgstr ""
+
+#: library/functions/widgets.php:261
+msgid "Latest Tweets"
+msgstr ""
+
+#: library/functions/widgets.php:268
+msgid "Follow Us"
+msgstr ""
+
 # @ supreme
-#: library/functions/widgets.php:383
-msgid "Link below tweets with Twitter user"
+#: library/functions/widgets.php:296
+msgid "0 seconds"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:299
+msgid "year"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:300
+msgid "month"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:301
+msgid "day"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:302
+msgid "hour"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:303
+msgid "minute"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:304
+msgid "second"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:335
+msgid "No public tweets"
+msgstr ""
+
+#: library/functions/widgets.php:339
+msgid "Unable to get tweets"
 msgstr ""
 
 # @ supreme
 #: library/functions/widgets.php:389
-msgid "Find and show hyperlinks"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:396
-msgid "widget Templatic twitter"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:396
-msgid "Show your latest tweets on your site. ."
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:397
-msgid "T &rarr; Latest Twitter Feed"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:442
-msgid "Lastest Tweets"
-msgstr ""
-
-# @ supreme
-#: library/functions/widgets.php:486
 msgid "widget Templatic Slider"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:486
+#: library/functions/widgets.php:389
 msgid ""
 "Home Page Slider that displays either selected post types or custom images "
 "on the Home Page"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:487
+#: library/functions/widgets.php:390
 msgid "T &rarr;  Home Page Main Slider"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:758
+#: library/functions/widgets.php:666
 msgid "Animation"
 msgstr ""
 
 # @ templatic
-#: library/functions/widgets.php:764
+#: library/functions/widgets.php:672
 msgid "Slide"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:771
+#: library/functions/widgets.php:679
 msgid "Slide show"
 msgstr ""
 
 # @ templatic
 # @ supreme
-#: library/functions/widgets.php:774 library/functions/widgets.php:1702
-#: library/functions/widgets.php:1710 library/functions/widgets.php:1718
+#: library/functions/widgets.php:682 library/functions/widgets.php:1610
+#: library/functions/widgets.php:1618 library/functions/widgets.php:1626
 msgid "Yes"
 msgstr ""
 
 # @ templatic
 # @ supreme
-#: library/functions/widgets.php:777 library/functions/widgets.php:1703
-#: library/functions/widgets.php:1711 library/functions/widgets.php:1719
+#: library/functions/widgets.php:685 library/functions/widgets.php:1611
+#: library/functions/widgets.php:1619 library/functions/widgets.php:1627
 msgid "No"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:784
+#: library/functions/widgets.php:692
 msgid "Sliding Direction"
 msgstr ""
 
 # @ templatic
-#: library/functions/widgets.php:787
+#: library/functions/widgets.php:695
 msgid "Horizontal"
 msgstr ""
 
 # @ templatic
-#: library/functions/widgets.php:790
+#: library/functions/widgets.php:698
 msgid "Vertical"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:797
+#: library/functions/widgets.php:705
 msgid "Animation Direction"
 msgstr ""
 
 # @ templatic
-#: library/functions/widgets.php:800
+#: library/functions/widgets.php:708
 msgid "Right to Left"
 msgstr ""
 
 # @ templatic
-#: library/functions/widgets.php:803
+#: library/functions/widgets.php:711
 msgid "Left to Right"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:810
+#: library/functions/widgets.php:718
 msgid "Slide Show Speed"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:812
+#: library/functions/widgets.php:720
 msgid "Default : 7000 - Set the speed of the slideshow cycle in milliseconds."
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:817
+#: library/functions/widgets.php:725
 msgid "Animation Speed"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:819
+#: library/functions/widgets.php:727
 msgid "Default : 600 - Set the speed of animations, in milliseconds."
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:826
+#: library/functions/widgets.php:734
 msgid "<b>Use custom images?</b>"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:834
+#: library/functions/widgets.php:742
 msgid "Select Taxonomy:"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:864
+#: library/functions/widgets.php:772
 msgid "Please select the categories of the same post type."
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:868
+#: library/functions/widgets.php:776
 msgid "Number of posts"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:882
+#: library/functions/widgets.php:790
 msgid "Banner Slider Title 1"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:894
+#: library/functions/widgets.php:802
 msgid "Banner Slider Title Link 1"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:903
+#: library/functions/widgets.php:811
 msgid ""
 "Banner Slider Image 1 full URL <small>(ex.http://templatic.com/images/"
 "banner1.png. )</small>  :"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:941
+#: library/functions/widgets.php:849
 msgid "Remove"
 msgstr ""
 
 # @ templatic
-#: library/functions/widgets.php:948
+#: library/functions/widgets.php:856
 msgid "<b>Settings for Carousel slider option?</b>"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:949
+#: library/functions/widgets.php:857
 msgid ""
 "If you want to use carousel slider option then you must select the animation "
 "option as slide and sliding direction as horizontal."
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:956
+#: library/functions/widgets.php:864
 msgid ""
 "Item Width: <br/><small>(Box-model width of individual items, including "
 "horizontal borders and padding.)</small>"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:962
+#: library/functions/widgets.php:870
 msgid ""
 "Min Item (Resizable/Responsive options) <br/><small>(Minimum number of items "
 "that should be visible. Items will resize fluidly when below this.)</small>"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:968
+#: library/functions/widgets.php:876
 msgid ""
 "Max Item <br/><small>(Maxmimum number of items that should be visible. Items "
 "will resize fluidly when above this limit.)</small>"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:974
+#: library/functions/widgets.php:882
 msgid ""
 "Slide Items <br/><small>(Number of items that should move on animation. If "
 "it&acute;s 0, slider will move all visible items.)</small>"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1024
+#: library/functions/widgets.php:932
 msgid "Number of Reviews"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1063 library/functions/widgets.php:1283
-#: library/functions/widgets.php:1480
+#: library/functions/widgets.php:971 library/functions/widgets.php:1191
+#: library/functions/widgets.php:1388
 msgid "Select Post:"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1174
+#: library/functions/widgets.php:1082
 msgid "widget Templatic Popular Posts Widget "
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1174
+#: library/functions/widgets.php:1082
 msgid ""
 "It lists the popular posts as per total views , daily views or comments."
 "( you can also select another post-type)"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1175
+#: library/functions/widgets.php:1083
 msgid "T &rarr; Popular Posts Widget "
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1299
+#: library/functions/widgets.php:1207
 msgid "Total Number of Posts"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1304
+#: library/functions/widgets.php:1212
 msgid "Number of Posts Per Slide"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1309
+#: library/functions/widgets.php:1217
 msgid "Shows post as per view counting/comments"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1311
+#: library/functions/widgets.php:1219
 msgid "Total views"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1312
+#: library/functions/widgets.php:1220
 msgid "Daily views"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1313
+#: library/functions/widgets.php:1221
 msgid "Total comments"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1319
+#: library/functions/widgets.php:1227
 msgid "Pagination Position"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1321
+#: library/functions/widgets.php:1229
 msgid "After Posts"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1322
+#: library/functions/widgets.php:1230
 msgid "Before Posts"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1341
+#: library/functions/widgets.php:1249
 msgid "widget Templatic Listing Post"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1341
+#: library/functions/widgets.php:1249
 msgid ""
 "Shows Listing post with post thumbnail, post title, post content, post "
 "category, gravatar with order by option."
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1342
+#: library/functions/widgets.php:1250
 msgid "T &rarr; Listing Post"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1363 library/functions/widgets.php:1466
+#: library/functions/widgets.php:1271 library/functions/widgets.php:1374
 msgid "By"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1366 library/functions/widgets.php:1469
+#: library/functions/widgets.php:1274 library/functions/widgets.php:1377
 msgid "[Read More...]"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1496
+#: library/functions/widgets.php:1404
 msgid "Select Category:"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1498
+#: library/functions/widgets.php:1406
 msgid "---Select Category wise recent post ---"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1524
+#: library/functions/widgets.php:1432
 msgid "Number of posts:"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1529
+#: library/functions/widgets.php:1437
 msgid "Order By"
 msgstr ""
 
+# @ hybrid-core
 # @ supreme
-#: library/functions/widgets.php:1533
+#: library/functions/widgets.php:1439
+msgid "Date"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:1441
 msgid "Parent"
 msgstr ""
 
+# @ hybrid-core
 # @ supreme
-#: library/functions/widgets.php:1535
-msgid "Comment Count"
+#: library/functions/widgets.php:1442
+msgid "ID"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1540
+#: library/functions/widgets.php:1443
+msgid "Comment Count"
+msgstr ""
+
+# @ hybrid-core
+# @ supreme
+#: library/functions/widgets.php:1444
+msgid "Random"
+msgstr ""
+
+# @ supreme
+#: library/functions/widgets.php:1448
 msgid "Sort Order"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1542
+#: library/functions/widgets.php:1450
 msgid "Descending (3, 2, 1)"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1543
+#: library/functions/widgets.php:1451
 msgid "Ascending (1, 2, 3)"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1547
+#: library/functions/widgets.php:1455
 msgid "Show Author Gravatar"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1549
+#: library/functions/widgets.php:1457
 msgid "Gravatar Size"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1551
+#: library/functions/widgets.php:1459
 msgid "Small (45px)"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1552
+#: library/functions/widgets.php:1460
 msgid "Medium (65px)"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1553
+#: library/functions/widgets.php:1461
 msgid "Large (85px)"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1554
+#: library/functions/widgets.php:1462
 msgid "Extra Large (125px)"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1558
+#: library/functions/widgets.php:1466
 msgid "Show Featured Image"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1560
+#: library/functions/widgets.php:1468
 msgid "Image Size"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1580
+#: library/functions/widgets.php:1488
 msgid "Show Post Title"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1583
+#: library/functions/widgets.php:1491
 msgid "Content Type"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1585
+#: library/functions/widgets.php:1493
 msgid "Show Content"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1586
+#: library/functions/widgets.php:1494
 msgid "Show Excerpt"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1587
+#: library/functions/widgets.php:1495
 msgid "Show Content Limit"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1588
+#: library/functions/widgets.php:1496
 msgid "No Content"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1592
+#: library/functions/widgets.php:1500
 msgid "Limit content to"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1592
+#: library/functions/widgets.php:1500
 msgid "characters"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1595
+#: library/functions/widgets.php:1503
 msgid "More Text (if applicable)"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1644
+#: library/functions/widgets.php:1552
 msgid "widget Templatic facebook fans t_facebook_fans"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1644
+#: library/functions/widgets.php:1552
 msgid "Show your facebook fans on your site."
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1645
+#: library/functions/widgets.php:1553
 msgid "T &rarr; Facebook Fans"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1690
+#: library/functions/widgets.php:1598
 msgid "Facebook Page Full URL"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1695
+#: library/functions/widgets.php:1603
 msgid "Width"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1700
+#: library/functions/widgets.php:1608
 msgid "Show Faces"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1708
+#: library/functions/widgets.php:1616
 msgid "Show Stream"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1716
+#: library/functions/widgets.php:1624
 msgid "Show Header"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1743
+#: library/functions/widgets.php:1651
 msgid "widget Templatic Advertisements"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1743
+#: library/functions/widgets.php:1651
 msgid ""
 "Show the advertisements, Here you can use HTML, JavaScript, or an IFrame "
 "too. "
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1744
+#: library/functions/widgets.php:1652
 msgid "T &rarr; Advertisements"
 msgstr ""
 
 # @ supreme
-#: library/functions/widgets.php:1784
+#: library/functions/widgets.php:1692
 msgid ""
 "Advertisement code <small>(ex.&lt;a href=\"#\"&gt;&lt;img src=\"http://"
 "templatic.com/banner.png\" /&gt;&lt;/a&gt; and google ads code here )</small>"
-msgstr ""
-
-# @ supreme
-#: loop-entry-author.php:19
-msgid "Published by [entry-author]"
-msgstr ""
-
-# @ supreme
-#: loop-error.php:16
-msgid ""
-"Apologies, but no results were found for the requested archive. Perhaps "
-"searching will help find a related post."
-msgstr ""
-
-# @ supreme
-#: loop-meta.php:91
-#, php-format
-msgid "You are browsing the search results for \"%s\""
-msgstr ""
-
-# @ supreme
-#: loop-meta.php:100
-msgid "Archives by date"
-msgstr ""
-
-# @ supreme
-#: loop-meta.php:104
-msgid "You are browsing the site archives by date."
-msgstr ""
-
-# @ supreme
-#: loop-meta.php:132
-msgid "You are browsing the site archives."
-msgstr ""
-
-# @ supreme
-#: loop-nav.php:16
-msgid "<span class=\"meta-nav\">&larr;</span> Return to entry"
-msgstr ""
-
-# @ supreme
-#: loop-nav.php:23 loop-nav.php:27 loop-nav.php:29
-msgid "<span class=\"meta-nav\">&larr;</span> Previous"
-msgstr ""
-
-# @ supreme
-#: loop-nav.php:24 loop-nav.php:27
-msgid "Next <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-# @ supreme
-#: loop-nav.php:29
-msgid "Next &rarr;"
-msgstr ""
-
-# @ supreme
-#: page-template-archives.php:60
-msgid "&nbsp;by&nbsp;"
-msgstr ""
-
-# @ supreme
-#: page-template-archives.php:62
-msgid "&nbsp;on&nbsp;"
-msgstr ""
-
-# @ supreme
-#: page-template-archives.php:65
-msgid "&nbsp;No Comments&nbsp;"
-msgstr ""
-
-# @ supreme
-#: page-template-archives.php:65
-msgid "&nbsp;1 Comment&nbsp;"
-msgstr ""
-
-# @ supreme
-#: page-template-archives.php:65
-msgid "&nbsp;Comments Closed&nbsp;"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:119
-msgid "Contact mail successfully sent."
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:134
-msgid "Inquiry Form"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:154
-msgid "Subject"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:162
-msgid "Message"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:176
-msgid "Verify words"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:186
-msgid "Send"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:250
-msgid "Please enter your name"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:285
-msgid "Please enter valid email address"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:304
-msgid "Please enter a subject"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:321
-msgid "Please enter message"
-msgstr ""
-
-# @ supreme
-#: page-template-contact.php:338
-msgid "Please enter captcha"
-msgstr ""
-
-# @ supreme
-#: page-template-sitemap.php:56
-msgid "Posts"
-msgstr ""
-
-# @ supreme
-#: page-template-sitemap.php:65 page-template-sitemap.php:122
-msgid "0 comment"
-msgstr ""
-
-# @ supreme
-#: page-template-sitemap.php:65 page-template-sitemap.php:122
-msgid "1 comment"
-msgstr ""
-
-# @ supreme
-#: page-template-sitemap.php:65 page-template-sitemap.php:122
-msgid "% comments"
-msgstr ""
-
-# @ supreme
-#: page-template-sitemap.php:81
-msgid "Post Categories"
-msgstr ""
-
-# @ supreme
-#: post.php:38
-#, php-format
-msgid ""
-"[entry-author] [entry-published] [entry-comments-link zero=\"Respond\" one="
-"\"%1$s Comment\" more=\"%1$s Comments\"] [entry-edit-link]"
-msgstr ""
-
-# @ supreme
-#: searchform.php:14
-msgid "Search this site..."
-msgstr ""
-
-# @ supreme
-#: singular.php:38
-#, php-format
-msgid ""
-"[entry-author] [entry-published] [entry-comments-link zero=\"Respond\" one="
-"\"%1$s\" more=\"%1$s\"] [entry-edit-link]"
-msgstr ""
-
-# @ bbpress
-#: taxonomy-topic-tag-edit.php:27 taxonomy-topic-tag.php:30
-#, php-format
-msgid "Topic Tag: %s"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:8
-msgid "You do not have sufficient permissions to access this section."
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:234
-msgid " Upload image for logo"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:240
-msgid " Upload favicon icon"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:253
-msgid "Hide autoinstall section"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:261
-msgid "Use custom css"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:268
-msgid "Enable comments on pages and posts"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:276
-msgid "Show author biography on posts"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:282
-msgid "Show author biography on pages"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:289
-msgid "Show Breadcrumb"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:296
-msgid "Global Layout"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:311
-msgid "Jigoshop Layout"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:325
-msgid "WooCommerce Layout"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:339
-msgid "Contact Us Captcha Setting"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:349
-msgid "Display excerpts on Search Result Pages"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:356
-msgid "Display excerpts on archive pages"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:363
-msgid "Excerpt length"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:370
-msgid "Text for Continue reading"
-msgstr ""
-
-# @ supreme
-#: templatic_customizer.php:391
-msgid ""
-"Enter comma saperated post type slug(s) which you want to display on 404 and "
-"on search result not found page"
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:100
-msgid "The new version of supreme is available."
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:102
-msgid ""
-"you can update to the latest version automatically , or download the latest "
-"version of the theme."
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:103
-msgid "Warning"
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:103
-msgid ""
-"Updating will undo all your file customizations so make sure to keep backup "
-"of all files before updating."
-msgstr ""
-
-# @ templatic
-#: templatic_login.php:104
-msgid "Download latest Version"
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:122
-msgid ""
-"Templatic Login , enter your templatic credentials to take the updates of "
-"supreme."
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:126
-msgid "User Name"
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:135
-msgid "Cancel"
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:151
-msgid "You have the latest version of supreme parent theme."
-msgstr ""
-
-# @ supreme
-#: templatic_login.php:152
-#, php-format
-msgid "<strong>Your version:</strong> %s"
-msgstr ""
-
-# @ supreme
-#: wp-updates-theme.php:59 wp-updates-theme.php:114
-msgid "New Version of supreme is available now ."
-msgstr ""
-
-# @ supreme
-#: wp-updates-theme.php:59 wp-updates-theme.php:114
-#, php-format
-msgid "View version %s Details"
-msgstr ""
-
-# @ supreme
-#: wp-updates-theme.php:65
-#, php-format
-msgid "or <a href=\"%s\"  title=\"Supreme Update\">update now</a>."
-msgstr ""
-
-# @ supreme
-#: wp-updates-theme.php:119
-msgid ""
-"or <a href=\"\" class=\"thickbox\" title=\"Supreme Update\">update now</a>."
 msgstr ""

@@ -62,7 +62,7 @@ get_header(); // Loads the header.php template. ?>
 
 					<?php 
 						$theme_options = get_option(hybrid_get_prefix().'_theme_settings');
-						$enable_comments = $theme_options['enable_comments'];
+						$enable_comments = @$theme_options['enable_comments'];
 						if ( $enable_comments ) {
 							comments_template( '/comments.php', true ); // Loads the comments.php template. 
 						}

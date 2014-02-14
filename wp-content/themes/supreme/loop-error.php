@@ -42,18 +42,18 @@
 	  <!--/arclist -->
 	 <?php 
 		$Supreme_Theme_Settings_Options = get_option('supreme_theme_settings');
-		$Get_All_Post_Types = explode(',',$Supreme_Theme_Settings_Options['post_type_label']);
+		$Get_All_Post_Types = explode(',',@$Supreme_Theme_Settings_Options['post_type_label']);
 		foreach($Get_All_Post_Types as $post_type):
 			if($post_type!='page' && $post_type!="attachment" && $post_type!="revision" && $post_type!="nav_menu_item"):
 			$taxonomies = get_object_taxonomies( (object) array( 'post_type' => $post_type,'public'   => true, '_builtin' => true ));	
 			$archive_query = new WP_Query('showposts=60&post_type='.$post_type);
 			if( count(@$archive_query->posts) > 0 ){
 				$PostTypeObject = get_post_type_object($post_type);
-				$PostTypeName = $PostTypeObject->labels->name;
+				$PostTypeName = @$PostTypeObject->labels->name;
 			}	
 	?>
     <?php 
-		$WPListCustomCategories = wp_list_categories('title_li=&hierarchical=0&show_count=0&echo=0&taxonomy='.$taxonomies[0]);
+		$WPListCustomCategories = wp_list_categories('title_li=&hierarchical=0&show_count=0&echo=0&taxonomy='.@$taxonomies[0]);
 		if(($WPListCustomCategories) && $WPListCustomCategories!="No categories" && $WPListCustomCategories!="<li>No categories</li>"){
 	  ?> 
       <div class="arclist">

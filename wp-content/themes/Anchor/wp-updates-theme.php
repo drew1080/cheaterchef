@@ -11,7 +11,7 @@ if( !class_exists('WPUpdatesAnchorUpdater') ) {
 		var $theme_slug;
 		function Anchor_clear_update_transient() {
 
-			delete_transient( $theme_name.'-update' );
+			delete_transient( @$theme_name.'-update' );
 		}
 		function __construct( $api_url,  $theme_slug ) {
 			global $theme_name;
@@ -44,7 +44,8 @@ if( !class_exists('WPUpdatesAnchorUpdater') ) {
 			
 			$update_themes=get_option('_site_transient_update_themes');
 			$theme_name = basename(get_stylesheet_directory());
-    		$theme_data = get_theme_data(get_stylesheet_directory().'/style.css');			
+			if(function_exists('supreme_get_theme_data'))
+    		$theme_data = supreme_get_theme_data(get_stylesheet_directory().'/style.css');			
 			$theme_version = $theme_data['Version'];
 			$remote_version = (!empty($update_themes) && $update_themes!="" && !empty($update_themes->response))?$update_themes->response[$theme_name]['new_version']:$theme_response[$theme_name]['new_version'];			
 			//compare theme version				
@@ -97,7 +98,8 @@ if( !class_exists('WPUpdatesAnchorUpdater') ) {
 			
 			$update_themes=get_option('_site_transient_update_themes');
 			$theme_name = basename(get_stylesheet_directory());
-    		$theme_data = get_theme_data(get_stylesheet_directory().'/style.css');			
+			if(function_exists('supreme_get_theme_data'))
+				$theme_data = supreme_get_theme_data(get_stylesheet_directory().'/style.css');			
 			$theme_version = $theme_data['Version'];
 			$theme_name=$theme_data['Name'];
 			$remote_version = (!empty($update_themes) && $update_themes!="")?$update_themes->response[$theme_name]['new_version']:$theme_response[$theme_name]['new_version'];			

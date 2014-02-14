@@ -1,5 +1,16 @@
 Templatic theme - Anchor( Version 1.0 - Launched at 29th Jan 2013 )
 =====================================================================================================================================
+31st January 2014 (Version : 1.0.6)
+------------------------------------------------------------
+General PHP notices and warnings related improvement in code
+-------------------------------------------------------------
+functions.php
+functions/auto_install/auto_install.php
+templatic_login.php
+wp-updates-theme.php
+header.php
+content.php
+------------------------------------------------------------------
 5th August 2013 (Version : 1.0.5)
 ---------------------------------------------------------------------
 FIX : Slider and list post widget were not working with multiple category.

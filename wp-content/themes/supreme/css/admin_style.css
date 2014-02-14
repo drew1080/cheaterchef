@@ -70,7 +70,7 @@
 	
 	#TB_window,
 	#TB_iframeContent {
-		width: 550px !important;
+		width: 660px !important;
 		height: 460px !important;
 		margin-top: 0 !important;
 		}
@@ -82,10 +82,9 @@
 	.templatic_login {
 		background: none repeat scroll 0 0 #FFFFFF;
 		border:0 !important;
-		margin:0 !important;
 		font-size: 14px;
 		font-weight: normal;
-		padding-top: 20px ;
+		padding: 10px ;
 		width:40%;
 		}
 		

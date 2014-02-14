@@ -1,6 +1,13 @@
-	<?php if ( current_theme_supports( 'get-the-image' ) ) : ?>
+	<?php 
+	global $post;
+	if ( current_theme_supports( 'get-the-image' ) ) : ?>
 		<?php $image = get_the_image( array( 'echo' => false ) );
-			if ( $image ) : ?>
+		if(has_post_thumbnail($post->ID))
+		{	?>
+       		<a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute( 'echo=1' ); ?>" rel="bookmark" class="featured-image-link"><?php	echo get_the_post_thumbnail( $post->ID, 'supreme-thumbnail'); 	?></a>
+        <?php
+		}
+		else if ( $image ) : ?>
 				<a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute( 'echo=1' ); ?>" rel="bookmark" class="featured-image-link"><?php get_the_image( array( 'size' => 'supreme-thumbnail', 'link_to_post' => false, 'width' => '240' ) ); ?></a>
 		<?php 
 			else : ?>

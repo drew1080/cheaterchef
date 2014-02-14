@@ -27,20 +27,19 @@
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 /* Load the Hybrid Core framework. */
-error_reporting(0);
-ini_set('display_error',1);
 require_once( trailingslashit ( get_template_directory() ) . 'library/hybrid.php' );
 $theme = new Hybrid(); // Part of the framework.
 /* Do theme setup on the 'after_setup_theme' hook. */
 add_action( 'after_setup_theme', 'supreme_theme_setup' );
 global $wpdb;
-
+if (defined('WP_DEBUG') and WP_DEBUG == true){ error_reporting(E_ALL ^ E_NOTICE); } else { error_reporting(0); }
 function supreme_support_woo(){
-    $currrent_theme_name = wp_get_theme();
+    $currrent_theme_name = supreme_get_theme_data(get_template_directory().'/style.css');	
 	$templatic_woocommerce_themes = get_option('templatic_woocommerce_themes');
 	$templatic_woocommerce_ = str_replace(',','',get_option('templatic_woocommerce_themes'));
-	if(!strstr(trim($templatic_woocommerce_) ,trim($currrent_theme_name))):
-		update_option('templatic_woocommerce_themes',$templatic_woocommerce_themes.",".$currrent_theme_name);
+
+	if(!strstr(trim(@$templatic_woocommerce_) ,trim(@$currrent_theme_name['Name']))):
+		update_option('templatic_woocommerce_themes',$templatic_woocommerce_themes.",".$currrent_theme_name['Name']);
 	endif;
 		
 }
@@ -63,6 +62,7 @@ if(isset($_REQUEST['page']) && $_REQUEST['page']=='tmpl_framework_update'){
  */
 function supreme_theme_setup() {
 	/* Get action/filter hook prefix. */
+	
 	$prefix = hybrid_get_prefix(); // Part of the framework, cannot be changed or prefixed.
 	
 	if(file_exists(get_template_directory().'/templatic_customizer.php')){
@@ -71,6 +71,10 @@ function supreme_theme_setup() {
 	if(file_exists(get_template_directory().'/functions/templatic_news.php')){
 		require_once(get_template_directory().'/functions/templatic_news.php');
 	}
+	//if(function_exists())
+	@define('DOMAIN','supreme');
+
+	//add_filter( 'woocommerce_enqueue_styles', '__return_false' ); // unable woocommerce css
 	
 	add_action('init','attach_mega_menu_js');
 	/* Add theme settings */
@@ -143,7 +147,7 @@ function supreme_theme_setup() {
 		) );
 
 	/* Add theme support for other framework extensions */
-	add_theme_support( 'post-stylesheets' );
+	//add_theme_support( 'post-stylesheets' );
 	add_theme_support( 'loop-pagination' );
 	add_theme_support( 'get-the-image' );
 	add_theme_support( 'breadcrumb-trail' );
@@ -268,7 +272,7 @@ function supreme_resources() {
 	
 	if( function_exists( 'is_woocommerce') ) {
 		wp_dequeue_style( 'woocommerce_frontend_styles' );
-		wp_dequeue_style( 'woocommerce_chosen_styles' );
+		//wp_dequeue_style( 'woocommerce_chosen_styles' );
 		wp_enqueue_style ( 'supreme-woocommerce', trailingslashit ( THEME_URI ) . 'css/woocommerce.css', false, '20120702', 'all' );
 	}
 
@@ -1207,7 +1211,7 @@ function supreme_remove_meta_text()
 {
 	global $post;
 	$prefix = hybrid_get_prefix();
-	if($post->post_type == 'page')
+	if(@$post->post_type == 'page')
 	{
 		add_filter( "{$prefix}_singular_entry_meta", 'supreme_visual_meta_text' );
 	}
@@ -1220,5 +1224,61 @@ function supreme_visual_meta_text()
 		echo "";
 	}
 	
+}
+/*
+*function name : comment_form_defaults
+*
+*description : to fetch fields after comment box.
+*/
+add_filter( 'comment_form_defaults', 'supreme_comment_form_defaults',100 );
+function supreme_comment_form_defaults( $arg ) {
+	global $post,$current_user;
+	if(!$current_user->ID)
+	{
+		$fields = $arg['fields'];
+		$arg['fields'] = '';
+		$arg['comment_field'] .= '<div class="comment_column2">'.$fields['author'].$fields['email'].$fields['url'].'</div>';
+	}
+	if($post->post_type != 'post')
+		$arg['label_submit'] = __('Post Review',THEME_DOMAIN);
+	return $arg;
+}
+
+
+if(!function_exists('supreme_get_theme_data')){
+	/*
+	Name: supreme_get_theme_data
+	Desc: return the theme data
+	*/
+	function supreme_get_theme_data( $theme_file ) {
+		$theme = new WP_Theme( basename( dirname( $theme_file ) ), dirname( dirname( $theme_file ) ) );
+
+		$theme_data = array(
+			'Name' => $theme->get('Name'),
+			'URI' => $theme->display('ThemeURI', true, false),
+			'Description' => $theme->display('Description', true, false),
+			'Author' => $theme->display('Author', true, false),
+			'AuthorURI' => $theme->display('AuthorURI', true, false),
+			'Version' => $theme->get('Version'),
+			'Template' => $theme->get('Template'),
+			'Status' => $theme->get('Status'),
+			'Tags' => $theme->get('Tags'),
+			'Title' => $theme->get('Name'),
+			'AuthorName' => $theme->get('Author'),
+		);
+
+		foreach ( apply_filters( 'extra_theme_headers', array() ) as $extra_header ) {
+			if ( ! isset( $theme_data[ $extra_header ] ) )
+				$theme_data[ $extra_header ] = $theme->get( $extra_header );
+		}
+
+		return $theme_data;
+	}
+}
+/* FUNCTION TO REMOVE WHITE SPACES FROM RSS PAGE */ 
+if(!function_exists('___wejns_wp_whitespace_fix')){
+function ___wejns_wp_whitespace_fix($input) { /* valid content-type? */ $allowed = false; /* found content-type header? */ $found = false; /* we mangle the output if (and only if) output type is text/* */ foreach (headers_list() as $header) { if (preg_match("/^content-type:\\s+(text\\/|application\\/((xhtml|atom|rss)\\+xml|xml))/i", $header)) { $allowed = true; } if (preg_match("/^content-type:\\s+/i", $header)) { $found = true; } } /* do the actual work */ if ($allowed || !$found) { return preg_replace("/\\A\\s*/m", "", $input); } else { return $input; } } 
+/* start output buffering using custom callback */ 
+ob_start("___wejns_wp_whitespace_fix"); /* END OF FUNCTION */
 }
 ?>

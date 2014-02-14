@@ -54,7 +54,7 @@ function anchor_autoinstall(){
 	global $wpdb;
 	$wp_user_roles_arr = get_option($wpdb->prefix.'user_roles');
 	global $wpdb;
-	if((strstr($_SERVER['REQUEST_URI'],'themes.php') && !isset($_REQUEST['page'])) && @$_REQUEST['template']=='' || $_REQUEST['page']=="templatic_system_menu" ){
+	if((strstr($_SERVER['REQUEST_URI'],'themes.php') && !isset($_REQUEST['page'])) && @$_REQUEST['template']=='' || (isset($_REQUEST['page']) && $_REQUEST['page']=="templatic_system_menu") ){
 	
 		$post_counts = $wpdb->get_var("select count(post_id) from $wpdb->postmeta where (meta_key='pt_dummy_content' || meta_key='tl_dummy_content') and meta_value=1");
 		if($post_counts>0){
@@ -69,7 +69,7 @@ function anchor_autoinstall(){
 		}else{
 			$theme_name = get_option('stylesheet');
 			$nav_menu = get_option('theme_mods_'.strtolower($theme_name));
-			if($nav_menu['nav_menu_locations']['secondary'] == 0){
+			if(@$nav_menu['nav_menu_locations']['secondary'] == 0){
 				$menu_msg1 = "<p><b>NAVIGATION MENU:</b> <a href='".site_url("/wp-admin/nav-menus.php")."'><b>Setup your Menu here</b></a>  | <b>CUSTOMIZE:</b> <a href='".site_url("/wp-admin/customize.php")."'><b>Customize your Theme Options.</b></a><br/> <b>HELP:</b> <a href='http://templatic.com/docs/anchor/'> <b>Theme Documentation Guide</b></a> | <b>SUPPORT:</b><a href='http://templatic.com/forums'> <b>Community Forum</b></a></p>";
 			}else{
 				$menu_msg1="<p><b>CUSTOMIZE:</b> <a href='".site_url("/wp-admin/customize.php")."'><b>Customize your Theme Options.</b></a><br/> <b>HELP:</b> <a href='http://templatic.com/docs/anchor/'> <b>Theme Documentation Guide</b></a> | <b>SUPPORT:</b><a href='http://templatic.com/forums'> <b>Community Forum</b></a></p>";

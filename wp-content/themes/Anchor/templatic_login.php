@@ -22,7 +22,8 @@
 	 */
 	function Anchor_tmpl_get_theme_version () {		
 		$theme_name = basename(get_stylesheet_directory());
-		$theme_data = get_theme_data(get_stylesheet_directory().'/style.css');			
+		if(function_exists('supreme_get_theme_data'))
+		$theme_data = supreme_get_theme_data(get_stylesheet_directory().'/style.css');			
 		return $theme_version = $theme_data['Version'];	
 	}
 

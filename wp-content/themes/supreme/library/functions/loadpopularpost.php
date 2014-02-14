@@ -1,7 +1,6 @@
 <?php
 $file = dirname(__FILE__);
-$file = substr($file,0,stripos($file, "wp-content"));
-require_once($file."/wp-load.php");
+require_once("../../../../../wp-load.php");
 global $wpdb,$posts,$post,$query_string;
 if(is_plugin_active('wpml-translation-management/plugin.php'))
 {
@@ -9,11 +8,13 @@ if(is_plugin_active('wpml-translation-management/plugin.php'))
 	$sitepress->switch_lang($_REQUEST['limitarr'][7]);
 }
 $ppost = get_option('widget_templatic_popular_post_technews');
+	if(!empty($ppost)){
 	foreach($ppost as $key=>$value)
 	{		
 		$popular_per=$value['popular_per'];
 		$number=$value['number'];		
 		break;
+	}
 	}
 	$posthtml = '';		
 	$start = $_REQUEST['limitarr'][0];
@@ -154,7 +155,7 @@ function vt_resize( $attach_id = null, $img_url = null, $width, $height, $crop =
 		$path = explode('/',$file_path['path']);
 	foreach($path as $k=>$v){
 	if($v == 'files'){
-		$path[$k-1] = '/wp-content/blogs.dir/'.$blog_id;
+		$path[$k-1] = WP_CONTENT_DIR.'/blogs.dir/'.$blog_id;
 	}
 	}
 	$path = implode('/',$path);

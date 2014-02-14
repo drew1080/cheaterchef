@@ -1,11 +1,10 @@
-<?php error_reporting(0);
-
+<?php
 	/*
 	 * Get framework Version
 	 */
 	function tmpl_get_frm_version () {		
 		$theme_name = basename(get_template_directory());
-		$theme_data = get_theme_data(get_template_directory().'/style.css');			
+		$theme_data = supreme_get_theme_data(get_template_directory().'/style.css');			
 		return $theme_version = $theme_data['Version'];	
 	}
 
@@ -69,7 +68,7 @@
 				}
 			}else
 			{
-				$warnning_message="We don't find supreme in your templatic account, you will not be able to update without a license";
+				$warnning_message="Update was unable to continue because supreme theme doesn't seem to be associated with your Templatic account. Please <a href='http://templatic.com/contact/' target='_blank'>contact us</a> if this message is showing in error.";
 			}
 		}
 	}else{
@@ -88,9 +87,9 @@
 			}else{
 				$flag = 0;
 			}
-			$the_name = get_current_theme();
+			$the_name = wp_get_theme();
 	
-	$session = $_SESSION['success_user_login'];
+	$session = @$_SESSION['success_user_login'];
 	?>
 		
     <div class='wrap templatic_login'>
@@ -148,8 +147,8 @@
 <?php
 
 if($flag == 0){
-	echo '<h3>'.__('You have the latest version of supreme parent theme.',THEME_DOMAIN).'</h3>';
-    echo '<p>&rarr;'.sprintf(__('<strong>Your version:</strong> %s',THEME_DOMAIN),$theme_version).'</p>';	
+	echo '<h3>'.__('You have the latest version of supreme parent theme.',DOMAIN).'</h3>';
+    echo '<p>&rarr;'.sprintf(__('<strong>Your version:</strong> %s',DOMAIN),$theme_version).'</p>';	
 }
 do_action('admin_footer', '');
 do_action('admin_print_footer_scripts');

@@ -26,7 +26,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php 
 		$GetSupremeThemeOptions = get_option('supreme_theme_settings');
-		$GetFaviconIcon = $GetSupremeThemeOptions['supreme_favicon_icon'];
+		$GetFaviconIcon = @$GetSupremeThemeOptions['supreme_favicon_icon'];
 		if($GetFaviconIcon!=""){
 	 ?>
 			<link rel="shortcut icon" type="image/png" href="<?php echo $GetFaviconIcon; ?>">
@@ -68,7 +68,7 @@
 		<!-- Header Right Widget -->
 		<div class="header_right">
 			<div class="widget header_featured_event">
-				<?php dynamic_sidebar( 'header_right' ); // CUSTOM CODE: HIOWEB 12.19.13 show header right widget ?>
+				<?php dynamic_sidebar( 'secondary_navigation_right' ); ?>
 			</div>
 		</div>
 		<!-- Header Right Widget -->

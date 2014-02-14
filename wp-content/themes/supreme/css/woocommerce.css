@@ -2,7 +2,15 @@
  * woocommerce General
  ************************************************/
  
-.demo_store {
+ /* woocommerce.css  < version 2.o */
+.cart_totals  th {
+	width:50% !important;
+	padding: 5px !important;
+}
+.cart_totals  td {
+	padding: 5px !important;
+}
+ .demo_store {
 		background: #f8f8f8;
 		bottom: 0;
 		color: #e00;
@@ -220,7 +228,6 @@ p.stars span {
 		float: left;
 		height: 16px;
 		position: relative;
-		width: 80px;
 }
 p.stars span a {
 		float: left;
@@ -228,9 +235,14 @@ p.stars span a {
 		left: 0;
 		padding-top: 16px;
 		position: absolute;
-		overflow: hidden;
 		top: 0;
 		width: 16px;
+}
+.woocommerce #review_form #respond p, .woocommerce-page #review_form #respond p{
+	margin:0px;
+}
+body.woocommerce p.stars, body.woocommerce-page p.stars{
+	width:100% !important;
 }
 .woocommerce-page .comment-pagination {
 		clear: both;
@@ -826,3 +838,6 @@ form.checkout p#shipping_state_field  br{display: none}
 								body.woocommerce-page #content table.cart td.actions .button.alt {
 																float: left;
 								}
+					.woocommerce .woocommerce-product-rating, .woocommerce-page .woocommerce-product-rating{
+							clear:both;
+					}

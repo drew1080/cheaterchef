@@ -1,5 +1,5 @@
 <?php 
-
+if(!class_exists('dc_jqmegamenu_widget')){
 class dc_jqmegamenu_widget extends WP_Widget {
     /** constructor */
     function dc_jqmegamenu_widget() {
@@ -230,5 +230,5 @@ class dc_jqmegamenu_widget extends WP_Widget {
 		}
 	}
 } // class dc_jqmegamenu_widget 
-
+}
 ?>
