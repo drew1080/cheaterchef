@@ -335,7 +335,7 @@ class anchor_recent_post extends WP_Widget {
 		<ul class="blog-listing">
 			 <?php while ($listing_post->have_posts()) : $listing_post->the_post(); ?>
 				 <?php
-                    $post_images = bdw_get_images_anchor($post->ID,'anchor-listing-thumb');
+                    $post_images = bdw_get_images_anchor($post->ID,'thumbnail');
                     $post_images = $post_images[0]['file'];
                  ?>
                 <li class="blog-listing">
