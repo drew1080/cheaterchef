@@ -34,9 +34,19 @@ class JumpToRecipe
 	
 	function filter_jtr_plugin( $plugins ) {
 		// this plugin file will work the magic of our button
-		$plugins['jumptorecipe'] = plugin_dir_url( __FILE__ ) . 'jumptorecipe_plugin.js';
+		$plugins['jumptorecipe'] = plugin_dir_url( __FILE__ ) . '/js/jumptorecipe_plugin.js';
 		return $plugins;
 	}
 }
 
 $jumptorecipe = new JumpToRecipe();
+
+function register_jump_scripts() {
+	wp_enqueue_script(
+		'custom-script',
+		plugin_dir_url( __FILE__ ) .'/js/jump-to-plugin-page-load.js',
+		array( 'jquery' )
+	);
+}
+
+add_action( 'wp_enqueue_scripts', 'register_jump_scripts' );
