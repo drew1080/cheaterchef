@@ -459,33 +459,36 @@ class post_by_category extends WP_Widget {
 						  'order' => 'DESC');
 					$category_post = null;
 					$category_post = new WP_Query($args);
-					?>
-					<?php while ($category_post->have_posts()) : $category_post->the_post(); ?>
-					<li class="blog-listing">
-						 <?php
-							global $post;
-							$post_images = bdw_get_images_anchor($post->ID,'post-by-category');
-							$post_images = $post_images[0]['file'];
-						 ?>
-						 <a class="post-image" href="<?php the_permalink(); ?>">
-							 <?php if($post_images != ""):?>
-								 <img src="<?php echo $post_images; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-							 <?php else: ?>
-								 <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/list_noimage.png" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-							 <?php endif; ?>
-						 </a>
-							<?php 
-								$cat_name = array();
-								foreach(get_the_category($post->ID) as $_category):
-										$cat_name[] = $_category->cat_name;
-								endforeach;
-							?>
-						 <span class="category"><a rel="tag"><?php echo implode(",",$cat_name); ?></a></span>
-						 <h2 class="post-title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-						 <p><?php _e(anchor_excerpt(15)); ?></p>
-						 <a href="<?php the_permalink(); ?>" class="moretag"> <?php _e('Read more',T_DOMAIN); ?> &#187; </a>
-					</li>
-				<?php break;endwhile; ?>
+					$counter = 0;
+          					?>
+          					<?php while ($category_post->have_posts() && $counter < 3) : $category_post->the_post(); ?>
+          					<li class="blog-listing">
+          						 <?php
+          							global $post;
+          							$post_images = bdw_get_images_anchor($post->ID,'post-by-category');
+          							$post_images = $post_images[0]['file'];
+          						 ?>
+          						 <a class="post-image" href="<?php the_permalink(); ?>">
+          							 <?php if($post_images != ""):?>
+          								 <img src="<?php echo $post_images; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+          							 <?php else: ?>
+          								 <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/list_noimage.png" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+          							 <?php endif; ?>
+          						 </a>
+          							<?php 
+          								$cat_name = array();
+          								foreach(get_the_category($post->ID) as $_category):
+          								  if ($_category->cat_name != "Featured Home Static") {
+          								    $cat_name[] = $_category->cat_name;
+          								  }
+          								endforeach;
+          							?>
+          						 <span class="category"><a rel="tag"><?php echo implode(",",$cat_name); ?></a></span>
+          						 <h2 class="post-title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+          						 <p><?php _e(anchor_excerpt(15)); ?></p>
+          						 <a href="<?php the_permalink(); ?>" class="moretag"> <?php _e('Read more',T_DOMAIN); ?> &#187; </a>
+          					</li>
+          				<?php $counter++; endwhile; ?>
            <?php endforeach; ?>     
     </ul>
    <?php
