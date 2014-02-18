@@ -16,9 +16,6 @@
 	margin:0;
 	display: block;
 }
-#amazon_addressbook_widget, #amazon_wallet_widget {
-	text-align: center;
-}
 #amazon_addressbook_widget div, #amazon_wallet_widget div {
 	margin: 0 auto !important;
 }

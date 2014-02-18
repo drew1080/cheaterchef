@@ -255,9 +255,9 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 				'AmazonOrderReferenceId'                                       => $amazon_reference_id,
 				'OrderReferenceAttributes.OrderTotal.Amount'                   => $order->get_total(),
 				'OrderReferenceAttributes.OrderTotal.CurrencyCode'             => strtoupper( get_woocommerce_currency() ),
-				'OrderReferenceAttributes.SellerNote'                          => sprintf( __( 'Order %s from %s.', 'wc_amazon_payments_advanced' ), $order->get_order_number(), wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) ),
+				'OrderReferenceAttributes.SellerNote'                          => sprintf( __( 'Order %s from %s.', 'wc_amazon_payments_advanced' ), $order->get_order_number(), urlencode( wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) ) ),
 				'OrderReferenceAttributes.SellerOrderAttributes.SellerOrderId' => $order->get_order_number(),
-				'OrderReferenceAttributes.SellerOrderAttributes.StoreName'     => wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ),
+				'OrderReferenceAttributes.SellerOrderAttributes.StoreName'     => urlencode( wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) ),
 				'OrderReferenceAttributes.PlatformId'                          => 'A1BVJDFFHQ7US4'
 			) );
 

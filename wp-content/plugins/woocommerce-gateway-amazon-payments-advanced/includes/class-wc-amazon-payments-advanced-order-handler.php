@@ -355,7 +355,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 
 		}
 
-		$woocommerce->add_inline_js("
+		$js = "
 
 			jQuery('#woocommerce-amazon-payments-advanced').on( 'click', 'a.button, a.refresh', function(){
 
@@ -389,7 +389,13 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 				return false;
 			});
 
-		");
+		";
+
+		if ( function_exists( 'wc_enqueue_js' ) ) {
+			wc_enqueue_js( $js );
+		} else {
+			$woocommerce->add_inline_js( $js );
+		}
 	}
 
     /**
@@ -408,7 +414,8 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 				'AuthorizationReferenceId'         => $order->id . '-' . current_time( 'timestamp', true ),
 				'AuthorizationAmount.Amount'       => $order->get_total(),
 				'AuthorizationAmount.CurrencyCode' => strtoupper( get_woocommerce_currency() ),
-				'CaptureNow'                       => $capture_now
+				'CaptureNow'                       => $capture_now,
+				'TransactionTimeout'               => 0
 			) );
 
 			if ( is_wp_error( $response ) ) {
@@ -425,22 +432,34 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 
 			} else {
 
-				$auth_id = $response['AuthorizeResult']['AuthorizationDetails']['AmazonAuthorizationId'];
+				if ( isset( $response['AuthorizeResult']['AuthorizationDetails']['AmazonAuthorizationId'] ) ) {
+					$auth_id = $response['AuthorizeResult']['AuthorizationDetails']['AmazonAuthorizationId'];
+				} else {
+					return false;
+				}
+
+				if ( isset( $response['AuthorizeResult']['AuthorizationDetails']['AuthorizationStatus']['State'] ) ) {
+					$state = strtolower( $response['AuthorizeResult']['AuthorizationDetails']['AuthorizationStatus']['State'] );
+				} else {
+					$state = 'pending';
+				}
 
 				update_post_meta( $order_id, 'amazon_authorization_id', $auth_id );
 
-				if ( $capture_now ) {
+				if ( 'declined' == $state ) {
+					// Payment was not authorized
+					return false;
+				}
 
+				if ( $capture_now ) {
 					update_post_meta( $order_id, 'amazon_capture_id', str_replace( '-A', '-C', $auth_id ) );
 
-					$order->add_order_note( sprintf( __( 'Capture Attempted (Auth ID: %s)', 'wc_amazon_payments_advanced' ), str_replace( '-A', '-C', $auth_id ) ) );
-
+					$order->add_order_note( sprintf( __( 'Captured (Auth ID: %s)', 'wc_amazon_payments_advanced' ), str_replace( '-A', '-C', $auth_id ) ) );
 				} else {
-					$order->add_order_note( sprintf( __( 'Authorization Attempted (Auth ID: %s)', 'wc_amazon_payments_advanced' ), $auth_id ) );
+					$order->add_order_note( sprintf( __( 'Authorized (Auth ID: %s)', 'wc_amazon_payments_advanced' ), $auth_id ) );
 				}
 
 				return true;
-
 			}
 		}
 
@@ -499,7 +518,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 				'AmazonAuthorizationId'      => $amazon_authorization_id,
 				'CaptureReferenceId'         => $order->id . '-' . current_time( 'timestamp', true ),
 				'CaptureAmount.Amount'       => $order->get_total(),
-				'CaptureAmount.CurrencyCode' => strtoupper( get_woocommerce_currency() ),
+				'CaptureAmount.CurrencyCode' => strtoupper( get_woocommerce_currency() )
 			) );
 
 			if ( is_wp_error( $response ) ) {

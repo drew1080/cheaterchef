@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Amazon Payments Advanced Gateway
 Plugin URI: http://woothemes.com/woocommerce
 Description: Amazon Payments Advanced is embedded directly into your existing web site, and all the buyer interactions with Amazon Payments Advanced take place in embedded widgets so that the buyer never leaves your site. Buyers can log in using their Amazon account, select a shipping address and payment method, and then confirm their order. Requires an Amazon Seller account with the Amazon Payments Advanced service provisioned. Supports DE, UK, and US.
-Version: 1.2.0
+Version: 1.2.1
 Author: WooThemes / Mike Jolley
 Author URI: http://mikejolley.com
 
@@ -54,7 +54,6 @@ class WC_Amazon_Payments_Advanced {
 	public function plugin_links( $links ) {
 
 		$plugin_links = array(
-			'<a href="' . admin_url( 'admin.php?page=woocommerce_settings&tab=payment_gateways&section=wc_gateway_amazon_payments_advanced' ) . '">' . __( 'Settings', 'wc_amazon_payments_advanced' ) . '</a>',
 			'<a href="http://support.woothemes.com/">' . __( 'Support', 'wc_amazon_payments_advanced' ) . '</a>',
 			'<a href="http://docs.woothemes.com/document/amazon-payments-advanced/">' . __( 'Docs', 'wc_amazon_payments_advanced' ) . '</a>',
 		);
@@ -73,13 +72,6 @@ class WC_Amazon_Payments_Advanced {
 
 		load_plugin_textdomain( 'wc_amazon_payments_advanced', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
-		include_once( 'includes/class-wc-gateway-amazon-payments-advanced.php' );
-
-		add_filter( 'woocommerce_payment_gateways',  array( $this, 'add_gateway' ) );
-
-		if ( empty( $this->settings['seller_id'] ) || $this->settings['enabled'] == 'no' )
-			return;
-
 		switch ( $woocommerce->countries->get_base_country() ) {
 			case 'GB' :
 				define( 'WC_AMAZON_PA_WIDGETS_URL', 'https://static-eu.payments-amazon.com/OffAmazonPayments/uk/' . ( $this->settings['sandbox'] == 'yes' ? 'sandbox/' : '' ) . 'js/Widgets.js?sellerId=' . $this->settings['seller_id'] );
@@ -97,6 +89,13 @@ class WC_Amazon_Payments_Advanced {
 				define( 'WC_AMAZON_REGISTER_URL', 'https://sellercentral.amazon.com/gp/on-board/workflow/Registration/login.html?passthrough%2Fsource=internal-landing-select&passthrough%2F*entries*=0&passthrough%2FmarketplaceID=AGWSWK15IEJJ7&passthrough%2FsuperSource=OAR&passthrough/ld=APRPWOOCOMMERCE&passthrough%2F*Version*=1&passthrough%2Faccount=pyop&passthrough%2FwaiveFee=1&passthrough%2FsimplifiedLogin=1' );
 			break;
 		}
+
+		include_once( 'includes/class-wc-gateway-amazon-payments-advanced.php' );
+
+		add_filter( 'woocommerce_payment_gateways',  array( $this, 'add_gateway' ) );
+
+		if ( empty( $this->settings['seller_id'] ) || $this->settings['enabled'] == 'no' )
+			return;
 
 		include_once( 'includes/class-wc-amazon-payments-advanced-order-handler.php' );
 
