@@ -3,7 +3,7 @@
 Plugin Name: Recipe Card
 Plugin URI: http://yumprint.com/recipecard
 Description: Create beautiful recipes that readers can print, save and review. Recipe Card optimizes your recipes for search engines and generates nutrition facts.
-Version: 1.1.6
+Version: 1.1.7
 Author: Yumprint
 Author URI: http://yumprint.com
 License: GPLv2 or later
@@ -737,7 +737,8 @@ echo <<<HTML
 		<div class='blog-yumprint-stars-reviews' itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" color="{$theme->color->save}" highlightcolor="{$theme->color->saveHighlight}" emptycolor="{$theme->color->print}" rating="{$review_rating}" count="{$review_count}">
 			<div class='blog-yumprint-star-wrapper'>
 				<div class='blog-yumprint-star-container'></div>
-				<meta itemprop="ratingValue" content="{$review_rating}" bestRating="4"/>
+				<meta itemprop="ratingValue" content="{$review_rating}" />
+				<meta itemprop="bestRating" content="4" />
 				<div class="blog-yumprint-review-count" itemprop="reviewCount" content="{$review_count}"></div>
 			</div>
 			<div class='blog-yumprint-write-review'>$write_review_text</div>

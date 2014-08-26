@@ -61,7 +61,7 @@ class WC_Checkout {
 	 * @since 2.1
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woocommerce' ), '2.1' );
 	}
 
 	/**
@@ -70,7 +70,7 @@ class WC_Checkout {
 	 * @since 2.1
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woocommerce' ), '2.1' );
 	}
 
 	/**
@@ -189,11 +189,11 @@ class WC_Checkout {
 			$order_id = absint( WC()->session->order_awaiting_payment );
 
 			/* Check order is unpaid by getting its status */
-			$terms = wp_get_object_terms( $order_id, 'shop_order_status', array( 'fields' => 'slugs' ) );
+			$terms        = wp_get_object_terms( $order_id, 'shop_order_status', array( 'fields' => 'slugs' ) );
 			$order_status = isset( $terms[0] ) ? $terms[0] : 'pending';
 
 			// Resume the unpaid order if its pending
-			if ( $order_status == 'pending' || $order_status == 'failed' ) {
+			if ( get_post( $order_id ) && ( $order_status == 'pending' || $order_status == 'failed' ) ) {
 
 				// Update the existing order as we are resuming it
 				$create_new_order = false;
@@ -275,13 +275,17 @@ class WC_Checkout {
 			 	wc_add_order_item_meta( $item_id, '_line_subtotal_tax', wc_format_decimal( $values['line_subtotal_tax'] ) );
 
 			 	// Store variation data in meta so admin can view it
-				if ( $values['variation'] && is_array( $values['variation'] ) )
-					foreach ( $values['variation'] as $key => $value )
-						wc_add_order_item_meta( $item_id, esc_attr( str_replace( 'attribute_', '', $key ) ), $value );
+				if ( $values['variation'] && is_array( $values['variation'] ) ) {
+					foreach ( $values['variation'] as $key => $value ) {
+						$key = str_replace( 'attribute_', '', $key );
+						wc_add_order_item_meta( $item_id, $key, $value );
+					}
+				}
 
 			 	// Add line item meta for backorder status
-			 	if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $values['quantity'] ) )
+			 	if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $values['quantity'] ) ) {
 			 		wc_add_order_item_meta( $item_id, apply_filters( 'woocommerce_backordered_item_meta_name', __( 'Backordered', 'woocommerce' ), $cart_item_key, $order_id ), $values['quantity'] - max( 0, $_product->get_total_stock() ) );
+			 	}
 
 			 	// Allow plugins to add order item meta
 			 	do_action( 'woocommerce_add_order_item_meta', $item_id, $values, $cart_item_key );
@@ -289,7 +293,7 @@ class WC_Checkout {
 		}
 
 		// Store fees
-		foreach ( WC()->cart->get_fees() as $fee ) {
+		foreach ( WC()->cart->get_fees() as $fee_key => $fee ) {
 			$item_id = wc_add_order_item( $order_id, array(
 		 		'order_item_name' 		=> $fee->name,
 		 		'order_item_type' 		=> 'fee'
@@ -302,6 +306,9 @@ class WC_Checkout {
 
 		 	wc_add_order_item_meta( $item_id, '_line_total', wc_format_decimal( $fee->amount ) );
 			wc_add_order_item_meta( $item_id, '_line_tax', wc_format_decimal( $fee->tax ) );
+			
+			// Allow plugins to add order item meta to fees
+			do_action( 'woocommerce_add_order_fee_meta', $order_id, $item_id, $fee, $fee_key );
 		}
 
 		// Store shipping for all packages
@@ -327,19 +334,22 @@ class WC_Checkout {
 
 		// Store tax rows
 		foreach ( array_keys( WC()->cart->taxes + WC()->cart->shipping_taxes ) as $key ) {
+			$code = WC()->cart->tax->get_rate_code( $key );
+			
+			if ( $code ) {
+				$item_id = wc_add_order_item( $order_id, array(
+			 		'order_item_name' 		=> $code,
+			 		'order_item_type' 		=> 'tax'
+			 	) );
 
-			$item_id = wc_add_order_item( $order_id, array(
-		 		'order_item_name' 		=> WC()->cart->tax->get_rate_code( $key ),
-		 		'order_item_type' 		=> 'tax'
-		 	) );
-
-		 	// Add line item meta
-		 	if ( $item_id ) {
-		 		wc_add_order_item_meta( $item_id, 'rate_id', $key );
-		 		wc_add_order_item_meta( $item_id, 'label', WC()->cart->tax->get_rate_label( $key ) );
-			 	wc_add_order_item_meta( $item_id, 'compound', absint( WC()->cart->tax->is_compound( $key ) ? 1 : 0 ) );
-			 	wc_add_order_item_meta( $item_id, 'tax_amount', wc_format_decimal( isset( WC()->cart->taxes[ $key ] ) ? WC()->cart->taxes[ $key ] : 0 ) );
-			 	wc_add_order_item_meta( $item_id, 'shipping_tax_amount', wc_format_decimal( isset( WC()->cart->shipping_taxes[ $key ] ) ? WC()->cart->shipping_taxes[ $key ] : 0 ) );
+			 	// Add line item meta
+			 	if ( $item_id ) {
+			 		wc_add_order_item_meta( $item_id, 'rate_id', $key );
+			 		wc_add_order_item_meta( $item_id, 'label', WC()->cart->tax->get_rate_label( $key ) );
+				 	wc_add_order_item_meta( $item_id, 'compound', absint( WC()->cart->tax->is_compound( $key ) ? 1 : 0 ) );
+				 	wc_add_order_item_meta( $item_id, 'tax_amount', wc_format_decimal( isset( WC()->cart->taxes[ $key ] ) ? WC()->cart->taxes[ $key ] : 0 ) );
+				 	wc_add_order_item_meta( $item_id, 'shipping_tax_amount', wc_format_decimal( isset( WC()->cart->shipping_taxes[ $key ] ) ? WC()->cart->shipping_taxes[ $key ] : 0 ) );
+				}
 			}
 		}
 
@@ -370,8 +380,8 @@ class WC_Checkout {
 		update_post_meta( $order_id, '_order_shipping', 		wc_format_decimal( WC()->cart->shipping_total ) );
 		update_post_meta( $order_id, '_order_discount', 		wc_format_decimal( WC()->cart->get_order_discount_total() ) );
 		update_post_meta( $order_id, '_cart_discount', 			wc_format_decimal( WC()->cart->get_cart_discount_total() ) );
-		update_post_meta( $order_id, '_order_tax', 				wc_format_decimal( wc_round_tax_total( WC()->cart->tax_total ) ) );
-		update_post_meta( $order_id, '_order_shipping_tax', 	wc_format_decimal( wc_round_tax_total( WC()->cart->shipping_tax_total ) ) );
+		update_post_meta( $order_id, '_order_tax', 				wc_format_decimal( WC()->cart->tax_total ) );
+		update_post_meta( $order_id, '_order_shipping_tax', 	wc_format_decimal( WC()->cart->shipping_tax_total ) );
 		update_post_meta( $order_id, '_order_total', 			wc_format_decimal( WC()->cart->total, get_option( 'woocommerce_price_num_decimals' ) ) );
 
 		update_post_meta( $order_id, '_order_key', 				'wc_' . apply_filters('woocommerce_generate_order_key', uniqid('order_') ) );
@@ -434,9 +444,11 @@ class WC_Checkout {
 		// Update customer shipping and payment method to posted method
 		$chosen_shipping_methods = WC()->session->get( 'chosen_shipping_methods' );
 
-		if ( isset( $this->posted['shipping_method'] ) && is_array( $this->posted['shipping_method'] ) )
-			foreach ( $this->posted['shipping_method'] as $i => $value )
+		if ( isset( $this->posted['shipping_method'] ) && is_array( $this->posted['shipping_method'] ) ) {
+			foreach ( $this->posted['shipping_method'] as $i => $value ) {
 				$chosen_shipping_methods[ $i ] = wc_clean( $value );
+			}
+		}
 
 		WC()->session->set( 'chosen_shipping_methods', $chosen_shipping_methods );
 		WC()->session->set( 'chosen_payment_method', $this->posted['payment_method'] );

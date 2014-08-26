@@ -81,7 +81,9 @@ abstract class WC_Email extends WC_Settings_API {
         '/&(apos|rsquo|lsquo|#8216|#8217);/i',   // Single quotes
         '/&gt;/i',                               // Greater-than
         '/&lt;/i',                               // Less-than
-        '/&(amp|#38);/i',                        // Ampersand
+        '/&#38;/i',                              // Ampersand
+        '/&#038;/i',                             // Ampersand
+        '/&amp;/i',                              // Ampersand
         '/&(copy|#169);/i',                      // Copyright
         '/&(trade|#8482|#153);/i',               // Trademark
         '/&(reg|#174);/i',                       // Registered
@@ -109,6 +111,8 @@ abstract class WC_Email extends WC_Settings_API {
         "'",                                    // Single quotes
         '>',
         '<',
+        '&',
+        '&',
         '&',
         '(c)',
         '(tm)',
@@ -538,18 +542,20 @@ abstract class WC_Email extends WC_Settings_API {
 	 * @param mixed $message
 	 * @param string $headers
 	 * @param string $attachments
-	 * @return void
+	 * @return bool
 	 */
 	function send( $to, $subject, $message, $headers, $attachments ) {
 		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
 		add_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
 		add_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
 
-		wp_mail( $to, $subject, $message, $headers, $attachments );
+		$return = wp_mail( $to, $subject, $message, $headers, $attachments );
 
 		remove_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
 		remove_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
 		remove_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
+		
+		return $return;
 	}
 
     /**

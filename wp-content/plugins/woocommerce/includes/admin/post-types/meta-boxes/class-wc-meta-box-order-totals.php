@@ -110,7 +110,7 @@ class WC_Meta_Box_Order_Totals {
 		<?php endif; ?>
 
 		<div class="totals_group">
-			<h4><label for="_order_discount"><?php _e( 'Order Discount', 'woocommerce' ); ?></label></h4>
+			<h4><label for="_order_discount"><?php _e( 'Order Discount', 'woocommerce' ); ?> <span class="tips" data-tip="<?php _e( 'This is the total discount applied after tax.', 'woocommerce' ); ?>">[?]</span></label></h4>
 			<input type="text" class="wc_input_price" id="_order_discount" name="_order_discount" placeholder="<?php echo wc_format_localized_price( 0 ); ?>" value="<?php
 				if ( isset( $data['_order_discount'][0] ) )
 					echo esc_attr( wc_format_localized_price( $data['_order_discount'][0] ) );
@@ -269,8 +269,8 @@ class WC_Meta_Box_Order_Totals {
 		}
 
 		// Update totals
-		update_post_meta( $post_id, '_order_tax', wc_round_tax_total( $total_tax ) );
-		update_post_meta( $post_id, '_order_shipping_tax', wc_round_tax_total( $total_shipping_tax ) );
+		update_post_meta( $post_id, '_order_tax', wc_format_decimal( $total_tax ) );
+		update_post_meta( $post_id, '_order_shipping_tax', wc_format_decimal( $total_shipping_tax ) );
 		update_post_meta( $post_id, '_order_discount', wc_format_decimal( $_POST['_order_discount'] ) );
 		update_post_meta( $post_id, '_order_total', wc_format_decimal( $_POST['_order_total'] ) );
 
@@ -340,5 +340,6 @@ class WC_Meta_Box_Order_Totals {
 		delete_post_meta( $post_id, '_shipping_method' );
 		delete_post_meta( $post_id, '_shipping_method_title' );
 		update_post_meta( $post_id, '_order_shipping', $order_shipping );
+		add_post_meta( $post_id, '_order_currency', get_woocommerce_currency(), true );
 	}
 }

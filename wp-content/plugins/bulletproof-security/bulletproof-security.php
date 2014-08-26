@@ -4,8 +4,8 @@ Plugin Name: BulletProof Security
 Plugin URI: http://forum.ait-pro.com/read-me-first/
 Text Domain: bulletproof-security
 Domain Path: /languages/
-Description: Website Security Protection: BulletProof Security protects your website against XSS, RFI, CRLF, CSRF, Base64, Code Injection and SQL Injection... hacking attempts. One-click .htaccess WordPress security protection. Protects wp-config.php, bb-config.php, php.ini, php5.ini, install.php and readme.html with .htaccess security protection.  Security Logging. HTTP Error Logging. Login Security/Login Monitoring: Log All Account Logins or Log Only Account Lockouts. Website FrontEnd/BackEnd Maintenance Mode (HTTP 503). Additional website security checks: DB errors off, file and folder permissions check... System Info: PHP, MySQL, OS, Server, Memory Usage, IP, SAPI, DNS, Max Upload... Built-in .htaccess file Editor.
-Version: .49.9
+Description: Website Security Protection: BulletProof Security protects your website against 100,000's of different hacking attempts/attacks. Built-in .htaccess file Editor. Security Logging/HTTP Error Logging. Login Security/Login Monitoring: Log All Account Logins or Log Only Account Lockouts. DB Backup: Database Backup. Website FrontEnd/BackEnd Maintenance Mode. System Info: PHP, MySQL, OS, Server, Memory Usage, IP, SAPI, WP Filesystem API Method, DNS, Max Upload...
+Version: .50.6
 Author: AITpro | Edward Alexander
 Author URI: http://forum.ait-pro.com/read-me-first/
 */
@@ -28,10 +28,10 @@ Author URI: http://forum.ait-pro.com/read-me-first/
 */
 
 // BPS variables
-define( 'BULLETPROOF_VERSION', '.49.9' );
-$bps_last_version = '.49.8';
-$bps_version = '.49.9';
-$bps_readme_install_ver = '9';
+define( 'BULLETPROOF_VERSION', '.50.6' );
+$bps_last_version = '.50.5';
+$bps_version = '.50.6';
+$bps_readme_install_ver = '0';
 
 // Load BPS Global class - not doing anything with this Class in BPS Free
 //require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/class.php' );
@@ -49,6 +49,9 @@ require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/functions.php' );
 	
 // BPS Login Security
 require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/login-security.php' );
+
+// BPS DB Backup
+require_once( WP_PLUGIN_DIR . '/bulletproof-security/includes/db-security.php' );
 
 // If in WP Admin Dashboard
 if ( is_admin() ) {
@@ -85,7 +88,7 @@ static $this_plugin;
 		return $links;
 	if ( ! $this_plugin ) $this_plugin = plugin_basename(__FILE__);
 	if ( $file == $this_plugin ) {
-		$links[] = '<a href="http://forum.ait-pro.com/read-me-first/" title="BulletProof Security Forum" target="_blank">'.__('Forum - Support', 'bulleproof-security').'</a>';
+		$links[] = '<a href="http://forum.ait-pro.com/forums/topic/plugin-conflicts-actively-blocked-plugins-plugin-compatibility/" title="BulletProof Security Forum" target="_blank">'.__('Forum - Support', 'bulleproof-security').'</a>';
 		$links[] = '<a href="http://affiliates.ait-pro.com/po/" title="Upgrade to BPS Pro" target="_blank">'.__('Upgrade', 'bulleproof-security').'</a>';
 		$links[] = '<a href="http://www.ait-pro.com/bulletproof-security-pro-flash/bulletproof.html" title="BulletProof Security Flash Movie" target="_blank">'.__('Flash Movie', 'bulleproof-security').'</a>';
 	}

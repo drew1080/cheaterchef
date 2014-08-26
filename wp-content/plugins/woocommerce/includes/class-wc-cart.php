@@ -73,6 +73,9 @@ class WC_Cart {
 	/** @var WC_Tax */
 	public $tax;
 
+	/** @var array cart_session_data */
+	public $cart_session_data = array();
+
 	/** @var array An array of fees. */
 	public $fees = array();
 
@@ -90,6 +93,25 @@ class WC_Cart {
 		$this->dp                    = absint( get_option( 'woocommerce_price_num_decimals' ) );
 		$this->display_totals_ex_tax = $this->tax_display_cart == 'excl';
 		$this->display_cart_ex_tax   = $this->tax_display_cart == 'excl';
+		
+		// Array of data the cart calculates and stores in the session with defaults
+		$this->cart_session_data = array(
+			'cart_contents_total'     => 0,
+			'cart_contents_weight'    => 0,
+			'cart_contents_count'     => 0,
+			'cart_contents_tax'       => 0,
+			'total'                   => 0,
+			'subtotal'                => 0,
+			'subtotal_ex_tax'         => 0,
+			'tax_total'               => 0,
+			'taxes'                   => array(),
+			'shipping_taxes'          => array(),
+			'discount_cart'           => 0,
+			'discount_total'          => 0,
+			'shipping_total'          => 0,
+			'shipping_tax_total'      => 0,
+			'coupon_discount_amounts' => array(),
+		);
 
 		add_action( 'init', array( $this, 'init' ), 5 ); // Get cart on init
 	}
@@ -120,27 +142,10 @@ class WC_Cart {
 		 */
 		public function get_cart_from_session() {
 
-			// Array of data the cart calculates and stores in the session and defaults
-			$this->cart_session_data = array(
-				'cart_contents_total'     => 0,
-				'cart_contents_weight'    => 0,
-				'cart_contents_count'     => 0,
-				'cart_contents_tax'       => 0,
-				'total'                   => 0,
-				'subtotal'                => 0,
-				'subtotal_ex_tax'         => 0,
-				'tax_total'               => 0,
-				'taxes'                   => array(),
-				'shipping_taxes'          => array(),
-				'discount_cart'           => 0,
-				'discount_total'          => 0,
-				'shipping_total'          => 0,
-				'shipping_tax_total'      => 0,
-				'coupon_discount_amounts' => array(),
-			);
-
-			foreach ( $this->cart_session_data as $key => $default )
+			// Load cart session data from session
+			foreach ( $this->cart_session_data as $key => $default ) {
 				$this->$key = WC()->session->get( $key, $default );
+			}
 
 			// Load coupons
 			$this->applied_coupons = array_filter( WC()->session->get( 'applied_coupons', array() ) );
@@ -178,8 +183,9 @@ class WC_Cart {
 				}
 			}
 
-			if ( $update_cart_session )
+			if ( $update_cart_session ) {
 				WC()->session->cart = $this->get_cart_for_session();
+			}
 
 			$this->set_cart_cookies( sizeof( $this->cart_contents ) > 0 );
 
@@ -187,8 +193,9 @@ class WC_Cart {
 			do_action( 'woocommerce_cart_loaded_from_session', $this );
 
 			// Queue re-calc if subtotal is not set
-			if ( ( ! $this->subtotal && sizeof( $this->cart_contents ) > 0 ) || $update_cart_session )
+			if ( ( ! $this->subtotal && sizeof( $this->cart_contents ) > 0 ) || $update_cart_session ) {
 				$this->calculate_totals();
+			}
 		}
 
 		/**
@@ -202,11 +209,13 @@ class WC_Cart {
 			WC()->session->set( 'applied_coupons', $this->applied_coupons );
 			WC()->session->set( 'coupon_discount_amounts', $this->coupon_discount_amounts );
 
-			foreach ( $this->cart_session_data as $key => $default )
+			foreach ( $this->cart_session_data as $key => $default ) {
 				WC()->session->set( $key, $this->$key );
+			}
 
-			if ( get_current_user_id() )
+			if ( get_current_user_id() ) {
 				$this->persistent_cart_update();
+			}
 
 			do_action( 'woocommerce_cart_updated' );
 		}
@@ -224,8 +233,9 @@ class WC_Cart {
 
 			unset( WC()->session->order_awaiting_payment, WC()->session->applied_coupons, WC()->session->coupon_discount_amounts, WC()->session->cart );
 
-			if ( $clear_persistent_cart && get_current_user_id() )
+			if ( $clear_persistent_cart && get_current_user_id() ) {
 				$this->persistent_cart_destroy();
+			}
 
 			do_action( 'woocommerce_cart_emptied' );
 		}
@@ -289,14 +299,16 @@ class WC_Cart {
 		public function check_cart_items() {
 			$result = $this->check_cart_item_validity();
 
-			if ( is_wp_error( $result ) )
+			if ( is_wp_error( $result ) ) {
 				wc_add_notice( $result->get_error_message(), 'error' );
+			}
 
 			// Check item stock
 			$result = $this->check_cart_item_stock();
 
-			if ( is_wp_error( $result ) )
+			if ( is_wp_error( $result ) ) { 
 				wc_add_notice( $result->get_error_message(), 'error' );
+			}
 		}
 
 		/**
@@ -506,7 +518,11 @@ class WC_Cart {
 		            } else {
 						$value              = apply_filters( 'woocommerce_variation_option_name', $value );
 						$product_attributes = $cart_item['data']->get_attributes();
-						$label              = wc_attribute_label( $product_attributes[ str_replace( 'attribute_', '', urldecode( $name ) ) ]['name'] );
+						if ( isset( $product_attributes[ str_replace( 'attribute_', '', $name ) ] ) ) {
+							$label = wc_attribute_label( $product_attributes[ str_replace( 'attribute_', '', $name ) ]['name'] );
+						} else {
+							$label = $name;
+						}
 					}
 
 					$item_data[] = array(
@@ -540,9 +556,9 @@ class WC_Cart {
 				ob_start();
 
 				if ( $flat ) {
-					foreach ( $item_data as $data )
+					foreach ( $item_data as $data ) {
 						echo esc_html( $data['key'] ) . ': ' . wp_kses_post( $data['value'] ) . "\n";
-
+					}
 				} else {
 					wc_get_template( 'cart/cart-item-data.php', array( 'item_data' => $item_data ) );
 				}
@@ -592,10 +608,11 @@ class WC_Cart {
 			$checkout_page_id = wc_get_page_id( 'checkout' );
 			$checkout_url     = '';
 			if ( $checkout_page_id ) {
-				if ( is_ssl() || get_option('woocommerce_force_ssl_checkout') == 'yes' )
+				if ( is_ssl() || get_option('woocommerce_force_ssl_checkout') == 'yes' ) {
 					$checkout_url = str_replace( 'http:', 'https:', get_permalink( $checkout_page_id ) );
-				else
+				} else {
 					$checkout_url = get_permalink( $checkout_page_id );
+				}
 			}
 			return apply_filters( 'woocommerce_get_checkout_url', $checkout_url );
 		}
@@ -669,16 +686,18 @@ class WC_Cart {
 
 				$code = $this->tax->get_rate_code( $key );
 
-				if ( ! isset( $tax_totals[ $code ] ) ) {
-					$tax_totals[ $code ] = new stdClass();
-					$tax_totals[ $code ]->amount = 0;
-				}
+				if ( $code ) {
+					if ( ! isset( $tax_totals[ $code ] ) ) {
+						$tax_totals[ $code ] = new stdClass();
+						$tax_totals[ $code ]->amount = 0;
+					}
 
-                $tax_totals[ $code ]->tax_rate_id       = $key;
-				$tax_totals[ $code ]->is_compound       = $this->tax->is_compound( $key );
-				$tax_totals[ $code ]->label             = $this->tax->get_rate_label( $key );
-				$tax_totals[ $code ]->amount           += wc_round_tax_total( $tax );
-				$tax_totals[ $code ]->formatted_amount  = wc_price( wc_round_tax_total( $tax_totals[ $code ]->amount ) );
+	                $tax_totals[ $code ]->tax_rate_id       = $key;
+					$tax_totals[ $code ]->is_compound       = $this->tax->is_compound( $key );
+					$tax_totals[ $code ]->label             = $this->tax->get_rate_label( $key );
+					$tax_totals[ $code ]->amount           += wc_round_tax_total( $tax );
+					$tax_totals[ $code ]->formatted_amount  = wc_price( wc_round_tax_total( $tax_totals[ $code ]->amount ) );
+				}
 			}
 
 			return apply_filters( 'woocommerce_cart_tax_totals', $tax_totals, $this );
@@ -697,12 +716,15 @@ class WC_Cart {
 	     * @return string cart item key
 	     */
 	    public function find_product_in_cart( $cart_id = false ) {
-	        if ( $cart_id !== false )
-	        	if ( is_array( $this->cart_contents ) )
-	        		foreach ( $this->cart_contents as $cart_item_key => $cart_item )
-	        			if ( $cart_item_key == $cart_id )
+	        if ( $cart_id !== false ) {
+	        	if ( is_array( $this->cart_contents ) ) {
+	        		foreach ( $this->cart_contents as $cart_item_key => $cart_item ) {
+	        			if ( $cart_item_key == $cart_id ) {
 	        				return $cart_item_key;
-
+	        			}
+	        		}
+	        	}
+	        }
 			return '';
 		}
 
@@ -784,7 +806,7 @@ class WC_Cart {
 
 			// Check product is_purchasable
 			if ( ! $product_data->is_purchasable() ) {
-				wc_add_notice( sprintf( __( 'Sorry, &quot;%s&quot; cannot be purchased.', 'woocommerce' ), $product_data->get_title() ), 'error' );
+				wc_add_notice( __( 'Sorry, this product cannot be purchased.', 'woocommerce' ), 'error' );
 				return false;
 			}
 
@@ -890,7 +912,6 @@ class WC_Cart {
 		 * @param boolean 	$refresh_totals	whether or not to calculate totals after setting the new qty
 		 */
 		public function set_quantity( $cart_item_key, $quantity = 1, $refresh_totals = true ) {
-
 			if ( $quantity == 0 || $quantity < 0 ) {
 				do_action( 'woocommerce_before_cart_item_quantity_zero', $cart_item_key );
 				unset( $this->cart_contents[ $cart_item_key ] );
@@ -899,8 +920,9 @@ class WC_Cart {
 				do_action( 'woocommerce_after_cart_item_quantity_update', $cart_item_key, $quantity );
 			}
 
-			if ( $refresh_totals )
+			if ( $refresh_totals ) {
 				$this->calculate_totals();
+			}
 		}
 
 		/**
@@ -1102,7 +1124,7 @@ class WC_Cart {
 						$taxes             = $this->tax->calc_tax( $line_price, $base_tax_rates, true, true );
 
 						// Now we have a new item price (excluding TAX)
-						$line_subtotal     = $line_price - array_sum( $taxes );
+						$line_subtotal     = round( $line_price - array_sum( $taxes ), WC_ROUNDING_PRECISION );
 
 						// Now add modifed taxes
 						$taxes             = $this->tax->calc_tax( $line_subtotal, $item_tax_rates );
@@ -1202,8 +1224,9 @@ class WC_Cart {
 				}
 
 				// VAT exemption done at this point - so all totals are correct before exemption
-				if ( WC()->customer->is_vat_exempt() )
+				if ( WC()->customer->is_vat_exempt() ) {
 					$this->remove_taxes();
+				}
 
 				// Cart Discounts (after tax)
 				$this->apply_cart_discounts_after_tax();
@@ -1220,8 +1243,9 @@ class WC_Cart {
 				$this->tax_total = $this->tax->get_tax_total( $this->taxes );
 
 				// VAT exemption done at this point - so all totals are correct before exemption
-				if ( WC()->customer->is_vat_exempt() )
+				if ( WC()->customer->is_vat_exempt() ) {
 					$this->remove_taxes();
+				}
 
 				// Cart Discounts (after tax)
 				$this->apply_cart_discounts_after_tax();
@@ -1238,10 +1262,11 @@ class WC_Cart {
 		 */
 		public function remove_taxes() {
 			$this->shipping_tax_total = $this->tax_total = 0;
-			$this->subtotal = $this->subtotal_ex_tax;
+			$this->subtotal           = $this->subtotal_ex_tax;
 
-			foreach ( $this->cart_contents as $cart_item_key => $item )
+			foreach ( $this->cart_contents as $cart_item_key => $item ) {
 				$this->cart_contents[ $cart_item_key ]['line_subtotal_tax'] = $this->cart_contents[ $cart_item_key ]['line_tax'] = 0;
+			}
 
 			// If true, zero rate is applied so '0' tax is displayed on the frontend rather than nothing.
 			if ( apply_filters( 'woocommerce_cart_remove_taxes_apply_zero_rate', true ) ) {
@@ -1342,6 +1367,22 @@ class WC_Cart {
 		}
 
 		/**
+		 * Should the shipping address form be shown
+		 * 
+		 * @return bool
+		 */
+		function needs_shipping_address() {
+
+			$needs_shipping_address = false;
+
+			if ( WC()->cart->needs_shipping() === true && ! WC()->cart->ship_to_billing_address_only() ) {
+				$needs_shipping_address = true;
+			}
+
+			return apply_filters( 'woocommerce_cart_needs_shipping_address', $needs_shipping_address );
+		}
+
+		/**
 		 * Sees if the customer has entered enough data to calc the shipping yet.
 		 *
 		 * @return bool
@@ -1435,6 +1476,7 @@ class WC_Cart {
 
 						// Limit to defined email addresses
 						if ( is_array( $coupon->customer_email ) && sizeof( $coupon->customer_email ) > 0 ) {
+							$check_emails           = array();
 							$coupon->customer_email = array_map( 'sanitize_email', $coupon->customer_email );
 
 							if ( is_user_logged_in() ) {
@@ -1457,19 +1499,26 @@ class WC_Cart {
 
 						// Usage limits per user - check against billing and user email and user ID
 						if ( $coupon->usage_limit_per_user > 0 ) {
-							$used_by = get_post_meta( $this->id, '_used_by' );
+							$check_emails = array();
+							$used_by      = array_filter( (array) get_post_meta( $coupon->id, '_used_by' ) );
 
 							if ( is_user_logged_in() ) {
 								$current_user   = wp_get_current_user();
-								$check_emails[] = $current_user->user_email;
+								$check_emails[] = sanitize_email( $current_user->user_email );
+								$usage_count    = sizeof( array_keys( $used_by, get_current_user_id() ) );
+							} else {
+								$check_emails[] = sanitize_email( $posted['billing_email'] );
+								$user           = get_user_by( 'email', $posted['billing_email'] );
+								if ( $user ) {
+									$usage_count = sizeof( array_keys( $used_by, $user->ID ) );
+								} else {
+									$usage_count = 0;
+								}
 							}
-							$check_emails[] = $posted['billing_email'];
-							$check_emails   = array_map( 'sanitize_email', array_map( 'strtolower', $check_emails ) );
-
-							$usage_count    = sizeof( array_keys( $used_by, get_current_user_id() ) );
-
-							foreach ( $check_emails as $check_email )
-								$usage_count    = $usage_count + sizeof( array_keys( $used_by, $check_email ) );
+							
+							foreach ( $check_emails as $check_email ) {
+								$usage_count = $usage_count + sizeof( array_keys( $used_by, $check_email ) );
+							}
 
 							if ( $usage_count >= $coupon->usage_limit_per_user ) {
 								$coupon->add_coupon_message( WC_Coupon::E_WC_COUPON_USAGE_LIMIT_REACHED );
@@ -1747,8 +1796,8 @@ class WC_Cart {
 
 					if ( $coupon->is_valid() && ! $coupon->apply_before_tax() && $coupon->is_valid_for_product( $values['data'] ) ) {
 						$discount_amount       = $coupon->get_discount_amount( $price, $values );
-						$this->discount_total += $discount_amount * $values['quantity'];
-						$this->increase_coupon_discount_amount( $code, $discount_amount * $values['quantity'] );
+						$this->discount_total += $discount_amount;
+						$this->increase_coupon_discount_amount( $code, $discount_amount );
 						$this->increase_coupon_applied_count( $code, $values['quantity'] );
 					}
 				}
@@ -1784,7 +1833,7 @@ class WC_Cart {
 		}
 
  	/*-----------------------------------------------------------------------------------*/
-	/* Fees API to add additonal costs to orders */
+	/* Fees API to add additional costs to orders */
 	/*-----------------------------------------------------------------------------------*/
 
 		/**
@@ -1849,7 +1898,7 @@ class WC_Cart {
 							$this->fees[ $fee_key ]->tax = array_sum( $fee_taxes );
 
 							// Tax rows - merge the totals we just got
-							foreach ( array_keys( $this->taxes ) as $key ) {
+							foreach ( array_keys( $this->taxes + $fee_taxes ) as $key ) {
 								$this->taxes[ $key ] = ( isset( $fee_taxes[ $key ] ) ? $fee_taxes[ $key ] : 0 ) + ( isset( $this->taxes[ $key ] ) ? $this->taxes[ $key ] : 0 );
 							}
 						}
@@ -2032,6 +2081,7 @@ class WC_Cart {
 
 		/**
 		 * Get tax row amounts with or without compound taxes includes.
+		 *
 		 * @param  boolean $compound True if getting compound taxes
 		 * @param  boolean $display  True if getting total to display
 		 * @return float price
@@ -2046,10 +2096,10 @@ class WC_Cart {
 				if ( ! $compound && $this->tax->is_compound( $key ) ) continue;
 				$total += $tax;
 			}
-			if ( $display )
-				return wc_round_tax_total( $total );
-			else
-				return $total;
+			if ( $display ) {
+				$total = wc_round_tax_total( $total );
+			}
+			return apply_filters( 'woocommerce_cart_taxes_total', $total, $compound, $display, $this );
 		}
 
 		/**

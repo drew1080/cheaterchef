@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Amazon Payments Advanced Gateway
 Plugin URI: http://woothemes.com/woocommerce
 Description: Amazon Payments Advanced is embedded directly into your existing web site, and all the buyer interactions with Amazon Payments Advanced take place in embedded widgets so that the buyer never leaves your site. Buyers can log in using their Amazon account, select a shipping address and payment method, and then confirm their order. Requires an Amazon Seller account with the Amazon Payments Advanced service provisioned. Supports DE, UK, and US.
-Version: 1.2.1
+Version: 1.2.5
 Author: WooThemes / Mike Jolley
 Author URI: http://mikejolley.com
 
@@ -33,8 +33,16 @@ class WC_Amazon_Payments_Advanced {
 	 */
 	public function __construct() {
 		$this->settings     = get_option( 'woocommerce_amazon_payments_advanced_settings' );
+
 		if ( empty( $this->settings['cart_button_display_mode'] ) )
 			$this->settings['cart_button_display_mode'] = 'button';
+
+		if ( empty( $this->settings['seller_id'] ) )
+			$this->settings['seller_id'] = '';
+
+		if ( empty( $this->settings['sandbox'] ) )
+			$this->settings['sandbox'] = 'yes';
+
 		$this->reference_id = ! empty( $_REQUEST['amazon_reference_id'] ) ? $_REQUEST['amazon_reference_id'] : '';
 
 		if ( isset( $_POST['post_data'] ) ) {
@@ -220,8 +228,13 @@ class WC_Amazon_Payments_Advanced {
 	public function remove_checkout_fields( $checkout ) {
 		$checkout->checkout_fields['billing'] 	= array();
 		$checkout->checkout_fields['shipping']  = array();
+		
 		remove_action( 'woocommerce_checkout_billing', array( $checkout,'checkout_form_billing' ) );
 		remove_action( 'woocommerce_checkout_shipping', array( $checkout,'checkout_form_shipping' ) );
+
+		$checkout->enable_signup         = false;
+		$checkout->enable_guest_checkout = true;
+		$checkout->must_create_account   = false;
 	}
 
 	/**

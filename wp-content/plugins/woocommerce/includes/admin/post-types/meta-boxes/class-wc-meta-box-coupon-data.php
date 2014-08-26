@@ -165,7 +165,7 @@ class WC_Meta_Box_Coupon_Data {
 				echo '</div><div class="options_group">';
 
 				// Customers
-				woocommerce_wp_text_input( array( 'id' => 'customer_email', 'label' => __( 'Email restrictions', 'woocommerce' ), 'placeholder' => __( 'No restrictions', 'woocommerce' ), 'description' => __( 'List of emails to check against the customer\'s billing email when an order is placed.', 'woocommerce' ), 'value' => implode(', ', (array) get_post_meta( $post->ID, 'customer_email', true ) ), 'desc_tip' => true, 'type' => 'email', 'class' => '', 'custom_attributes' => array(
+				woocommerce_wp_text_input( array( 'id' => 'customer_email', 'label' => __( 'Email restrictions', 'woocommerce' ), 'placeholder' => __( 'No restrictions', 'woocommerce' ), 'description' => __( 'List of emails to check against the customer\'s billing email when an order is placed. Separate email addresses with commas.', 'woocommerce' ), 'value' => implode(', ', (array) get_post_meta( $post->ID, 'customer_email', true ) ), 'desc_tip' => true, 'type' => 'email', 'class' => '', 'custom_attributes' => array(
 						'multiple' 	=> 'multiple'
 					) ) );
 
@@ -201,6 +201,7 @@ class WC_Meta_Box_Coupon_Data {
 				do_action( 'woocommerce_coupon_options_usage_limit' );
 
 			?></div>
+			<?php do_action( 'woocommerce_coupon_data_panels' ); ?>
 			<div class="clear"></div>
 		</div>
 		<?php
@@ -277,6 +278,6 @@ class WC_Meta_Box_Coupon_Data {
 		update_post_meta( $post_id, 'minimum_amount', $minimum_amount );
 		update_post_meta( $post_id, 'customer_email', $customer_email );
 
-		do_action( 'woocommerce_coupon_options_save' );
+		do_action( 'woocommerce_coupon_options_save', $post_id );
 	}
 }

@@ -82,7 +82,7 @@ function wc_get_template_part( $slug, $name = '' ) {
  * Get other templates (e.g. product attributes) passing attributes and including the file.
  *
  * @access public
- * @param mixed $template_name
+ * @param string $template_name
  * @param array $args (default: array())
  * @param string $template_path (default: '')
  * @param string $default_path (default: '')
@@ -117,7 +117,7 @@ function wc_get_template( $template_name, $args = array(), $template_path = '', 
  *		$default_path	/	$template_name
  *
  * @access public
- * @param mixed $template_name
+ * @param string $template_name
  * @param string $template_path (default: '')
  * @param string $default_path (default: '')
  * @return string
@@ -164,13 +164,15 @@ function get_woocommerce_currencies() {
 	return array_unique(
 		apply_filters( 'woocommerce_currencies',
 			array(
+				'AED' => __( 'United Arab Emirates Dirham', 'woocommerce' ),
 				'AUD' => __( 'Australian Dollars', 'woocommerce' ),
+				'BDT' => __( 'Bangladeshi Taka', 'woocommerce' ),
 				'BRL' => __( 'Brazilian Real', 'woocommerce' ),
 				'BGN' => __( 'Bulgarian Lev', 'woocommerce' ),
 				'CAD' => __( 'Canadian Dollars', 'woocommerce' ),
 				'CLP' => __( 'Chilean Peso', 'woocommerce' ),
 				'CNY' => __( 'Chinese Yuan', 'woocommerce' ),
-				'COP' => __( 'Colombian Peso', 'woocommerce' ),				
+				'COP' => __( 'Colombian Peso', 'woocommerce' ),
 				'CZK' => __( 'Czech Koruna', 'woocommerce' ),
 				'DKK' => __( 'Danish Krone', 'woocommerce' ),
 				'EUR' => __( 'Euros', 'woocommerce' ),
@@ -218,6 +220,12 @@ function get_woocommerce_currency_symbol( $currency = '' ) {
 	}
 
 	switch ( $currency ) {
+		case 'AED' :
+			$currency_symbol = 'د.إ';
+			break;
+		case 'BDT':
+			$currency_symbol = '&#2547;&nbsp;';
+			break;
 		case 'BRL' :
 			$currency_symbol = '&#82;&#36;';
 			break;
@@ -251,7 +259,7 @@ function get_woocommerce_currency_symbol( $currency = '' ) {
 		case 'ZAR' : $currency_symbol = '&#82;'; break;
 		case 'CZK' : $currency_symbol = '&#75;&#269;'; break;
 		case 'MYR' : $currency_symbol = '&#82;&#77;'; break;
-		case 'DKK' : $currency_symbol = '&#107;&#114;'; break;
+		case 'DKK' : $currency_symbol = 'kr.'; break;
 		case 'HUF' : $currency_symbol = '&#70;&#116;'; break;
 		case 'IDR' : $currency_symbol = 'Rp'; break;
 		case 'INR' : $currency_symbol = 'Rs.'; break;
@@ -267,6 +275,7 @@ function get_woocommerce_currency_symbol( $currency = '' ) {
 		case 'RON' : $currency_symbol = 'lei'; break;
 		case 'VND' : $currency_symbol = '&#8363;'; break;
 		case 'NGN' : $currency_symbol = '&#8358;'; break;
+		case 'HRK' : $currency_symbol = 'Kn'; break;
 		default    : $currency_symbol = ''; break;
 	}
 
@@ -357,10 +366,11 @@ function wc_print_js() {
  * @param  string  $name   Name of the cookie being set
  * @param  string  $value  Value of the cookie
  * @param  integer $expire Expiry of the cookie
+ * @param  string  $secure Whether the cookie should be served only over https
  */
-function wc_setcookie( $name, $value, $expire = 0 ) {
+function wc_setcookie( $name, $value, $expire = 0, $secure = false ) {
 	if ( ! headers_sent() ) {
-		setcookie( $name, $value, $expire, COOKIEPATH, COOKIE_DOMAIN, false );
+		setcookie( $name, $value, $expire, COOKIEPATH, COOKIE_DOMAIN, $secure );
 	} elseif ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 		trigger_error( "Cookie cannot be set - headers already sent", E_USER_NOTICE );
 	}
@@ -375,7 +385,7 @@ function wc_setcookie( $name, $value, $expire = 0 ) {
  */
 function get_woocommerce_api_url( $path ) {
 
-	$url = get_home_url( null, 'wc-api/v' . WC_API::VERSION . '/', ( 'yes' === get_option( 'woocommerce_force_ssl_checkout' ) ) ? 'https' : 'http' );
+	$url = get_home_url( null, 'wc-api/v' . WC_API::VERSION . '/', is_ssl() ? 'https' : 'http' );
 
 	if ( ! empty( $path ) && is_string( $path ) ) {
 		$url .= ltrim( $path, '/' );

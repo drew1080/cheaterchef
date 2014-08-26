@@ -65,6 +65,7 @@ function wc_template_redirect() {
 		WC()->shipping();
 	}
 }
+add_action( 'template_redirect', 'wc_template_redirect' );
 
 /**
  * When the_post is called, put product data into a global.
@@ -85,6 +86,24 @@ function wc_setup_product_data( $post ) {
 
 	return $GLOBALS['product'];
 }
+add_action( 'the_post', 'wc_setup_product_data' );
+
+if ( ! function_exists( 'woocommerce_reset_loop' ) ) {
+
+	/**
+	 * Reset the loop's index and columns when we're done outputting a product loop.
+	 *
+	 * @access public
+	 * @subpackage	Loop
+	 * @return void
+	 */
+	function woocommerce_reset_loop() {
+		global $woocommerce_loop;
+		// Reset loop/columns globals when starting a new loop
+		$woocommerce_loop['loop'] = $woocommerce_loop['columns'] = '';
+	}
+}
+add_filter( 'loop_end', 'woocommerce_reset_loop' );
 
 /**
  * Products RSS Feed.
@@ -125,8 +144,16 @@ function wc_products_rss_feed() {
  * @access public
  * @return void
  */
-function wc_generator_tag() {
-	echo "\n\n" . '<!-- WooCommerce Version -->' . "\n" . '<meta name="generator" content="WooCommerce ' . esc_attr( WC_VERSION ) . '" />' . "\n\n";
+function wc_generator_tag( $gen, $type ) {
+	switch ( $type ) {
+		case 'html':
+			$gen .= "\n" . '<meta name="generator" content="WooCommerce ' . esc_attr( WC_VERSION ) . '">';
+			break;
+		case 'xhtml':
+			$gen .= "\n" . '<meta name="generator" content="WooCommerce ' . esc_attr( WC_VERSION ) . '" />';
+			break;
+	}
+	return $gen;
 }
 
 /**
@@ -226,6 +253,10 @@ function wc_product_post_class( $classes, $class = '', $post_id = '' ) {
 		}
 
 		$classes[] = $product->stock_status;
+	}
+
+	if ( ( $key = array_search( 'hentry', $classes ) ) !== false ) {
+		unset( $classes[ $key ] );
 	}
 
 	return $classes;
@@ -532,22 +563,6 @@ if ( ! function_exists( 'woocommerce_show_product_loop_sale_flash' ) ) {
 	 */
 	function woocommerce_show_product_loop_sale_flash() {
 		wc_get_template( 'loop/sale-flash.php' );
-	}
-}
-
-if ( ! function_exists( 'woocommerce_reset_loop' ) ) {
-
-	/**
-	 * Reset the loop's index and columns when we're done outputting a product loop.
-	 *
-	 * @access public
-	 * @subpackage	Loop
-	 * @return void
-	 */
-	function woocommerce_reset_loop() {
-		global $woocommerce_loop;
-		// Reset loop/columns globals when starting a new loop
-		$woocommerce_loop['loop'] = $woocommerce_loop['columns'] = '';
 	}
 }
 
@@ -1299,22 +1314,27 @@ if ( ! function_exists( 'woocommerce_products_will_display' ) ) {
 
 		if ( is_product_category() ) {
 			switch ( get_woocommerce_term_meta( $term->term_id, 'display_type', true ) ) {
+				case 'subcategories' :
+					// Nothing - we want to continue to see if there are products/subcats
+				break;
 				case 'products' :
 				case 'both' :
 					return true;
 				break;
-				case '' :
+				default :
+					// Default - no setting
 					if ( get_option( 'woocommerce_category_archive_display' ) != 'subcategories' )
 						return true;
 				break;
 			}
 		}
 
+		// Begin subcategory logic
 		global $wpdb;
 
 		$parent_id             = empty( $term->term_id ) ? 0 : $term->term_id;
 		$taxonomy              = empty( $term->taxonomy ) ? '' : $term->taxonomy;
-		$products_will_display = false;
+		$products_will_display = true;
 
 		if ( ! $parent_id && ! $taxonomy ) {
 			return true;
@@ -1324,16 +1344,16 @@ if ( ! function_exists( 'woocommerce_products_will_display' ) ) {
 			$has_children = $wpdb->get_col( $wpdb->prepare( "SELECT term_id FROM {$wpdb->term_taxonomy} WHERE parent = %d AND taxonomy = %s", $parent_id, $taxonomy ) );
 
 			if ( $has_children ) {
-				// Check terms have products inside - parents first
+				// Check terms have products inside - parents first. If products are found inside, subcats will be shown instead of products so we can return false.
 				if ( sizeof( get_objects_in_term( $has_children, $taxonomy ) ) > 0 ) {
-					$products_will_display = true;
+					$products_will_display = false;
 				} else {
 					// If we get here, the parents were empty so we're forced to check children
 					foreach ( $has_children as $term ) {
 						$children = get_term_children( $term, $taxonomy );
 
 						if ( sizeof( get_objects_in_term( $children, $taxonomy ) ) > 0 ) {
-							$products_will_display = true;
+							$products_will_display = false;
 							break;
 						}
 					}
@@ -1343,7 +1363,7 @@ if ( ! function_exists( 'woocommerce_products_will_display' ) ) {
 			}
 		}
 
-		set_transient( 'wc_products_will_display_' . $parent_id, $products_will_display );
+		set_transient( 'wc_products_will_display_' . $parent_id, $products_will_display, YEAR_IN_SECONDS );
 
 		return $products_will_display;
 	}
@@ -1400,24 +1420,28 @@ if ( ! function_exists( 'woocommerce_product_subcategories' ) ) {
 		}
 
 		// NOTE: using child_of instead of parent - this is not ideal but due to a WP bug ( http://core.trac.wordpress.org/ticket/15626 ) pad_counts won't work
-		$args = array(
+		$args = apply_filters( 'woocommerce_product_subcategories_args', array(
 			'child_of'		=> $parent_id,
 			'menu_order'	=> 'ASC',
 			'hide_empty'	=> 1,
 			'hierarchical'	=> 1,
 			'taxonomy'		=> 'product_cat',
 			'pad_counts'	=> 1
-		);
-		$product_categories = get_categories( apply_filters( 'woocommerce_product_subcategories_args', $args ) );
+		) );
 
+		$product_categories     = get_categories( $args );
 		$product_category_found = false;
 
 		if ( $product_categories ) {
 
 			foreach ( $product_categories as $category ) {
 
-				if ( $category->parent != $parent_id || $category->count == 0 )
+				if ( $category->parent != $parent_id ) {
 					continue;
+				}
+				if ( $args['hide_empty'] && $category->count == 0 ) {
+					continue;
+				}
 
 				if ( ! $product_category_found ) {
 					// We found a category
@@ -1485,8 +1509,13 @@ if ( ! function_exists( 'woocommerce_subcategory_thumbnail' ) ) {
 			$image = wc_placeholder_img_src();
 		}
 
-		if ( $image )
+		if ( $image ) {
+			// Prevent esc_url from breaking spaces in urls for image embeds
+			// Ref: http://core.trac.wordpress.org/ticket/23605
+			$image = str_replace( ' ', '%20', $image );
+
 			echo '<img src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '" width="' . esc_attr( $dimensions['width'] ) . '" height="' . esc_attr( $dimensions['height'] ) . '" />';
+		}
 	}
 }
 

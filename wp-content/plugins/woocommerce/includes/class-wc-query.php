@@ -186,6 +186,8 @@ class WC_Query {
 			$wp_post_types['product']->ID 			= $shop_page->ID;
 			$wp_post_types['product']->post_title 	= $shop_page->post_title;
 			$wp_post_types['product']->post_name 	= $shop_page->post_name;
+			$wp_post_types['product']->post_type    = $shop_page->post_type;
+			$wp_post_types['product']->ancestors    = get_ancestors( $shop_page->ID, $shop_page->post_type );
 
 			// Fix conditional Functions like is_front_page
 			$q->is_singular = false;
@@ -193,7 +195,7 @@ class WC_Query {
 			$q->is_archive = true;
 
 			// Fix WP SEO
-			if ( function_exists( 'wpseo_get_value' ) ) {
+			if ( class_exists( 'WPSEO_Meta' ) ) {
 				add_filter( 'wpseo_metadesc', array( $this, 'wpseo_metadesc' ) );
 				add_filter( 'wpseo_metakey', array( $this, 'wpseo_metakey' ) );
 			}
@@ -250,7 +252,8 @@ class WC_Query {
 	 * @return string
 	 */
 	public function exclude_protected_products( $where ) {
-		$where .= " AND post_password = ''";
+		global $wpdb;
+		$where .= " AND {$wpdb->posts}.post_password = ''";
     	return $where;
 	}
 
@@ -262,7 +265,8 @@ class WC_Query {
 	 * @return string
 	 */
 	public function wpseo_metadesc() {
-		return wpseo_get_value( 'metadesc', wc_get_page_id('shop') );
+		return WPSEO_Meta::get_value( 'metadesc', wc_get_page_id('shop') );
+
 	}
 
 
@@ -274,7 +278,7 @@ class WC_Query {
 	 * @return string
 	 */
 	public function wpseo_metakey() {
-		return wpseo_get_value( 'metakey', wc_get_page_id('shop') );
+		return WPSEO_Meta::get_value( 'metakey', wc_get_page_id('shop') );
 	}
 
 
@@ -443,7 +447,7 @@ class WC_Query {
 				)
 			);
 
-			set_transient( $transient_name, $unfiltered_product_ids );
+			set_transient( $transient_name, $unfiltered_product_ids, YEAR_IN_SECONDS );
 		}
 
 		// Store the variable

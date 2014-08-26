@@ -32,7 +32,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 		$this->liveurl           = 'https://www.paypal.com/cgi-bin/webscr';
 		$this->testurl           = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
 		$this->method_title      = __( 'PayPal', 'woocommerce' );
-		$this->notify_url        = str_replace( 'https:', 'http:', add_query_arg( 'wc-api', 'WC_Gateway_Paypal', home_url( '/' ) ) );
+		$this->notify_url        = WC()->api_request_url( 'WC_Gateway_Paypal' );
 
 		// Load the settings.
 		$this->init_form_fields();
@@ -240,6 +240,18 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Limit the length of item names
+	 * @param  string $item_name
+	 * @return string
+	 */
+	public function paypal_item_name( $item_name ) {
+		if ( strlen( $item_name ) > 127 ) {
+			$item_name = substr( $item_name, 0, 124 ) . '...';
+		}
+		return html_entity_decode( $item_name, ENT_NOQUOTES, 'UTF-8' );
+	}
+
+	/**
 	 * Get PayPal Args for passing to PP
 	 *
 	 * @access public
@@ -281,19 +293,19 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 				'charset'       => 'UTF-8',
 				'rm'            => is_ssl() ? 2 : 1,
 				'upload'        => 1,
-				'return'        => esc_url( add_query_arg( 'utm_nooverride', '1', $this->get_return_url( $order ) ) ),
-				'cancel_return' => esc_url( $order->get_cancel_order_url() ),
+				'return'        => urlencode( esc_url( add_query_arg( 'utm_nooverride', '1', $this->get_return_url( $order ) ) ) ),
+				'cancel_return' => urlencode( esc_url( $order->get_cancel_order_url() ) ),
 				'page_style'    => $this->page_style,
 				'paymentaction' => $this->paymentaction,
 				'bn'            => 'WooThemes_Cart',
-				
+
 				// Order key + ID
 				'invoice'       => $this->invoice_prefix . ltrim( $order->get_order_number(), '#' ),
 				'custom'        => serialize( array( $order_id, $order->order_key ) ),
-				
+
 				// IPN
 				'notify_url'    => $this->notify_url,
-				
+
 				// Billing Address info
 				'first_name'    => $order->billing_first_name,
 				'last_name'     => $order->billing_last_name,
@@ -301,7 +313,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 				'address1'      => $order->billing_address_1,
 				'address2'      => $order->billing_address_2,
 				'city'          => $order->billing_city,
-				'state'         => $order->billing_state,
+				'state'         => $this->get_paypal_state( $order->billing_country, $order->billing_state ),
 				'zip'           => $order->billing_postcode,
 				'country'       => $order->billing_country,
 				'email'         => $order->billing_email
@@ -322,7 +334,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 			$paypal_args['address1']		= $order->shipping_address_1;
 			$paypal_args['address2']		= $order->shipping_address_2;
 			$paypal_args['city']			= $order->shipping_city;
-			$paypal_args['state']			= $order->shipping_state;
+			$paypal_args['state']			= $this->get_paypal_state( $order->shipping_country, $order->shipping_state );
 			$paypal_args['country']			= $order->shipping_country;
 			$paypal_args['zip']				= $order->shipping_postcode;
 		} else {
@@ -346,18 +358,18 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 				}
 			}
 
-			$paypal_args['item_name_1'] 	= sprintf( __( 'Order %s' , 'woocommerce'), $order->get_order_number() ) . " - " . implode( ', ', $item_names );
+			$paypal_args['item_name_1'] 	= $this->paypal_item_name( sprintf( __( 'Order %s' , 'woocommerce'), $order->get_order_number() ) . " - " . implode( ', ', $item_names ) );
 			$paypal_args['quantity_1'] 		= 1;
-			$paypal_args['amount_1'] 		= number_format( $order->get_total() - $order->get_total_shipping() - $order->get_shipping_tax() + $order->get_order_discount(), 2, '.', '' );
+			$paypal_args['amount_1'] 		= number_format( $order->get_total() - round( $order->get_total_shipping() + $order->get_shipping_tax(), 2 ) + $order->get_order_discount(), 2, '.', '' );
 
 			// Shipping Cost
 			// No longer using shipping_1 because
 			//		a) paypal ignore it if *any* shipping rules are within paypal
 			//		b) paypal ignore anything over 5 digits, so 999.99 is the max
 			if ( ( $order->get_total_shipping() + $order->get_shipping_tax() ) > 0 ) {
-				$paypal_args['item_name_2'] = __( 'Shipping via', 'woocommerce' ) . ' ' . ucwords( $order->get_shipping_method() );
+				$paypal_args['item_name_2'] = $this->paypal_item_name( __( 'Shipping via', 'woocommerce' ) . ' ' . ucwords( $order->get_shipping_method() ) );
 				$paypal_args['quantity_2'] 	= '1';
-				$paypal_args['amount_2'] 	= number_format( $order->get_total_shipping() + $order->get_shipping_tax() , 2, '.', '' );
+				$paypal_args['amount_2'] 	= number_format( $order->get_total_shipping() + $order->get_shipping_tax(), 2, '.', '' );
 			}
 
 		} else {
@@ -382,7 +394,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 							$item_name .= ' ( ' . $meta . ' )';
 						}
 
-						$paypal_args[ 'item_name_' . $item_loop ] 	= html_entity_decode( $item_name, ENT_NOQUOTES, 'UTF-8' );
+						$paypal_args[ 'item_name_' . $item_loop ] 	= $this->paypal_item_name( $item_name );
 						$paypal_args[ 'quantity_' . $item_loop ] 	= $item['qty'];
 						$paypal_args[ 'amount_' . $item_loop ] 		= $order->get_item_subtotal( $item, false );
 
@@ -403,7 +415,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 				foreach ( $order->get_fees() as $item ) {
 					$item_loop++;
 
-					$paypal_args[ 'item_name_' . $item_loop ] 	= $item['name'];
+					$paypal_args[ 'item_name_' . $item_loop ] 	= $this->paypal_item_name( $item['name'] );
 					$paypal_args[ 'quantity_' . $item_loop ] 	= 1;
 					$paypal_args[ 'amount_' . $item_loop ] 		= $item['line_total'];
 				}
@@ -412,7 +424,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 			// Shipping Cost item - paypal only allows shipping per item, we want to send shipping for the order
 			if ( $order->get_total_shipping() > 0 ) {
 				$item_loop++;
-				$paypal_args[ 'item_name_' . $item_loop ] 	= sprintf( __( 'Shipping via %s', 'woocommerce' ), $order->get_shipping_method() );
+				$paypal_args[ 'item_name_' . $item_loop ] 	= $this->paypal_item_name( sprintf( __( 'Shipping via %s', 'woocommerce' ), $order->get_shipping_method() ) );
 				$paypal_args[ 'quantity_' . $item_loop ] 	= '1';
 				$paypal_args[ 'amount_' . $item_loop ] 		= number_format( $order->get_total_shipping(), 2, '.', '' );
 			}
@@ -552,7 +564,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 			$this->log->add( 'paypal', 'Checking IPN response is valid via ' . $paypal_adr . '...' );
 		}
 
-		// Get recieved values from post data
+		// Get received values from post data
 		$validate_ipn = array( 'cmd' => '_notify-validate' );
 		$validate_ipn += stripslashes_deep( $ipn_response );
 
@@ -682,7 +694,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 					// Validate currency
 					if ( $order->get_order_currency() != $posted['mc_currency'] ) {
 						if ( 'yes' == $this->debug ) {
-							$this->log->add( 'paypal', 'Payment error: Currencies do not match (code ' . $posted['mc_currency'] . ')' );
+							$this->log->add( 'paypal', 'Payment error: Currencies do not match (sent "' . $order->get_order_currency() . '" | returned "' . $posted['mc_currency'] . '")' );
 						}
 
 						// Put this order on-hold for manual checking
@@ -923,5 +935,25 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 		}
 
 		return $order;
+	}
+
+	/**
+	 * Get the state to send to paypal
+	 * @param  string $cc
+	 * @param  string $state
+	 * @return string
+	 */
+	public function get_paypal_state( $cc, $state ) {
+		if ( 'US' === $cc ) {
+			return $state;
+		}
+
+		$states = WC()->countries->get_states( $cc );
+
+		if ( isset( $states[ $state ] ) ) {
+			return $states[ $state ];
+		}
+
+		return $state;
 	}
 }

@@ -6,6 +6,7 @@ WFAD.countryMap = <?php echo json_encode($wfBulkCountries); ?>;
 </script>
 <div class="wordfenceModeElem" id="wordfenceMode_countryBlocking"></div>
 <div class="wrap" id="paidWrap">
+	<?php require('menuHeader.php'); ?>
 	<div class="wordfence-lock-icon wordfence-icon32"><br /></div><h2 id="wfHeading">Block specific countries from accessing your site</h2>
 <?php if(! wfConfig::get('isPaid')){ ?>
 		<div class="wfPaidOnlyNotice">
@@ -15,6 +16,18 @@ WFAD.countryMap = <?php echo json_encode($wfBulkCountries); ?>;
 			page.
 		</div>
 <?php } ?>
+		<?php if(wfConfig::get('cacheType') == 'falcon'){ ?>
+		<div class="wfFalconNotice">
+			<b>Note regarding country blocking with Falcon Engine enabled:</b><br /><br />
+			Country blocking will only work on the login page and other dynamic pages with
+			Wordfence Falcon Engine enabled. We do this to keep your site fast and avoid
+			a country lookup on every request. 
+			Serving cached pages only uses 2 to 3% of the resources that a non-cached page uses,
+			so malicious countries won't eat up your server resources when they load cached pages.
+			If you would like full country blocking, you can enable Basic Caching on the "Site Performance" page.
+		</div>
+		<?php } ?>
+
 	<div class="wordfenceWrap" style="margin: 20px 20px 20px 30px;">
 		<table class="wfConfigForm">
 		<tr><td colspan="2"><h2>Country Blocking Options</h2></td></tr>
@@ -27,7 +40,8 @@ WFAD.countryMap = <?php echo json_encode($wfBulkCountries); ?>;
 			</td></tr>
 		<tr><th>URL to redirect blocked users to:</th><td><input type="text" id="wfRedirURL" value="<?php if(wfConfig::get('cbl_redirURL')){ echo htmlspecialchars(wfConfig::get('cbl_redirURL')); } ?>" /></td></tr>
 		<tr><th>Block countries even if they are logged in:</th><td><input type="checkbox" id="wfLoggedInBlocked" value="1" <?php if(wfConfig::get('cbl_loggedInBlocked')){ echo 'checked'; } ?> /></td></tr>
-		<tr><th>Block access to the login form too:</th><td><input type="checkbox" id="wfLoginFormBlocked" value="1" <?php if(wfConfig::get('cbl_loginFormBlocked')){ echo 'checked'; } ?> /></td></tr>
+		<tr><th>Block access to the login form:</th><td><input type="checkbox" id="wfLoginFormBlocked" value="1" <?php if(wfConfig::get('cbl_loginFormBlocked')){ echo 'checked'; } ?> /></td></tr>
+		<tr><th>Block access to the rest of the site (outside the login form):</th><td><input type="checkbox" id="wfRestOfSiteBlocked" value="1" <?php if(wfConfig::get('cbl_restOfSiteBlocked')){ echo 'checked'; } ?> /></td></tr>
 		<tr><td colspan="2"><h2>Advanced Country Blocking Options</h2></td></tr>
 		<tr><th colspan="2">
 			If user hits the URL 

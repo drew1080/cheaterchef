@@ -64,7 +64,7 @@ class WC_Emails {
 	 * @since 2.1
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woocommerce' ), '2.1' );
 	}
 
 	/**
@@ -73,7 +73,7 @@ class WC_Emails {
 	 * @since 2.1
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '2.1' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woocommerce' ), '2.1' );
 	}
 
 	/**
@@ -300,13 +300,19 @@ class WC_Emails {
 
 			if ( $plain_text ) {
 
-				foreach ( $meta as $key => $value )
-					echo $key . ': ' . $value . "\n";
+				foreach ( $meta as $key => $value ) {
+					if ( $value ) {
+						echo $key . ': ' . $value . "\n";
+					}
+				}
 
 			} else {
 
-				foreach ( $meta as $key => $value )
-					echo '<p><strong>' . $key . ':</strong> ' . $value . '</p>';
+				foreach ( $meta as $key => $value ) {
+					if ( $value ) {
+						echo '<p><strong>' . $key . ':</strong> ' . $value . '</p>';
+					}
+				}
 			}
 		}
 	}
@@ -337,7 +343,7 @@ class WC_Emails {
 		$headers = apply_filters('woocommerce_email_headers', '', 'low_stock', $product);
 
 		// Attachments
-		$attachments = apply_filters('woocommerce_email_attachments', '', 'low_stock', $product);
+		$attachments = apply_filters('woocommerce_email_attachments', array(), 'low_stock', $product);
 
 		// Send the mail
 		wp_mail( get_option('woocommerce_stock_email_recipient'), $subject, $message, $headers, $attachments );
@@ -369,7 +375,7 @@ class WC_Emails {
 		$headers = apply_filters('woocommerce_email_headers', '', 'no_stock', $product);
 
 		// Attachments
-		$attachments = apply_filters('woocommerce_email_attachments', '', 'no_stock', $product);
+		$attachments = apply_filters('woocommerce_email_attachments', array(), 'no_stock', $product);
 
 		// Send the mail
 		wp_mail( get_option('woocommerce_stock_email_recipient'), $subject, $message, $headers, $attachments );
@@ -414,7 +420,7 @@ class WC_Emails {
 		$headers = apply_filters('woocommerce_email_headers', '', 'backorder', $args);
 
 		// Attachments
-		$attachments = apply_filters('woocommerce_email_attachments', '', 'backorder', $args);
+		$attachments = apply_filters('woocommerce_email_attachments', array(), 'backorder', $args);
 
 		// Send the mail
 		wp_mail( get_option('woocommerce_stock_email_recipient'), $subject, $message, $headers, $attachments );

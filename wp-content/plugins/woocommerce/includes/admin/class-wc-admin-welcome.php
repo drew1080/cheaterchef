@@ -42,21 +42,27 @@ class WC_Admin_Welcome {
 	 * @return void
 	 */
 	public function admin_menus() {
+		if ( empty( $_GET['page'] ) ) {
+			return;
+		}
 
+		$welcome_page_name  = __( 'About WooCommerce', 'woocommerce' );
 		$welcome_page_title = __( 'Welcome to WooCommerce', 'woocommerce' );
 
-		// About
-		$about = add_dashboard_page( $welcome_page_title, $welcome_page_title, 'manage_options', 'wc-about', array( $this, 'about_screen' ) );
-
-		// Credits
-		$credits = add_dashboard_page( $welcome_page_title, $welcome_page_title, 'manage_options', 'wc-credits', array( $this, 'credits_screen' ) );
-
-		// Credits
-		$translators = add_dashboard_page( $welcome_page_title, $welcome_page_title, 'manage_options', 'wc-translators', array( $this, 'translators_screen' ) );
-
-		add_action( 'admin_print_styles-'. $about, array( $this, 'admin_css' ) );
-		add_action( 'admin_print_styles-'. $credits, array( $this, 'admin_css' ) );
-		add_action( 'admin_print_styles-'. $translators, array( $this, 'admin_css' ) );
+		switch ( $_GET['page'] ) {
+			case 'wc-about' :
+				$page = add_dashboard_page( $welcome_page_title, $welcome_page_name, 'manage_options', 'wc-about', array( $this, 'about_screen' ) );
+				add_action( 'admin_print_styles-'. $page, array( $this, 'admin_css' ) );
+			break;
+			case 'wc-credits' :
+				$page = add_dashboard_page( $welcome_page_title, $welcome_page_name, 'manage_options', 'wc-credits', array( $this, 'credits_screen' ) );
+				add_action( 'admin_print_styles-'. $page, array( $this, 'admin_css' ) );
+			break;
+			case 'wc-translators' :
+				$page = add_dashboard_page( $welcome_page_title, $welcome_page_name, 'manage_options', 'wc-translators', array( $this, 'translators_screen' ) );
+				add_action( 'admin_print_styles-'. $page, array( $this, 'admin_css' ) );
+			break;
+		}
 	}
 
 	/**
@@ -99,7 +105,7 @@ class WC_Admin_Welcome {
 				text-align: center;
 				position: absolute;
 				top: 0;
-				left: 0;
+				<?php echo get_bloginfo( 'text_direction' ) === 'rtl' ? 'right' : 'left'; ?>: 0;
 				margin: 0;
 				vertical-align: middle;
 			}
@@ -121,7 +127,7 @@ class WC_Admin_Welcome {
 			.about-wrap .wc-badge {
 				position: absolute;
 				top: 0;
-				right: 0;
+				<?php echo get_bloginfo( 'text_direction' ) === 'rtl' ? 'left' : 'right'; ?>: 0;
 			}
 			.about-wrap .wc-feature {
 				overflow: visible !important;
@@ -137,21 +143,21 @@ class WC_Admin_Welcome {
 			}
 			.about-wrap .feature-rest div {
 				width: 50% !important;
-				padding-right: 100px;
+				padding-<?php echo get_bloginfo( 'text_direction' ) === 'rtl' ? 'left' : 'right'; ?>: 100px;
 				-moz-box-sizing: border-box;
 				box-sizing: border-box;
 				margin: 0 !important;
 			}
 			.about-wrap .feature-rest div.last-feature {
-				padding-left: 100px;
-				padding-right: 0;
+				padding-<?php echo get_bloginfo( 'text_direction' ) === 'rtl' ? 'right' : 'left'; ?>: 100px;
+				padding-<?php echo get_bloginfo( 'text_direction' ) === 'rtl' ? 'left' : 'right'; ?>: 0;
 			}
 			.about-wrap div.icon {
 				width: 0 !important;
 				padding: 0;
 				margin: 0;
 			}
-			.about-wrap .feature-rest div.icon:before { 
+			.about-wrap .feature-rest div.icon:before {
 				font-family: WooCommerce !important;
 				font-weight: normal;
 				width: 100%;
@@ -162,7 +168,7 @@ class WC_Admin_Welcome {
 				position: relative;
 				text-align: center;
 				speak: none;
-				margin: 0 0 0 -100px;
+				margin: <?php echo get_bloginfo( 'text_direction' ) === 'rtl' ? '0 -100px 0 0' : '0 0 0 -100px'; ?>;
 				content: "\e01d";
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
@@ -244,7 +250,7 @@ class WC_Admin_Welcome {
 				<div class="wc-feature feature-rest feature-section col three-col">
 					<div>
 						<h4><?php _e( 'Access your data from 3rd party applications', 'woocommerce' ); ?></h4>
-						<p><?php _e( 'Built on top of the WooCommerce API, and targetted directly at developers, the new REST API allows you to get data for <strong>Orders</strong>, <strong>Coupons</strong>, <strong>Customers</strong>, <strong>Products</strong> and <strong>Reports</strong> in both <code>XML</code> and <code>JSON</code> formats.', 'woocommerce' ); ?></p>
+						<p><?php _e( 'Built on top of the WooCommerce API, and targeted directly at developers, the new REST API allows you to get data for <strong>Orders</strong>, <strong>Coupons</strong>, <strong>Customers</strong>, <strong>Products</strong> and <strong>Reports</strong> in both <code>XML</code> and <code>JSON</code> formats.', 'woocommerce' ); ?></p>
 					</div>
 					<div class="icon"></div>
 					<div class="last-feature">
@@ -395,7 +401,7 @@ class WC_Admin_Welcome {
 
 			<?php $this->intro(); ?>
 
-			<p class="about-description"><?php _e( 'WooCommerce has been kindly translated into several other languages thanks to our translation team. Want to see your name? <a href="https://www.transifex.com/projects/p/woocommerce-core/">Translate WooCommerce</a>.', 'woocommerce' ); ?></p>
+			<p class="about-description"><?php _e( 'WooCommerce has been kindly translated into several other languages thanks to our translation team. Want to see your name? <a href="https://www.transifex.com/projects/p/woocommerce/">Translate WooCommerce</a>.', 'woocommerce' ); ?></p>
 
 			<p class="wp-credits-list"><a href="https://www.transifex.com/accounts/profile/ABSOLUTE_Web">ABSOLUTE_Web</a>, <a href="https://www.transifex.com/accounts/profile/AIRoman">AIRoman</a>, <a href="https://www.transifex.com/accounts/profile/Andriy.Gusak">Andriy.Gusak</a>, <a href="https://www.transifex.com/accounts/profile/Apelsinova">Apelsinova</a>, <a href="https://www.transifex.com/accounts/profile/Chaos">Chaos</a>, <a href="https://www.transifex.com/accounts/profile/Closemarketing">Closemarketing</a>, <a href="https://www.transifex.com/accounts/profile/CoachBirgit">CoachBirgit</a>, <a href="https://www.transifex.com/accounts/profile/DJIO">DJIO</a>, <a href="https://www.transifex.com/accounts/profile/Dimis13">Dimis13</a>, <a href="https://www.transifex.com/accounts/profile/GabrielGil">GabrielGil</a>, <a href="https://www.transifex.com/accounts/profile/GeertDD">GeertDD</a>, <a href="https://www.transifex.com/accounts/profile/Griga_M">Griga_M</a>, <a href="https://www.transifex.com/accounts/profile/JKKim">JKKim</a>, <a href="https://www.transifex.com/accounts/profile/Janjaapvandijk">Janjaapvandijk</a>, <a href="https://www.transifex.com/accounts/profile/KennethJ">KennethJ</a>, <a href="https://www.transifex.com/accounts/profile/Lazybadger">Lazybadger</a>, <a href="https://www.transifex.com/accounts/profile/RistoNiinemets">RistoNiinemets</a>, <a href="https://www.transifex.com/accounts/profile/SergeyBiryukov">SergeyBiryukov</a>, <a href="https://www.transifex.com/accounts/profile/SzLegradi">SzLegradi</a>, <a href="https://www.transifex.com/accounts/profile/TRFlavourart">TRFlavourart</a>, <a href="https://www.transifex.com/accounts/profile/Thalitapinheiro">Thalitapinheiro</a>, <a href="https://www.transifex.com/accounts/profile/TomiToivio">TomiToivio</a>, <a href="https://www.transifex.com/accounts/profile/TopOSScz">TopOSScz</a>, <a href="https://www.transifex.com/accounts/profile/Wen89">Wen89</a>, <a href="https://www.transifex.com/accounts/profile/abdmc">abdmc</a>, <a href="https://www.transifex.com/accounts/profile/adamedotco">adamedotco</a>, <a href="https://www.transifex.com/accounts/profile/ahmedbadawy">ahmedbadawy</a>, <a href="https://www.transifex.com/accounts/profile/alaa13212">alaa13212</a>, <a href="https://www.transifex.com/accounts/profile/alichani">alichani</a>, <a href="https://www.transifex.com/accounts/profile/amitgilad">amitgilad</a>, <a href="https://www.transifex.com/accounts/profile/andrey.lima.ramos">andrey.lima.ramos</a>, <a href="https://www.transifex.com/accounts/profile/arhipaiva">arhipaiva</a>, <a href="https://www.transifex.com/accounts/profile/bobosbodega">bobosbodega</a>, <a href="https://www.transifex.com/accounts/profile/calkut">calkut</a>, <a href="https://www.transifex.com/accounts/profile/cglaudel">cglaudel</a>, <a href="https://www.transifex.com/accounts/profile/claudiosmweb">claudiosmweb</a>, <a href="https://www.transifex.com/accounts/profile/coenjacobs">coenjacobs</a>, <a href="https://www.transifex.com/accounts/profile/corsonr">corsonr</a>, <a href="https://www.transifex.com/accounts/profile/cpelham">cpelham</a>, <a href="https://www.transifex.com/accounts/profile/culkman">culkman</a>, <a href="https://www.transifex.com/accounts/profile/darudar">darudar</a>, <a href="https://www.transifex.com/accounts/profile/deckerweb">deckerweb</a>, <a href="https://www.transifex.com/accounts/profile/dekaru">dekaru</a>, <a href="https://www.transifex.com/accounts/profile/denarefyev">denarefyev</a>, <a href="https://www.transifex.com/accounts/profile/e01">e01</a>, <a href="https://www.transifex.com/accounts/profile/espellcaste">espellcaste</a>, <a href="https://www.transifex.com/accounts/profile/fdaciuk">fdaciuk</a>, <a href="https://www.transifex.com/accounts/profile/flyingoff">flyingoff</a>, <a href="https://www.transifex.com/accounts/profile/fnalescio">fnalescio</a>, <a href="https://www.transifex.com/accounts/profile/fxbenard">fxbenard</a>, <a href="https://www.transifex.com/accounts/profile/gingermig">gingermig</a>, <a href="https://www.transifex.com/accounts/profile/gopress.co.il">gopress.co.il</a>, <a href="https://www.transifex.com/accounts/profile/greguly">greguly</a>, <a href="https://www.transifex.com/accounts/profile/henryk.ibemeinhardt">henryk.ibemeinhardt</a>, <a href="https://www.transifex.com/accounts/profile/iagomelanias">iagomelanias</a>, <a href="https://www.transifex.com/accounts/profile/ideodora">ideodora</a>, <a href="https://www.transifex.com/accounts/profile/inceptive">inceptive</a>, <a href="https://www.transifex.com/accounts/profile/inpsyde">inpsyde</a>, <a href="https://www.transifex.com/accounts/profile/israel.cefrin">israel.cefrin</a>, <a href="https://www.transifex.com/accounts/profile/jameskoster">jameskoster</a>, <a href="https://www.transifex.com/accounts/profile/jeanmichell">jeanmichell</a>, <a href="https://www.transifex.com/accounts/profile/jluisfreitas">jluisfreitas</a>, <a href="https://www.transifex.com/accounts/profile/joelbal">joelbal</a>, <a href="https://www.transifex.com/accounts/profile/joesalty">joesalty</a>, <a href="https://www.transifex.com/accounts/profile/josh_marom">josh_marom</a>, <a href="https://www.transifex.com/accounts/profile/jpBenfica">jpBenfica</a>, <a href="https://www.transifex.com/accounts/profile/jujjer">jujjer</a>, <a href="https://www.transifex.com/accounts/profile/karistuck">karistuck</a>, <a href="https://www.transifex.com/accounts/profile/kraudio">kraudio</a>, <a href="https://www.transifex.com/accounts/profile/lad.ruz">lad.ruz</a>, <a href="https://www.transifex.com/accounts/profile/lubalee">lubalee</a>, <a href="https://www.transifex.com/accounts/profile/maayehkhaled">maayehkhaled</a>, <a href="https://www.transifex.com/accounts/profile/marcosof">marcosof</a>, <a href="https://www.transifex.com/accounts/profile/martian36">martian36</a>, <a href="https://www.transifex.com/accounts/profile/martinproject">martinproject</a>, <a href="https://www.transifex.com/accounts/profile/math_beck">math_beck</a>, <a href="https://www.transifex.com/accounts/profile/mattyza">mattyza</a>, <a href="https://www.transifex.com/accounts/profile/me2you">me2you</a>, <a href="https://www.transifex.com/accounts/profile/mikejolley">mikejolley</a>, <a href="https://www.transifex.com/accounts/profile/mjepson">mjepson</a>, <a href="https://www.transifex.com/accounts/profile/mobarak">mobarak</a>, <a href="https://www.transifex.com/accounts/profile/mom0916">mom0916</a>, <a href="https://www.transifex.com/accounts/profile/mortifactor">mortifactor</a>, <a href="https://www.transifex.com/accounts/profile/nsitbon">nsitbon</a>, <a href="https://www.transifex.com/accounts/profile/perdersongedal">perdersongedal</a>, <a href="https://www.transifex.com/accounts/profile/potgieterg">potgieterg</a>, <a href="https://www.transifex.com/accounts/profile/rabas.marek">rabas.marek</a>, <a href="https://www.transifex.com/accounts/profile/rafaelfunchal">rafaelfunchal</a>, <a href="https://www.transifex.com/accounts/profile/ragulka">ragulka</a>, <a href="https://www.transifex.com/accounts/profile/ramoonus">ramoonus</a>, <a href="https://www.transifex.com/accounts/profile/rcovarru">rcovarru</a>, <a href="https://www.transifex.com/accounts/profile/renatofrota">renatofrota</a>, <a href="https://www.transifex.com/accounts/profile/richardshaylor">richardshaylor</a>, <a href="https://www.transifex.com/accounts/profile/rickserrat">rickserrat</a>, <a href="https://www.transifex.com/accounts/profile/rodrigoprior">rodrigoprior</a>, <a href="https://www.transifex.com/accounts/profile/scottbasgaard">scottbasgaard</a>, <a href="https://www.transifex.com/accounts/profile/sennbrink">sennbrink</a>, <a href="https://www.transifex.com/accounts/profile/stgoos">stgoos</a>, <a href="https://www.transifex.com/accounts/profile/stuk88">stuk88</a>, <a href="https://www.transifex.com/accounts/profile/sumodirjo">sumodirjo</a>, <a href="https://www.transifex.com/accounts/profile/sylvie_janssens">sylvie_janssens</a>, <a href="https://www.transifex.com/accounts/profile/tinaswelt">tinaswelt</a>, <a href="https://www.transifex.com/accounts/profile/toszcze">toszcze</a>, <a href="https://www.transifex.com/accounts/profile/tshowhey">tshowhey</a>, <a href="https://www.transifex.com/accounts/profile/tszming">tszming</a>, <a href="https://www.transifex.com/accounts/profile/tue.holm">tue.holm</a>, <a href="https://www.transifex.com/accounts/profile/uworx">uworx</a>, <a href="https://www.transifex.com/accounts/profile/vanbo">vanbo</a>, <a href="https://www.transifex.com/accounts/profile/viamarket">viamarket</a>, <a href="https://www.transifex.com/accounts/profile/wasim">wasim</a>, <a href="https://www.transifex.com/accounts/profile/zodiac1978">zodiac1978</a></p>
 		</div>

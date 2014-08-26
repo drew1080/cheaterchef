@@ -26,8 +26,10 @@ function doWPostTest($protocol){
 		'sslverify' => false,
 		'headers' => array()
 		));
-	if($result['response']['code'] == 200 && strpos($result['body'], "scanptestok") !== false){
+	if( (! is_wp_error($result)) && $result['response']['code'] == 200 && strpos($result['body'], "scanptestok") !== false){
 		echo "wp_remote_post() test to noc1.wordfence.com passed!<br />\n";
+	} else if(is_wp_error($result)){
+		echo "wp_remote_post() test to noc1.wordfence.com failed! Response was: " . $result->get_error_message() . "<br />\n";
 	} else {
 		echo "wp_remote_post() test to noc1.wordfence.com failed! Response was: " . $result['response']['code'] . " " . $result['response']['message'] . "<br />\n";
 		echo "This likely means that your hosting provider is blocking requests to noc1.wordfence.com or has set up a proxy that is not behaving itself.<br />\n";
@@ -38,10 +40,22 @@ function doWPostTest($protocol){
 	}
 }
 function doCurlTest($protocol){
+	if(! function_exists('curl_init')){
+		echo "<br /><b style='color: #F00;'>CURL is not installed</b>. Asking your hosting provider to install and enable CURL may improve any connection problems.</b><br />\n";
+		return;
+	}
 	echo "<br /><b>STARTING CURL $protocol CONNECTION TEST....</b><br />\n";
 	global $curlContent;
 	$curlContent = "";
 	$curl = curl_init($protocol . '://noc1.wordfence.com/');
+	if(defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT') && wfUtils::hostNotExcludedFromProxy('noc1.wordfence.com') ){
+		curl_setopt($curl, CURLOPT_HTTPPROXYTUNNEL, 0);
+		curl_setopt($curl, CURLOPT_PROXY, WP_PROXY_HOST . ':' . WP_PROXY_PORT);
+		if(defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD')){
+			curl_setopt($curl, CURLOPT_PROXYUSERPWD, WP_PROXY_USERNAME . ':' . WP_PROXY_PASSWORD);
+		}
+	}
+
 	curl_setopt ($curl, CURLOPT_TIMEOUT, 900);
 	curl_setopt ($curl, CURLOPT_USERAGENT, "Wordfence.com UA " . (defined('WORDFENCE_VERSION') ? WORDFENCE_VERSION : '[Unknown version]') );
 	curl_setopt ($curl, CURLOPT_RETURNTRANSFER, TRUE);

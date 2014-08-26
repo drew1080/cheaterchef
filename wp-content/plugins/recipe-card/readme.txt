@@ -2,7 +2,7 @@
 Contributors: Yumprint.com
 Tags: recipe, recipe template, hrecipe, schema.org, seo
 Requires at least: 3.0
-Tested up to: 3.6.1
+Tested up to: 3.9
 Stable tag: trunk 
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -103,6 +103,11 @@ Email [feedback@yumprint.com](mailto:feedback@yumprint.com) with your Recipe Car
 
 == Changelog ==
 
+= 1.1.7 =
+
+* Fixes rating scale with Recipe Card
+* Updates Wordpress compatibility
+
 = 1.1.6 =
 
 * Improves theme compatibility with Recipe Card
@@ -189,6 +194,11 @@ Email [feedback@yumprint.com](mailto:feedback@yumprint.com) with your Recipe Car
 Initial Recipe Card Release
 
 == Upgrade Notice ==
+
+= 1.1.7 =
+
+Fixes rating scale with Recipe Card
+Updates Wordpress compatibility
 
 = 1.1.6 =
 

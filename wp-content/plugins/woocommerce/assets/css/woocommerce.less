@@ -1,5 +1,5 @@
-@import "mixins";
-@import "woocommerce-base"; /* Contains base colours like @primary */
+@import "mixins.less";
+@import "woocommerce-base.less"; /* Contains base colours like @primary */
 
 /* Colours */
 @tertiary: 		@primary; 									/* Price slider bar / layered nav UI */
@@ -683,6 +683,7 @@ p.demo_store {
 			.inset_box_shadow( 0, 0, 2px, 0, @secondary );
 			font-weight:bold;
 			.border_radius_left(2px);
+			-moz-appearance: textfield; /* Hide buttons for Firefox 29 and later */
 		}
 
 		/* Hide buttons for opera */
@@ -928,7 +929,6 @@ p.demo_store {
 
 	p.stars {
 		position: relative;
-		height: 1em;
 		font-size: 1em;
 
 		a {
@@ -955,7 +955,7 @@ p.demo_store {
 					position: absolute;
 					top: 0;
 					left: 0;
-					padding-right: 1em;
+					//padding-right: 1em;
 				}
 
 			}
@@ -1809,9 +1809,21 @@ p.demo_store {
 -------------------------------------------------------------- */
 .single-product {
 	.twentythirteen {
-		.entry-summary {
+		.entry-summary,
+		#reply-title,
+		#respond #commentform {
 			padding: 0;
 		}
+
+		p.stars {
+			clear: both;
+		}
+	}
+}
+
+.twentythirteen {
+	.woocommerce-breadcrumb {
+		padding-top: 40px;
 	}
 }
 

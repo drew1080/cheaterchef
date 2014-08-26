@@ -22,21 +22,21 @@ class WC_Product {
 	public $product_type = null;
 
 	/**
-	 * __construct function.
+	 * Constructor gets the post object and sets the ID for the loaded product.
 	 *
 	 * @access public
-	 * @param mixed $product
+	 * @param int|WC_Product|WP_Post $product Product ID, post object, or product object
 	 */
 	public function __construct( $product ) {
-		if ( $product instanceof WP_Post ) {
-			$this->id   = absint( $product->ID );
-			$this->post = $product;
+		if ( is_numeric( $product ) ) {
+			$this->id   = absint( $product );
+			$this->post = get_post( $this->id );
 		} elseif ( $product instanceof WC_Product ) {
 			$this->id   = absint( $product->id );
 			$this->post = $product;
-		} else {
-			$this->id   = absint( $product );
-			$this->post = get_post( $this->id );
+		} elseif ( $product instanceof WP_Post || isset( $product->ID ) ) {
+			$this->id   = absint( $product->ID );
+			$this->post = $product;
 		}
 	}
 
@@ -296,10 +296,12 @@ class WC_Product {
 	 * @param string $download_id file identifier
 	 * @return array|false if not found
 	 */
-	public function get_file( $download_id ) {
+	public function get_file( $download_id = '' ) {
 		$files = $this->get_files();
 
-		if ( isset( $files[ $download_id ] ) ) {
+		if ( '' === $download_id ) {
+			$file = sizeof( $files ) ? current( $files ) : false;
+		} elseif ( isset( $files[ $download_id ] ) ) {
 			$file = $files[ $download_id ];
 		} else {
 			$file = false;
@@ -401,7 +403,8 @@ class WC_Product {
 	 * @return bool
 	 */
 	public function is_taxable() {
-		return $this->tax_status == 'taxable' && get_option( 'woocommerce_calc_taxes' ) == 'yes' ? true : false;
+		$taxable = $this->tax_status == 'taxable' && get_option( 'woocommerce_calc_taxes' ) == 'yes' ? true : false;
+		return apply_filters( 'woocommerce_product_is_taxable', $taxable, $this );
 	}
 
 	/**
@@ -471,7 +474,7 @@ class WC_Product {
 	 * @return bool
 	 */
 	public function managing_stock() {
-		return ( ! isset( $this->manage_stock ) || $this->manage_stock == 'no' || get_option('woocommerce_manage_stock') != 'yes' ) ? false : true;
+		return ( ! isset( $this->manage_stock ) || $this->manage_stock == 'no' || get_option( 'woocommerce_manage_stock' ) !== 'yes' ) ? false : true;
 	}
 
 	/**
@@ -489,7 +492,7 @@ class WC_Product {
 				if ( $this->get_total_stock() <= get_option( 'woocommerce_notify_no_stock_amount' ) ) {
 					return false;
 				} else {
-					if ( $this->stock_status == 'instock' ) {
+					if ( $this->stock_status === 'instock' ) {
 						return true;
 					} else {
 						return false;
@@ -499,7 +502,7 @@ class WC_Product {
 
 		} else {
 
-			if ( $this->stock_status == 'instock' ) {
+			if ( $this->stock_status === 'instock' ) {
 				return true;
 			} else {
 				return false;
@@ -515,7 +518,7 @@ class WC_Product {
 	 * @return bool
 	 */
 	public function backorders_allowed() {
-		return $this->backorders == 'yes' || $this->backorders == 'notify' ? true : false;
+		return $this->backorders === 'yes' || $this->backorders === 'notify' ? true : false;
 	}
 
 	/**
@@ -525,7 +528,7 @@ class WC_Product {
 	 * @return bool
 	 */
 	public function backorders_require_notification() {
-		return $this->managing_stock() && $this->backorders == 'notify' ? true : false;
+		return $this->managing_stock() && $this->backorders === 'notify' ? true : false;
 	}
 
 	/**
@@ -625,7 +628,7 @@ class WC_Product {
 	 * @return bool
 	 */
 	public function is_featured() {
-		return $this->featured == 'yes' ? true : false;
+		return $this->featured === 'yes' ? true : false;
 	}
 
 	/**
@@ -639,23 +642,23 @@ class WC_Product {
 		$visible = true;
 
 		// Out of stock visibility
-		if ( get_option( 'woocommerce_hide_out_of_stock_items' ) == 'yes' && ! $this->is_in_stock() ) {
+		if ( get_option( 'woocommerce_hide_out_of_stock_items' ) === 'yes' && ! $this->is_in_stock() ) {
 			$visible = false;
 
 		// visibility setting
-		} elseif ( $this->visibility == 'hidden' ) {
+		} elseif ( $this->visibility === 'hidden' ) {
 			$visible = false;
-		} elseif ( $this->visibility == 'visible' ) {
+		} elseif ( $this->visibility === 'visible' ) {
 			$visible = true;
 
 		// Visibility in loop
-		} elseif ( $this->visibility == 'search' && is_search() ) {
+		} elseif ( $this->visibility === 'search' && is_search() ) {
 			$visible = true;
-		} elseif ( $this->visibility == 'search' && ! is_search() ) {
+		} elseif ( $this->visibility === 'search' && ! is_search() ) {
 			$visible = false;
-		} elseif ( $this->visibility == 'catalog' && is_search() ) {
+		} elseif ( $this->visibility === 'catalog' && is_search() ) {
 			$visible = false;
-		} elseif ( $this->visibility == 'catalog' && ! is_search() ) {
+		} elseif ( $this->visibility === 'catalog' && ! is_search() ) {
 			$visible = true;
 		}
 
@@ -686,7 +689,7 @@ class WC_Product {
 	 * Returns false if the product cannot be bought.
 	 *
 	 * @access public
-	 * @return cool
+	 * @return bool
 	 */
 	public function is_purchasable() {
 
@@ -773,7 +776,7 @@ class WC_Product {
 
 		if ( $this->is_taxable() ) {
 
-			if ( get_option('woocommerce_prices_include_tax') == 'no' ) {
+			if ( get_option('woocommerce_prices_include_tax') === 'no' ) {
 
 				$tax_rates  = $_tax->get_rates( $this->get_tax_class() );
 				$taxes      = $_tax->calc_tax( $price * $qty, $tax_rates, false );
@@ -826,7 +829,7 @@ class WC_Product {
 			$price = $this->get_price();
 		}
 
-		if ( $this->is_taxable() && get_option('woocommerce_prices_include_tax') == 'yes' ) {
+		if ( $this->is_taxable() && get_option('woocommerce_prices_include_tax') === 'yes' ) {
 
 			$_tax       = new WC_Tax();
 			$tax_rates  = $_tax->get_shop_base_rate( $this->tax_class );
@@ -989,7 +992,7 @@ class WC_Product {
 
 			}
 
-			set_transient( 'wc_average_rating_' . $this->id, $average_rating );
+			set_transient( 'wc_average_rating_' . $this->id, $average_rating, YEAR_IN_SECONDS );
 		}
 
 		return $average_rating;
@@ -1015,7 +1018,7 @@ class WC_Product {
 				AND meta_value > 0
 			", $this->id ) );
 
-			set_transient( 'wc_rating_count_' . $this->id, $count );
+			set_transient( 'wc_rating_count_' . $this->id, $count, YEAR_IN_SECONDS );
 		}
 
 		return $count;
@@ -1150,13 +1153,13 @@ class WC_Product {
 		$cats_array = array(0);
 
 		// Get tags
-		$terms = wp_get_post_terms($this->id, 'product_tag');
+		$terms = wp_get_post_terms( $this->id, 'product_tag' );
 		foreach ( $terms as $term ) {
 			$tags_array[] = $term->term_id;
 		}
 
 		// Get categories
-		$terms = wp_get_post_terms($this->id, 'product_cat');
+		$terms = wp_get_post_terms( $this->id, 'product_cat' );
 		foreach ( $terms as $term ) {
 			$cats_array[] = $term->term_id;
 		}
@@ -1172,13 +1175,13 @@ class WC_Product {
 		$exclude_ids = array_map( 'absint', array_merge( array( 0, $this->id ), $this->get_upsells() ) );
 
 		// Generate query
-		$query['fields'] = "SELECT ID FROM {$wpdb->posts} p";
+		$query['fields'] = "SELECT DISTINCT ID FROM {$wpdb->posts} p";
 		$query['join']   = " INNER JOIN {$wpdb->postmeta} pm ON ( pm.post_id = p.ID AND pm.meta_key='_visibility' )";
 		$query['join']  .= " INNER JOIN {$wpdb->term_relationships} tr ON (p.ID = tr.object_id)";
 		$query['join']  .= " INNER JOIN {$wpdb->term_taxonomy} tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id)";
 		$query['join']  .= " INNER JOIN {$wpdb->terms} t ON (t.term_id = tt.term_id)";
 
-		if ( get_option( 'woocommerce_hide_out_of_stock_items' ) == 'yes' ) {
+		if ( get_option( 'woocommerce_hide_out_of_stock_items' ) === 'yes' ) {
 			$query['join'] .= " INNER JOIN {$wpdb->postmeta} pm2 ON ( pm2.post_id = p.ID AND pm2.meta_key='_stock_status' )";
 		}
 
@@ -1188,7 +1191,7 @@ class WC_Product {
 		$query['where'] .= " AND p.ID NOT IN ( " . implode( ',', $exclude_ids ) . " )";
 		$query['where'] .= " AND pm.meta_value IN ( 'visible', 'catalog' )";
 
-		if ( get_option( 'woocommerce_hide_out_of_stock_items' ) == 'yes' ) {
+		if ( get_option( 'woocommerce_hide_out_of_stock_items' ) === 'yes' ) {
 			$query['where'] .= " AND pm2.meta_value = 'instock'";
 		}
 
@@ -1199,15 +1202,17 @@ class WC_Product {
 			$andor = 'AND';
 		}
 
+		// when query is OR - need to check against excluded ids again
 		if ( apply_filters( 'woocommerce_product_related_posts_relate_by_tag', true ) ) {
 			$query['where'] .= " {$andor} ( tt.taxonomy = 'product_tag' AND t.term_id IN ( " . implode( ',', $tags_array ) . " ) )";
+			$query['where'] .= " AND p.ID NOT IN ( " . implode( ',', $exclude_ids ) . " )";
 		}
 
 		$query['orderby']  = " ORDER BY RAND()";
 		$query['limits']   = " LIMIT " . absint( $limit ) . " ";
 
 		// Get the posts
-		$related_posts = $wpdb->get_col( implode( ' ', apply_filters('woocommerce_product_related_posts_query', $query ) ) );
+		$related_posts = $wpdb->get_col( implode( ' ', apply_filters( 'woocommerce_product_related_posts_query', $query ) ) );
 
 		return $related_posts;
 	}
@@ -1343,6 +1348,21 @@ class WC_Product {
 			'product'    => $this
 		) );
 	}
+
+    /**
+     * Gets the main product image ID.
+     * @return int
+     */
+    public function get_image_id() {
+    	if ( has_post_thumbnail( $this->id ) ) {
+			$image_id = get_post_thumbnail_id( $this->id );
+		} elseif ( ( $parent_id = wp_get_post_parent_id( $this->id ) ) && has_post_thumbnail( $parent_id ) ) {
+			$image_id = get_post_thumbnail_id( $parent_id );
+		} else {
+			$image_id = 0;
+		}
+		return $image_id;
+    }
 
 	/**
 	 * Returns the main product image

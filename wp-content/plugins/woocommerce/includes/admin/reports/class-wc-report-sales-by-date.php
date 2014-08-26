@@ -1,6 +1,11 @@
 <?php
 /**
- * WC_Report_Sales_By_Date class
+ * WC_Report_Sales_By_Date
+ *
+ * @author 		WooThemes
+ * @category 	Admin
+ * @package 	WooCommerce/Admin/Reports
+ * @version     2.1.0
  */
 class WC_Report_Sales_By_Date extends WC_Admin_Report {
 
@@ -60,7 +65,7 @@ class WC_Report_Sales_By_Date extends WC_Admin_Report {
 			),
 			'where' => array(
 				array(
-					'key'      => 'order_item_type',
+					'key'      => 'order_items.order_item_type',
 					'value'    => 'coupon',
 					'operator' => '='
 				)
@@ -221,7 +226,7 @@ class WC_Report_Sales_By_Date extends WC_Admin_Report {
 			),
 			'where' => array(
 				array(
-					'key'      => 'order_item_type',
+					'key'      => 'order_items.order_item_type',
 					'value'    => 'line_item',
 					'operator' => '='
 				)
@@ -254,7 +259,7 @@ class WC_Report_Sales_By_Date extends WC_Admin_Report {
 			),
 			'where' => array(
 				array(
-					'key'      => 'order_item_type',
+					'key'      => 'order_items.order_item_type',
 					'value'    => 'coupon',
 					'operator' => '='
 				)

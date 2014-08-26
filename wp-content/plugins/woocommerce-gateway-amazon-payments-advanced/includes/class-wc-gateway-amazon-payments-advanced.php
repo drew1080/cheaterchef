@@ -83,7 +83,12 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 
 		$args = wp_parse_args( $args, $defaults );
 
-		$response = wp_remote_get( $this->get_signed_amazon_url( $this->endpoint . '?' . http_build_query( $args, '', '&' ), $this->secret_key ) );
+		$response = wp_remote_get( 
+			$this->get_signed_amazon_url( $this->endpoint . '?' . http_build_query( $args, '', '&' ), $this->secret_key ),
+			array(
+				'timeout' => 12
+			)
+		);
 
 		if ( ! is_wp_error( $response ) )
 			$response = $this->xml2Array( $response['body'] );
@@ -257,7 +262,7 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 				'OrderReferenceAttributes.OrderTotal.CurrencyCode'             => strtoupper( get_woocommerce_currency() ),
 				'OrderReferenceAttributes.SellerNote'                          => sprintf( __( 'Order %s from %s.', 'wc_amazon_payments_advanced' ), $order->get_order_number(), urlencode( wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) ) ),
 				'OrderReferenceAttributes.SellerOrderAttributes.SellerOrderId' => $order->get_order_number(),
-				'OrderReferenceAttributes.SellerOrderAttributes.StoreName'     => urlencode( wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) ),
+				'OrderReferenceAttributes.SellerOrderAttributes.StoreName'     => wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ),
 				'OrderReferenceAttributes.PlatformId'                          => 'A1BVJDFFHQ7US4'
 			) );
 

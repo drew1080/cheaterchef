@@ -152,7 +152,7 @@ class WC_Admin_CPT_Shop_Order extends WC_Admin_CPT {
 			break;
 			case 'order_items' :
 
-				printf( '<a href="#" class="show_order_items">' . _n( '%d item', '%d items', sizeof( $the_order->get_items() ), 'woocommerce' ) . '</a>', sizeof( $the_order->get_items() ) );
+				echo '<a href="#" class="show_order_items">' . apply_filters( 'woocommerce_admin_order_item_count', sprintf( _n( '%d item', '%d items', $the_order->get_item_count(), 'woocommerce' ), $the_order->get_item_count() ), $the_order ) . '</a>';
 
 				if ( sizeof( $the_order->get_items() ) > 0 ) {
 
@@ -163,7 +163,7 @@ class WC_Admin_CPT_Shop_Order extends WC_Admin_CPT {
 						$item_meta      = new WC_Order_Item_Meta( $item['item_meta'] );
 						$item_meta_html = $item_meta->display( true, true );
 						?>
-						<tr>
+						<tr class="<?php echo apply_filters( 'woocommerce_admin_order_item_class', '', $item ); ?>">
 							<td class="qty"><?php echo absint( $item['qty'] ); ?></td>
 							<td class="name">
 								<?php if ( wc_product_sku_enabled() && $_product && $_product->get_sku() ) echo $_product->get_sku() . ' - '; ?><?php echo apply_filters( 'woocommerce_order_item_name', $item['name'], $item ); ?>
@@ -193,9 +193,13 @@ class WC_Admin_CPT_Shop_Order extends WC_Admin_CPT {
 
 				if ( $post->comment_count ) {
 
+					// check the status of the post
+					( $post->post_status !== 'trash' ) ? $status = '' : $status = 'post-trashed';
+
 					$latest_notes = get_comments( array(
-						'post_id' => $post->ID,
-						'number'  => 1
+						'post_id'	=> $post->ID,
+						'number'	=> 1,
+						'status'	=> $status
 					) );
 
 					$latest_note = current( $latest_notes );
@@ -233,26 +237,6 @@ class WC_Admin_CPT_Shop_Order extends WC_Admin_CPT {
 				}
 
 				echo '<div class="tips" data-tip="' . esc_attr( $customer_tip ) . '">';
-
-				if ( $the_order->user_id ) {
-					$user_info = get_userdata( $the_order->user_id );
-				}
-
-				if ( ! empty( $user_info ) ) {
-
-					$user = '<a href="user-edit.php?user_id=' . absint( $user_info->ID ) . '">';
-
-					if ( $user_info->first_name || $user_info->last_name ) {
-						$user .= esc_html( $user_info->first_name . ' ' . $user_info->last_name );
-					} else {
-						$user .= esc_html( $user_info->display_name );
-					}
-
-					$user .= '</a>';
-
-				} else {
-					$user = __( 'Guest', 'woocommerce' );
-				}
 
 				if ( $the_order->user_id ) {
 					$user_info = get_userdata( $the_order->user_id );
@@ -565,26 +549,20 @@ class WC_Admin_CPT_Shop_Order extends WC_Admin_CPT {
 		}
 
 		// Search orders
-		$post_ids = array_merge(
-			$wpdb->get_col(
-				$wpdb->prepare( "
-					SELECT post_id
-					FROM {$wpdb->postmeta}
-					WHERE meta_key IN ('" . implode( "','", $search_fields ) . "') AND meta_value LIKE '%%%s%%'
-					",
-					esc_attr( $_GET['s'] )
-				)
-			),
+		$post_ids = array_unique( array_merge(
 			$wpdb->get_col(
 				$wpdb->prepare( "
 					SELECT p1.post_id
-					FROM {$wpdb->postmeta} p1, {$wpdb->postmeta} p2
+					FROM {$wpdb->postmeta} p1
+					INNER JOIN {$wpdb->postmeta} p2 ON p1.post_id = p2.post_id
 					WHERE
 						( p1.meta_key = '_billing_first_name' AND p2.meta_key = '_billing_last_name' AND CONCAT(p1.meta_value, ' ', p2.meta_value) LIKE '%%%s%%' )
 					OR
 						( p1.meta_key = '_shipping_first_name' AND p2.meta_key = '_shipping_last_name' AND CONCAT(p1.meta_value, ' ', p2.meta_value) LIKE '%%%s%%' )
+					OR
+						( p1.meta_key IN ('" . implode( "','", $search_fields ) . "') AND p1.meta_value LIKE '%%%s%%' )
 					",
-					esc_attr( $_GET['s'] ), esc_attr( $_GET['s'] )
+					esc_attr( $_GET['s'] ), esc_attr( $_GET['s'] ), esc_attr( $_GET['s'] )
 				)
 			),
 			$wpdb->get_col(
@@ -597,7 +575,7 @@ class WC_Admin_CPT_Shop_Order extends WC_Admin_CPT {
 				)
 			),
 			array( $search_order_id )
-		);
+		) );
 
 		// Remove s - we don't want to search order name
 		unset( $wp->query_vars['s'] );
@@ -756,7 +734,7 @@ class WC_Admin_CPT_Shop_Order extends WC_Admin_CPT {
 			$number = isset( $_REQUEST['changed'] ) ? absint( $_REQUEST['changed'] ) : 0;
 
 			if ( 'edit.php' == $pagenow && 'shop_order' == $post_type ) {
-				$message = sprintf( _n( 'Order status changed.', '%s order statuses changed.', $number ), number_format_i18n( $number ) );
+				$message = sprintf( _n( 'Order status changed.', '%s order statuses changed.', $number, 'woocommerce' ), number_format_i18n( $number ) );
 				echo '<div class="updated"><p>' . $message . '</p></div>';
 			}
 		}

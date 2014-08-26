@@ -6,7 +6,7 @@ Plugin URI: http://j.ustin.co/yWTtmy
 Author: Jtsternberg
 Author URI: http://jtsternberg.com/about
 Donate link: http://j.ustin.co/rYL89n
-Version: 1.5.1
+Version: 1.5.4
 */
 
 
@@ -33,7 +33,8 @@ class GA_Top_Content {
 			'contentfilter' => '',
 			'catlimit'      => '',
 			'catfilter'     => '',
-			'postfilter'    => ''
+			'postfilter'    => '',
+			'update'        => false
 		);
 
 		require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
@@ -98,11 +99,25 @@ class GA_Top_Content {
 	}
 
 	public function message_one() {
-		return '<p><strong>The "Google Analytics Top Content" widget requires the plugin, <em>"Google Analytics Dashboard"</em>, to be installed and activated.</strong></p><p><a href="'. admin_url( 'plugins.php?page=install-required-plugins' ) .'" class="thickbox" title="Install Google Analytics Dashboard">Install plugin</a> | <a href="'. admin_url( 'plugins.php' ) .'" class="thickbox" title="Activate Google Analytics Dashboard">Activate plugin</a>.</p>';
+		return sprintf(
+			'<p><strong>%s</strong></p><p><a href="%s" class="thickbox" title="%s">%s</a> | <a href="%s" class="thickbox" title="%s">%s</a>.</p>',
+			sprintf( __( 'The "Google Analytics Top Content" widget requires the plugin, %s, to be installed and activated.', 'gatpw' ), '<em>"Google Analytics Dashboard"</em>' ),
+			admin_url( 'plugins.php?page=install-required-plugins' ),
+			__( 'Install Google Analytics Dashboard', 'gatpw' ),
+			__( 'Install plugin', 'gatpw' ),
+			admin_url( 'plugins.php' ),
+			__( 'Activate Google Analytics Dashboard', 'gatpw' ),
+			__( 'Activate plugin', 'gatpw' )
+		);
 	}
 
 	public function message_two() {
-		return '<p>You must first login to Google Analytics in the "Google Analytics Dashboard" settings for this widget to work.</p><p><a href="'. admin_url( 'options-general.php?page=google-analytics-dashboard/gad-admin-options.php' ) .'">Go to plugin settings</a>.</p>';
+		return sprintf(
+			'<p>%s</p><p><a href="%s">%s</a>.</p>',
+			__( 'You must first login to Google Analytics in the "Google Analytics Dashboard" settings for this widget to work.', 'gatpw' ),
+			admin_url( 'options-general.php?page=google-analytics-dashboard/gad-admin-options.php' ),
+			__( 'Go to plugin settings', 'gatpw' )
+		);
 	}
 
 	public function change_link_text( $complete_link_text ) {
@@ -122,16 +137,17 @@ class GA_Top_Content {
 			return $this->message_two();
 		}
 
-		$atts = shortcode_atts( $this->defaults, $atts );
+		$atts = shortcode_atts( $this->defaults, $atts, 'google_top_content' );
 		$atts = apply_filters( 'gtc_atts_filter', $atts );
-
+		$unique = md5( serialize( $atts ) );
+		$trans_id = 'dw-gtc-list-'. $number . $unique;
 
 		$trans = '';
 		// @Dev
 		// $atts['update'] = true;
 		if ( empty( $atts['update'] ) ) {
-			$trans = get_transient( 'dw-gtc-list-'.$number );
-			$transuse = "\n<!-- using transient -->\n";
+			$trans = get_transient( $trans_id );
+			$transuse = "\n<!-- using transient - {$trans_id} -->\n";
 		}
 
 		if ( ! empty( $trans ) ) {
@@ -139,7 +155,7 @@ class GA_Top_Content {
 		}
 
 
-		$transuse = "\n<!-- not using transient -->\n";
+		$transuse = "\n<!-- not using transient - {$trans_id} -->\n";
 
 		$time = ( $atts['timeval'] * $atts['time'] );
 		$time_diff = abs( time() - $time );
@@ -171,15 +187,16 @@ class GA_Top_Content {
 		foreach( $pages as $page ) {
 			$url = $page['value'];
 			// Url is index and we don't want the homepage, skip
-			if ( $url == '/' && $atts['showhome'] != '0' )
+			if ( $url == '/' && ! in_array( $atts['showhome'], array( 'no', '0', 0, false ), true ) ) {
 				continue;
+			}
 
 			// We need to check if there are duplicates with query vars
 			$path = pathinfo( $url );
 			$query_var = strpos( $url, '?' );
 			$default_permalink = strpos( $path['filename'], '?p=' );
 			// Strip the query var off the url (if not using default permalinks)
-			$url = ( ! $atts['keep_query_vars'] && false !== $query_var && false === $default_permalink )
+			$url = ( ! ( isset( $atts['keep_query_vars'] ) || $atts['keep_query_vars'] ) && false !== $query_var && false === $default_permalink )
 				? substr( $url, 0, $query_var )
 				: $url;
 
@@ -209,7 +226,7 @@ class GA_Top_Content {
 					}
 				}
 
-				if ( $atts['contentfilter'] != 'allcontent' ) {
+				if ( $atts['contentfilter'] && $atts['contentfilter'] != 'allcontent' ) {
 					if ( empty( $wppost ) )
 						continue;
 					if ( $wppost->post_type != $atts['contentfilter'] )
@@ -223,7 +240,6 @@ class GA_Top_Content {
 						$catlimits = esc_attr( $atts['catlimit'] );
 						$catlimits = explode( ', ', $catlimits );
 						foreach ( $catlimits as $catlimit ) {
-							// if ( is_user_logged_in() ) $list .= '<pre>'. htmlentities( print_r( $wppost->post_name, true ) ) .'</pre>';
 							if ( in_category( $catlimit, $wppost ) ) $limit_array[] = $wppost->ID;
 						}
 						if ( !in_array( $wppost->ID, $limit_array ) )
@@ -248,7 +264,6 @@ class GA_Top_Content {
 					$postfilters = esc_attr( $atts['postfilter'] );
 					$postfilters = explode( ', ', $postfilters );
 					foreach ( $postfilters as $postfilter ) {
-						// if ( is_user_logged_in() ) $list .= '<pre>'. htmlentities( print_r( $wppost->post_name, true ) ) .'</pre>';
 						if ( $postfilter == $wppost->ID ) $postfilter_array[] = $wppost->ID;
 					}
 					if ( in_array( $wppost->ID, $postfilter_array ) )
@@ -273,34 +288,36 @@ class GA_Top_Content {
 
 
 		$list = apply_filters( 'gtc_list_output', $list );
-		set_transient( 'dw-gtc-list-'.$number, $list, 86400 );
+		set_transient( $trans_id, $list, 86400 );
 		return $transuse . $list . $transuse;
 
 	}
 
 	public function views_shortcode( $atts, $content ) {
 
+		if ( ! $this->token() || ! class_exists( 'GADWidgetData' ) )
+			return '';
+
 		$defaults = array(
 			'post_id' => get_the_ID(),
 			'start_date' => date( 'Y-m-d', time() - (60 * 60 * 24 * 30) ),
 			'end_date' => date( 'Y-m-d' ),
 		);
-		$atts = shortcode_atts( $defaults, $atts );
+		$atts = shortcode_atts( $defaults, $atts, 'google_analytics_views' );
 		$atts = apply_filters( 'gtc_atts_filter_analytics_views', $atts );
-
-		if ( ! $this->token() || ! class_exists( 'GADWidgetData' ) )
-			return '';
+		$unique = md5( serialize( $atts ) );
+		$trans_id = 'dw-gtc-views-' . $atts['post_id'] . $unique;
 
 		$count = '';
 		// @Dev
 		// $atts['update'] = true;
 		if ( empty( $atts['update'] ) ) {
-			$count = get_transient( 'dw-gtc-views-'.$atts['post_id'] );
-			$transuse = "\n<!-- using transient -->\n";
+			$count = get_transient( $trans_id );
+			$transuse = "\n<!-- using transient - {$trans_id} -->\n";
 		}
 
 		if ( empty( $count ) ) {
-			$transuse = "\n<!-- not using transient -->\n";
+			$transuse = "\n<!-- not using transient - {$trans_id} -->\n";
 
 			$permalink   = get_permalink( $atts['post_id'] );
 			$post_status = get_post_status( $atts['post_id'] );
@@ -316,7 +333,7 @@ class GA_Top_Content {
 			$count = isset( $data['value'] ) ? $data['value'] : 0;
 
 			if ( $count ) {
-				set_transient( 'dw-gtc-views-'.$atts['post_id'], $count, 86400 );
+				set_transient( $trans_id, $count, 86400 );
 			}
 
 		}
@@ -480,7 +497,11 @@ class dsgnwrks_google_top_posts_widgets extends WP_Widget {
 		$instance['catfilter']     = esc_attr( $new_instance['catfilter'] );
 		$instance['postfilter']    = esc_attr( $new_instance['postfilter'] );
 
-		delete_transient( 'dw-gtc-list-'.$this->number );
+
+		$atts = shortcode_atts( $this->defaults, $instance, 'google_top_content' );
+		$atts = apply_filters( 'gtc_atts_filter', $atts );
+		$unique = md5( serialize( $atts ) );
+		delete_transient( 'dw-gtc-list-'. $this->number . $unique );
 
 		return $instance;
 	}

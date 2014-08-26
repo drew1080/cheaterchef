@@ -3,7 +3,7 @@ Contributors: miro.mannino
 Donate link: http://miromannino.com/projects/flickr-photostream/#helptheproject
 Tags: photography, gallery, photo, flickr, photostream, set, justified, grid
 Requires at least: 3.0
-Tested up to: 3.7.1
+Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
@@ -46,7 +46,7 @@ See a Live Demo in [Miro Mannino's Blog](http://miromannino.com/my-photos)
 1. Upload the folder `flickr-photostream` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Configure the plugin settings through the 'Settings > Flickr Photostream' page.
-4. Set the API key and the default User ID
+4. Remember to set also the API key and the default User ID
 5. Create a page with the shortcode `[flickr_photostream]` to show the specified user photostream (you can add attributes in the shortcode, to show set, gallery or simply to have settings that are different than the default).
 6. (optional) If you want to use Colorbox, install a Colorbox plugin (i.e. [JQuery Colorbox](http://www.techotronic.de/plugins/jquery-colorbox/)). Then, check the settings the lightbox option.
 
@@ -54,11 +54,23 @@ See a Live Demo in [Miro Mannino's Blog](http://miromannino.com/my-photos)
 
 = Can I have in the same blog two photostream of different Flickr's users?  =
 
-Yes, you must use the shortcode attributes called `user_id`. For example the shortcode `[flickr_photostream user_id="67681714@N03"]` displays the photostream of the specified user, no matter what is the default user ID specified in the settings.
+Yes, use the shortcode attributes called `user_id`. For example the shortcode `[flickr_photostream user_id="67681714@N03"]` displays the photostream of the specified user, no matter what is the default user ID specified in the settings.
 
-= The photos are syncronized with Flickr? =
+= Are the photos syncronized with Flickr? =
 
-Yes, of course. But remember that the cache don't allow to see the changes immediately.
+Yes, of course. But remember that the cache (and also Flickr) doesn't allow to see the changes immediately.
+
+= Why I can’t see the last photos I uploaded? =
+
+Probably because they aren’t public: Flickr Photostream can’t show private photos.
+
+= API Key is not valid? =
+
+There could be many reasons. 
+
+* Try to install CURL installed in your server
+* Probably the CURL certificate isn’t properly installed
+* Update CURL to the latest version
 
 
 == Screenshots ==
@@ -71,16 +83,45 @@ Yes, of course. But remember that the cache don't allow to see the changes immed
 
 == Changelog ==
 
+= 3.1.6 =
+
+* Try to fix errors in phpFlickr
+
+= 3.1.5 = 
+
+* Now is possible to use the `tags` option in the [flickr_group]
+* Fixed the errors with WP_DEBUG enabled in Wordpress
+* Improved the option that disables the context menu
+* Revert phpFlickr to the nextend version put in 3.1.2
+* Spanish translation
+
+= 3.1.4 = 
+
+* new option to disable the right click 
+* phpFlickr 3.1.1
+
+= 3.1.2 =
+
+* nextend version of phpFlickr to solve the keys problems 
+* Fixed 'No photos' with tags
+* Fixed links to Flickr for sets
+* Justified gallery 3.2
+
+= 3.0 =
+
+* Justified gallery 3.0
+	* Less images crops 
+	* Faster load (rows appear when are ready)
+	* No more white spaces when the images are loading
+* Randomize order
+* Capability to show the original images in the lightbox
+
 = 2.3.2 =
 
 * pagination style workaround for themes that use 'pre' tags
-
 * workaround for a swipe box bug, when there are more than one justified gallery in one page
-
 * pagination settings error (changed the behavior for those people that founded usage problems)
-
 * changed the available size behavior. Some Flickr images is very very huge! Now it try to show the large size image in the lightbox, it this is not available try to show the original image, and if this is not available show the medium size. Unfortunately, Flickr doesn't store very large sizes (only the original). 
-
 * fixed some bugs with tags
 
 = 2.2 =

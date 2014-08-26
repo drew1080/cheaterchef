@@ -1,16 +1,17 @@
 # 
 # Translators:
 # ideodora <ideodora@gmail.com>, 2013
-# Shohei Tanaka <shohei.tanaka@artisanworkshop.biz>, 2013
-# Shohei Tanaka <shohei.tanaka@artisanworkshop.biz>, 2013-2014
+# 田中　昌平 <shohei.tanaka@artisanworkshop.biz>, 2013
+# ThemeBoy <support@themeboy.com>, 2014
+# 田中　昌平 <shohei.tanaka@artisanworkshop.biz>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce\n"
 "Report-Msgid-Bugs-To: https://github.com/woothemes/woocommerce/issues\n"
-"POT-Creation-Date: 2014-02-12 13:22:09+00:00\n"
-"PO-Revision-Date: 2014-02-13 09:30+0000\n"
-"Last-Translator: Shohei Tanaka <shohei.tanaka@artisanworkshop.biz>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/woocommerce-core/language/ja/)\n"
+"POT-Creation-Date: 2014-06-30 14:28:36+00:00\n"
+"PO-Revision-Date: 2014-06-30 14:42+0000\n"
+"Last-Translator: Mike Jolley <mike.jolley@me.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/woocommerce/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,10 +58,9 @@ msgstr "店舗メッセージ"
 msgid "Order tracking"
 msgstr "注文追跡"
 
-#: assets/js/admin/editor_plugin_lang.php:15 includes/class-wc-install.php:233
-#: includes/shortcodes/class-wc-shortcode-checkout.php:86
-#: includes/shortcodes/class-wc-shortcode-my-account.php:106
-#: includes/shortcodes/class-wc-shortcode-view-order.php:49
+#: assets/js/admin/editor_plugin_lang.php:15
+#: includes/shortcodes/class-wc-shortcode-checkout.php:91
+#: includes/shortcodes/class-wc-shortcode-my-account.php:111
 #: templates/checkout/thankyou.php:30
 msgid "My Account"
 msgstr "マイアカウント"
@@ -96,6 +96,262 @@ msgstr "ビクトリア州"
 #: i18n/states/AU.php:20
 msgid "Western Australia"
 msgstr "西オーストラリア州"
+
+#: i18n/states/BD.php:13
+msgid "Bagerhat"
+msgstr "バゲルハート"
+
+#: i18n/states/BD.php:14
+msgid "Bandarban"
+msgstr "バンドルバン"
+
+#: i18n/states/BD.php:15
+msgid "Barguna"
+msgstr "ボルグナ"
+
+#: i18n/states/BD.php:16
+msgid "Barisal"
+msgstr "バリサール"
+
+#: i18n/states/BD.php:17
+msgid "Bhola"
+msgstr " ボーラ"
+
+#: i18n/states/BD.php:18
+msgid "Bogra"
+msgstr "ボグラ"
+
+#: i18n/states/BD.php:19
+msgid "Brahmanbaria"
+msgstr "ブラーマンバーリア"
+
+#: i18n/states/BD.php:20
+msgid "Chandpur"
+msgstr "チャンドプル"
+
+#: i18n/states/BD.php:21
+msgid "Chittagong"
+msgstr "チッタゴン"
+
+#: i18n/states/BD.php:22
+msgid "Chuadanga"
+msgstr "チュアダンガ"
+
+#: i18n/states/BD.php:23
+msgid "Comilla"
+msgstr "コミラ"
+
+#: i18n/states/BD.php:24
+msgid "Cox's Bazar"
+msgstr "コックスバザール"
+
+#: i18n/states/BD.php:25
+msgid "Dhaka"
+msgstr "ダッカ"
+
+#: i18n/states/BD.php:26
+msgid "Dinajpur"
+msgstr "ディナシプル"
+
+#: i18n/states/BD.php:27
+msgid "Faridpur "
+msgstr "ファリドプール"
+
+#: i18n/states/BD.php:28
+msgid "Feni"
+msgstr "フェニー"
+
+#: i18n/states/BD.php:29
+msgid "Gaibandha"
+msgstr "ガイバンダ"
+
+#: i18n/states/BD.php:30
+msgid "Gazipur"
+msgstr "ガジプール"
+
+#: i18n/states/BD.php:31
+msgid "Gopalganj"
+msgstr "ゴパルガンジ"
+
+#: i18n/states/BD.php:32
+msgid "Habiganj"
+msgstr "ハビガンジ"
+
+#: i18n/states/BD.php:33
+msgid "Jamalpur"
+msgstr "ジャマルプル"
+
+#: i18n/states/BD.php:34
+msgid "Jessore"
+msgstr "ジェッソール"
+
+#: i18n/states/BD.php:35
+msgid "Jhalokati"
+msgstr "ジョルコタ"
+
+#: i18n/states/BD.php:36
+msgid "Jhenaidah"
+msgstr "ジェナイダ"
+
+#: i18n/states/BD.php:37
+msgid "Joypurhat"
+msgstr "ジョイプールハット"
+
+#: i18n/states/BD.php:38
+msgid "Khagrachhari"
+msgstr "カグラチュリ"
+
+#: i18n/states/BD.php:39
+msgid "Khulna"
+msgstr "クルナ"
+
+#: i18n/states/BD.php:40
+msgid "Kishoreganj"
+msgstr "キショルゴンジ"
+
+#: i18n/states/BD.php:41
+msgid "Kurigram"
+msgstr "クリグラム"
+
+#: i18n/states/BD.php:42
+msgid "Kushtia"
+msgstr "クスティア"
+
+#: i18n/states/BD.php:43
+msgid "Lakshmipur"
+msgstr "ラクシュミプール"
+
+#: i18n/states/BD.php:44
+msgid "Lalmonirhat"
+msgstr "ラルモニールハット"
+
+#: i18n/states/BD.php:45
+msgid "Madaripur"
+msgstr "マダリプール"
+
+#: i18n/states/BD.php:46
+msgid "Magura"
+msgstr "マグラ"
+
+#: i18n/states/BD.php:47
+msgid "Manikganj "
+msgstr "マニカガンジ"
+
+#: i18n/states/BD.php:48
+msgid "Meherpur"
+msgstr "メヘルプール"
+
+#: i18n/states/BD.php:49
+msgid "Moulvibazar"
+msgstr "マウルビ=バザール"
+
+#: i18n/states/BD.php:50
+msgid "Munshiganj"
+msgstr "ムンシガンジ"
+
+#: i18n/states/BD.php:51
+msgid "Mymensingh"
+msgstr "マイメイシン"
+
+#: i18n/states/BD.php:52
+msgid "Naogaon"
+msgstr "ナオガオン"
+
+#: i18n/states/BD.php:53
+msgid "Narail"
+msgstr "ナライル"
+
+#: i18n/states/BD.php:54
+msgid "Narayanganj"
+msgstr "ナヤヤガンジ"
+
+#: i18n/states/BD.php:55
+msgid "Narsingdi"
+msgstr "ノルシンディ"
+
+#: i18n/states/BD.php:56
+msgid "Natore"
+msgstr " ナトール"
+
+#: i18n/states/BD.php:57
+msgid "Nawabganj"
+msgstr "ナワバンジ"
+
+#: i18n/states/BD.php:58
+msgid "Netrakona"
+msgstr "ネトラコナ"
+
+#: i18n/states/BD.php:59
+msgid "Nilphamari"
+msgstr " ニルファマリ"
+
+#: i18n/states/BD.php:60
+msgid "Noakhali"
+msgstr "ノアカリ"
+
+#: i18n/states/BD.php:61
+msgid "Pabna"
+msgstr "パブナ"
+
+#: i18n/states/BD.php:62
+msgid "Panchagarh"
+msgstr "ポンテョゴル"
+
+#: i18n/states/BD.php:63
+msgid "Patuakhali"
+msgstr "パトアカリ"
+
+#: i18n/states/BD.php:64
+msgid "Pirojpur"
+msgstr "ピロジプール"
+
+#: i18n/states/BD.php:65
+msgid "Rajbari"
+msgstr "ラジバリ"
+
+#: i18n/states/BD.php:66
+msgid "Rajshahi"
+msgstr "ラッシャヒ"
+
+#: i18n/states/BD.php:67
+msgid "Rangamati"
+msgstr "ランガマティ"
+
+#: i18n/states/BD.php:68
+msgid "Rangpur"
+msgstr "ロングプール"
+
+#: i18n/states/BD.php:69
+msgid "Satkhira"
+msgstr "シャスキラ"
+
+#: i18n/states/BD.php:70
+msgid "Shariatpur"
+msgstr "シャリアトプール"
+
+#: i18n/states/BD.php:71
+msgid "Sherpur"
+msgstr "シェルプール"
+
+#: i18n/states/BD.php:72
+msgid "Sirajganj"
+msgstr "シラジガンジ"
+
+#: i18n/states/BD.php:73
+msgid "Sunamganj"
+msgstr "スナマンジ"
+
+#: i18n/states/BD.php:74
+msgid "Sylhet"
+msgstr "シレット"
+
+#: i18n/states/BD.php:75
+msgid "Tangail"
+msgstr "タンガイル"
+
+#: i18n/states/BD.php:76
+msgid "Thakurgaon"
+msgstr "タクルガオン"
 
 #: i18n/states/BG.php:13
 msgid "Blagoevgrad"
@@ -1094,8 +1350,8 @@ msgid "Tripura"
 msgstr "トリプラ州"
 
 #: i18n/states/IN.php:38
-msgid "Uttaranchal"
-msgstr "ウッタラーカンド州"
+msgid "Uttarakhand"
+msgstr "ウッタラーカンド"
 
 #: i18n/states/IN.php:39
 msgid "Uttar Pradesh"
@@ -2906,12 +3162,12 @@ msgstr "払い戻し"
 msgid "cancelled"
 msgstr "キャンセル"
 
-#: includes/abstracts/abstract-wc-email.php:564
+#: includes/abstracts/abstract-wc-email.php:570
 #: includes/emails/class-wc-email-customer-completed-order.php:140
 #: includes/emails/class-wc-email-new-order.php:120
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:66
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:52
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:129
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:122
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:126
 #: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:75
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:64
@@ -2919,19 +3175,19 @@ msgstr "キャンセル"
 msgid "Enable/Disable"
 msgstr "有効化/無効化"
 
-#: includes/abstracts/abstract-wc-email.php:566
+#: includes/abstracts/abstract-wc-email.php:572
 #: includes/emails/class-wc-email-customer-completed-order.php:142
 #: includes/emails/class-wc-email-new-order.php:122
 msgid "Enable this email notification"
 msgstr "このEメール通知を有効にする"
 
-#: includes/abstracts/abstract-wc-email.php:570
+#: includes/abstracts/abstract-wc-email.php:576
 #: includes/emails/class-wc-email-customer-invoice.php:146
 msgid "Email subject"
 msgstr "Eメールの件名"
 
-#: includes/abstracts/abstract-wc-email.php:572
-#: includes/abstracts/abstract-wc-email.php:579
+#: includes/abstracts/abstract-wc-email.php:578
+#: includes/abstracts/abstract-wc-email.php:585
 #: includes/emails/class-wc-email-customer-completed-order.php:148
 #: includes/emails/class-wc-email-customer-completed-order.php:155
 #: includes/emails/class-wc-email-customer-completed-order.php:162
@@ -2943,232 +3199,240 @@ msgstr "Eメールの件名"
 msgid "Defaults to <code>%s</code>"
 msgstr "デフォルト: <code>%s</code>"
 
-#: includes/abstracts/abstract-wc-email.php:577
+#: includes/abstracts/abstract-wc-email.php:583
 #: includes/emails/class-wc-email-customer-invoice.php:153
 msgid "Email heading"
 msgstr "Eメール heading"
 
-#: includes/abstracts/abstract-wc-email.php:584
+#: includes/abstracts/abstract-wc-email.php:590
 #: includes/emails/class-wc-email-customer-completed-order.php:174
 #: includes/emails/class-wc-email-customer-invoice.php:174
 #: includes/emails/class-wc-email-new-order.php:147
 msgid "Email type"
 msgstr "Eメール タイプ"
 
-#: includes/abstracts/abstract-wc-email.php:586
+#: includes/abstracts/abstract-wc-email.php:592
 #: includes/emails/class-wc-email-customer-completed-order.php:176
 #: includes/emails/class-wc-email-customer-invoice.php:176
 #: includes/emails/class-wc-email-new-order.php:149
 msgid "Choose which format of email to send."
 msgstr "どのフォーマットでメールを送信するか選択します"
 
-#: includes/abstracts/abstract-wc-email.php:590
+#: includes/abstracts/abstract-wc-email.php:596
 #: includes/emails/class-wc-email-customer-completed-order.php:180
 #: includes/emails/class-wc-email-customer-invoice.php:180
 #: includes/emails/class-wc-email-new-order.php:153
 msgid "Plain text"
 msgstr "テキストメール"
 
-#: includes/abstracts/abstract-wc-email.php:591
+#: includes/abstracts/abstract-wc-email.php:597
 #: includes/emails/class-wc-email-customer-completed-order.php:181
 #: includes/emails/class-wc-email-customer-invoice.php:181
 #: includes/emails/class-wc-email-new-order.php:154
 msgid "HTML"
 msgstr "HTMLメール"
 
-#: includes/abstracts/abstract-wc-email.php:592
+#: includes/abstracts/abstract-wc-email.php:598
 #: includes/emails/class-wc-email-customer-completed-order.php:182
 #: includes/emails/class-wc-email-customer-invoice.php:182
 #: includes/emails/class-wc-email-new-order.php:155
 msgid "Multipart"
 msgstr "マルチパート"
 
-#: includes/abstracts/abstract-wc-email.php:628
-#: includes/abstracts/abstract-wc-email.php:649
+#: includes/abstracts/abstract-wc-email.php:634
+#: includes/abstracts/abstract-wc-email.php:655
 msgid "Could not write to template file."
 msgstr "テンプレートファイルに書き込めませんでした"
 
-#: includes/abstracts/abstract-wc-email.php:680
+#: includes/abstracts/abstract-wc-email.php:686
 msgid "Template file copied to theme."
 msgstr "テンプレートファイルをテーマにコピーしました"
 
-#: includes/abstracts/abstract-wc-email.php:689
+#: includes/abstracts/abstract-wc-email.php:695
 msgid "Template file deleted from theme."
 msgstr "テンプレートファイルをテーマから削除しました"
 
-#: includes/abstracts/abstract-wc-email.php:697
+#: includes/abstracts/abstract-wc-email.php:703
 #: includes/abstracts/abstract-wc-integration.php:30
 #: includes/abstracts/abstract-wc-settings-api.php:39 woocommerce.php:181
 msgid "Settings"
 msgstr "設定"
 
-#: includes/abstracts/abstract-wc-email.php:709
+#: includes/abstracts/abstract-wc-email.php:715
 msgid "HTML template"
 msgstr "HTML テンプレート"
 
-#: includes/abstracts/abstract-wc-email.php:710
+#: includes/abstracts/abstract-wc-email.php:716
 msgid "Plain text template"
 msgstr "テキストメールテンプレート"
 
-#: includes/abstracts/abstract-wc-email.php:731
+#: includes/abstracts/abstract-wc-email.php:737
 msgid "Delete template file"
 msgstr "テンプレートファイルを削除します"
 
-#: includes/abstracts/abstract-wc-email.php:734
+#: includes/abstracts/abstract-wc-email.php:740
 msgid ""
 "This template has been overridden by your theme and can be found in: "
 "<code>%s</code>."
 msgstr "このテンプレートは、あなたのテーマに上書きされ、<code>%s</code> で見つけることができます。"
 
-#: includes/abstracts/abstract-wc-email.php:749
+#: includes/abstracts/abstract-wc-email.php:755
 msgid "Copy file to theme"
 msgstr "テーマにファイルをコピー"
 
-#: includes/abstracts/abstract-wc-email.php:752
+#: includes/abstracts/abstract-wc-email.php:758
 msgid ""
 "To override and edit this email template copy <code>%s</code> to your theme "
 "folder: <code>%s</code>."
 msgstr "このEメールテンプレートを上書き・編集するためには<code>%s</code>をあなたのテーマフォルダ: <code>%s</code> へコピーする。"
 
-#: includes/abstracts/abstract-wc-email.php:763
+#: includes/abstracts/abstract-wc-email.php:769
 msgid "File was not found."
 msgstr "ファイルが見つかりませんでした"
 
-#: includes/abstracts/abstract-wc-email.php:788
+#: includes/abstracts/abstract-wc-email.php:794
 msgid "View template"
 msgstr "テンプレートを表示"
 
-#: includes/abstracts/abstract-wc-email.php:789
+#: includes/abstracts/abstract-wc-email.php:795
 msgid "Hide template"
 msgstr "テンプレートを隠す"
 
-#: includes/abstracts/abstract-wc-email.php:800
+#: includes/abstracts/abstract-wc-email.php:806
 msgid "Are you sure you want to delete this template file?"
 msgstr "このテンプレートファイルを削除してもよろしいですか？"
 
-#: includes/abstracts/abstract-wc-payment-gateway.php:207
+#: includes/abstracts/abstract-wc-payment-gateway.php:238
 msgid "Card Number"
 msgstr "カード番号"
 
-#: includes/abstracts/abstract-wc-payment-gateway.php:211
+#: includes/abstracts/abstract-wc-payment-gateway.php:242
 msgid "Expiry (MM/YY)"
 msgstr "有効期限(月/年)"
 
-#: includes/abstracts/abstract-wc-payment-gateway.php:215
+#: includes/abstracts/abstract-wc-payment-gateway.php:243
+msgid "MM / YY"
+msgstr "YY / MM"
+
+#: includes/abstracts/abstract-wc-payment-gateway.php:246
 msgid "Card Code"
 msgstr "セキュリティーコード"
 
-#: includes/abstracts/abstract-wc-product.php:456
+#: includes/abstracts/abstract-wc-payment-gateway.php:247
+msgid "CVC"
+msgstr "CVC"
+
+#: includes/abstracts/abstract-wc-product.php:457
 #: includes/class-wc-product-simple.php:48
 #: includes/class-wc-product-variation.php:211
 msgid "Add to cart"
 msgstr "カートに入れる"
 
-#: includes/abstracts/abstract-wc-product.php:466
+#: includes/abstracts/abstract-wc-product.php:467
 msgid "Read more"
 msgstr "続きを読む"
 
-#: includes/abstracts/abstract-wc-product.php:574
-#: includes/abstracts/abstract-wc-product.php:579
-#: includes/abstracts/abstract-wc-product.php:599
+#: includes/abstracts/abstract-wc-product.php:575
+#: includes/abstracts/abstract-wc-product.php:580
+#: includes/abstracts/abstract-wc-product.php:600
 msgid "In stock"
 msgstr "在庫あり"
 
-#: includes/abstracts/abstract-wc-product.php:579
+#: includes/abstracts/abstract-wc-product.php:580
 msgid "Only %s left in stock"
 msgstr "残り在庫 %s 個"
 
-#: includes/abstracts/abstract-wc-product.php:582
+#: includes/abstracts/abstract-wc-product.php:583
 msgid "%s in stock"
 msgstr "在庫%s 個"
 
-#: includes/abstracts/abstract-wc-product.php:589
+#: includes/abstracts/abstract-wc-product.php:590
 msgid "(backorders allowed)"
 msgstr "(予約注文可能)"
 
-#: includes/abstracts/abstract-wc-product.php:596
-#: includes/abstracts/abstract-wc-product.php:609 templates/cart/cart.php:74
+#: includes/abstracts/abstract-wc-product.php:597
+#: includes/abstracts/abstract-wc-product.php:610 templates/cart/cart.php:74
 msgid "Available on backorder"
 msgstr "取り寄せの注文(予約注文など)が利用できます"
 
-#: includes/abstracts/abstract-wc-product.php:602
-#: includes/abstracts/abstract-wc-product.php:612
-#: includes/abstracts/abstract-wc-product.php:616
+#: includes/abstracts/abstract-wc-product.php:603
+#: includes/abstracts/abstract-wc-product.php:613
+#: includes/abstracts/abstract-wc-product.php:617
 msgid "Out of stock"
 msgstr "在庫切れ"
 
-#: includes/abstracts/abstract-wc-product.php:909
-#: includes/abstracts/abstract-wc-product.php:915
-#: includes/class-wc-cart.php:1408 includes/class-wc-order.php:838
+#: includes/abstracts/abstract-wc-product.php:910
+#: includes/abstracts/abstract-wc-product.php:916
+#: includes/class-wc-cart.php:1449 includes/class-wc-order.php:864
 #: includes/class-wc-product-variation.php:312
 msgid "Free!"
 msgstr "無料！"
 
-#: includes/abstracts/abstract-wc-product.php:931
+#: includes/abstracts/abstract-wc-product.php:932
 msgctxt "min_price"
 msgid "From:"
 msgstr "From:"
 
-#: includes/abstracts/abstract-wc-product.php:1041
+#: includes/abstracts/abstract-wc-product.php:1042
 #: templates/single-product/rating.php:23
 msgid "Rated %s out of 5"
 msgstr "5段階で %s の評価"
 
-#: includes/abstracts/abstract-wc-product.php:1043
+#: includes/abstracts/abstract-wc-product.php:1044
 #: templates/single-product/rating.php:25
 #: templates/single-product/review.php:27
 msgid "out of 5"
 msgstr "5点満点"
 
-#: includes/abstracts/abstract-wc-product.php:1385
+#: includes/abstracts/abstract-wc-product.php:1403
 msgid "%s &ndash; %s"
 msgstr "%s &ndash; %s"
 
-#: includes/api/class-wc-api-authentication.php:69
+#: includes/api/class-wc-api-authentication.php:85
 msgid "Consumer Key is missing"
 msgstr "コンシューマーキーがありません"
 
-#: includes/api/class-wc-api-authentication.php:72
+#: includes/api/class-wc-api-authentication.php:101
 msgid "Consumer Secret is missing"
 msgstr "コンシューマーシークレットがありません"
 
-#: includes/api/class-wc-api-authentication.php:80
+#: includes/api/class-wc-api-authentication.php:107
 msgid "Consumer Secret is invalid"
 msgstr "コンシューマーシークレットの値が正しくありません"
 
-#: includes/api/class-wc-api-authentication.php:112
+#: includes/api/class-wc-api-authentication.php:140
 msgid "%s parameter is missing"
 msgstr "%s の項目がありません"
 
-#: includes/api/class-wc-api-authentication.php:151
+#: includes/api/class-wc-api-authentication.php:174
 msgid "Consumer Key is invalid"
 msgstr "コンシューマーキーが無効です"
 
-#: includes/api/class-wc-api-authentication.php:192
+#: includes/api/class-wc-api-authentication.php:224
 msgid "Invalid Signature - failed to sort parameters"
 msgstr "無効な署名です - 項目の並び替えに失敗しました"
 
-#: includes/api/class-wc-api-authentication.php:205
+#: includes/api/class-wc-api-authentication.php:238
 msgid "Invalid Signature - signature method is invalid"
 msgstr "無効な署名です - 署名方法が無効です"
 
-#: includes/api/class-wc-api-authentication.php:212
+#: includes/api/class-wc-api-authentication.php:246
 msgid "Invalid Signature - provided signature does not match"
 msgstr "無効な署名です - 渡された署名が合致しませんでした"
 
-#: includes/api/class-wc-api-authentication.php:247
+#: includes/api/class-wc-api-authentication.php:303
 msgid "Invalid timestamp"
 msgstr "無効なタイムスタンプです"
 
-#: includes/api/class-wc-api-authentication.php:255
+#: includes/api/class-wc-api-authentication.php:311
 msgid "Invalid nonce - nonce has already been used"
 msgstr "無効なnonceです - nonce が既に利用されています"
 
-#: includes/api/class-wc-api-authentication.php:284
+#: includes/api/class-wc-api-authentication.php:340
 msgid "The API key provided does not have read permissions"
 msgstr "利用されたAPIキーには読み取り権限がありません"
 
-#: includes/api/class-wc-api-authentication.php:293
+#: includes/api/class-wc-api-authentication.php:349
 msgid "The API key provided does not have write permissions"
 msgstr "利用されたAPIキーには書き込み権限がありません"
 
@@ -3194,11 +3458,11 @@ msgstr "新規顧客の作成権限がありません"
 
 #: includes/api/class-wc-api-customers.php:455
 msgid "Invalid customer ID"
-msgstr "無効な顧客IDです"
+msgstr "無効なお客様IDです"
 
 #: includes/api/class-wc-api-customers.php:461
 msgid "Invalid customer"
-msgstr "無効な顧客です"
+msgstr "無効なお客様です"
 
 #: includes/api/class-wc-api-customers.php:468
 msgid "You do not have permission to read this customer"
@@ -3228,8 +3492,8 @@ msgstr "注文件数の読み取り権限がありません"
 msgid "You do not have permission to read the products count"
 msgstr "商品件数の読み取り権限がありません"
 
+#: includes/api/class-wc-api-products.php:458
 #: includes/api/class-wc-api-products.php:459
-#: includes/api/class-wc-api-products.php:460
 msgid "Placeholder"
 msgstr "Placeholder"
 
@@ -3297,73 +3561,72 @@ msgstr "URLとリクエストメソッド（request method）に合ったルー�
 msgid "Missing parameter %s"
 msgstr "%s の項目がありません"
 
-#: includes/class-wc-ajax.php:158
+#: includes/class-wc-ajax.php:164
 msgid "Sorry, your session has expired."
 msgstr "申し訳ありませんが、セッションが期限切れになっています。"
 
-#: includes/class-wc-ajax.php:158
+#: includes/class-wc-ajax.php:164
 msgid "Return to homepage"
 msgstr "HOMEに戻る"
 
-#: includes/class-wc-ajax.php:269 includes/class-wc-ajax.php:298
-#: includes/class-wc-ajax.php:315
+#: includes/class-wc-ajax.php:318 includes/class-wc-ajax.php:351
+#: includes/class-wc-ajax.php:376
 msgid "You do not have sufficient permissions to access this page."
 msgstr "このページにアクセスする許可がありません"
 
-#: includes/class-wc-ajax.php:272 includes/class-wc-ajax.php:299
-#: includes/class-wc-ajax.php:316
+#: includes/class-wc-ajax.php:322 includes/class-wc-ajax.php:355
+#: includes/class-wc-ajax.php:380
 msgid "You have taken too long. Please go back and retry."
 msgstr "待機時間が長すぎました。戻って再試行してください。"
 
-#: includes/class-wc-ajax.php:529
+#: includes/class-wc-ajax.php:612
 msgid "Same as parent"
 msgstr "フォルダと同じ"
 
-#: includes/class-wc-ajax.php:530
+#: includes/class-wc-ajax.php:613
 msgid "Standard"
 msgstr "標準"
 
-#: includes/class-wc-ajax.php:788 includes/class-wc-customer.php:624
-#: includes/class-wc-customer.php:636
+#: includes/class-wc-ajax.php:888
 msgid "File %d"
 msgstr "ファイル %d"
 
-#: includes/class-wc-ajax.php:978 includes/class-wc-ajax.php:979
-#: includes/class-wc-order.php:1537
+#: includes/class-wc-ajax.php:1088 includes/class-wc-ajax.php:1089
+#: includes/class-wc-order.php:1569
 msgid "Item #%s stock reduced from %s to %s."
 msgstr "商品 #%s の在庫数は %s から %s に減少"
 
-#: includes/class-wc-ajax.php:987
+#: includes/class-wc-ajax.php:1097
 msgid ""
 "No products had their stock reduced - they may not have stock management "
 "enabled."
 msgstr "商品在庫は減少していませんでした。- 在庫管理が有効になっていないかもしれません。"
 
-#: includes/class-wc-ajax.php:1026 includes/class-wc-ajax.php:1027
+#: includes/class-wc-ajax.php:1138 includes/class-wc-ajax.php:1139
 msgid "Item #%s stock increased from %s to %s."
 msgstr "商品 #%s の在庫数は %s から %s に増加"
 
-#: includes/class-wc-ajax.php:1034
+#: includes/class-wc-ajax.php:1146
 msgid ""
 "No products had their stock increased - they may not have stock management "
 "enabled."
 msgstr "商品在庫が増加していませんでした。- 在庫管理が有効になっていないかもしれません。"
 
-#: includes/class-wc-ajax.php:1050
+#: includes/class-wc-ajax.php:1163
 #: includes/widgets/class-wc-widget-product-categories.php:39
 #: templates/single-product-reviews.php:62
 msgid "Name"
 msgstr "名前"
 
-#: includes/class-wc-ajax.php:1050
+#: includes/class-wc-ajax.php:1163
 msgid "Value"
 msgstr "値"
 
-#: includes/class-wc-ajax.php:1268
+#: includes/class-wc-ajax.php:1386
 msgid "Delete note"
 msgstr "メモを削除"
 
-#: includes/class-wc-ajax.php:1413
+#: includes/class-wc-ajax.php:1534
 msgid "Guest"
 msgstr "ゲスト"
 
@@ -3374,64 +3637,64 @@ msgid ""
 "in W3 Total Cache settings <a href=\"%s\">here</a>."
 msgstr "<strong>database caching</strong> をWooCommerと一緒に利用するためには、<a href=\"%s\">こちら</a>で<code>_wc_session_</code> をW3 Total Cache settingsの\"Ignored Query Strings\" オプションに追加する必要があります。"
 
-#: includes/class-wc-cart.php:163
+#: includes/class-wc-cart.php:168
 msgid ""
 "%s has been removed from your cart because it can no longer be purchased. "
 "Please contact us if you need assistance."
 msgstr "%s は現在購入が出来ない状態にあるので、カートから削除されました。詳細はお問い合わせください。"
 
-#: includes/class-wc-cart.php:358
+#: includes/class-wc-cart.php:370
 msgid "An item which is no longer available was removed from your cart."
 msgstr "１つの商品が現在購入できない状態のため、カートから削除されました"
 
-#: includes/class-wc-cart.php:392 includes/class-wc-cart.php:411
-#: includes/class-wc-cart.php:420
+#: includes/class-wc-cart.php:404 includes/class-wc-cart.php:423
+#: includes/class-wc-cart.php:432
 msgid ""
 "Sorry, we do not have enough \"%s\" in stock to fulfill your order (%s in "
 "stock). Please edit your cart and try again. We apologise for any "
 "inconvenience caused."
 msgstr "\"%s\" 個の在庫がございません（現在在庫数 %s）。カートを編集して、もう一度やり直してください。ご迷惑をお掛け致します。"
 
-#: includes/class-wc-cart.php:455
+#: includes/class-wc-cart.php:467
 msgid ""
 "Sorry, we do not have enough \"%s\" in stock to fulfill your order right "
 "now. Please try again in %d minutes or edit your cart and try again. We "
 "apologise for any inconvenience caused."
 msgstr "現在、\"%s\" の在庫が不足しているため注文を受け付けることが出来ませんでした。%d分後にもう一度お試しいただくか、カート内容を変更して再度実行してください。ご迷惑をおかけ致します。"
 
-#: includes/class-wc-cart.php:465
+#: includes/class-wc-cart.php:477
 msgid ""
 "Sorry, \"%s\" is not in stock. Please edit your cart and try again. We "
 "apologise for any inconvenience caused."
 msgstr "\"%s\"個の在庫がございません。カート内の個数を変更して、もう一度やり直してください。ご迷惑をお掛け致します。"
 
-#: includes/class-wc-cart.php:787
-msgid "Sorry, &quot;%s&quot; cannot be purchased."
-msgstr "&quot;%s&quot; を購入することはできません。"
+#: includes/class-wc-cart.php:809
+msgid "Sorry, this product cannot be purchased."
+msgstr "申し訳ありませんが、この製品を購入することはできません。"
 
-#: includes/class-wc-cart.php:794
+#: includes/class-wc-cart.php:816
 msgid ""
 "You cannot add &quot;%s&quot; to the cart because the product is out of "
 "stock."
 msgstr "商品が在庫切れのため、カートに&quot;%s&quot;を追加することができません。"
 
-#: includes/class-wc-cart.php:799
+#: includes/class-wc-cart.php:821
 msgid ""
 "You cannot add that amount of &quot;%s&quot; to the cart because there is "
 "not enough stock (%s remaining)."
 msgstr "在庫不足の為、カートに&quot;%s&quot; を追加することができません（在庫数%s）。"
 
-#: includes/class-wc-cart.php:813 includes/class-wc-cart.php:832
-#: includes/class-wc-cart.php:845 includes/class-wc-frontend-scripts.php:151
+#: includes/class-wc-cart.php:835 includes/class-wc-cart.php:854
+#: includes/class-wc-cart.php:867 includes/class-wc-frontend-scripts.php:157
 #: includes/wc-cart-functions.php:98 templates/cart/mini-cart.php:64
 msgid "View Cart"
 msgstr "カートを見る"
 
-#: includes/class-wc-cart.php:814
+#: includes/class-wc-cart.php:836
 msgid "You cannot add another &quot;%s&quot; to your cart."
 msgstr "&quot;%s&quot; はこれ以上カートに追加できません"
 
-#: includes/class-wc-cart.php:833 includes/class-wc-cart.php:846
+#: includes/class-wc-cart.php:855 includes/class-wc-cart.php:868
 msgid ""
 "You cannot add that amount to the cart &mdash; we have %s in stock and you "
 "already have %s in your cart."
@@ -3481,60 +3744,56 @@ msgctxt "Order date parsed by strftime"
 msgid "%b %d, %Y @ %I:%M %p"
 msgstr "%Y年 %b月 %d日 @ %I:%M %p"
 
-#: includes/class-wc-checkout.php:284
+#: includes/class-wc-checkout.php:287
 msgid "Backordered"
 msgstr "入荷待ち"
 
-#: includes/class-wc-checkout.php:409
+#: includes/class-wc-checkout.php:423
 msgid ""
 "Sorry, your session has expired. <a href=\"%s\" class=\"wc-backward\">Return"
 " to homepage</a>"
 msgstr "申し訳ありませんが、セッションが期限切れになっています。<a href=\"%s\" class=\"wc-backward\">Homeへ戻る</a>"
 
-#: includes/class-wc-checkout.php:484 includes/class-wc-form-handler.php:88
+#: includes/class-wc-checkout.php:500 includes/class-wc-form-handler.php:88
 msgid "is a required field."
 msgstr "必須フィールドです"
 
-#: includes/class-wc-checkout.php:496 includes/class-wc-form-handler.php:99
-#: includes/shortcodes/class-wc-shortcode-cart.php:37
+#: includes/class-wc-checkout.php:512 includes/class-wc-form-handler.php:99
+#: includes/shortcodes/class-wc-shortcode-cart.php:43
 msgid "Please enter a valid postcode/ZIP."
 msgstr "有効な郵便番号を入力して下さい"
 
-#: includes/class-wc-checkout.php:505 includes/class-wc-form-handler.php:108
+#: includes/class-wc-checkout.php:521 includes/class-wc-form-handler.php:108
 msgid "is not a valid phone number."
 msgstr "は電話番号として正しくありません"
 
-#: includes/class-wc-checkout.php:511 includes/class-wc-form-handler.php:115
+#: includes/class-wc-checkout.php:527 includes/class-wc-form-handler.php:115
 msgid "is not a valid email address."
 msgstr "有効なEメールアドレスではありません"
 
-#: includes/class-wc-checkout.php:526
+#: includes/class-wc-checkout.php:542
 msgid "is not valid. Please enter one of the following:"
 msgstr "有効ではありません。次のいずれかを入力して下さい"
 
-#: includes/class-wc-checkout.php:571
+#: includes/class-wc-checkout.php:587
 msgid "You must accept our Terms &amp; Conditions."
 msgstr "利用規約に同意する必要があります"
 
-#: includes/class-wc-checkout.php:576
+#: includes/class-wc-checkout.php:592
 msgid ""
 "Unfortunately <strong>we do not ship to %s</strong>. Please enter an "
 "alternative shipping address."
 msgstr "申し訳ありませんが、<strong>%sへは配送出来ません</strong>。別の住所を入力して下さい 。"
 
-#: includes/class-wc-checkout.php:584
+#: includes/class-wc-checkout.php:600
 msgid "Invalid shipping method."
 msgstr "無効な配送方法です"
 
-#: includes/class-wc-checkout.php:597
+#: includes/class-wc-checkout.php:613
 msgid "Invalid payment method."
 msgstr "無効な支払方法です"
 
-#: includes/class-wc-comments.php:110
-msgid "You have taken too long. Please go back and refresh the page."
-msgstr "待機時間が長すぎました。戻ってページを更新してください。"
-
-#: includes/class-wc-comments.php:113
+#: includes/class-wc-comments.php:109
 msgid "Please rate the product."
 msgstr "商品を評価してください"
 
@@ -4546,156 +4805,160 @@ msgstr "（例：付加価値税）"
 msgid "(ex. tax)"
 msgstr "（例：税）"
 
-#: includes/class-wc-countries.php:718
+#: includes/class-wc-countries.php:729
 msgid "Country"
 msgstr "国"
 
-#: includes/class-wc-countries.php:723
+#: includes/class-wc-countries.php:734
 msgid "First Name"
 msgstr "名"
 
-#: includes/class-wc-countries.php:728
+#: includes/class-wc-countries.php:739
 msgid "Last Name"
 msgstr "姓"
 
-#: includes/class-wc-countries.php:734
+#: includes/class-wc-countries.php:745
 msgid "Company Name"
 msgstr "会社名"
 
-#: includes/class-wc-countries.php:738
+#: includes/class-wc-countries.php:749
 msgid "Address"
 msgstr "住所"
 
-#: includes/class-wc-countries.php:739
+#: includes/class-wc-countries.php:750
 msgctxt "placeholder"
 msgid "Street address"
 msgstr "丁目、番地、号"
 
-#: includes/class-wc-countries.php:744
+#: includes/class-wc-countries.php:755
 msgctxt "placeholder"
 msgid "Apartment, suite, unit etc. (optional)"
 msgstr "建物名,部屋番号など (必要な方のみ)"
 
-#: includes/class-wc-countries.php:749 includes/class-wc-countries.php:750
+#: includes/class-wc-countries.php:760 includes/class-wc-countries.php:761
 msgid "Town / City"
 msgstr "市区町村"
 
-#: includes/class-wc-countries.php:756 includes/class-wc-countries.php:757
+#: includes/class-wc-countries.php:767 includes/class-wc-countries.php:768
 msgid "State / County"
 msgstr "州 / 国"
 
-#: includes/class-wc-countries.php:763 includes/class-wc-countries.php:764
+#: includes/class-wc-countries.php:774 includes/class-wc-countries.php:775
 #: templates/cart/shipping-calculator.php:80
 msgid "Postcode / Zip"
 msgstr "郵便番号"
 
-#: includes/class-wc-countries.php:825 includes/class-wc-countries.php:841
-#: includes/class-wc-countries.php:861 includes/class-wc-countries.php:922
-#: includes/class-wc-countries.php:941 includes/class-wc-countries.php:946
-#: includes/class-wc-countries.php:958 includes/class-wc-countries.php:1008
-#: includes/class-wc-countries.php:1032 includes/class-wc-countries.php:1073
+#: includes/class-wc-countries.php:837
+msgid "District"
+msgstr "地区，管区 "
+
+#: includes/class-wc-countries.php:844 includes/class-wc-countries.php:860
+#: includes/class-wc-countries.php:880 includes/class-wc-countries.php:941
+#: includes/class-wc-countries.php:960 includes/class-wc-countries.php:965
+#: includes/class-wc-countries.php:977 includes/class-wc-countries.php:1027
+#: includes/class-wc-countries.php:1051 includes/class-wc-countries.php:1092
 msgid "Province"
 msgstr "都道府県"
 
-#: includes/class-wc-countries.php:847
+#: includes/class-wc-countries.php:866
 msgid "Canton"
 msgstr "広東"
 
-#: includes/class-wc-countries.php:856 includes/class-wc-countries.php:1014
+#: includes/class-wc-countries.php:875 includes/class-wc-countries.php:1033
 msgid "Municipality"
 msgstr "自治体"
 
-#: includes/class-wc-countries.php:909
+#: includes/class-wc-countries.php:928
 msgid "Town / District"
 msgstr "町 / 地区"
 
-#: includes/class-wc-countries.php:912
+#: includes/class-wc-countries.php:931
 msgid "Region"
 msgstr "地域"
 
-#: includes/class-wc-countries.php:917 includes/class-wc-countries.php:1048
+#: includes/class-wc-countries.php:936 includes/class-wc-countries.php:1067
 msgid "County"
 msgstr "州"
 
-#: includes/class-wc-countries.php:1037
+#: includes/class-wc-countries.php:1056
 msgid "Zip"
 msgstr "郵便番号"
 
-#: includes/class-wc-countries.php:1040
+#: includes/class-wc-countries.php:1059
 msgid "State"
 msgstr "州"
 
-#: includes/class-wc-countries.php:1045
+#: includes/class-wc-countries.php:1064
 msgid "Postcode"
 msgstr "郵便番号"
 
-#: includes/class-wc-countries.php:1153
+#: includes/class-wc-countries.php:1172
 msgid "Email Address"
 msgstr "Eメール"
 
-#: includes/class-wc-countries.php:1159
+#: includes/class-wc-countries.php:1178
 msgid "Phone"
 msgstr "電話番号"
 
-#: includes/class-wc-coupon.php:568
+#: includes/class-wc-coupon.php:578
 msgid "Coupon code applied successfully."
 msgstr "クーポンコードの適用に成功しました。"
 
-#: includes/class-wc-coupon.php:571
+#: includes/class-wc-coupon.php:581
 msgid "Coupon code removed successfully."
 msgstr "クーポンコードは正しく削除されました"
 
-#: includes/class-wc-coupon.php:592
+#: includes/class-wc-coupon.php:602
 msgid "Coupon is not valid."
 msgstr "クーポンが有効ではありません"
 
-#: includes/class-wc-coupon.php:595 includes/class-wc-coupon.php:645
+#: includes/class-wc-coupon.php:605 includes/class-wc-coupon.php:655
 msgid "Coupon does not exist!"
 msgstr "クーポンは存在しません"
 
-#: includes/class-wc-coupon.php:598
+#: includes/class-wc-coupon.php:608
 msgid ""
 "Sorry, it seems the coupon \"%s\" is invalid - it has now been removed from "
 "your order."
 msgstr "クーポン \"%s\" は無効と思われます。- 注文から削除されました"
 
-#: includes/class-wc-coupon.php:601
+#: includes/class-wc-coupon.php:611
 msgid ""
 "Sorry, it seems the coupon \"%s\" is not yours - it has now been removed "
 "from your order."
 msgstr "クーポン \"%s\" はご自身のものではないと思われます。- 注文から削除されました"
 
-#: includes/class-wc-coupon.php:604
+#: includes/class-wc-coupon.php:614
 msgid "Coupon code already applied!"
 msgstr "クーポンコードは、既に適用されました。"
 
-#: includes/class-wc-coupon.php:607
+#: includes/class-wc-coupon.php:617
 msgid ""
 "Sorry, coupon \"%s\" has already been applied and cannot be used in "
 "conjunction with other coupons."
 msgstr "クーポン \"%s\" はすでに適用されており、他のクーポンとの併用はできません。"
 
-#: includes/class-wc-coupon.php:610
+#: includes/class-wc-coupon.php:620
 msgid "Coupon usage limit has been reached."
 msgstr "クーポンの使用量が制限値に達しました。"
 
-#: includes/class-wc-coupon.php:613
+#: includes/class-wc-coupon.php:623
 msgid "This coupon has expired."
 msgstr "このクーポンは有効期限が切れています。"
 
-#: includes/class-wc-coupon.php:616
+#: includes/class-wc-coupon.php:626
 msgid "The minimum spend for this coupon is %s."
 msgstr "このクーポンを使用できる最小限度額は %s です。"
 
-#: includes/class-wc-coupon.php:619
+#: includes/class-wc-coupon.php:629
 msgid "Sorry, this coupon is not applicable to your cart contents."
 msgstr "このクーポンは今のカート内容には適用されません。"
 
-#: includes/class-wc-coupon.php:622
+#: includes/class-wc-coupon.php:632
 msgid "Sorry, this coupon is not valid for sale items."
 msgstr "このクーポンは販売商品には有効ではありません。"
 
-#: includes/class-wc-coupon.php:648
+#: includes/class-wc-coupon.php:658
 msgid "Please enter a coupon code."
 msgstr "クーポンコードを入力して下さい。"
 
@@ -4704,64 +4967,62 @@ msgid "Invalid email address."
 msgstr "無効なEメールアドレスです"
 
 #: includes/class-wc-download-handler.php:37
-#: includes/class-wc-download-handler.php:61
-#: includes/class-wc-download-handler.php:81
-#: includes/class-wc-download-handler.php:87
-#: includes/class-wc-download-handler.php:91
-#: includes/class-wc-download-handler.php:94
-#: includes/class-wc-download-handler.php:137
-#: includes/class-wc-download-handler.php:280
+#: includes/class-wc-download-handler.php:62
+#: includes/class-wc-download-handler.php:83
+#: includes/class-wc-download-handler.php:90
+#: includes/class-wc-download-handler.php:95
+#: includes/class-wc-download-handler.php:99
+#: includes/class-wc-download-handler.php:143
+#: includes/class-wc-download-handler.php:304
 msgid "Go to homepage"
 msgstr "ホームページへ"
 
-#: includes/class-wc-download-handler.php:61
+#: includes/class-wc-download-handler.php:62
 msgid "Invalid download."
 msgstr "無効なダウンロードです"
 
-#: includes/class-wc-download-handler.php:73
+#: includes/class-wc-download-handler.php:75
 msgid "You must be logged in to download files."
 msgstr "ファイルをダウンロードするためにはログインしてください"
 
-#: includes/class-wc-download-handler.php:73
-#: templates/global/form-login.php:35 templates/myaccount/form-login.php:25
-#: templates/myaccount/form-login.php:44
+#: includes/class-wc-download-handler.php:75
+#: templates/global/form-login.php:35 templates/myaccount/form-login.php:27
+#: templates/myaccount/form-login.php:46
 msgid "Login"
 msgstr "ログイン"
 
-#: includes/class-wc-download-handler.php:73
+#: includes/class-wc-download-handler.php:75
 msgid "Log in to Download Files"
 msgstr "ファイルをダウンロードするにはログインしてください。"
 
-#: includes/class-wc-download-handler.php:76
+#: includes/class-wc-download-handler.php:77
 msgid "This is not your download link."
 msgstr "これはあなたのダウンロードリンクではありません。"
 
-#: includes/class-wc-download-handler.php:81
+#: includes/class-wc-download-handler.php:83
 msgid "Product no longer exists."
 msgstr "該当する商品は現在ありません"
 
-#: includes/class-wc-download-handler.php:87
-#: includes/class-wc-form-handler.php:519
-#: includes/shortcodes/class-wc-shortcode-checkout.php:86
-#: includes/shortcodes/class-wc-shortcode-checkout.php:167
-#: includes/shortcodes/class-wc-shortcode-my-account.php:106
-#: includes/shortcodes/class-wc-shortcode-view-order.php:49
+#: includes/class-wc-download-handler.php:90
+#: includes/class-wc-form-handler.php:527
+#: includes/shortcodes/class-wc-shortcode-checkout.php:172
+#: includes/shortcodes/class-wc-shortcode-my-account.php:111
 msgid "Invalid order."
 msgstr "無効な注文です"
 
-#: includes/class-wc-download-handler.php:91
+#: includes/class-wc-download-handler.php:95
 msgid "Sorry, you have reached your download limit for this file"
 msgstr "このファイルのダウンロード制限に達しました"
 
-#: includes/class-wc-download-handler.php:94
+#: includes/class-wc-download-handler.php:99
 msgid "Sorry, this download has expired"
 msgstr "ダウンロード可能期限がきれました"
 
-#: includes/class-wc-download-handler.php:137
+#: includes/class-wc-download-handler.php:143
 msgid "No file defined"
 msgstr "ファイルが登録されていません"
 
-#: includes/class-wc-download-handler.php:280
+#: includes/class-wc-download-handler.php:304
 msgid "File not found"
 msgstr "該当するファイルはありません"
 
@@ -4769,37 +5030,37 @@ msgstr "該当するファイルはありません"
 msgid "Note"
 msgstr "Note"
 
-#: includes/class-wc-emails.php:325
+#: includes/class-wc-emails.php:331
 msgid "Product low in stock"
 msgstr "在庫が少ない商品"
 
-#: includes/class-wc-emails.php:330 includes/class-wc-emails.php:362
-#: includes/class-wc-emails.php:406
+#: includes/class-wc-emails.php:336 includes/class-wc-emails.php:368
+#: includes/class-wc-emails.php:412
 msgid "Variation #%s of %s"
 msgstr "%s のバリエーションは #%s"
 
-#: includes/class-wc-emails.php:332 includes/class-wc-emails.php:364
-#: includes/class-wc-emails.php:408
+#: includes/class-wc-emails.php:338 includes/class-wc-emails.php:370
+#: includes/class-wc-emails.php:414
 msgid "Product #%s - %s"
 msgstr "商品 #%s - %s"
 
-#: includes/class-wc-emails.php:334
+#: includes/class-wc-emails.php:340
 msgid "is low in stock."
 msgstr "在庫が少なくなっています"
 
-#: includes/class-wc-emails.php:357
+#: includes/class-wc-emails.php:363
 msgid "Product out of stock"
 msgstr "在庫切れ商品"
 
-#: includes/class-wc-emails.php:366
+#: includes/class-wc-emails.php:372
 msgid "is out of stock."
 msgstr "在庫切れの場合がございます。"
 
-#: includes/class-wc-emails.php:401
+#: includes/class-wc-emails.php:407
 msgid "Product Backorder"
 msgstr "商品の予約注文"
 
-#: includes/class-wc-emails.php:411
+#: includes/class-wc-emails.php:417
 msgid "%s units of %s have been backordered in order %s."
 msgstr "%s個（%s個中）は注文%sでは入荷待ちです。"
 
@@ -4825,7 +5086,7 @@ msgid "Please re-enter your password."
 msgstr "パスワードを再入力して下さい"
 
 #: includes/class-wc-form-handler.php:192
-#: includes/class-wc-form-handler.php:809
+#: includes/class-wc-form-handler.php:817
 msgid "Passwords do not match."
 msgstr "パスワードが一致しません"
 
@@ -4838,7 +5099,7 @@ msgid "Payment method added."
 msgstr "支払い方法を追加しました。"
 
 #: includes/class-wc-form-handler.php:367
-#: includes/class-wc-form-handler.php:420
+#: includes/class-wc-form-handler.php:426
 msgid "Cart updated."
 msgstr "カートが更新されました。"
 
@@ -4846,195 +5107,189 @@ msgstr "カートが更新されました。"
 msgid "You can only have 1 %s in your cart."
 msgstr "%s は１つだけしかカートに入れることができません"
 
-#: includes/class-wc-form-handler.php:488
+#: includes/class-wc-form-handler.php:494
 msgid "The cart has been filled with the items from your previous order."
 msgstr "カートに以前の注文が残っています"
 
-#: includes/class-wc-form-handler.php:509
+#: includes/class-wc-form-handler.php:517
 msgid "Order cancelled by customer."
 msgstr "お客様による注文のキャンセル"
 
-#: includes/class-wc-form-handler.php:512
+#: includes/class-wc-form-handler.php:520
 msgid "Your order was cancelled."
 msgstr "注文はキャンセルされました"
 
-#: includes/class-wc-form-handler.php:517
+#: includes/class-wc-form-handler.php:525
 msgid ""
 "Your order can no longer be cancelled. Please contact us if you need "
 "assistance."
 msgstr "もうご注文をキャンセルすることができません。サポートが必要な場合は、お問い合わせください。"
 
-#: includes/class-wc-form-handler.php:557
-#: includes/class-wc-form-handler.php:617
+#: includes/class-wc-form-handler.php:565
+#: includes/class-wc-form-handler.php:625
 msgid "Please choose product options&hellip;"
 msgstr "商品のオプションを選択してください&hellip;"
 
-#: includes/class-wc-form-handler.php:651
+#: includes/class-wc-form-handler.php:659
 msgid ""
 "Please choose the quantity of items you wish to add to your cart&hellip;"
 msgstr "カートに追加したい商品の数量を選択してください&hellip;"
 
-#: includes/class-wc-form-handler.php:658
+#: includes/class-wc-form-handler.php:666
 msgid "Please choose a product to add to your cart&hellip;"
 msgstr "カートに追加する商品を選択してください&hellip;"
 
-#: includes/class-wc-form-handler.php:718
-#: includes/class-wc-form-handler.php:722
 #: includes/class-wc-form-handler.php:726
-#: includes/class-wc-form-handler.php:735
-#: includes/class-wc-form-handler.php:857
+#: includes/class-wc-form-handler.php:730
+#: includes/class-wc-form-handler.php:734
+#: includes/class-wc-form-handler.php:743
+#: includes/class-wc-form-handler.php:869
 msgid "Error"
 msgstr "エラー"
 
-#: includes/class-wc-form-handler.php:722
+#: includes/class-wc-form-handler.php:730
 msgid "Username is required."
 msgstr "ユーザー名が必要です"
 
-#: includes/class-wc-form-handler.php:726
+#: includes/class-wc-form-handler.php:734
 msgid "Password is required."
 msgstr "パスワードが必要です"
 
-#: includes/class-wc-form-handler.php:735
+#: includes/class-wc-form-handler.php:743
 msgid "A user could not be found with this email address."
 msgstr "このEメールアドレスのユーザーは見つかりませんでした"
 
-#: includes/class-wc-form-handler.php:760
+#: includes/class-wc-form-handler.php:768
 msgid "You are now logged in as <strong>%s</strong>"
 msgstr "あなたは現在 <strong>%s</strong> としてログインしています"
 
-#: includes/class-wc-form-handler.php:804
+#: includes/class-wc-form-handler.php:812
 msgid "Please enter your password."
 msgstr "パスワードを入力して下さい"
 
-#: includes/class-wc-form-handler.php:827
-msgid "Your password has been reset."
-msgstr "パスワードがリセットされました。"
-
-#: includes/class-wc-form-handler.php:827
-msgid "Log in"
-msgstr "ログイン"
-
-#: includes/class-wc-form-handler.php:873
-#: includes/wc-customer-functions.php:110
+#: includes/class-wc-form-handler.php:885
+#: includes/wc-customer-functions.php:112
 msgid "ERROR"
 msgstr "エラー"
 
-#: includes/class-wc-form-handler.php:873
+#: includes/class-wc-form-handler.php:885
 msgid "Anti-spam field was filled in."
 msgstr "スパム対策フィールドが書きかえられました"
 
-#: includes/class-wc-frontend-scripts.php:117
+#: includes/class-wc-frontend-scripts.php:123
 msgid "Please select a rating"
 msgstr "評価を選択してください"
 
-#: includes/class-wc-frontend-scripts.php:134
-#: includes/wc-template-functions.php:1573
+#: includes/class-wc-frontend-scripts.php:140
+#: includes/wc-template-functions.php:1602
 msgid "required"
 msgstr "必須"
 
-#: includes/class-wc-frontend-scripts.php:158
+#: includes/class-wc-frontend-scripts.php:164
 msgid ""
 "Sorry, no products matched your selection. Please choose a different "
 "combination."
 msgstr "申し訳ありませんが、商品の選択に一致するものがありません。別の組み合わせを選択してください。"
 
-#: includes/class-wc-frontend-scripts.php:159
+#: includes/class-wc-frontend-scripts.php:165
 msgid ""
 "Sorry, this product is unavailable. Please choose a different combination."
 msgstr "この商品は対応しておりません。異なる組み合わせを選択してください。"
 
-#: includes/class-wc-frontend-scripts.php:164
+#: includes/class-wc-frontend-scripts.php:170
 msgid "Select an option&hellip;"
 msgstr "オプションを選択&hellip;"
 
 #: includes/class-wc-install.php:217
-msgctxt "page_slug"
+msgctxt "Page slug"
 msgid "shop"
 msgstr "ショップ"
 
 #: includes/class-wc-install.php:218
+msgctxt "Page title"
 msgid "Shop"
 msgstr "ショップ"
 
 #: includes/class-wc-install.php:222
-msgctxt "page_slug"
+msgctxt "Page slug"
 msgid "cart"
 msgstr "カート"
 
 #: includes/class-wc-install.php:223
-#: includes/widgets/class-wc-widget-cart.php:29
-#: includes/widgets/class-wc-widget-cart.php:56
+msgctxt "Page title"
 msgid "Cart"
 msgstr "カート"
 
 #: includes/class-wc-install.php:227
-msgctxt "page_slug"
+msgctxt "Paeg slug"
 msgid "checkout"
 msgstr "決済"
 
-#: includes/class-wc-install.php:228 templates/cart/mini-cart.php:65
+#: includes/class-wc-install.php:228
+msgctxt "Page title"
 msgid "Checkout"
-msgstr "お支払いへ進む"
+msgstr "支払い方法"
 
 #: includes/class-wc-install.php:232
-msgctxt "page_slug"
+msgctxt "Page slug"
 msgid "my-account"
 msgstr "マイアカウント"
 
-#: includes/class-wc-install.php:444
+#: includes/class-wc-install.php:233
+msgctxt "Page title"
+msgid "My Account"
+msgstr "マイアカウント"
+
+#: includes/class-wc-install.php:455
 msgid "Customer"
 msgstr "お客様"
 
-#: includes/class-wc-install.php:451
+#: includes/class-wc-install.php:462
 msgid "Shop Manager"
 msgstr "ショップ運営者"
 
-#: includes/class-wc-install.php:692
-msgid "What's new:"
-msgstr "新着情報:"
-
-#: includes/class-wc-order.php:137
+#: includes/class-wc-order.php:142
 msgctxt "hash before order number"
 msgid "#"
 msgstr "#"
 
-#: includes/class-wc-order.php:833
+#: includes/class-wc-order.php:859
 msgid "&nbsp;<small>%svia %s</small>"
 msgstr "&nbsp;<small>%s- %s</small>"
 
-#: includes/class-wc-order.php:896
+#: includes/class-wc-order.php:922
 msgid "Cart Subtotal:"
 msgstr "カート小計:"
 
-#: includes/class-wc-order.php:903
+#: includes/class-wc-order.php:929
 msgid "Cart Discount:"
 msgstr "カートでの割引:"
 
-#: includes/class-wc-order.php:910
+#: includes/class-wc-order.php:936
 msgid "Shipping:"
 msgstr "配送料:"
 
-#: includes/class-wc-order.php:957
+#: includes/class-wc-order.php:983
 msgid "Order Discount:"
 msgstr "注文の割引:"
 
-#: includes/class-wc-order.php:963
+#: includes/class-wc-order.php:989
 msgid "Order Total:"
 msgstr "注文合計:"
 
-#: includes/class-wc-order.php:981 includes/wc-cart-functions.php:222
+#: includes/class-wc-order.php:1007 includes/wc-cart-functions.php:251
 msgid "(Includes %s)"
 msgstr "(%s 含む)"
 
-#: includes/class-wc-order.php:1224 includes/class-wc-order.php:1225
+#: includes/class-wc-order.php:1256 includes/class-wc-order.php:1257
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: includes/class-wc-order.php:1280
+#: includes/class-wc-order.php:1312
 msgid "Order status changed from %s to %s."
 msgstr "注文状況は %s から %s に変更されました。"
 
-#: includes/class-wc-order.php:1549
+#: includes/class-wc-order.php:1581
 msgid "Order item stock reduced successfully."
 msgstr "注文商品の在庫が正常に減少しました。"
 
@@ -5085,7 +5340,7 @@ msgid "New Product Category Name"
 msgstr "新しいカテゴリーの名称"
 
 #: includes/class-wc-post-types.php:78
-#: includes/updates/woocommerce-update-2.0.php:49
+#: includes/updates/woocommerce-update-2.0.php:44
 msgctxt "slug"
 msgid "product-category"
 msgstr "商品カテゴリー"
@@ -5137,7 +5392,7 @@ msgid "New Product Tag Name"
 msgstr "新しい商品タグの名称"
 
 #: includes/class-wc-post-types.php:113
-#: includes/updates/woocommerce-update-2.0.php:50
+#: includes/updates/woocommerce-update-2.0.php:45
 msgctxt "slug"
 msgid "product-tag"
 msgstr "商品タグ"
@@ -5147,7 +5402,7 @@ msgid "Shipping Classes"
 msgstr "配送クラス"
 
 #: includes/class-wc-post-types.php:127
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:521
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:539
 msgid "Shipping Class"
 msgstr "配送クラス"
 
@@ -5221,7 +5476,7 @@ msgid "New %s"
 msgstr "新しい%s"
 
 #: includes/class-wc-post-types.php:226
-#: includes/updates/woocommerce-update-2.0.php:58
+#: includes/updates/woocommerce-update-2.0.php:53
 msgctxt "slug"
 msgid "product"
 msgstr "商品"
@@ -5354,7 +5609,7 @@ msgstr "受注が保存される場所です"
 msgid "Coupons"
 msgstr "クーポン"
 
-#: includes/class-wc-post-types.php:324 templates/cart/cart.php:118
+#: includes/class-wc-post-types.php:324 templates/cart/cart.php:119
 msgid "Coupon"
 msgstr "クーポン"
 
@@ -5417,8 +5672,8 @@ msgid "View products"
 msgstr "商品を見る"
 
 #: includes/class-wc-product-grouped.php:194
-#: includes/class-wc-product-variable.php:251
-#: includes/class-wc-product-variable.php:256
+#: includes/class-wc-product-variable.php:274
+#: includes/class-wc-product-variable.php:279
 msgctxt "Price range: from-to"
 msgid "%1$s&ndash;%2$s"
 msgstr "%1$s&ndash;%2$s"
@@ -5432,13 +5687,13 @@ msgstr "続きを読む"
 msgid "Select options"
 msgstr "オプションを選択"
 
-#: includes/class-wc-product-variable.php:455
+#: includes/class-wc-product-variable.php:486
 msgid ""
 "This variable product has no active variations so cannot be published. "
 "Changing status to draft."
 msgstr "この商品は利用可能なバリエーション（選択肢）がありませんので、公開されません。元のステータスを変更してください。"
 
-#: includes/class-wc-product-variation.php:494
+#: includes/class-wc-product-variation.php:529
 msgid "%s &ndash; %s%s"
 msgstr "%s &ndash; %s%s"
 
@@ -5650,10 +5905,10 @@ msgstr "銀行振込"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:72
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:58
-#: includes/gateways/cod/class-wc-gateway-cod.php:64
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:142
+#: includes/gateways/cod/class-wc-gateway-cod.php:68
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:135
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:132
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:102
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:103
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:81
 #: includes/widgets/class-wc-widget-cart.php:30
 #: includes/widgets/class-wc-widget-layered-nav-filters.php:28
@@ -5671,12 +5926,12 @@ msgstr "タイトル"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:74
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:60
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:144
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:137
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:134
 #: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:83
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:72
 #: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:57
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:104
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:105
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:83
 msgid "This controls the title which the user sees during checkout."
 msgstr "これは、ユーザーが清算中に見るタイトルをコントロールします。"
@@ -5687,16 +5942,16 @@ msgstr "銀行振込（ダイレクト）"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:79
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:65
-#: includes/gateways/cod/class-wc-gateway-cod.php:71
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:149
+#: includes/gateways/cod/class-wc-gateway-cod.php:75
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:142
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:139
-#: includes/wc-template-functions.php:965
+#: includes/wc-template-functions.php:980
 msgid "Description"
 msgstr "説明"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:81
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:67
-#: includes/gateways/cod/class-wc-gateway-cod.php:66
+#: includes/gateways/cod/class-wc-gateway-cod.php:70
 msgid ""
 "Payment method description that the customer will see on your checkout."
 msgstr "支払い時に購入者がみる支払いの説明文です。"
@@ -5710,7 +5965,7 @@ msgstr "お客様のご入金確認後、商品を出荷致します。"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:86
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:72
-#: includes/gateways/cod/class-wc-gateway-cod.php:78
+#: includes/gateways/cod/class-wc-gateway-cod.php:82
 msgid "Instructions"
 msgstr "説明書き"
 
@@ -5728,7 +5983,7 @@ msgid "Account Name"
 msgstr "口座名義"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:112
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:253
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:254
 msgid "Account Number"
 msgstr "口座番号"
 
@@ -5737,12 +5992,12 @@ msgid "Bank Name"
 msgstr "銀行名"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:114
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:257
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:258
 msgid "Sort Code"
 msgstr "Sort Code"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:115
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:261
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:262
 msgid "IBAN"
 msgstr "IBAN"
 
@@ -5758,15 +6013,15 @@ msgstr "+ アカウントの追加"
 msgid "Remove selected account(s)"
 msgstr "選択したアカウント（複数可）の削除"
 
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:240
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:241
 msgid "Our Bank Details"
 msgstr "お振り込み先 銀行口座情報 詳細"
 
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:265
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:266
 msgid "BIC"
 msgstr "BIC"
 
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:295
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:297
 msgid "Awaiting BACS payment"
 msgstr "銀行振込を待っています"
 
@@ -5795,12 +6050,12 @@ msgid ""
 " / County, Store Postcode."
 msgstr "必要事項を記入した小切手を送って下さい"
 
-#: includes/gateways/cheque/class-wc-gateway-cheque.php:115
+#: includes/gateways/cheque/class-wc-gateway-cheque.php:114
 msgid "Awaiting cheque payment"
 msgstr "小切手の支払いを待っています"
 
 #: includes/gateways/cod/class-wc-gateway-cod.php:24
-#: includes/gateways/cod/class-wc-gateway-cod.php:67
+#: includes/gateways/cod/class-wc-gateway-cod.php:71
 msgid "Cash on Delivery"
 msgstr "代金引換"
 
@@ -5808,85 +6063,93 @@ msgstr "代金引換"
 msgid "Have your customers pay with cash (or by other means) upon delivery."
 msgstr "お客様が配達時に現金（または他の手段による）でお支払いします。"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:57
+#: includes/gateways/cod/class-wc-gateway-cod.php:61
 msgid "Enable COD"
 msgstr "代金引換を有効"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:58
+#: includes/gateways/cod/class-wc-gateway-cod.php:62
 msgid "Enable Cash on Delivery"
 msgstr "代金引換を利用する。"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:73
+#: includes/gateways/cod/class-wc-gateway-cod.php:77
 msgid "Payment method description that the customer will see on your website."
 msgstr "ウェブサイト上で表示される支払方法の説明"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:74
-#: includes/gateways/cod/class-wc-gateway-cod.php:81
+#: includes/gateways/cod/class-wc-gateway-cod.php:78
+#: includes/gateways/cod/class-wc-gateway-cod.php:85
 msgid "Pay with cash upon delivery."
 msgstr "配達時に現金で支払う。"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:80
+#: includes/gateways/cod/class-wc-gateway-cod.php:84
 msgid "Instructions that will be added to the thank you page."
 msgstr "thank youページに追加される指示"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:85
+#: includes/gateways/cod/class-wc-gateway-cod.php:89
 msgid "Enable for shipping methods"
 msgstr "有効にする配送方法を選んで下さい"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:90
+#: includes/gateways/cod/class-wc-gateway-cod.php:94
 msgid ""
 "If COD is only available for certain methods, set it up here. Leave blank to"
 " enable for all methods."
 msgstr "代金引換が特定メソッドに対してのみ利用可能であるなら、それをここで設定します。すべてのメソッドに対して有効にする場合は空欄にします"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:94
+#: includes/gateways/cod/class-wc-gateway-cod.php:98
 msgid "Select shipping methods"
 msgstr "発送方法を選択する"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:157
+#: includes/gateways/cod/class-wc-gateway-cod.php:102
+msgid "Enable for virtual orders"
+msgstr "バーチャル注文の有効化"
+
+#: includes/gateways/cod/class-wc-gateway-cod.php:103
+msgid "Enable COD if the order is virtual"
+msgstr "バーチャル注文の場合は代金引換を有効"
+
+#: includes/gateways/cod/class-wc-gateway-cod.php:206
 msgid "Payment to be made upon delivery."
 msgstr "お支払いは、配達時の商品引取りの際にお願い致します"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:30
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:167
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:29
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:159
 msgid "Mijireh Checkout"
 msgstr "Mijireh Checkout"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:107
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:291
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:103
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:294
 msgid "Mijireh error:"
 msgstr "Mijireh error:"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:131
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:124
 msgid "Enable Mijireh Checkout"
 msgstr "Mijireh 支払を有効にする"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:135
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:128
 msgid "Access Key"
 msgstr "アクセスキー"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:137
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:130
 msgid "The Mijireh access key for your store."
 msgstr "The Mijireh access key for your store."
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:145
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:138
 msgid "Credit Card"
 msgstr "クレジットカード"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:151
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:144
 msgid "Pay securely with your credit card."
 msgstr "自身のクレジットカードで安全にお支払い下さい"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:152
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:145
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:141
 msgid "This controls the description which the user sees during checkout."
 msgstr "これにより、ユーザーはチェックアウト時に見て記述を制御します"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:171
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:163
 msgid "Get started with Mijireh Checkout"
 msgstr "Get started with Mijireh Checkout"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:172
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:164
 msgid ""
 "provides a fully PCI Compliant, secure way to collect and transmit credit "
 "card data to your payment gateway while keeping you in control of the design"
@@ -5894,20 +6157,25 @@ msgid ""
 "Authorize.net, PayPal, eWay, SagePay, Braintree, PayLeap, and more."
 msgstr "provides a fully PCI Compliant, あなたのサイトのデザインのコントロールを維持しながら、あなたの支払いゲートウェイにクレジットカードデータを収集して送信するための安全な方法です。Mijirehは支払いゲートウェイを幅広くサポートしています。（Stripe, Authorize.net, PayPal, eWay, SagePay, Braintree, PayLeap, and more.）"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:174
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:166
 msgid "Join for free"
 msgstr "無料で登録"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:174
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:166
 msgid "Learn more about WooCommerce and Mijireh"
 msgstr "WooCommerceとMijirehの詳細については、こちらをご覧下さい。"
 
-#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:178
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:170
 msgid ""
 "provides a fully PCI Compliant, secure way to collect and transmit credit "
 "card data to your payment gateway while keeping you in control of the design"
 " of your site."
 msgstr "完全にPCIに準拠し、あなたのサイトのデザインのコントロールを維持しながら、あなたの支払いゲートウェイにクレジットカードデータを収集して送信するための安全な方法を提供します。"
+
+#: includes/gateways/mijireh/class-wc-gateway-mijireh.php:207
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:361
+msgid "Order %s"
+msgstr "注文 %s"
 
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:31
 msgid "Proceed to PayPal"
@@ -6101,106 +6369,105 @@ msgid ""
 "<code>woocommerce/logs/paypal-%s.txt</code>"
 msgstr "<code>woocommerce/logs/paypal.txt</code> の内部の、ログPayPalイベント（例えばIPN要請）。"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:349
-msgid "Order %s"
-msgstr "注文 %s"
-
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:358
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:415
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:370
 msgid "Shipping via"
 msgstr "配送経由"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:454
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:427
+msgid "Shipping via %s"
+msgstr "%s経由で配送"
+
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:466
 msgid ""
 "Thank you for your order. We are now redirecting you to PayPal to make "
 "payment."
 msgstr "ご注文ありがとうございます。当店で今、支払いをPayPalにリダイレクトしています。"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:479
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:491
 msgid "Pay via PayPal"
 msgstr "PayPalで決済"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:479
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:491
 msgid "Cancel order &amp; restore cart"
 msgstr "注文を取り消す &amp; カートを復元"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:534
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:546
 msgid ""
 "Thank you - your order is now pending payment. You should be automatically "
 "redirected to PayPal to make payment."
 msgstr "ありがとうございます-注文はまだ支払い保留の状態です。PayPalに支払いを行うために自動的にリダイレクトされます。"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:689
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:701
 msgid "Validation error: PayPal currencies do not match (code %s)."
 msgstr "検証エラー:PayPalの貨幣設定を会いませんでした。(code %s)"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:700
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:712
 msgid "Validation error: PayPal amounts do not match (gross %s)."
 msgstr "検証エラー:PayPalの金額が一致していません(gross %s)"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:711
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:723
 msgid ""
 "Validation error: PayPal IPN response from a different email address (%s)."
 msgstr "検証（バリデーション）エラー：PayPal IPNの返事が異なったメールアドレス(%s)から来ています。"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:734
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:746
 msgid "IPN payment completed"
 msgstr "IPNの支払いが完了。<small>インスタント支払い通知（IPNは）PayPal取引に関連したイベントを通知するメッセージサービスです。</small>"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:737
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:749
 msgid "Payment pending: %s"
 msgstr "支払い保留："
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:750
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:758
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:775
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:762
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:770
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:787
 msgid "Payment %s via IPN."
 msgstr "お支払いの %s IPN経由。<small>インスタント支払い通知（IPNは）PayPal取引に関連したイベントを通知するメッセージサービスです。</small>"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:763
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:775
 msgid "Order refunded/reversed"
 msgstr "注文の払い戻し"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:764
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:776
 msgid "Order %s has been marked as refunded - PayPal reason code: %s"
 msgstr "注文 %s が払い戻しとしてマークされています -  - PayPal reason code: %s"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:767
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:779
 msgid "Payment for order %s refunded/reversed"
 msgstr "注文 %s の支払いを 払い戻し"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:780
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:792
 msgid "Order reversed"
 msgstr "予約注文"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:781
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:793
 msgid ""
 "Order %s has been marked on-hold due to a reversal - PayPal reason code: %s"
 msgstr "%sの注文は取消処理の保留に設定されています。- PayPal 処理原因コード:%s"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:784
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:796
 msgid "Payment for order %s reversed"
 msgstr "注文 %s の支払いを 払い戻し"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:792
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:804
 msgid "Reversal Cancelled"
 msgstr "キャンセル取消"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:793
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:805
 msgid ""
 "Order %s has had a reversal cancelled. Please check the status of payment "
 "and update the order status accordingly."
 msgstr "注文%sはキャンセル取消処理が終わりました。支払い状況の確認と注文状況の更新をお願いします。"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:796
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:808
 msgid "Reversal cancelled for order %s"
 msgstr "注文%sのキャンセル取消"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:868
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:880
 msgid "Validation error: PayPal amounts do not match (amt %s)."
 msgstr "認証エラー：PayPalの合計金額と合いません。（合計%s）"
 
-#: includes/gateways/paypal/class-wc-gateway-paypal.php:876
+#: includes/gateways/paypal/class-wc-gateway-paypal.php:888
 msgid "PDT payment completed"
 msgstr "PDT支払いが完了しました"
 
@@ -6231,7 +6498,7 @@ msgstr "有効性"
 
 #: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:93
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:82
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:142
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:143
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:101
 msgid "All allowed countries"
 msgstr "許可した全ての国"
@@ -6240,8 +6507,8 @@ msgstr "許可した全ての国"
 #: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:98
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:83
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:87
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:143
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:147
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:144
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:148
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:102
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:106
 msgid "Specific Countries"
@@ -6250,7 +6517,7 @@ msgstr "特定の国"
 #: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:105
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:94
 #: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:79
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:154
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:155
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:113
 msgid "Select some countries"
 msgstr "国を選んでください"
@@ -6267,6 +6534,7 @@ msgstr "課税"
 
 #: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:114
 #: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:88
+msgctxt "Tax status"
 msgid "None"
 msgstr "なし"
 
@@ -6336,54 +6604,57 @@ msgid ""
 "blank to disable."
 msgstr "最低料金を入力してください。無効にするには空白のままにしておきます。"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:515
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:533
 msgid "Costs"
 msgstr "費用"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:522
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:540
 #: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:102
 msgid "Cost"
 msgstr "金額"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:522
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:540
 msgid "Cost, excluding tax."
 msgstr "税金以外の費用"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:523
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:541
 #: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:110
 msgid "Handling Fee"
 msgstr "手数料"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:523
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:541
 msgid ""
 "Fee excluding tax. Enter an amount, e.g. 2.50, or a percentage, e.g. 5%."
 msgstr "税以外の料金。量を入力する（2.50など）、あるいは割合（5%など）。"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:528
-msgid "+ Add Cost"
-msgstr "+追加費用"
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:546
+msgid "Add Cost"
+msgstr "費用を追加"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:528
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:546
 msgid "Delete selected costs"
 msgstr "選択した費用を削除"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:534
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:552
 msgid "Any class"
 msgstr "全てのクラス"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:535
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:536
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:553
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:554
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:102
+#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:115
+#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:123
 #: templates/order/order-details.php:122 templates/order/order-details.php:137
+#: templates/single-product/meta.php:23
 msgid "N/A"
 msgstr "N/A"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:554
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:584
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:572
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:602
 msgid "Select a class&hellip;"
 msgstr "クラスを選択&hellip;"
 
-#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:598
+#: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:616
 msgid "Delete the selected rates?"
 msgstr "選択されたレートを削除しますか？"
 
@@ -6398,7 +6669,7 @@ msgid "Enable Free Shipping"
 msgstr "無料配送を有効にする"
 
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:77
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:137
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:138
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:96
 msgid "Method availability"
 msgstr "メソッドの有効性"
@@ -6469,61 +6740,61 @@ msgid ""
 msgstr "税以外の料金。量を入力する（2.50など）、あるいは割合（5%など）。無効にするには空白のままにしておきます。"
 
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:25
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:105
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:106
 msgid "Local Delivery"
 msgstr "宅配便"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:96
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:97
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:75
 msgid "Enable"
 msgstr "有効にする"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:98
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:99
 msgid "Enable local delivery"
 msgstr "宅配便を有効にする"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:109
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:110
 msgid "Fee Type"
 msgstr "手数料の種類"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:111
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:112
 msgid "How to calculate delivery charges"
 msgstr "配達料を計算する方法"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:114
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:115
 msgid "Fixed amount"
 msgstr "定額"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:115
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:116
 msgid "Percentage of cart total"
 msgstr "カート合計の割合"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:116
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:117
 msgid "Fixed amount per product"
 msgstr "商品毎の定額"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:121
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:122
 msgid "Delivery Fee"
 msgstr "配送料"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:123
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:124
 msgid ""
 "What fee do you want to charge for local delivery, disregarded if you choose"
 " free. Leave blank to disable."
 msgstr "何の手数料を宅配便に課金したいのですか？　フリーに選択をすれば無視されます。無効にするには空白のままにしておきます。"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:129
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:130
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:88
 msgid "Zip/Post Codes"
 msgstr "郵便番号"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:131
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:132
 msgid ""
 "What zip/post codes would you like to offer delivery to? Separate codes with"
 " a comma. Accepts wildcards, e.g. P* will match a postcode of PE30."
 msgstr "あなたは、どんな郵便番号に配送を提供したいでしょうか？ カンマでコードを区切ります。ワイルドカードを受け入れますので、例えばP *はPE30の郵便番号と一致します。"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:169
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:170
 msgid ""
 "Local delivery is a simple shipping method for delivering orders locally."
 msgstr "宅配便は一般的な配送方法です"
@@ -6549,23 +6820,27 @@ msgid ""
 "order themselves."
 msgstr "「店頭渡し」はお客様に店頭まで取りに来て頂く事を前提としています。"
 
-#: includes/shortcodes/class-wc-shortcode-cart.php:52
+#: includes/shortcodes/class-wc-shortcode-cart.php:58
 msgid "Shipping costs updated."
 msgstr "配送料を更新しました。"
 
-#: includes/shortcodes/class-wc-shortcode-checkout.php:108
-#: includes/shortcodes/class-wc-shortcode-checkout.php:159
+#: includes/shortcodes/class-wc-shortcode-checkout.php:91
+msgid "Invalid order. If you have an account please log in and try again."
+msgstr "無効な注文です。アカウントをお持ちのお客様はログインして、もう一度やり直してください。"
+
+#: includes/shortcodes/class-wc-shortcode-checkout.php:113
+#: includes/shortcodes/class-wc-shortcode-checkout.php:164
 msgid ""
 "This order&rsquo;s status is &ldquo;%s&rdquo;&mdash;it cannot be paid for. "
 "Please contact us if you need assistance."
 msgstr "この注文&rsquo;s 状況は &ldquo;%s&rdquo;&mdash;支払いが出来ません。必要があればご連絡ください。"
 
-#: includes/shortcodes/class-wc-shortcode-checkout.php:112
-#: includes/shortcodes/class-wc-shortcode-checkout.php:163
+#: includes/shortcodes/class-wc-shortcode-checkout.php:117
+#: includes/shortcodes/class-wc-shortcode-checkout.php:168
 msgid "Sorry, this order is invalid and cannot be paid for."
 msgstr "この注文は無効であり、支払われることができません。"
 
-#: includes/shortcodes/class-wc-shortcode-checkout.php:129
+#: includes/shortcodes/class-wc-shortcode-checkout.php:134
 #: templates/checkout/thankyou.php:40
 #: templates/emails/customer-completed-order.php:18
 #: templates/emails/customer-invoice.php:22
@@ -6574,84 +6849,74 @@ msgstr "この注文は無効であり、支払われることができません
 msgid "Order:"
 msgstr "注文番号:"
 
-#: includes/shortcodes/class-wc-shortcode-checkout.php:133
+#: includes/shortcodes/class-wc-shortcode-checkout.php:138
 #: templates/checkout/thankyou.php:44
 msgid "Date:"
 msgstr "日付:"
 
-#: includes/shortcodes/class-wc-shortcode-checkout.php:137
+#: includes/shortcodes/class-wc-shortcode-checkout.php:142
 #: templates/checkout/thankyou.php:48
 msgid "Total:"
 msgstr "合計金額:"
 
-#: includes/shortcodes/class-wc-shortcode-checkout.php:142
+#: includes/shortcodes/class-wc-shortcode-checkout.php:147
 #: templates/checkout/thankyou.php:53
 msgid "Payment method:"
 msgstr "お支払い方法:"
 
-#: includes/shortcodes/class-wc-shortcode-checkout.php:230
+#: includes/shortcodes/class-wc-shortcode-checkout.php:235
 msgid ""
 "The order totals have been updated. Please confirm your order by pressing "
 "the Place Order button at the bottom of the page."
 msgstr "注文金額が更新されました。ページの下部にある注文ボタンを押して、注文を確認してください。"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:112
-#: templates/myaccount/view-order.php:12
-msgid ""
-"Order <mark class=\"order-number\">%s</mark> was placed on <mark class"
-"=\"order-date\">%s</mark> and is currently <mark class=\"order-"
-"status\">%s</mark>."
-msgstr "注文<mark class=\"order-number\">%s</mark> は <mark class=\"order-date\">%s</mark>において現在 <mark class=\"order-status\">%s</mark>の状態です。"
+#: includes/shortcodes/class-wc-shortcode-my-account.php:202
+msgid "Your password has been reset."
+msgstr "パスワードがリセットされました。"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:116
-#: templates/myaccount/view-order.php:17 templates/order/tracking.php:31
-msgid "Order Updates"
-msgstr "注文の更新"
+#: includes/shortcodes/class-wc-shortcode-my-account.php:202
+msgid "Log in"
+msgstr "ログイン"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:122
-#: templates/myaccount/view-order.php:23 templates/order/tracking.php:37
-msgid "l jS \\o\\f F Y, h:ia"
-msgstr "l Y年n月j日, h:ia"
-
-#: includes/shortcodes/class-wc-shortcode-my-account.php:235
+#: includes/shortcodes/class-wc-shortcode-my-account.php:220
 msgid "Enter a username or e-mail address."
 msgstr "ユーザー名またはEメールアドレスを入力して下さい"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:242
+#: includes/shortcodes/class-wc-shortcode-my-account.php:227
 msgid "There is no user registered with that email address."
 msgstr "そのEメールアドレスで登録されたユーザは存在しません。"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:257
+#: includes/shortcodes/class-wc-shortcode-my-account.php:242
 msgid "Invalid username or e-mail."
 msgstr "ユーザー名またはEメールアドレスが無効です"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:271
+#: includes/shortcodes/class-wc-shortcode-my-account.php:256
 msgid "Password reset is not allowed for this user"
 msgstr "パスワードのリセットは、このユーザに対して許可されていません"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:299
+#: includes/shortcodes/class-wc-shortcode-my-account.php:284
 msgid "Check your e-mail for the confirmation link."
 msgstr "確証リンクをあなたのEメールをチェックして下さい。"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:319
-#: includes/shortcodes/class-wc-shortcode-my-account.php:324
-#: includes/shortcodes/class-wc-shortcode-my-account.php:331
+#: includes/shortcodes/class-wc-shortcode-my-account.php:304
+#: includes/shortcodes/class-wc-shortcode-my-account.php:309
+#: includes/shortcodes/class-wc-shortcode-my-account.php:316
 msgid "Invalid key"
 msgstr "無効なキー"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:368
+#: includes/shortcodes/class-wc-shortcode-my-account.php:353
 msgid "Add a new payment method."
 msgstr "新しい支払い方法を追加"
 
-#: includes/shortcodes/class-wc-shortcode-order-tracking.php:49
+#: includes/shortcodes/class-wc-shortcode-order-tracking.php:54
 msgid "Please enter a valid order ID"
 msgstr "有効な注文IDを入力してください"
 
-#: includes/shortcodes/class-wc-shortcode-order-tracking.php:53
+#: includes/shortcodes/class-wc-shortcode-order-tracking.php:58
 msgid "Please enter a valid order email"
 msgstr "有効な注文メールアドレスを入力してください"
 
-#: includes/shortcodes/class-wc-shortcode-order-tracking.php:72
+#: includes/shortcodes/class-wc-shortcode-order-tracking.php:77
 msgid "Sorry, we could not find that order id in our database."
 msgstr "申し訳ありませんが、データベースにその注文IDを見つけることが出来ませんでした。"
 
@@ -6675,167 +6940,179 @@ msgstr "&quot;%s&quot; は正常にカートに追加されました"
 msgid "Continue Shopping"
 msgstr "買い物を続ける"
 
-#: includes/wc-cart-functions.php:194
+#: includes/wc-cart-functions.php:193
+msgid "Coupon:"
+msgstr "クーポン:"
+
+#: includes/wc-cart-functions.php:219
 msgid "Free shipping coupon"
 msgstr "送料無料クーポン"
 
-#: includes/wc-cart-functions.php:196
+#: includes/wc-cart-functions.php:225
 msgid "[Remove]"
 msgstr "[削除]"
 
-#: includes/wc-cart-functions.php:257
+#: includes/wc-cart-functions.php:288
 msgid "Free"
 msgstr "無料"
 
 #: includes/wc-core-functions.php:167
+msgid "United Arab Emirates Dirham"
+msgstr "アラブ首長国連邦ディルハム"
+
+#: includes/wc-core-functions.php:168
 msgid "Australian Dollars"
 msgstr "オーストラリア/ドル"
 
-#: includes/wc-core-functions.php:168
+#: includes/wc-core-functions.php:169
+msgid "Bangladeshi Taka"
+msgstr "バングラデシュタカ"
+
+#: includes/wc-core-functions.php:170
 msgid "Brazilian Real"
 msgstr "ブラジル/レアル"
 
-#: includes/wc-core-functions.php:169
+#: includes/wc-core-functions.php:171
 msgid "Bulgarian Lev"
 msgstr "ブルガリア/レフ"
 
-#: includes/wc-core-functions.php:170
+#: includes/wc-core-functions.php:172
 msgid "Canadian Dollars"
 msgstr "カナダ/ドル"
 
-#: includes/wc-core-functions.php:171
+#: includes/wc-core-functions.php:173
 msgid "Chilean Peso"
 msgstr "チリペソ"
 
-#: includes/wc-core-functions.php:172
+#: includes/wc-core-functions.php:174
 msgid "Chinese Yuan"
 msgstr "中国/元"
 
-#: includes/wc-core-functions.php:173
+#: includes/wc-core-functions.php:175
 msgid "Colombian Peso"
 msgstr "コロンビアペソ"
 
-#: includes/wc-core-functions.php:174
+#: includes/wc-core-functions.php:176
 msgid "Czech Koruna"
 msgstr "チェコ/コルナ"
 
-#: includes/wc-core-functions.php:175
+#: includes/wc-core-functions.php:177
 msgid "Danish Krone"
 msgstr "デンマーク/クローネ"
 
-#: includes/wc-core-functions.php:176
+#: includes/wc-core-functions.php:178
 msgid "Euros"
 msgstr "ユーロ"
 
-#: includes/wc-core-functions.php:177
+#: includes/wc-core-functions.php:179
 msgid "Hong Kong Dollar"
 msgstr "香港/ドル"
 
-#: includes/wc-core-functions.php:178
+#: includes/wc-core-functions.php:180
 msgid "Croatia kuna"
 msgstr "クロアチア·クーナ"
 
-#: includes/wc-core-functions.php:179
+#: includes/wc-core-functions.php:181
 msgid "Hungarian Forint"
 msgstr "ハンガリー/フォリント"
 
-#: includes/wc-core-functions.php:180
+#: includes/wc-core-functions.php:182
 msgid "Icelandic krona"
 msgstr "アイスランド/クローナ"
 
-#: includes/wc-core-functions.php:181
+#: includes/wc-core-functions.php:183
 msgid "Indonesia Rupiah"
 msgstr "インドネシア/ルピア"
 
-#: includes/wc-core-functions.php:182
+#: includes/wc-core-functions.php:184
 msgid "Indian Rupee"
 msgstr "インド/ルピー"
 
-#: includes/wc-core-functions.php:183
+#: includes/wc-core-functions.php:185
 msgid "Israeli Shekel"
 msgstr "イスラエル/新シェケル"
 
-#: includes/wc-core-functions.php:184
+#: includes/wc-core-functions.php:186
 msgid "Japanese Yen"
 msgstr "日本/円"
 
-#: includes/wc-core-functions.php:185
+#: includes/wc-core-functions.php:187
 msgid "South Korean Won"
 msgstr "韓国/ウォン"
 
-#: includes/wc-core-functions.php:186
+#: includes/wc-core-functions.php:188
 msgid "Malaysian Ringgits"
 msgstr "マレーシア/リンギット"
 
-#: includes/wc-core-functions.php:187
+#: includes/wc-core-functions.php:189
 msgid "Mexican Peso"
 msgstr "メキシコ/ペソ"
 
-#: includes/wc-core-functions.php:188
+#: includes/wc-core-functions.php:190
 msgid "Nigerian Naira"
 msgstr "ナイジェリア·ナイラ"
 
-#: includes/wc-core-functions.php:189
+#: includes/wc-core-functions.php:191
 msgid "Norwegian Krone"
 msgstr "ノルウェー/クローネ"
 
-#: includes/wc-core-functions.php:190
+#: includes/wc-core-functions.php:192
 msgid "New Zealand Dollar"
 msgstr "ニュージーランド/ドル"
 
-#: includes/wc-core-functions.php:191
+#: includes/wc-core-functions.php:193
 msgid "Philippine Pesos"
 msgstr "フィリピン/ペソ"
 
-#: includes/wc-core-functions.php:192
+#: includes/wc-core-functions.php:194
 msgid "Polish Zloty"
 msgstr "ポーランド/ズウォティ"
 
-#: includes/wc-core-functions.php:193
+#: includes/wc-core-functions.php:195
 msgid "Pounds Sterling"
 msgstr "ポンド"
 
-#: includes/wc-core-functions.php:194
+#: includes/wc-core-functions.php:196
 msgid "Romanian Leu"
 msgstr "ルーマニア/レウ"
 
-#: includes/wc-core-functions.php:195
+#: includes/wc-core-functions.php:197
 msgid "Russian Ruble"
 msgstr "ロシア/ルーブル"
 
-#: includes/wc-core-functions.php:196
+#: includes/wc-core-functions.php:198
 msgid "Singapore Dollar"
 msgstr "シンガポール/ドル"
 
-#: includes/wc-core-functions.php:197
+#: includes/wc-core-functions.php:199
 msgid "South African rand"
 msgstr "南アフリカ/ランド"
 
-#: includes/wc-core-functions.php:198
+#: includes/wc-core-functions.php:200
 msgid "Swedish Krona"
 msgstr "スウェーデン/クローナ"
 
-#: includes/wc-core-functions.php:199
+#: includes/wc-core-functions.php:201
 msgid "Swiss Franc"
 msgstr "スイス/フラン"
 
-#: includes/wc-core-functions.php:200
+#: includes/wc-core-functions.php:202
 msgid "Taiwan New Dollars"
 msgstr "台湾/ドル"
 
-#: includes/wc-core-functions.php:201
+#: includes/wc-core-functions.php:203
 msgid "Thai Baht"
 msgstr "タイ/バーツ"
 
-#: includes/wc-core-functions.php:202
+#: includes/wc-core-functions.php:204
 msgid "Turkish Lira"
 msgstr "トルコ/リラ"
 
-#: includes/wc-core-functions.php:203
+#: includes/wc-core-functions.php:205
 msgid "US Dollars"
 msgstr "US/ドル"
 
-#: includes/wc-core-functions.php:204
+#: includes/wc-core-functions.php:206
 msgid "Vietnamese Dong"
 msgstr "ベトナム/ドン"
 
@@ -6869,107 +7146,107 @@ msgid ""
 "An account is already registered with that username. Please choose another."
 msgstr "そのアカウントユーザ名はすでに登録されています。別のユーザー名にして下さい。"
 
-#: includes/wc-customer-functions.php:85
+#: includes/wc-customer-functions.php:86
 msgid "Please enter an account password."
 msgstr "アカウントパスワードを入力してください"
 
-#: includes/wc-customer-functions.php:110
+#: includes/wc-customer-functions.php:112
 msgid ""
 "Couldn&#8217;t register you&hellip; please contact us if you continue to "
 "have problems."
 msgstr "登録できませんでした...問題が解決しない場合は、お問い合わせください"
 
-#: includes/wc-order-functions.php:294
+#: includes/wc-order-functions.php:295
 msgid "Unpaid order cancelled - time limit reached."
 msgstr "未払いの注文をキャンセルしました - 制限期間に達しました"
 
-#: includes/wc-product-functions.php:236
+#: includes/wc-product-functions.php:235
 msgctxt "slug"
 msgid "uncategorized"
 msgstr "uncategorized"
 
-#: includes/wc-template-functions.php:101
+#: includes/wc-template-functions.php:120
 msgid "New products"
 msgstr "新商品"
 
-#: includes/wc-template-functions.php:109
+#: includes/wc-template-functions.php:128
 msgid "New products added to %s"
 msgstr "新商品には %s 追加"
 
-#: includes/wc-template-functions.php:117
+#: includes/wc-template-functions.php:136
 msgid "New products tagged %s"
 msgstr "新商品には %s タグ付き"
 
-#: includes/wc-template-functions.php:350
+#: includes/wc-template-functions.php:381
 msgid ""
 "This is a demo store for testing purposes &mdash; no orders shall be "
 "fulfilled."
 msgstr "こちらはデモ用のショップサイトです &mdash; 実際の注文は行われません。"
 
-#: includes/wc-template-functions.php:369
+#: includes/wc-template-functions.php:400
 msgid "Search Results: &ldquo;%s&rdquo;"
 msgstr "検索結果: &ldquo;%s&rdquo;"
 
-#: includes/wc-template-functions.php:372
+#: includes/wc-template-functions.php:403
 msgid "&nbsp;&ndash; Page %s"
 msgstr "&nbsp;&ndash; ページ %s"
 
-#: includes/wc-template-functions.php:974
-#: templates/checkout/form-shipping.php:57
-#: templates/single-product/tabs/additional-information.php:14
+#: includes/wc-template-functions.php:989
+#: templates/checkout/form-shipping.php:55
+#: templates/single-product/tabs/additional-information.php:17
 msgid "Additional Information"
 msgstr "追加情報"
 
-#: includes/wc-template-functions.php:983
+#: includes/wc-template-functions.php:998
 msgid "Reviews (%d)"
 msgstr "レビュー (%d)"
 
-#: includes/wc-template-functions.php:1074
+#: includes/wc-template-functions.php:1089
 msgid ""
 "Use $args argument as an array instead. Deprecated argument will be removed "
 "in WC 2.2."
 msgstr "Use $args argument as an array instead. Deprecated argument will be removed in WC 2.2."
 
-#: includes/wc-template-functions.php:1242
+#: includes/wc-template-functions.php:1257
 msgctxt "breadcrumb"
 msgid "Home"
 msgstr "Home"
 
-#: includes/wc-template-functions.php:1529
+#: includes/wc-template-functions.php:1558
 msgid "Order Again"
 msgstr "再注文する"
 
-#: includes/wc-template-functions.php:1620
+#: includes/wc-template-functions.php:1649
 #: templates/cart/shipping-calculator.php:28
 msgid "Select a country&hellip;"
 msgstr "国を選択して下さい&hellip;"
 
-#: includes/wc-template-functions.php:1627
+#: includes/wc-template-functions.php:1656
 msgid "Update country"
 msgstr "国を更新"
 
-#: includes/wc-template-functions.php:1670
+#: includes/wc-template-functions.php:1699
 #: templates/cart/shipping-calculator.php:52
 msgid "Select a state&hellip;"
 msgstr "選択して下さい&hellip;"
 
-#: includes/wc-template-functions.php:1783
+#: includes/wc-template-functions.php:1812
 msgid "Search for:"
 msgstr "検索結果:"
 
-#: includes/wc-template-functions.php:1784
+#: includes/wc-template-functions.php:1813
 msgid "Search for products"
 msgstr "商品を検索"
 
-#: includes/wc-template-functions.php:1785
+#: includes/wc-template-functions.php:1814
 msgid "Search"
 msgstr "検索"
 
-#: includes/wc-term-functions.php:121
+#: includes/wc-term-functions.php:144
 msgid "Select a category"
 msgstr "選択して下さい"
 
-#: includes/wc-term-functions.php:125
+#: includes/wc-term-functions.php:148
 msgid "Uncategorized"
 msgstr "未分類"
 
@@ -6980,6 +7257,11 @@ msgstr "サイドバーにユーザーのカートが表示されます"
 #: includes/widgets/class-wc-widget-cart.php:25
 msgid "WooCommerce Cart"
 msgstr "WooCommerce カート"
+
+#: includes/widgets/class-wc-widget-cart.php:29
+#: includes/widgets/class-wc-widget-cart.php:56
+msgid "Cart"
+msgstr "カート"
 
 #: includes/widgets/class-wc-widget-cart.php:35
 msgid "Hide if cart is empty"
@@ -6997,17 +7279,17 @@ msgstr "WooCommerce フィルターナビ"
 msgid "Active Filters"
 msgstr "現在適用されているフィルター"
 
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:84
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:91
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:96
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:85
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:92
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:97
 msgid "Remove filter"
 msgstr "フィルターの削除"
 
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:91
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:92
 msgid "Min"
 msgstr "Min"
 
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:96
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:97
 msgid "Max"
 msgstr "Max"
 
@@ -7117,10 +7399,10 @@ msgid "Show hierarchy"
 msgstr "階層を表示"
 
 #: includes/widgets/class-wc-widget-product-categories.php:60
-msgid "Only show children for the current category"
-msgstr "現在のカテゴリーの子のみ表示"
+msgid "Only show children of the current category"
+msgstr "現在のカテゴリの子カテゴリーのみを表示"
 
-#: includes/widgets/class-wc-widget-product-categories.php:156
+#: includes/widgets/class-wc-widget-product-categories.php:223
 msgid "No product categories exist."
 msgstr "商品カテゴリーがありません"
 
@@ -7275,25 +7557,24 @@ msgid "Shipping and Handling"
 msgstr "配送料・その他"
 
 #: templates/cart/cart-shipping.php:55
-msgid ""
-"No shipping methods were found; please recalculate your shipping or continue"
-" to checkout and enter your full address to see if there is shipping "
-"available to your location."
-msgstr "配送方法が見つかりませんでした; 配送料を再計算するか、詳細な住所を入力し、お届け先の住所へ利用できる配送方法があるかご確認ください。"
+msgid "Please use the shipping calculator to see available shipping methods."
+msgstr "利用可能な配送方法を表示するには送料計算を使用してください。"
 
 #: templates/cart/cart-shipping.php:59
+msgid ""
+"Please continue to the checkout and enter your full address to see if there "
+"are any available shipping methods."
+msgstr "利用可能な配送方法があるかどうかを確認する為に住所を全て入力して、決済を進めてください。"
+
+#: templates/cart/cart-shipping.php:63
 msgid "Please fill in your details to see available shipping methods."
 msgstr "利用可能な配送方法を確認する為、詳細情報を記入してください。"
 
-#: templates/cart/cart-shipping.php:69 templates/cart/cart-shipping.php:77
-msgid "Sorry, shipping is unavailable %s."
-msgstr "申し訳ありませんが、配送できません %s。"
-
-#: templates/cart/cart-shipping.php:69 templates/cart/cart-shipping.php:77
+#: templates/cart/cart-shipping.php:72 templates/cart/cart-shipping.php:78
 msgid ""
-"If you require assistance or wish to make alternate arrangements please "
-"contact us."
-msgstr "詳細についてはお問い合わせください。"
+"There doesn&lsquo;t seem to be any available shipping methods. Please double"
+" check your address, or contact us if you need any help."
+msgstr "配送が可能は方法が無いようです。住所を再度ご確認ください。また、必要があればお問い合わせください。"
 
 #: templates/cart/cart-shipping.php:93
 msgid "Shipping"
@@ -7306,12 +7587,6 @@ msgstr "カートの合計"
 #: templates/cart/cart-totals.php:21 templates/checkout/review-order.php:25
 msgid "Cart Subtotal"
 msgstr "カート小計"
-
-#: templates/cart/cart-totals.php:27 templates/cart/cart-totals.php:67
-#: templates/checkout/review-order.php:31
-#: templates/checkout/review-order.php:71
-msgid "Coupon:"
-msgstr "クーポン:"
 
 #: templates/cart/cart-totals.php:75 templates/checkout/review-order.php:79
 msgid "Order Total"
@@ -7344,19 +7619,19 @@ msgstr "小計金額"
 msgid "Remove this item"
 msgstr "この項目を削除"
 
-#: templates/cart/cart.php:118 templates/checkout/form-coupon.php:25
+#: templates/cart/cart.php:119 templates/checkout/form-coupon.php:26
 msgid "Coupon code"
 msgstr "クーポンコード"
 
-#: templates/cart/cart.php:118 templates/checkout/form-coupon.php:29
+#: templates/cart/cart.php:119 templates/checkout/form-coupon.php:30
 msgid "Apply Coupon"
 msgstr "クーポンを適用"
 
-#: templates/cart/cart.php:125
+#: templates/cart/cart.php:126
 msgid "Update Cart"
 msgstr "カートを更新"
 
-#: templates/cart/cart.php:125
+#: templates/cart/cart.php:126
 msgid "Proceed to Checkout"
 msgstr "お支払いへ進む"
 
@@ -7371,6 +7646,10 @@ msgstr "カートの中に商品はございません"
 #: templates/cart/mini-cart.php:59
 msgid "Subtotal"
 msgstr "小計"
+
+#: templates/cart/mini-cart.php:65
+msgid "Checkout"
+msgstr "お支払いへ進む"
 
 #: templates/cart/shipping-calculator.php:22
 msgid "Calculate Shipping"
@@ -7400,22 +7679,19 @@ msgstr "カート内アイテムにはいくつかの問題があります（上
 msgid "Return To Cart"
 msgstr "カートに戻る"
 
-#: templates/checkout/form-billing.php:17
+#: templates/checkout/form-billing.php:15
 msgid "Billing &amp; Shipping"
 msgstr "請求 &amp; 配送"
 
-#: templates/checkout/form-billing.php:21
-#: templates/myaccount/form-edit-address.php:14
-#: templates/myaccount/my-address.php:19 templates/myaccount/my-address.php:25
-#: templates/order/order-details.php:118
-msgid "Billing Address"
-msgstr "請求先住所"
+#: templates/checkout/form-billing.php:19
+msgid "Billing Details"
+msgstr "支払明細"
 
-#: templates/checkout/form-billing.php:40
+#: templates/checkout/form-billing.php:38
 msgid "Create an account?"
 msgstr "アカウントを作成しますか？"
 
-#: templates/checkout/form-billing.php:51
+#: templates/checkout/form-billing.php:49
 msgid ""
 "Create an account by entering the information below. If you are a returning "
 "customer please login at the top of the page."
@@ -7429,11 +7705,11 @@ msgstr "支払いをする為にはログインして下さい"
 msgid "Your order"
 msgstr "ご注文詳細"
 
-#: templates/checkout/form-coupon.php:17
+#: templates/checkout/form-coupon.php:18
 msgid "Have a coupon?"
 msgstr "クーポンをお持ちですか? -"
 
-#: templates/checkout/form-coupon.php:18
+#: templates/checkout/form-coupon.php:19
 msgid "Click here to enter your code"
 msgstr "コード入力はこちらから"
 
@@ -7475,7 +7751,7 @@ msgstr "申し訳ありませんが、あなたの所在地での利用可能な
 msgid "Pay for order"
 msgstr "注文の支払い"
 
-#: templates/checkout/form-shipping.php:31
+#: templates/checkout/form-shipping.php:29
 msgid "Ship to a different address?"
 msgstr "ご注文者とは別の住所へお届けしますか？"
 
@@ -7490,7 +7766,7 @@ msgid ""
 "arrangements."
 msgstr "申し訳ありませんが、今の状況では利用可能な支払方法はございません。詳細についてはお問い合わせください。"
 
-#: templates/checkout/review-order.php:161
+#: templates/checkout/review-order.php:163
 msgid ""
 "Since your browser does not support JavaScript, or it is disabled, please "
 "ensure you click the <em>Update Totals</em> button before placing your "
@@ -7498,21 +7774,19 @@ msgid ""
 "do so."
 msgstr "お使いのブラウザはJavaScriptをサポートしていないか、無効になっています。注文の前に<em>金額を更新</em>ボタンで合計できることを確認して下さい。もし更新に失敗するようであれば、上記表示金額とは異なった金額が請求される可能性があります。"
 
-#: templates/checkout/review-order.php:161
+#: templates/checkout/review-order.php:163
 msgid "Update totals"
 msgstr "金額を更新"
 
-#: templates/checkout/review-order.php:168
+#: templates/checkout/review-order.php:170
 msgid "Place order"
 msgstr "注文する"
 
-#: templates/checkout/review-order.php:177
-msgid "I have read and accept the"
-msgstr "私は後述の利用規約を確認し同意しています:"
-
-#: templates/checkout/review-order.php:177
-msgid "terms &amp; conditions"
-msgstr "利用規約"
+#: templates/checkout/review-order.php:179
+msgid ""
+"I&rsquo;ve read and accept the <a href=\"%s\" target=\"_blank\">terms &amp; "
+"conditions</a>"
+msgstr "私は<a href=\"%s\" target=\"_blank\">規約と条件</a>を読んで理解し了承しました。"
 
 #: templates/checkout/thankyou.php:18
 msgid ""
@@ -7664,13 +7938,17 @@ msgstr "請求先住所"
 msgid "Shipping address"
 msgstr "お届け先住所"
 
-#: templates/emails/email-order-items.php:42
-#: templates/emails/plain/email-order-items.php:43
+#: templates/emails/email-order-items.php:25
+msgid "Product Image"
+msgstr "商品画像"
+
+#: templates/emails/email-order-items.php:46
+#: templates/emails/plain/email-order-items.php:46
 msgid "Download %d"
 msgstr "ダウンロード %d"
 
-#: templates/emails/email-order-items.php:44
-#: templates/emails/plain/email-order-items.php:45
+#: templates/emails/email-order-items.php:48
+#: templates/emails/plain/email-order-items.php:48
 msgid "Download"
 msgstr "ダウンロード"
 
@@ -7708,11 +7986,11 @@ msgstr "詳細"
 msgid "Your password is <strong>%s</strong>."
 msgstr "あなたのパスワードは <strong>%s</strong> です。"
 
-#: templates/emails/plain/email-order-items.php:29
+#: templates/emails/plain/email-order-items.php:32
 msgid "Quantity: %s"
 msgstr "数: %s"
 
-#: templates/emails/plain/email-order-items.php:32
+#: templates/emails/plain/email-order-items.php:35
 msgid "Cost: %s"
 msgstr "金額: %s"
 
@@ -7741,20 +8019,20 @@ msgid "Page"
 msgstr "ページ"
 
 #: templates/global/form-login.php:22
-#: templates/myaccount/form-lost-password.php:24
+#: templates/myaccount/form-lost-password.php:23
 msgid "Username or email"
 msgstr "ユーザー名またはEメールアドレス"
 
-#: templates/global/form-login.php:26 templates/myaccount/form-login.php:36
-#: templates/myaccount/form-login.php:84
+#: templates/global/form-login.php:26 templates/myaccount/form-login.php:38
+#: templates/myaccount/form-login.php:88
 msgid "Password"
 msgstr "パスワード"
 
-#: templates/global/form-login.php:38 templates/myaccount/form-login.php:46
+#: templates/global/form-login.php:38 templates/myaccount/form-login.php:48
 msgid "Remember me"
 msgstr "ログインしたままにする"
 
-#: templates/global/form-login.php:42 templates/myaccount/form-login.php:50
+#: templates/global/form-login.php:42 templates/myaccount/form-login.php:52
 msgid "Lost your password?"
 msgstr "パスワードを忘れた場合はこちら"
 
@@ -7828,7 +8106,7 @@ msgid "Last name"
 msgstr "姓"
 
 #: templates/myaccount/form-edit-account.php:28
-#: templates/myaccount/form-login.php:79
+#: templates/myaccount/form-login.php:81
 msgid "Email address"
 msgstr "Eメール"
 
@@ -7844,54 +8122,61 @@ msgstr "新しいパスワードを再入力（変更時のみ）"
 msgid "Save changes"
 msgstr "変更を保存"
 
-#: templates/myaccount/form-edit-address.php:14
+#: templates/myaccount/form-edit-address.php:16
+#: templates/myaccount/my-address.php:19 templates/myaccount/my-address.php:25
+#: templates/order/order-details.php:118
+msgid "Billing Address"
+msgstr "請求先住所"
+
+#: templates/myaccount/form-edit-address.php:16
 #: templates/myaccount/my-address.php:20 templates/order/order-details.php:133
 msgid "Shipping Address"
 msgstr "お届け先住所"
 
-#: templates/myaccount/form-edit-address.php:38
+#: templates/myaccount/form-edit-address.php:40
 msgid "Save Address"
 msgstr "住所を保存"
 
-#: templates/myaccount/form-login.php:32
+#: templates/myaccount/form-login.php:34
 msgid "Username or email address"
 msgstr "ユーザー名またはEメールアドレス"
 
-#: templates/myaccount/form-login.php:63 templates/myaccount/form-login.php:96
+#: templates/myaccount/form-login.php:65
+#: templates/myaccount/form-login.php:102
 msgid "Register"
 msgstr "登録"
 
-#: templates/myaccount/form-login.php:72
+#: templates/myaccount/form-login.php:74
 msgid "Username"
 msgstr "ユーザー名"
 
-#: templates/myaccount/form-login.php:89
+#: templates/myaccount/form-login.php:95
 msgid "Anti-spam"
 msgstr "アンチスパム"
 
-#: templates/myaccount/form-lost-password.php:22
+#: templates/myaccount/form-lost-password.php:21
 msgid ""
 "Lost your password? Please enter your username or email address. You will "
 "receive a link to create a new password via email."
 msgstr "パスワードを忘れましたか？ユーザー名かEメールアドレスを入力して下さい。新しいパスワードを作成するためのリンクが添付されたメールが送信されます。ご確認下さい。"
 
-#: templates/myaccount/form-lost-password.php:28
+#: templates/myaccount/form-lost-password.php:27
 msgid "Enter a new password below."
 msgstr "以下に新しいパスワードを入力します。"
 
-#: templates/myaccount/form-lost-password.php:31
+#: templates/myaccount/form-lost-password.php:30
 msgid "New password"
 msgstr "新しいパスワード"
 
-#: templates/myaccount/form-lost-password.php:35
+#: templates/myaccount/form-lost-password.php:34
 msgid "Re-enter new password"
 msgstr "新しいパスワードを再入力"
 
-#: templates/myaccount/form-lost-password.php:46
+#: templates/myaccount/form-lost-password.php:45
 msgid "Reset Password"
 msgstr "パスワードをリセット"
 
-#: templates/myaccount/form-lost-password.php:46
+#: templates/myaccount/form-lost-password.php:45
 msgid "Save"
 msgstr "保存"
 
@@ -7951,6 +8236,21 @@ msgstr "取消"
 #: templates/myaccount/my-orders.php:84
 msgid "View"
 msgstr "詳細"
+
+#: templates/myaccount/view-order.php:19
+msgid ""
+"Order <mark class=\"order-number\">%s</mark> was placed on <mark class"
+"=\"order-date\">%s</mark> and is currently <mark class=\"order-"
+"status\">%s</mark>."
+msgstr "注文<mark class=\"order-number\">%s</mark> は <mark class=\"order-date\">%s</mark>において現在 <mark class=\"order-status\">%s</mark>の状態です。"
+
+#: templates/myaccount/view-order.php:23 templates/order/tracking.php:31
+msgid "Order Updates"
+msgstr "注文の更新"
+
+#: templates/myaccount/view-order.php:29 templates/order/tracking.php:37
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr "l Y年n月j日, h:ia"
 
 #: templates/order/form-tracking.php:17
 msgid ""
@@ -8019,20 +8319,16 @@ msgstr "選択項目をクリア"
 msgid "This product is currently out of stock and unavailable."
 msgstr "現在この商品は在庫切れでご利用出来ません"
 
-#: templates/single-product/meta.php:20
+#: templates/single-product/meta.php:23
 msgid "SKU:"
 msgstr "商品コード:"
 
-#: templates/single-product/meta.php:20
-msgid "n/a"
-msgstr "n/a"
-
-#: templates/single-product/meta.php:24
+#: templates/single-product/meta.php:27
 msgid "Category:"
 msgid_plural "Categories:"
 msgstr[0] "商品カテゴリー:"
 
-#: templates/single-product/meta.php:26
+#: templates/single-product/meta.php:29
 msgid "Tag:"
 msgid_plural "Tags:"
 msgstr[0] "商品タグ:"
@@ -8041,7 +8337,7 @@ msgstr[0] "商品タグ:"
 msgid "Weight"
 msgstr "重さ"
 
-#: templates/single-product/product-attributes.php:37
+#: templates/single-product/product-attributes.php:35
 msgid "Dimensions"
 msgstr "大きさ"
 
@@ -8151,3 +8447,19 @@ msgstr "ドキュメント"
 #: woocommerce.php:183
 msgid "Premium Support"
 msgstr "プレミアムサポート"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.woothemes.com/woocommerce/"
+msgstr "http://www.woothemes.com/woocommerce/"
+
+#. Description of the plugin/theme
+msgid "An e-commerce toolkit that helps you sell anything. Beautifully."
+msgstr "だれもが自由に商品やサービスを販売するためのEコマースツールです。しかも、自由なデザインで。"
+
+#. Author of the plugin/theme
+msgid "WooThemes"
+msgstr "WooThemes"
+
+#. Author URI of the plugin/theme
+msgid "http://woothemes.com"
+msgstr "http://woothemes.com"

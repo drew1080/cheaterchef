@@ -1,55 +1,125 @@
-<?php
+<?php 
 /*
-Plugin Name: √ WP Overview (lite) MS
-Plugin URI: http://slangji.wordpress.com/wp-overview-lite-ms/
-Description: &#9733;&#9733;&#9733; Show <code>Dashboard Overview</code> and footer memory usage with less consumption on Network Multi~Site Environment. Work under GPLv2 License. | <a href="http://slangji.wordpress.com/donate/" title="Free Donation">Donate</a> | <a href="http://wordpress.org/extend/plugins/wp-overview-lite/" title="Show Dashboard Overview and Footer Memory Load Usage">WP Overview?</a> | <a href="http://wordpress.org/extend/plugins/wp-missed-schedule/" title="Fix Missed Scheduled Future Posts Cron Job">WP Missed Schedule?</a> | <a href="http://wordpress.org/extend/plugins/wp-admin-bar-removal/" title="Remove Admin Bar Frontend Backend User Profile and Code">Admin Bar Removal?</a> | <a href="http://wordpress.org/extend/plugins/wp-admin-bar-node-removal/" title="Remove Admin Bar Frontend and Backend Node">Admin Bar Node Removal?</a> | <a href="http://wordpress.org/extend/plugins/wp-toolbar-removal/" title="Remove ToolBar Frontend Backend User Profile and Code">ToolBar Removal?</a> | <a href="http://wordpress.org/extend/plugins/wp-toolbar-node-removal/" title="Remove ToolBar Frontend and Backend Node">ToolBar Node Removal?</a> | <a href="http://wordpress.org/extend/plugins/wp-login-deindexing/" title="Total DeIndexing WordPress LogIn from all Search Engines">LogIn DeIndexing?</a> | <a href="http://wordpress.org/extend/plugins/wp-total-deindexing/" title="Total DeIndexing WordPress from all Search Engines">WP DeIndexing?</a> | <a href="http://wordpress.org/extend/plugins/wp-ie-enhancer-and-modernizer/" title="Enhancer and Modernizer IE Surfing Expirience">Enhancer IE Surfing?</a>
-Version: 2012.1122.2016-MS
-Author: sLa
-Author URI: http://slangji.wordpress.com/
-Requires at least: 3.0.1
-Tested up to: 3.5
-License: GPLv2
+Plugin Name: WP Overview (lite) MS
+Plugin URI: //slangji.wordpress.com/wp-overview-lite-ms/
+Description: Show Dashboard Overview and footer memory usage with less consumption on Network Multi~Site Environment. Work under GPLv2 License. | <a href="//slangji.wordpress.com/donate/" title="Free Donation">Donate</a> | <a href="//wordpress.org/plugins/wp-overview-lite/" title="Show Dashboard Overview and Footer Memory Load Usage">WP Overview?</a> | <a href="//wordpress.org/plugins/wp-missed-schedule/" title="Fix Missed Scheduled Future Posts Cron Job">WP Missed Schedule?</a> | <a href="//wordpress.org/plugins/wp-admin-bar-removal/" title="Remove Admin Bar Frontend Backend User Profile and Code">Admin Bar Removal?</a> | <a href="//wordpress.org/plugins/wp-admin-bar-node-removal/" title="Remove Admin Bar Frontend and Backend Node">Admin Bar Node Removal?</a> | <a href="//wordpress.org/plugins/wp-toolbar-removal/" title="Remove ToolBar Frontend Backend User Profile and Code">ToolBar Removal?</a> | <a href="//wordpress.org/plugins/wp-toolbar-node-removal/" title="Remove ToolBar Frontend and Backend Node">ToolBar Node Removal?</a> | <a href="//wordpress.org/plugins/wp-login-deindexing/" title="Total DeIndexing WordPress LogIn from all Search Engines">LogIn DeIndexing?</a> | <a href="//wordpress.org/plugins/wp-total-deindexing/" title="Total DeIndexing WordPress from all Search Engines">WP DeIndexing?</a> | <a href="//wordpress.org/plugins/wp-ie-enhancer-and-modernizer/" title="Enhancer and Modernizer IE Surfing Expirience">Enhancer IE Surfing?</a>
+Version: 2012.1122.2016
+Author: slangjis
+Author URI: //slangji.wordpress.com/
+Requires at least: 3.0
+Tested up to: 3.6
+License: GPLv2 or later
+License URI: //www.gnu.org/licenses/gpl-2.0.html
+Indentation: GNU style coding standard
+Indentation URI: //www.gnu.org/prep/standards/standards.html
 Network: true
  *
- * [Overview (lite) MS](http://wordpress.org/extend/plugins/wp-overview-lite-ms/) WordPress PlugIn
+ * LICENSING
  *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
+ * [WP Overview (lite) MS](//wordpress.org/plugins/wp-overview-lite-ms/) 
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU General Public License for more details.
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the [GNU General Public License](//wordpress.org/about/gpl/)
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
  *
- *  The license for this software can be found @ http://www.gnu.org/licenses/gpl-2.0.html
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see [GNU General Public Licenses](//www.gnu.org/licenses/),
+ * or write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301, USA.
  *
- * This uses code derived from
- * wp-overview-lite.php by sLa <slangji[at]gmail[dot]com>
+ * DISCLAIMER
+ *
+ * The license under which the WordPress software is released is the GPLv2 (or later) from the
+ * Free Software Foundation. A copy of the license is included with every copy of WordPress.
+ *
+ * Part of this license outlines requirements for derivative works, such as plugins or themes.
+ * Derivatives of WordPress code inherit the GPL license.
+ *
+ * There is some legal grey area regarding what is considered a derivative work, but we feel
+ * strongly that plugins and themes are derivative work and thus inherit the GPL license.
+ *
+ * The license for this software can be found on [Free Software Foundation](//www.gnu.org/licenses/gpl-2.0.html) and as license.txt into this plugin package.
+ *
+ * The author of this plugin is available at any time, to make all changes, or corrections, to respect these specifications.
+ *
+ * THERMS
+ *
+ * This uses (or it parts) code derived from
+ *
+ * wp-header-footer-log.php by slangjis <slangjis [at] googlemail [dot] com>
+ * Copyright (C) 2009-2013 [slangjis](//slangji.wordpress.com/) (email: <slangjis [at] googlemail [dot] com>)
+ *
+ * wp-overview-lite.php by slangjis <slangjis [at] googlemail [dot] com>
+ * Copyright © 2010 [slangjis](//slangji.wordpress.com/) (email: <slangjis [at] googlemail [dot] com>)
+ *
  * according to the terms of the GNU General Public License version 2 (or later)
  *
- * Copyright © 2010 [sLa](http://wordpress.org/extend/plugins/profile/slangji) (slangji[at]gmail[dot]com)
- */
-/**
- * @package WP Overview (lite) MS
- * @subpackage WordPress PlugIn
- * @since 3.0.1
- * @version 2012.1122.2016-MS
- * @author sLa
- * @license GPLv2
+ * This wp-header-footer-log.php uses (or it parts) code derived from
  *
- * Show Dashboard Overview and Footer Memory Usage on Network Multi~Site Environment with less consumption.
+ * wp-footer-log.php by slangjis <slangjis [at] googlemail [dot] com>
+ * Copyright (C) 2008-2013 [slangjis](//slangji.wordpress.com/) (email: <slangjis [at] googlemail [dot] com>)
+ *
+ * sLa2sLaNGjIs.php by slangjis <slangjis [at] googlemail [dot] com>
+ * Copyright (C) 2009-2013 [slangjis](//slangji.wordpress.com/) (email: <slangjis [at] googlemail [dot] com>)
+ *
+ * according to the terms of the GNU General Public License version 2 (or later)
+ *
+ * According to the Terms of the GNU General Public License version 2 (or later) part of Copyright belongs to your own author and part belongs to their respective others authors:
+ *
+ * Copyright (C) 2008-2013 [slangjis](//slangji.wordpress.com/) (email: <slangjis [at] googlemail [dot] com>)
+ *
+ * VIOLATIONS
+ *
+ * [Violations of the GNU Licenses](//www.gnu.org/licenses/gpl-violation.en.html)
+ * The author of this plugin is available at any time, to make all changes, or corrections, to respect these specifications.
+ *
+ * GUIDELINES
+ *
+ * This software meet [Detailed Plugin Guidelines](//wordpress.org/plugins/about/guidelines/) paragraphs 1,4,10,12,13,16,17 quality requirements.
+ * The author of this plugin is available at any time, to make all changes, or corrections, to respect these specifications.
+ *
+ * CODING
+ *
+ * This software implement [GNU style](//www.gnu.org/prep/standards/standards.html) coding standard indentation.
+ * The author of this plugin is available at any time, to make all changes, or corrections, to respect these specifications.
+ *
+ * VALIDATION
+ *
+ * This readme.txt rocks. Seriously. Flying colors. It meet the specifications according to WordPress [Readme Validator](//wordpress.org/plugins/about/validator/) directives.
+ * The author of this plugin is available at any time, to make all changes, or corrections, to respect these specifications.
  */
-	if (!function_exists('add_action'))
+
+	/**
+	 * @package WP Overview (lite) MS
+	 * @subpackage WordPress PlugIn
+	 * @description 
+	 * @since 3.0.0
+	 * @tested 3.6.0
+	 * @version 2012.1122.2016
+	 * @1stversion 
+	 * @status STABLE (trunk) release
+	 * @development Code in Becoming!
+	 * @install The configuration of this Plugin is Automattic!
+	 * @author slangjis
+	 * @license GPLv2 or later
+	 * @indentation GNU style coding standard
+	 * @keytag 74be16979710d4c4e7c6647856088456
+	 */
+
+	if ( !function_exists( 'add_action' ) )
 		{
-			header('HTTP/1.0 403 Forbidden');
-			header('HTTP/1.1 403 Forbidden');
-			exit();
+			header( 'HTTP/0.9 403 Forbidden' );
+			header( 'HTTP/1.0 403 Forbidden' );
+			header( 'HTTP/1.1 403 Forbidden' );
+			header( 'Status: 403 Forbidden' );
+			header( 'Connection: Close' );
+				exit();
 		}
 ?>
 <?php

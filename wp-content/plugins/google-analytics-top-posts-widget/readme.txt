@@ -10,8 +10,8 @@ Author URI: http://jtsternberg.com/about
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.8
-Stable tag: 1.5.1
-Version: 1.5.1
+Stable tag: 1.5.4
+Version: 1.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,15 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
+= 1.5.4 =
+* Bug Fix: Use a unique transient ID for every shortcode instance.
+
+= 1.5.3 =
+* Bug Fix: `update=true` shortcode parameter (used for busting the cache) did not work properly.
+
+= 1.5.2 =
+* Bug Fix: Fix a couple filters that were getting false-postives.
+
 = 1.5.1 =
 * Bug Fix: Renamed the widget in 1.5.0 which would cause it to be unregistered in any sidebars. Quickly pushed up an update to put it back, but this release makes it final. Apologies for the inconvenience.
 
@@ -147,6 +156,15 @@ If you were using the shortcode and it broke, you will need to switch to using t
 
 
 == Upgrade Notice ==
+
+= 1.5.4 =
+* Bug Fix: Use a unique transient ID for every shortcode instance.
+
+= 1.5.3 =
+* Bug Fix: `update=true` shortcode parameter (used for busting the cache) did not work properly.
+
+= 1.5.2 =
+* Bug Fix: Fix a couple filters that were getting false-postives.
 
 = 1.5.1 =
 * Bug Fix: Renamed the widget in 1.5.0 which would cause it to be unregistered in any sidebars. Quickly pushed up an update to put it back, but this release makes it final. Apologies for the inconvenience.

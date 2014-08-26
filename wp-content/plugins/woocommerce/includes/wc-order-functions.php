@@ -40,9 +40,6 @@ function wc_get_order_id_by_order_key( $order_key ) {
 function wc_downloadable_file_permission( $download_id, $product_id, $order ) {
 	global $wpdb;
 
-	if ( $order->status == 'processing' && get_option( 'woocommerce_downloads_grant_access_after_payment' ) == 'no' )
-		return false;
-
 	$user_email = sanitize_email( $order->billing_email );
 	$limit      = trim( get_post_meta( $product_id, '_download_limit', true ) );
 	$expiry     = trim( get_post_meta( $product_id, '_download_expiry', true ) );
@@ -97,10 +94,6 @@ function wc_downloadable_file_permission( $download_id, $product_id, $order ) {
 	return $result ? $wpdb->insert_id : false;
 }
 
-add_action('woocommerce_order_status_completed', 'wc_downloadable_product_permissions');
-add_action('woocommerce_order_status_processing', 'wc_downloadable_product_permissions');
-
-
 /**
  * Order Status completed - GIVE DOWNLOADABLE PRODUCT ACCESS TO CUSTOMER
  *
@@ -109,10 +102,15 @@ add_action('woocommerce_order_status_processing', 'wc_downloadable_product_permi
  * @return void
  */
 function wc_downloadable_product_permissions( $order_id ) {
-	if ( get_post_meta( $order_id, '_download_permissions_granted', true ) == 1 )
+	if ( get_post_meta( $order_id, '_download_permissions_granted', true ) == 1 ) {
 		return; // Only do this once
+	}
 
 	$order = new WC_Order( $order_id );
+
+	if ( $order->status == 'processing' && get_option( 'woocommerce_downloads_grant_access_after_payment' ) == 'no' ) {
+		return;
+	}
 
 	if ( sizeof( $order->get_items() ) > 0 ) {
 		foreach ( $order->get_items() as $item ) {
@@ -131,8 +129,11 @@ function wc_downloadable_product_permissions( $order_id ) {
 	update_post_meta( $order_id, '_download_permissions_granted', 1 );
 
 	do_action( 'woocommerce_grant_product_download_permissions', $order_id );
-
 }
+
+add_action( 'woocommerce_order_status_completed', 'wc_downloadable_product_permissions' );
+add_action( 'woocommerce_order_status_processing', 'wc_downloadable_product_permissions' );
+
 
 /**
  * Add a item to an order (for example a line item).
@@ -296,7 +297,7 @@ function wc_cancel_unpaid_orders() {
 	}
 
 	wp_clear_scheduled_hook( 'woocommerce_cancel_unpaid_orders' );
-	wp_schedule_single_event( time() + ( absint( $held_duration ) * 60 ), 'wc_cancel_unpaid_orders' );
+	wp_schedule_single_event( time() + ( absint( $held_duration ) * 60 ), 'woocommerce_cancel_unpaid_orders' );
 }
 add_action( 'woocommerce_cancel_unpaid_orders', 'wc_cancel_unpaid_orders' );
 
@@ -310,17 +311,53 @@ add_action( 'woocommerce_cancel_unpaid_orders', 'wc_cancel_unpaid_orders' );
 function wc_processing_order_count() {
 	if ( false === ( $order_count = get_transient( 'woocommerce_processing_order_count' ) ) ) {
 		$order_statuses = get_terms( 'shop_order_status' );
-			$order_count = false;
+		$order_count    = false;
+		if ( is_array( $order_statuses ) ) {
 			foreach ( $order_statuses as $status ) {
-					if( $status->slug === 'processing' ) {
+					if ( $status->slug === 'processing' ) {
 							$order_count += $status->count;
 							break;
 					}
 			}
 			$order_count = apply_filters( 'woocommerce_admin_menu_count', intval( $order_count ) );
-		set_transient( 'woocommerce_processing_order_count', $order_count );
+			set_transient( 'woocommerce_processing_order_count', $order_count, YEAR_IN_SECONDS );
+		}
 	}
 
 	return $order_count;
 }
 
+/**
+ * Clear all transients cache for order data.
+ *
+ * @param int $post_id (default: 0)
+ */
+function wc_delete_shop_order_transients( $post_id = 0 ) {
+	global $wpdb;
+
+	$post_id = absint( $post_id );
+
+	// Clear core transients
+	$transients_to_clear = array(
+		'woocommerce_processing_order_count'
+	);
+
+	// Clear report transients
+	$reports = WC_Admin_Reports::get_reports();
+
+	foreach ( $reports as $report_group ) {
+		foreach ( $report_group['reports'] as $report_key => $report ) {
+			$transients_to_clear[] = 'wc_report_' . $report_key;
+		}
+	}
+
+	// clear API report transient
+	$transients_to_clear[] = 'wc_admin_report';
+
+	// Clear transients where we have names
+	foreach( $transients_to_clear as $transient ) {
+		delete_transient( $transient );
+	}
+
+	do_action( 'woocommerce_delete_shop_order_transients', $post_id );
+}

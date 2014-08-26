@@ -105,11 +105,13 @@ class WC_Admin_Status {
 
 					$product_cats = get_terms( 'product_cat', array( 'hide_empty' => false, 'fields' => 'id=>parent' ) );
 
-					_wc_term_recount( $product_cats, get_taxonomy( 'product_cat' ), false, false );
+					_wc_term_recount( $product_cats, get_taxonomy( 'product_cat' ), true, false );
 
 					$product_tags = get_terms( 'product_tag', array( 'hide_empty' => false, 'fields' => 'id=>parent' ) );
 
-					_wc_term_recount( $product_tags, get_taxonomy( 'product_tag' ), false, false );
+					_wc_term_recount( $product_tags, get_taxonomy( 'product_tag' ), true, false );
+
+					delete_transient( 'wc_term_counts' );
 
 					echo '<div class="updated"><p>' . __( 'Terms successfully recounted', 'woocommerce' ) . '</p></div>';
 				break;
@@ -177,7 +179,7 @@ class WC_Admin_Status {
 			'clear_expired_transients' => array(
 				'name'		=> __( 'Expired Transients','woocommerce'),
 				'button'	=> __('Clear expired transients','woocommerce'),
-				'desc'		=> __( 'This tool will clear ALL expired transients from Wordpress.', 'woocommerce' ),
+				'desc'		=> __( 'This tool will clear ALL expired transients from WordPress.', 'woocommerce' ),
 			),
 			'recount_terms' => array(
 				'name'		=> __('Term counts','woocommerce'),

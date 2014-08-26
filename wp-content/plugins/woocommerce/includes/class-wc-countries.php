@@ -547,7 +547,7 @@ class WC_Countries {
 	 * @return array of states
 	 */
 	public function get_states( $cc ) {
-		return ( isset( $this->states[ $cc ] ) ) ? $this->states[ $cc ] : array();
+		return ( isset( $this->states[ $cc ] ) ) ? $this->states[ $cc ] : false;
 	}
 
 
@@ -604,6 +604,7 @@ class WC_Countries {
 				'AU' => "{name}\n{company}\n{address_1}\n{address_2}\n{city} {state} {postcode}\n{country}",
 				'AT' => $postcode_before_city,
 				'BE' => $postcode_before_city,
+				'CA' => "{company}\n{name}\n{address_1}\n{address_2}\n{city} {state} {postcode}\n{country}",
 				'CH' => $postcode_before_city,
 				'CN' => "{country} {postcode}\n{state}, {city}, {address_2}, {address_1}\n{company}\n{name}",
 				'CZ' => $postcode_before_city,
@@ -666,7 +667,7 @@ class WC_Countries {
 		$full_state		= ( $country && $state && isset( $this->states[ $country ][ $state ] ) ) ? $this->states[ $country ][ $state ] : $state;
 
 		// Substitute address parts into the string
-		$replace = apply_filters( 'woocommerce_formatted_address_replacements', array(
+		$replace = array_map( 'esc_html', apply_filters( 'woocommerce_formatted_address_replacements', array(
 			'{first_name}'       => $first_name,
 			'{last_name}'        => $last_name,
 			'{name}'             => $first_name . ' ' . $last_name,
@@ -687,9 +688,7 @@ class WC_Countries {
 			'{state_upper}'      => strtoupper( $full_state ),
 			'{postcode_upper}'   => strtoupper( $postcode ),
 			'{country_upper}'    => strtoupper( $full_country ),
-		), $args ) ;
-
-		$replace = array_map( 'esc_html', $replace );
+		), $args ) );
 
 		$formatted_address = str_replace( array_keys( $replace ), $replace, $format );
 
@@ -697,11 +696,23 @@ class WC_Countries {
 		$formatted_address = preg_replace( '/  +/', ' ', trim( $formatted_address ) );
 		$formatted_address = preg_replace( '/\n\n+/', "\n", $formatted_address );
 
+		// Break newlines apart and remove empty lines/trim commas and white space
+		$formatted_address = array_filter( array_map( array( $this, 'trim_formatted_address_line' ), explode( "\n", $formatted_address ) ) );
+
 		// Add html breaks
-		$formatted_address = nl2br( $formatted_address );
+		$formatted_address = implode( '<br/>', $formatted_address );
 
 		// We're done!
 		return $formatted_address;
+	}
+
+	/**
+	 * trim white space and commans off a line
+	 * @param  string
+	 * @return string
+	 */
+	private function trim_formatted_address_line( $line ) {
+		return trim( $line, ", " );
 	}
 
 
@@ -816,6 +827,14 @@ class WC_Countries {
 					'postcode_before_city' => true,
 					'state'		=> array(
 						'required' => false
+					)
+				),
+				'BD' => array(
+					'postcode' => array(
+						'required' => false
+					),
+					'state'    => array(
+						'label' => __( 'District', 'woocommerce' ),
 					)
 				),
 				'BE' => array(
