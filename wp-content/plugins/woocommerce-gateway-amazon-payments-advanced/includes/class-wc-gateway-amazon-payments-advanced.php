@@ -118,9 +118,9 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 
     	<?php if ( ! $this->seller_id ) : ?>
 	    	<div class="woocommerce-message"><div class="squeezer">
-	    		<h4><?php _e( 'Need an Amazon Payments Advanced account?', 'wc_amazon_payments_advanced' ); ?></h4>
+	    		<h4><?php _e( 'Need an Amazon Payments Advanced account?', 'woocommerce-gateway-amazon-payments-advanced' ); ?></h4>
 	    		<p class="submit">
-	    			<a class="button button-primary" href="<?php echo esc_url( WC_AMAZON_REGISTER_URL ); ?>"><?php _e( 'Signup now', 'wc_amazon_payments_advanced' ); ?></a>
+	    			<a class="button button-primary" href="<?php echo esc_url( WC_AMAZON_REGISTER_URL ); ?>"><?php _e( 'Signup now', 'woocommerce-gateway-amazon-payments-advanced' ); ?></a>
 	    		</p>
 	    	</div></div><br/>
 	    <?php endif; ?>
@@ -140,96 +140,68 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
     function init_form_fields() {
     	$this->form_fields = array(
 			'enabled' => array(
-				'title'       => __( 'Enable/Disable', 'wc_amazon_payments_advanced' ),
-				'label'       => __( 'Enable Amazon Payments Advanced', 'wc_amazon_payments_advanced' ),
+				'title'       => __( 'Enable/Disable', 'woocommerce-gateway-amazon-payments-advanced' ),
+				'label'       => __( 'Enable Amazon Payments Advanced', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'type'        => 'checkbox',
 				'description' => '',
 				'default'     => 'no'
 			),
 			'title' => array(
-				'title'       => __( 'Title', 'wc_amazon_payments_advanced' ),
+				'title'       => __( 'Title', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'type'        => 'text',
-				'description' => __( 'Payment method title that the customer will see on your website.', 'wc_amazon_payments_advanced' ),
-				'default'     => __( 'Amazon', 'wc_amazon_payments_advanced' ),
+				'description' => __( 'Payment method title that the customer will see on your website.', 'woocommerce-gateway-amazon-payments-advanced' ),
+				'default'     => __( 'Amazon', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'desc_tip'    => true
 			),
 			'seller_id' => array(
-				'title'       => __( 'Seller ID', 'wc_amazon_payments_advanced' ),
+				'title'       => __( 'Seller ID', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'type'        => 'text',
-				'description' => __( 'Obtained from your Amazon account. Also known as the "Merchant ID". Usually found under Settings > Integrations after logging into your merchant account.', 'wc_amazon_payments_advanced' ),
+				'description' => __( 'Obtained from your Amazon account. Also known as the "Merchant ID". Usually found under Settings > Integrations after logging into your merchant account.', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'default'     => '',
 				'desc_tip'    => true
 			),
 			'mws_access_key' => array(
-				'title'       => __( 'MWS Access Key', 'wc_amazon_payments_advanced' ),
+				'title'       => __( 'MWS Access Key', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'type'        => 'text',
-				'description' => __( 'Obtained from your Amazon account. You can get these keys by logging into Seller Central and viewing the MWS Access Key section under the Integration tab.', 'wc_amazon_payments_advanced' ),
+				'description' => __( 'Obtained from your Amazon account. You can get these keys by logging into Seller Central and viewing the MWS Access Key section under the Integration tab.', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'default'     => '',
 				'desc_tip'    => true
 			),
 			'secret_key' => array(
-				'title'       => __( 'Secret Key', 'wc_amazon_payments_advanced' ),
+				'title'       => __( 'Secret Key', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'type'        => 'text',
-				'description' => __( 'Obtained from your Amazon account. You can get these keys by logging into Seller Central and viewing the MWS Access Key section under the Integration tab.', 'wc_amazon_payments_advanced' ),
+				'description' => __( 'Obtained from your Amazon account. You can get these keys by logging into Seller Central and viewing the MWS Access Key section under the Integration tab.', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'default'     => '',
 				'desc_tip'    => true
 			),
 			'sandbox' => array(
-				'title'       => __( 'Use Sandbox', 'wc_amazon_payments_advanced' ),
-				'label'       => __( 'Enable sandbox mode during testing and development - live payments will not be taken if enabled.', 'wc_amazon_payments_advanced' ),
+				'title'       => __( 'Use Sandbox', 'woocommerce-gateway-amazon-payments-advanced' ),
+				'label'       => __( 'Enable sandbox mode during testing and development - live payments will not be taken if enabled.', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'type'        => 'checkbox',
 				'description' => '',
 				'default'     => 'no'
 			),
 			'payment_capture' => array(
-				'title'       => __( 'Payment Capture', 'wc_amazon_payments_advanced' ),
+				'title'       => __( 'Payment Capture', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'type'        => 'select',
 				'description' => '',
 				'default'     => '',
 				'options'     => array(
-					''          => __( 'Authorize and Capture the payment when the order is placed.', 'wc_amazon_payments_advanced' ),
-					'authorize' => __( 'Authorize the payment when the order is placed.', 'wc_amazon_payments_advanced' ),
-					'manual'    => __( 'Don’t Authorize the payment when the order is placed (i.e. for pre-orders).', 'wc_amazon_payments_advanced' )
+					''          => __( 'Authorize and Capture the payment when the order is placed.', 'woocommerce-gateway-amazon-payments-advanced' ),
+					'authorize' => __( 'Authorize the payment when the order is placed.', 'woocommerce-gateway-amazon-payments-advanced' ),
+					'manual'    => __( 'Don’t Authorize the payment when the order is placed (i.e. for pre-orders).', 'woocommerce-gateway-amazon-payments-advanced' )
 				)
 			),
 			'cart_button_display_mode' => array(
-				'title'       => __( 'Cart login button display', 'wc_amazon_payments_advanced' ),
+				'title'       => __( 'Cart login button display', 'woocommerce-gateway-amazon-payments-advanced' ),
 				'description' => __( 'How the login with Amazon button gets displayed on the cart page.' ),
 				'type'        => 'select',
 				'options'     => array(
-					'button'   => __( 'Button', 'wc_amazon_payments_advanced' ),
-					'banner'   => __( 'Banner', 'wc_amazon_payments_advanced' ),
-					'disabled' => __( 'Disabled', 'wc_amazon_payments_advanced' ),
+					'button'   => __( 'Button', 'woocommerce-gateway-amazon-payments-advanced' ),
+					'banner'   => __( 'Banner', 'woocommerce-gateway-amazon-payments-advanced' ),
+					'disabled' => __( 'Disabled', 'woocommerce-gateway-amazon-payments-advanced' ),
 				),
 				'default'     => 'button',
-				'desc_tip'    => true
-			),
-			'wallet_widget_width' => array(
-				'title'       => __( 'Wallet widget width', 'wc_amazon_payments_advanced' ),
-				'description'       => __( 'Wallet width in pixels. Use a width which fits nicely inside your checkout template.', 'wc_amazon_payments_advanced' ),
-				'type'        => 'text',
-				'default'     => '300',
-				'desc_tip'    => true
-			),
-			'wallet_widget_height' => array(
-				'title'       => __( 'Wallet widget height', 'wc_amazon_payments_advanced' ),
-				'description'       => __( 'Wallet height in pixels. Use a height which fits nicely inside your checkout template.', 'wc_amazon_payments_advanced' ),
-				'type'        => 'text',
-				'default'     => '300',
-				'desc_tip'    => true
-			),
-			'addressbook_widget_width' => array(
-				'title'       => __( 'Addressbook widget width', 'wc_amazon_payments_advanced' ),
-				'description'       => __( 'Addressbook width in pixels. Use a width which fits nicely inside your checkout template.', 'wc_amazon_payments_advanced' ),
-				'type'        => 'text',
-				'default'     => '300',
-				'desc_tip'    => true
-			),
-			'addressbook_widget_height' => array(
-				'title'       => __( 'Addressbook widget height', 'wc_amazon_payments_advanced' ),
-				'description'       => __( 'Addressbook height in pixels. Use a height which fits nicely inside your checkout template.', 'wc_amazon_payments_advanced' ),
-				'type'        => 'text',
-				'default'     => '300',
 				'desc_tip'    => true
 			)
  	   );
@@ -252,7 +224,7 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 		try {
 
 			if ( ! $amazon_reference_id )
-				throw new Exception( __( 'An Amazon payment method was not chosen.', 'wc_amazon_payments_advanced' ) );
+				throw new Exception( __( 'An Amazon payment method was not chosen.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 			// Update order reference with amounts
 			$response = $this->api_request( array(
@@ -260,7 +232,7 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 				'AmazonOrderReferenceId'                                       => $amazon_reference_id,
 				'OrderReferenceAttributes.OrderTotal.Amount'                   => $order->get_total(),
 				'OrderReferenceAttributes.OrderTotal.CurrencyCode'             => strtoupper( get_woocommerce_currency() ),
-				'OrderReferenceAttributes.SellerNote'                          => sprintf( __( 'Order %s from %s.', 'wc_amazon_payments_advanced' ), $order->get_order_number(), urlencode( wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) ) ),
+				'OrderReferenceAttributes.SellerNote'                          => sprintf( __( 'Order %s from %s.', 'woocommerce-gateway-amazon-payments-advanced' ), $order->get_order_number(), urlencode( wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) ) ),
 				'OrderReferenceAttributes.SellerOrderAttributes.SellerOrderId' => $order->get_order_number(),
 				'OrderReferenceAttributes.SellerOrderAttributes.StoreName'     => wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ),
 				'OrderReferenceAttributes.PlatformId'                          => 'A1BVJDFFHQ7US4'
@@ -295,16 +267,12 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 				$address        = $response['GetOrderReferenceDetailsResult']['OrderReferenceDetails']['Destination']['PhysicalDestination'];
 				$billing_name   = explode( ' ' , $buyer['Name'] );
 				$shipping_name  = explode( ' ' , $address['Name'] );
-				$billing_first  = current( $billing_name );
-				$billing_last   = end( $billing_name );
-				$shipping_first = current( $shipping_name );
-				$shipping_last  = end( $shipping_name );
-
-				if ( $billing_first == $billing_last )
-					$billing_last = '';
-
-				if ( $shipping_first == $shipping_last )
-					$shipping_last = '';
+				
+				// Get first and last names
+				$billing_last   = array_pop( $billing_name );
+				$shipping_last  = array_pop( $shipping_name );
+				$billing_first  = implode( ' ', $billing_name );
+				$shipping_first = implode( ' ', $shipping_name );
 
 				update_post_meta( $order_id, '_billing_first_name', $billing_first );
 				update_post_meta( $order_id, '_billing_last_name', $billing_last );
@@ -344,7 +312,7 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 				case 'manual' :
 
 					// Mark as on-hold
-					$order->update_status( 'on-hold', __( 'Amazon order opened. Use the "Amazon Payments Advanced" box to authorize and/or capture payment. Authorized payments must be captured within 7 days.', 'wc_amazon_payments_advanced' ) );
+					$order->update_status( 'on-hold', __( 'Amazon order opened. Use the "Amazon Payments Advanced" box to authorize and/or capture payment. Authorized payments must be captured within 7 days.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 					// Reduce stock levels
 					$order->reduce_order_stock();
@@ -357,12 +325,12 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 
 					if ( $result ) {
 						// Mark as on-hold
-						$order->update_status( 'on-hold', __( 'Amazon order opened. Use the "Amazon Payments Advanced" box to authorize and/or capture payment. Authorized payments must be captured within 7 days.', 'wc_amazon_payments_advanced' ) );
+						$order->update_status( 'on-hold', __( 'Amazon order opened. Use the "Amazon Payments Advanced" box to authorize and/or capture payment. Authorized payments must be captured within 7 days.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 						// Reduce stock levels
 						$order->reduce_order_stock();
 					} else {
-						$order->update_status( 'failed', __( 'Could not authorize Amazon payment.', 'wc_amazon_payments_advanced' ) );
+						$order->update_status( 'failed', __( 'Could not authorize Amazon payment.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 					}
 
 				break;
@@ -375,7 +343,7 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 						// Payment complete
 						$order->payment_complete();
 					} else {
-						$order->update_status( 'failed', __( 'Could not authorize Amazon payment.', 'wc_amazon_payments_advanced' ) );
+						$order->update_status( 'failed', __( 'Could not authorize Amazon payment.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 					}
 
 				break;
@@ -391,7 +359,7 @@ class WC_Gateway_Amazon_Payments_Advanced extends WC_Payment_Gateway {
 			);
 
 		} catch( Exception $e ) {
-			$woocommerce->add_error( __( 'Error:', 'wc_amazon_payments_advanced' ) . ' ' . $e->getMessage() );
+			$woocommerce->add_error( __( 'Error:', 'woocommerce-gateway-amazon-payments-advanced' ) . ' ' . $e->getMessage() );
 			return;
 		}
 	}

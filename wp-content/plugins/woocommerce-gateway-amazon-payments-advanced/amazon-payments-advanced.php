@@ -3,9 +3,9 @@
 Plugin Name: WooCommerce Amazon Payments Advanced Gateway
 Plugin URI: http://woothemes.com/woocommerce
 Description: Amazon Payments Advanced is embedded directly into your existing web site, and all the buyer interactions with Amazon Payments Advanced take place in embedded widgets so that the buyer never leaves your site. Buyers can log in using their Amazon account, select a shipping address and payment method, and then confirm their order. Requires an Amazon Seller account with the Amazon Payments Advanced service provisioned. Supports DE, UK, and US.
-Version: 1.2.5
-Author: WooThemes / Mike Jolley
-Author URI: http://mikejolley.com
+Version: 1.2.6
+Author: WooThemes
+Author URI: http://woothemes.com
 
 	Copyright: © 2009-2011 WooThemes.
 	License: GNU General Public License v3.0
@@ -32,24 +32,28 @@ class WC_Amazon_Payments_Advanced {
 	 * Constructor
 	 */
 	public function __construct() {
-		$this->settings     = get_option( 'woocommerce_amazon_payments_advanced_settings' );
+		$this->settings = get_option( 'woocommerce_amazon_payments_advanced_settings' );
 
-		if ( empty( $this->settings['cart_button_display_mode'] ) )
+		if ( empty( $this->settings['cart_button_display_mode'] ) ) {
 			$this->settings['cart_button_display_mode'] = 'button';
+		}
 
-		if ( empty( $this->settings['seller_id'] ) )
+		if ( empty( $this->settings['seller_id'] ) ) {
 			$this->settings['seller_id'] = '';
+		}
 
-		if ( empty( $this->settings['sandbox'] ) )
+		if ( empty( $this->settings['sandbox'] ) ) {
 			$this->settings['sandbox'] = 'yes';
+		}
 
 		$this->reference_id = ! empty( $_REQUEST['amazon_reference_id'] ) ? $_REQUEST['amazon_reference_id'] : '';
 
 		if ( isset( $_POST['post_data'] ) ) {
 			parse_str( $_POST['post_data'], $post_data );
 
-			if ( isset( $post_data['amazon_reference_id'] ) )
+			if ( isset( $post_data['amazon_reference_id'] ) ) {
 				$this->reference_id = $post_data['amazon_reference_id'];
+			}
 		}
 
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_links' ) );
@@ -62,8 +66,8 @@ class WC_Amazon_Payments_Advanced {
 	public function plugin_links( $links ) {
 
 		$plugin_links = array(
-			'<a href="http://support.woothemes.com/">' . __( 'Support', 'wc_amazon_payments_advanced' ) . '</a>',
-			'<a href="http://docs.woothemes.com/document/amazon-payments-advanced/">' . __( 'Docs', 'wc_amazon_payments_advanced' ) . '</a>',
+			'<a href="http://support.woothemes.com/">' . __( 'Support', 'woocommerce-gateway-amazon-payments-advanced' ) . '</a>',
+			'<a href="http://docs.woothemes.com/document/amazon-payments-advanced/">' . __( 'Docs', 'woocommerce-gateway-amazon-payments-advanced' ) . '</a>',
 		);
 
 		return array_merge( $plugin_links, $links );
@@ -78,7 +82,7 @@ class WC_Amazon_Payments_Advanced {
 		if ( ! class_exists( 'WC_Payment_Gateway' ) )
 				return;
 
-		load_plugin_textdomain( 'wc_amazon_payments_advanced', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'woocommerce-gateway-amazon-payments-advanced', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 		switch ( $woocommerce->countries->get_base_country() ) {
 			case 'GB' :
@@ -94,7 +98,7 @@ class WC_Amazon_Payments_Advanced {
 			default :
 				define( 'WC_AMAZON_PA_WIDGETS_URL', 'https://static-na.payments-amazon.com/OffAmazonPayments/us/' . ( $this->settings['sandbox'] == 'yes' ? 'sandbox/' : '' ) . 'js/Widgets.js?sellerId=' . $this->settings['seller_id'] );
 				define( 'WC_AMAZON_WIDGET_ENDPOINT', 'https://payments' . ( $this->settings['sandbox'] == 'yes' ? '-sandbox' : '' ) . '.amazon.com' );
-				define( 'WC_AMAZON_REGISTER_URL', 'https://sellercentral.amazon.com/gp/on-board/workflow/Registration/login.html?passthrough%2Fsource=internal-landing-select&passthrough%2F*entries*=0&passthrough%2FmarketplaceID=AGWSWK15IEJJ7&passthrough%2FsuperSource=OAR&passthrough/ld=APRPWOOCOMMERCE&passthrough%2F*Version*=1&passthrough%2Faccount=pyop&passthrough%2FwaiveFee=1&passthrough%2FsimplifiedLogin=1' );
+				define( 'WC_AMAZON_REGISTER_URL', 'https://sellercentral.amazon.com/hz/me/sp/signup?solutionProviderOptions=mws-acc%3B&marketplaceId=AGWSWK15IEJJ7&solutionProviderToken=AAAAAQAAAAEAAAAQ1XU19m0BwtKDkfLZx%2B03RwAAAHBZVsoAgz2yhE7DemKr0y26Mce%2F9Q64kptY6CRih871XhB7neN0zoPX6c1wsW3QThdY6g1Re7CwxJkhvczwVfvZ9BvjG1V%2F%2FHrRgbIf47cTrdo5nNT8jmYSIEJvFbSm85nWxpvHjSC4CMsVL9s%2FPsZt&solutionProviderId=A1BVJDFFHQ7US4' );
 			break;
 		}
 
@@ -135,7 +139,8 @@ class WC_Amazon_Payments_Advanced {
 	function checkout_button() {
 		global $woocommerce;
 
-		?><div id="pay_with_amazon"><img src="<?php echo WC_AMAZON_WIDGET_ENDPOINT; ?>/gp/widgets/button?sellerId=<?php echo $this->settings['seller_id']; ?>&amp;size=large&amp;color=orange" /></div><?php
+		?><div id="pay_with_amazon">
+         </div><?php
 	}
 
 	/**
@@ -143,7 +148,7 @@ class WC_Amazon_Payments_Advanced {
 	 */
 	function checkout_message() {
 		if ( empty( $this->reference_id ) )
-			echo '<div class="woocommerce-info info"><div id="pay_with_amazon"></div> ' . apply_filters( 'woocommerce_amazon_pa_checkout_message', __( 'Have an Amazon account?', 'wc_amazon_payments_advanced' ) ) . '</div>';
+			echo '<div class="woocommerce-info info"><div id="pay_with_amazon"></div> ' . apply_filters( 'woocommerce_amazon_pa_checkout_message', __( 'Have an Amazon account?', 'woocommerce-gateway-amazon-payments-advanced' ) ) . '</div>';
 	}
 
 	/**
@@ -178,10 +183,6 @@ class WC_Amazon_Payments_Advanced {
 			'reference_id'              => $this->reference_id,
 			'redirect'                  => $redirect_page,
 			'is_checkout_pay_page'      => $is_pay_page,
-			'wallet_widget_width'       => $this->settings['wallet_widget_width'],
-			'wallet_widget_height'      => $this->settings['wallet_widget_height'],
-			'addressbook_widget_width'  => $this->settings['addressbook_widget_width'],
-			'addressbook_widget_height' => $this->settings['addressbook_widget_height']
 		) );
 	}
 
@@ -293,10 +294,10 @@ class WC_Amazon_Payments_Advanced {
 			}
 
 		} catch( Exception $e ) {
-			$woocommerce->add_error( __( 'Error:', 'wc_amazon_payments_advanced' ) . ' ' . $e->getMessage() );
+			$woocommerce->add_error( __( 'Error:', 'woocommerce-gateway-amazon-payments-advanced' ) . ' ' . $e->getMessage() );
 			return;
 		}
 	}
 }
 
-$GLOBALS['WC_Amazon_Payments_Advanced'] = new WC_Amazon_Payments_Advanced();
+$GLOBALS['wc_amazon_payments_advanced'] = new WC_Amazon_Payments_Advanced();

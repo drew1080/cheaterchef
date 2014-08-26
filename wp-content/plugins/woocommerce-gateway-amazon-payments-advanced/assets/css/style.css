@@ -17,7 +17,9 @@
 	display: block;
 }
 #amazon_addressbook_widget div, #amazon_wallet_widget div {
-	margin: 0 auto !important;
+	min-width: 300px;
+    min-height: 300px;
+    margin: 0 auto !important;
 }
 .woocommerce-info #pay_with_amazon {
 	float: right;

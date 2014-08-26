@@ -19,8 +19,8 @@ jQuery(function() {
 			jQuery('body').trigger('update_checkout');
 		},
 		design: {
-			size : {width: amazon_payments_advanced_params.addressbook_widget_width + 'px', height: amazon_payments_advanced_params.addressbook_widget_height + 'px' }
-		},
+            designMode: 'responsive'
+        },
 		onError: function(error) {}
 	}).bind("amazon_addressbook_widget");
 
@@ -29,8 +29,8 @@ jQuery(function() {
 		sellerId: amazon_payments_advanced_params.seller_id,
 		amazonOrderReferenceId: amazon_payments_advanced_params.reference_id,
 		design: {
-			size : {width: amazon_payments_advanced_params.wallet_widget_width + 'px', height: amazon_payments_advanced_params.wallet_widget_height + 'px' }
-		},
+            designMode: 'responsive'
+        },
 		onError: function(error) {}
 	}).bind("amazon_wallet_widget");
 

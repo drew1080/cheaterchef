@@ -162,7 +162,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 		$order    = new WC_Order( $order_id );
 
 		if ( $order->payment_method == 'amazon_payments_advanced' ) {
-			add_meta_box( 'woocommerce-amazon-payments-advanced', __( 'Amazon Payments Advanced', 'wc_amazon_payments_advanced' ), array( $this, 'authorization_box' ), 'shop_order', 'side' );
+			add_meta_box( 'woocommerce-amazon-payments-advanced', __( 'Amazon Payments Advanced', 'woocommerce-gateway-amazon-payments-advanced' ), array( $this, 'authorization_box' ), 'shop_order', 'side' );
 		}
 	}
 
@@ -194,38 +194,38 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 			switch ( $amazon_capture_state ) {
 				case 'Pending' :
 
-					echo wpautop( sprintf( __( 'Capture Reference %s is <strong>%s</strong>.', 'wc_amazon_payments_advanced' ), $amazon_capture_id, $amazon_capture_state ) . ' <a href="#" data-action="refresh" class="refresh">' . __( 'Refresh', 'wc_amazon_payments_advanced' ) . '</a>' );
+					echo wpautop( sprintf( __( 'Capture Reference %s is <strong>%s</strong>.', 'woocommerce-gateway-amazon-payments-advanced' ), $amazon_capture_id, $amazon_capture_state ) . ' <a href="#" data-action="refresh" class="refresh">' . __( 'Refresh', 'woocommerce-gateway-amazon-payments-advanced' ) . '</a>' );
 
 					// Admin will need to re-check this, so clear the stored value
 					$this->clear_stored_states( $order_id );
 				break;
 				case 'Declined' :
 
-					echo wpautop( __( 'The capture was declined.', 'wc_amazon_payments_advanced' ) );
+					echo wpautop( __( 'The capture was declined.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 					$actions['authorize'] = array(
 						'id' => $amazon_reference_id,
-						'button' => __( 'Re-authorize?', 'wc_amazon_payments_advanced' )
+						'button' => __( 'Re-authorize?', 'woocommerce-gateway-amazon-payments-advanced' )
 					);
 
 				break;
 				case 'Completed' :
 
-					echo wpautop( sprintf( __( 'Capture Reference %s is <strong>%s</strong>.', 'wc_amazon_payments_advanced' ), $amazon_capture_id, $amazon_capture_state ) . ' <a href="#" class="toggle_refund">' . __( 'Make a refund?', 'wc_amazon_payments_advanced' ) . '</a>' );
+					echo wpautop( sprintf( __( 'Capture Reference %s is <strong>%s</strong>.', 'woocommerce-gateway-amazon-payments-advanced' ), $amazon_capture_id, $amazon_capture_state ) . ' <a href="#" class="toggle_refund">' . __( 'Make a refund?', 'woocommerce-gateway-amazon-payments-advanced' ) . '</a>' );
 
 					// Refund form
 					?>
 					<p class="refund_form" style="display:none">
 						<input type="number" step="any" style="width:100%" class="amazon_refund_amount" value="<?php echo $theorder->get_total(); ?>" />
-						<input type="text" style="width:100%" class="amazon_refund_note" placeholder="<?php _e( 'Add a note about this refund', 'wc_amazon_payments_advanced' ); ?>" /><br/>
-						<a href="#" class="button" data-action="refund" data-id="<?php echo $amazon_capture_id; ?>"><?php _e( 'Refund', 'wc_amazon_payments_advanced' ); ?></a>
+						<input type="text" style="width:100%" class="amazon_refund_note" placeholder="<?php _e( 'Add a note about this refund', 'woocommerce-gateway-amazon-payments-advanced' ); ?>" /><br/>
+						<a href="#" class="button" data-action="refund" data-id="<?php echo $amazon_capture_id; ?>"><?php _e( 'Refund', 'woocommerce-gateway-amazon-payments-advanced' ); ?></a>
 					</form>
 					<?php
 
 				break;
 				case 'Closed' :
 
-					echo wpautop( sprintf( __( 'Capture Reference %s is <strong>%s</strong>.', 'wc_amazon_payments_advanced' ), $amazon_capture_id, $amazon_capture_state ) );
+					echo wpautop( sprintf( __( 'Capture Reference %s is <strong>%s</strong>.', 'woocommerce-gateway-amazon-payments-advanced' ), $amazon_capture_id, $amazon_capture_state ) );
 
 				break;
 			}
@@ -239,7 +239,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 				foreach ( $amazon_refund_ids as $amazon_refund_id ) {
 
 					if ( isset( $refunds[ $amazon_refund_id ] ) ) {
-						echo wpautop( sprintf( __( 'Refund %s of %s is <strong>%s</strong> (%s).', 'wc_amazon_payments_advanced' ), $amazon_refund_id, woocommerce_price( $refunds[ $amazon_refund_id ]['amount'] ), $refunds[ $amazon_refund_id ]['state'], $refunds[ $amazon_refund_id ]['note'] ) );
+						echo wpautop( sprintf( __( 'Refund %s of %s is <strong>%s</strong> (%s).', 'woocommerce-gateway-amazon-payments-advanced' ), $amazon_refund_id, woocommerce_price( $refunds[ $amazon_refund_id ]['amount'] ), $refunds[ $amazon_refund_id ]['state'], $refunds[ $amazon_refund_id ]['note'] ) );
 					} else {
 
 						$response = $amazon->api_request( array(
@@ -253,7 +253,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 							$state  = $response['GetRefundDetailsResult']['RefundDetails']['RefundStatus']['State'];
 							$amount = $response['GetRefundDetailsResult']['RefundDetails']['RefundAmount']['Amount'];
 
-							echo wpautop( sprintf( __( 'Refund %s of %s is <strong>%s</strong> (%s).', 'wc_amazon_payments_advanced' ), $amazon_refund_id, woocommerce_price( $amount ), $state, $note ) );
+							echo wpautop( sprintf( __( 'Refund %s of %s is <strong>%s</strong> (%s).', 'woocommerce-gateway-amazon-payments-advanced' ), $amazon_refund_id, woocommerce_price( $amount ), $state, $note ) );
 
 							if ( $state == 'Completed' ) {
 								$refunds[ $amazon_refund_id ] = array(
@@ -275,25 +275,25 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 
 			$amazon_authorization_state = $this->get_authorization_state( $order_id, $amazon_authorization_id );
 
-			echo wpautop( sprintf( __( 'Auth Reference %s is <strong>%s</strong>.', 'wc_amazon_payments_advanced' ), $amazon_reference_id, $amazon_authorization_state ) . ' <a href="#" data-action="refresh" class="refresh">' . __( 'Refresh', 'wc_amazon_payments_advanced' ) . '</a>' );
+			echo wpautop( sprintf( __( 'Auth Reference %s is <strong>%s</strong>.', 'woocommerce-gateway-amazon-payments-advanced' ), $amazon_reference_id, $amazon_authorization_state ) . ' <a href="#" data-action="refresh" class="refresh">' . __( 'Refresh', 'woocommerce-gateway-amazon-payments-advanced' ) . '</a>' );
 
 			switch ( $amazon_authorization_state ) {
 				case 'Open' :
 
 					$actions['capture'] = array(
 						'id' => $amazon_authorization_id,
-						'button' => __( 'Capture funds', 'wc_amazon_payments_advanced' )
+						'button' => __( 'Capture funds', 'woocommerce-gateway-amazon-payments-advanced' )
 					);
 
 					$actions['close_authorization'] = array(
 						'id' => $amazon_authorization_id,
-						'button' => __( 'Close Authorization', 'wc_amazon_payments_advanced' )
+						'button' => __( 'Close Authorization', 'woocommerce-gateway-amazon-payments-advanced' )
 					);
 
 				break;
 				case 'Pending' :
 
-					echo wpautop( __( 'You cannot capture funds whilst the authorization is pending. Try again later.', 'wc_amazon_payments_advanced' ) );
+					echo wpautop( __( 'You cannot capture funds whilst the authorization is pending. Try again later.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 					// Admin will need to re-check this, so clear the stored value
 					$this->clear_stored_states( $order_id );
@@ -303,7 +303,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 				case 'Declined' :
 					$actions['authorize'] = array(
 						'id' => $amazon_reference_id,
-						'button' => __( 'Authorize again', 'wc_amazon_payments_advanced' )
+						'button' => __( 'Authorize again', 'woocommerce-gateway-amazon-payments-advanced' )
 					);
 				break;
 			}
@@ -313,31 +313,31 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 
 			$amazon_reference_state = $this->get_reference_state( $order_id, $amazon_reference_id );
 
-			echo wpautop( sprintf( __( 'Order Reference %s is <strong>%s</strong>.', 'wc_amazon_payments_advanced' ), $amazon_reference_id, $amazon_reference_state ) . ' <a href="#" data-action="refresh" class="refresh">' . __( 'Refresh', 'wc_amazon_payments_advanced' ) . '</a>' );
+			echo wpautop( sprintf( __( 'Order Reference %s is <strong>%s</strong>.', 'woocommerce-gateway-amazon-payments-advanced' ), $amazon_reference_id, $amazon_reference_state ) . ' <a href="#" data-action="refresh" class="refresh">' . __( 'Refresh', 'woocommerce-gateway-amazon-payments-advanced' ) . '</a>' );
 
 			switch ( $amazon_reference_state ) {
 				case 'Open' :
 
 					$actions['authorize'] = array(
 						'id' => $amazon_reference_id,
-						'button' => __( 'Authorize', 'wc_amazon_payments_advanced' )
+						'button' => __( 'Authorize', 'woocommerce-gateway-amazon-payments-advanced' )
 					);
 
 					$actions['authorize_capture'] = array(
 						'id' => $amazon_reference_id,
-						'button' => __( 'Authorize &amp; Capture', 'wc_amazon_payments_advanced' )
+						'button' => __( 'Authorize &amp; Capture', 'woocommerce-gateway-amazon-payments-advanced' )
 					);
 
 				break;
 				case 'Suspended' :
 
-					echo wpautop( __( 'The reference has been suspended. Another form of payment is required.', 'wc_amazon_payments_advanced' ) );
+					echo wpautop( __( 'The reference has been suspended. Another form of payment is required.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 				break;
 				case 'Canceled' :
 				case 'Suspended' :
 
-					echo wpautop( __( 'The reference has been cancelled/closed. No authorizations can be made.', 'wc_amazon_payments_advanced' ) );
+					echo wpautop( __( 'The reference has been cancelled/closed. No authorizations can be made.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 				break;
 			}
@@ -420,7 +420,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 
 			if ( is_wp_error( $response ) ) {
 
-				$order->add_order_note( __( 'Unable to authorize funds with amazon:', 'wc_amazon_payments_advanced' ) . ' ' . $response->get_error_message() );
+				$order->add_order_note( __( 'Unable to authorize funds with amazon:', 'woocommerce-gateway-amazon-payments-advanced' ) . ' ' . $response->get_error_message() );
 
 				return false;
 
@@ -454,9 +454,9 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 				if ( $capture_now ) {
 					update_post_meta( $order_id, 'amazon_capture_id', str_replace( '-A', '-C', $auth_id ) );
 
-					$order->add_order_note( sprintf( __( 'Captured (Auth ID: %s)', 'wc_amazon_payments_advanced' ), str_replace( '-A', '-C', $auth_id ) ) );
+					$order->add_order_note( sprintf( __( 'Captured (Auth ID: %s)', 'woocommerce-gateway-amazon-payments-advanced' ), str_replace( '-A', '-C', $auth_id ) ) );
 				} else {
-					$order->add_order_note( sprintf( __( 'Authorized (Auth ID: %s)', 'wc_amazon_payments_advanced' ), $auth_id ) );
+					$order->add_order_note( sprintf( __( 'Authorized (Auth ID: %s)', 'woocommerce-gateway-amazon-payments-advanced' ), $auth_id ) );
 				}
 
 				return true;
@@ -495,7 +495,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 
 				delete_post_meta( $order_id, 'amazon_authorization_id' );
 
-				$order->add_order_note( sprintf( __( 'Authorization closed (Auth ID: %s)', 'wc_amazon_payments_advanced' ), $amazon_authorization_id ) );
+				$order->add_order_note( sprintf( __( 'Authorization closed (Auth ID: %s)', 'woocommerce-gateway-amazon-payments-advanced' ), $amazon_authorization_id ) );
 
 			}
 		}
@@ -523,7 +523,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 
 			if ( is_wp_error( $response ) ) {
 
-				$order->add_order_note( __( 'Unable to authorize funds with amazon:', 'wc_amazon_payments_advanced' ) . ' ' . $response->get_error_message() );
+				$order->add_order_note( __( 'Unable to authorize funds with amazon:', 'woocommerce-gateway-amazon-payments-advanced' ) . ' ' . $response->get_error_message() );
 
 			} elseif ( isset( $response['Error']['Message'] ) ) {
 
@@ -532,7 +532,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 			} else {
 				$capture_id = $response['CaptureResult']['CaptureDetails']['AmazonCaptureId'];
 
-				$order->add_order_note( sprintf( __( 'Capture Attempted (Capture ID: %s)', 'wc_amazon_payments_advanced' ), $capture_id ) );
+				$order->add_order_note( sprintf( __( 'Capture Attempted (Capture ID: %s)', 'woocommerce-gateway-amazon-payments-advanced' ), $capture_id ) );
 
 				update_post_meta( $order_id, 'amazon_capture_id', $capture_id );
 			}
@@ -553,11 +553,11 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 		if ( $order->payment_method == 'amazon_payments_advanced' ) {
 
 			if ( 'US' == $woocommerce->countries->get_base_country() && $amount > $order->get_total() ) {
-				$order->add_order_note( __( 'Unable to refund funds via amazon:', 'wc_amazon_payments_advanced' ) . ' ' . __( 'Refund amount is greater than order total.', 'wc_amazon_payments_advanced' ) );
+				$order->add_order_note( __( 'Unable to refund funds via amazon:', 'woocommerce-gateway-amazon-payments-advanced' ) . ' ' . __( 'Refund amount is greater than order total.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 				return;
 			} elseif ( $amount > min( ( $order->get_total() * 1.15 ), ( $order->get_total() + 75 ) ) ) {
-				$order->add_order_note( __( 'Unable to refund funds via amazon:', 'wc_amazon_payments_advanced' ) . ' ' . __( 'Refund amount is greater than the max refund amount.', 'wc_amazon_payments_advanced' ) );
+				$order->add_order_note( __( 'Unable to refund funds via amazon:', 'woocommerce-gateway-amazon-payments-advanced' ) . ' ' . __( 'Refund amount is greater than the max refund amount.', 'woocommerce-gateway-amazon-payments-advanced' ) );
 
 				return;
 			}
@@ -575,7 +575,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 
 			if ( is_wp_error( $response ) ) {
 
-				$order->add_order_note( __( 'Unable to refund funds via amazon:', 'wc_amazon_payments_advanced' ) . ' ' . $response->get_error_message() );
+				$order->add_order_note( __( 'Unable to refund funds via amazon:', 'woocommerce-gateway-amazon-payments-advanced' ) . ' ' . $response->get_error_message() );
 
 			} elseif ( isset( $response['Error']['Message'] ) ) {
 
@@ -584,7 +584,7 @@ class WC_Amazon_Payments_Advanced_Order_Handler {
 			} else {
 				$refund_id = $response['RefundResult']['RefundDetails']['AmazonRefundId'];
 
-				$order->add_order_note( sprintf( __( 'Refunded %s (%s)', 'wc_amazon_payments_advanced' ), woocommerce_price( $amount ), $note ) );
+				$order->add_order_note( sprintf( __( 'Refunded %s (%s)', 'woocommerce-gateway-amazon-payments-advanced' ), woocommerce_price( $amount ), $note ) );
 
 				add_post_meta( $order_id, 'amazon_refund_id', $refund_id );
 			}
