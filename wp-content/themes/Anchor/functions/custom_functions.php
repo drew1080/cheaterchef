@@ -301,5 +301,14 @@ function delete_Anchor_templatic_menu(){
 
 /* THEME UPDATE CODING END */
 
+function my_manage_columns( $columns ) {
+  unset($columns['analytics']);
+  return $columns;
+}
+
+function my_column_init() {
+  add_filter( 'manage_posts_columns' , 'my_manage_columns' );
+}
+add_action( 'admin_init' , 'my_column_init' );
 
 ?>

@@ -17,3 +17,4 @@ sitemap.xml
 wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
+wp-content/plugins/wordfence/tmp/configCache.php
