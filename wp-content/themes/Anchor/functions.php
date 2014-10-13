@@ -107,10 +107,18 @@ function supreme_child_theme_setup() {
 	
 	function anchor_register_image_sizes()
 	{
-		add_image_size( 'anchor-listing-thumb', 310, 160, true ); /* Listing Page */
-		add_image_size( 'home-page-slider', 685, 412, true ); /* Slider images */
-		add_image_size( 'post-by-category', 295, 166, true ); /* Post By category Image */
-		add_image_size( 'detail-page-thumb', 612, 280, true ); /* Detail page Image */
+    //HioWeb change Oct 13th to use aspect ratio of 41x42
+		// add_image_size( 'anchor-listing-thumb', 310, 160, true ); /* Listing Page */
+    // add_image_size( 'home-page-slider', 685, 412, true ); /* Slider images */
+    // add_image_size( 'post-by-category', 295, 166, true ); /* Post By category Image */
+    // add_image_size( 'detail-page-thumb', 612, 280, true ); /* Detail page Image */
+    
+    //HioWeb change Oct 13th to use aspect ratio of 41x42
+    add_image_size( 'anchor-listing-thumb', 290, 297, true ); /* Listing Page */
+    add_image_size( 'home-page-slider', 685, 702, true ); /* Slider images */
+    add_image_size( 'post-by-category', 290, 297, true ); /* Post By category Image */
+    add_image_size( 'detail-page-thumb', 615, 630, true ); /* Detail page Image */
+    
 	}
 	
 }

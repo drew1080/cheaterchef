@@ -459,13 +459,15 @@ class post_by_category extends WP_Widget {
 						  'order' => 'DESC');
 					$category_post = null;
 					$category_post = new WP_Query($args);
+          //HioWeb change Feb 18th to show 3 posts
 					$counter = 0;
           					?>
           					<?php while ($category_post->have_posts() && $counter < 3) : $category_post->the_post(); ?>
           					<li class="blog-listing">
           						 <?php
           							global $post;
-          							$post_images = bdw_get_images_anchor($post->ID,'post-by-category');
+                        //HioWeb change Feb 18th to show thumbnails
+          							$post_images = bdw_get_images_anchor($post->ID,'thumbnail');
           							$post_images = $post_images[0]['file'];
           						 ?>
           						 <a class="post-image" href="<?php the_permalink(); ?>">

@@ -313,4 +313,16 @@ function my_column_init() {
 }
 add_action( 'admin_init' , 'my_column_init' );
 
+// add_theme_support( 'supreme-slider');
+
+function custom_anchor_register_image_sizes()
+{
+  add_image_size( 'anchor-listing-thumb', 310, 318, true ); /* Listing Page */
+  add_image_size( 'home-page-slider', 685, 702, true ); /* Slider images */
+  add_image_size( 'post-by-category', 290, 297, true ); /* Post By category Image */
+  add_image_size( 'detail-page-thumb', 615, 630, true ); /* Detail page Image */
+}
+
+add_filter('anchor_register_image_sizes', 'custom_anchor_register_image_sizes');
+
 ?>
