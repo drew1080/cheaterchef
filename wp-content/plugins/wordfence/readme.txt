@@ -2,8 +2,8 @@
 Contributors: mmaunder 
 Tags: wordpress, security, performance, speed, caching, cache, caching plugin, wordpress cache, wordpress caching, wordpress security, security plugin, secure, anti-virus, malware, firewall, antivirus, virus, google safe browsing, phishing, scrapers, hacking, wordfence, securty, secrity, secure, two factor, cellphone sign-in, cellphone signin, cellphone, twofactor, security, secure, htaccess, login, log, users, login alerts, lock, chmod, maintenance, plugin, private, privacy, protection, permissions, 503, base64, injection, code, encode, script, attack, hack, hackers, block, blocked, prevent, prevention, RFI, XSS, CRLF, CSRF, SQL Injection, vulnerability, website security, WordPress security, security log, logging, HTTP log, error log, login security, personal security, infrastructure security, firewall security, front-end security, web server security, proxy security, reverse proxy security, secure website, secure login, two factor security, maximum login security, heartbleed, heart bleed, heartbleed vulnerability, openssl vulnerability, nginx, litespeed, php5-fpm, woocommerce support, woocommerce caching
 Requires at least: 3.3.1
-Tested up to: 3.9.2
-Stable tag: 5.2.1
+Tested up to: 4.0
+Stable tag: 5.2.6
 
 Wordfence Security is a free enterprise class security and performance plugin that makes your site up to 50 times faster and more secure. 
 
@@ -89,7 +89,7 @@ To install Wordfence Security on WordPress Multi-Site installations:
 * Wordfence Security is the only security plugin that is fully integrated with it's own high speed caching engine to avoid security and caching conflicts. 
 * Wordfence Security actually verifies your website source code integrity against the official WordPress repository and shows you the changes. We are the only plugin to do this.
 * Wordfence Security provides two-factor authentication (Cellphone Sign-in) for paid members. We're the only plugin to offer this.
-* Wordfence Security includes comprehensive protection against DDoS attacks by giving you a performance boost up to 50X and giving you the option to disable XML-RPC among other features. 
+* Wordfence Security includes protection against DDoS attacks by giving you a performance boost up to 50X. 
 * Wordfence Security scans check all your files, comments and posts for URL's in Google's Safe Browsing list. We are the only plugin to offer this very important security enhancement.
 * Wordfence Security scans do not consume large amounts of your precious bandwidth because all security scans happen on your web server which makes them very fast.
 * Wordfence Security fully supports WordPress Multi-Site which means you can security scan every blog in your Multi-Site installation with one click.
@@ -162,6 +162,45 @@ cause a security hole on your site.
 5. If you're technically minded, this is the under-the-hood view of Wordfence Security options where you can fine-tune your security settings.
 
 == Changelog ==
+
+= 5.2.6 =
+* Fixed bug that caused country blocking and redirecting to an external URL to not work if the external URL's relative path matched the current page's relative path.
+* Made it clear that country blocking URL's require absolute URL's. 
+
+= 5.2.5 =
+* Security release. Update immediately. Thanks to Julio Potier. 
+* Code hardening including improved sanitization and an additional nonce for unlock email form. Special thanks to Ryan Satterfield for the hard work.
+* Stability of auto-update improved for LiteSpeed customers. We auto-detect if you don't have E=noabort:1 in your .htaccess and give you instructions. 
+* Auto-update also disabled now for LiteSpeed customers who don't have E=noabort:1 and you will get an email alert with an explanation.
+* Fixed a bug that may cause you to have advanced blocking patterns disabled with falcon engine enabled that should not be disabled. 
+* Removed a benign warning in wfCache.php. 
+* Added clarity to the banned URL option on the options page. All URL's must be relative.
+* Added a primary key to the wp_wfStatus table which is required for certain incremental backup plugins and utilities.
+* Fixed advanced country blocking which was not correctly displaying advanced options. 
+* Migrated to using wp_kses() for sanitization. 
+* Prevent IP spoofing in default Wordfence IP configuration. 
+* Change explanations of how Wordfence gets IP's to make it clear which to use to prevent spoofing. 
+* Make it clear that the option to have IP's immediately blocked when they access a URL requires relative URL's starting with a forward slash. 
+* Whitelist Sucuri's scanning IP addresses which were getting blocked because they triggered Wordfence blocking during a scan.
+* Improved Wordfence's code that acquires the visitor IP to block certain spoofing attacks, be more platform agnostic and deal with visits from private IP's more elegantly.
+
+= 5.2.4 =
+* Security release. Upgrade immediately. 
+* This release fixes an XSS vunlerability on Wordfence "view all traffic from IP" page. 
+* Also fixes a hard to exploit XSS which exists if you have your site as the default site on your web server, falcon enabled and debugging comments enabled. 
+* Improves Revolution Slider proteciton. 
+* Fixed bypass for fake googlebot blocking.  
+
+= 5.2.3 =
+* Updated Geo IP country database to newest version (September 2014 edition)
+* Security fix. Improved referrer sanitization in live traffic.  
+* Changed scan success messaging for clarity. 
+* Fixed minor bug in IP validation which manifested when users use IPv6 to IPv4 translation which produces 255.x.x.x addrs.
+
+= 5.2.2 =
+* Protection from the Slider Revolution Plugin arbitrary file download vulnerability announced today. Attempts to download any .php file including wp-config.php are denied. 
+* Changed the Wordfence Memory config option's label to make it clearer what the option does. 
+* Moved screenshots out of plugin distro directory to reduce plugin payload size.
 
 = 5.2.1 =
 * Fix: Users with large lists of blocked IP's (over 2,100) would receive a browser error "Uncaught RangeError: Maximum call stack size exceeded". Fixed. 

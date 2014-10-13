@@ -1,5 +1,8 @@
 *** Amazon Payments Advanced Changelog ***
 
+2014.xx.xx - version 1.2.7
+* Disable login when subscription is in cart.
+
 2014.06.25 - version 1.2.6
 * Update registration url.
 * Bug fix for two button rendering.

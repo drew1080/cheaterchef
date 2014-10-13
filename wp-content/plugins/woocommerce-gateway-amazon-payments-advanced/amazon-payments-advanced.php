@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Amazon Payments Advanced Gateway
 Plugin URI: http://woothemes.com/woocommerce
 Description: Amazon Payments Advanced is embedded directly into your existing web site, and all the buyer interactions with Amazon Payments Advanced take place in embedded widgets so that the buyer never leaves your site. Buyers can log in using their Amazon account, select a shipping address and payment method, and then confirm their order. Requires an Amazon Seller account with the Amazon Payments Advanced service provisioned. Supports DE, UK, and US.
-Version: 1.2.6
+Version: 1.2.7
 Author: WooThemes
 Author URI: http://woothemes.com
 
@@ -15,8 +15,9 @@ Author URI: http://woothemes.com
 /**
  * Required functions
  */
-if ( ! function_exists( 'woothemes_queue_update' ) )
+if ( ! function_exists( 'woothemes_queue_update' ) ) {
 	require_once( 'woo-includes/woo-functions.php' );
+}
 
 /**
  * Plugin updates
@@ -64,7 +65,6 @@ class WC_Amazon_Payments_Advanced {
 	 * Plugin page links
 	 */
 	public function plugin_links( $links ) {
-
 		$plugin_links = array(
 			'<a href="http://support.woothemes.com/">' . __( 'Support', 'woocommerce-gateway-amazon-payments-advanced' ) . '</a>',
 			'<a href="http://docs.woothemes.com/document/amazon-payments-advanced/">' . __( 'Docs', 'woocommerce-gateway-amazon-payments-advanced' ) . '</a>',
@@ -79,8 +79,9 @@ class WC_Amazon_Payments_Advanced {
 	public function init_gateway() {
 		global $woocommerce;
 
-		if ( ! class_exists( 'WC_Payment_Gateway' ) )
-				return;
+		if ( ! class_exists( 'WC_Payment_Gateway' ) ) {
+			return;
+		}
 
 		load_plugin_textdomain( 'woocommerce-gateway-amazon-payments-advanced', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
@@ -106,23 +107,31 @@ class WC_Amazon_Payments_Advanced {
 
 		add_filter( 'woocommerce_payment_gateways',  array( $this, 'add_gateway' ) );
 
-		if ( empty( $this->settings['seller_id'] ) || $this->settings['enabled'] == 'no' )
+		if ( empty( $this->settings['seller_id'] ) || $this->settings['enabled'] == 'no' ) {
 			return;
+		}
+
+		// Disable for subscriptions until supported
+		if ( ! is_admin() && class_exists( 'WC_Subscriptions_Cart' ) && WC_Subscriptions_Cart::cart_contains_subscription() && 'no' === get_option( WC_Subscriptions_Admin::$option_prefix . '_accept_manual_renewals', 'no' ) ) {
+			return;
+		}
 
 		include_once( 'includes/class-wc-amazon-payments-advanced-order-handler.php' );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 
-		if ( $this->settings['cart_button_display_mode'] == 'button' )
+		if ( $this->settings['cart_button_display_mode'] == 'button' ) {
 			add_action( 'woocommerce_proceed_to_checkout', array( $this, 'checkout_button' ), 12 );
-		elseif ( $this->settings['cart_button_display_mode'] == 'banner' )
+		} elseif ( $this->settings['cart_button_display_mode'] == 'banner' ) {
 			add_action( 'woocommerce_before_cart', array( $this, 'checkout_message' ), 5 );
+		}
 
 		add_action( 'woocommerce_before_checkout_form', array( $this, 'checkout_message' ), 5 );
 		add_action( 'before_woocommerce_pay', array( $this, 'checkout_message' ), 5 );
 
-		if ( empty( $this->reference_id ) )
+		if ( empty( $this->reference_id ) ) {
 			return;
+		}
 
 		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'payment_widget' ), 20 );
 		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'address_widget' ), 10 );
@@ -139,8 +148,7 @@ class WC_Amazon_Payments_Advanced {
 	function checkout_button() {
 		global $woocommerce;
 
-		?><div id="pay_with_amazon">
-         </div><?php
+		?><div id="pay_with_amazon"></div><?php
 	}
 
 	/**
@@ -229,7 +237,7 @@ class WC_Amazon_Payments_Advanced {
 	public function remove_checkout_fields( $checkout ) {
 		$checkout->checkout_fields['billing'] 	= array();
 		$checkout->checkout_fields['shipping']  = array();
-		
+
 		remove_action( 'woocommerce_checkout_billing', array( $checkout,'checkout_form_billing' ) );
 		remove_action( 'woocommerce_checkout_shipping', array( $checkout,'checkout_form_shipping' ) );
 
@@ -243,8 +251,9 @@ class WC_Amazon_Payments_Advanced {
 	 */
 	public function remove_gateways( $gateways ) {
 		foreach ( $gateways as $gateway_key => $gateway ) {
-			if ( $gateway_key !== 'amazon_payments_advanced' )
+			if ( $gateway_key !== 'amazon_payments_advanced' ) {
 				unset( $gateways[ $gateway_key ] );
+			}
 		}
 		return $gateways;
 	}
@@ -265,11 +274,13 @@ class WC_Amazon_Payments_Advanced {
 				'AmazonOrderReferenceId' => $this->reference_id,
 			) );
 
-			if ( is_wp_error( $response ) )
+			if ( is_wp_error( $response ) ) {
 				throw new Exception( $response->get_error_message() );
+			}
 
-			if ( ! isset( $response['GetOrderReferenceDetailsResult']['OrderReferenceDetails']['Destination']['PhysicalDestination'] ) )
+			if ( ! isset( $response['GetOrderReferenceDetailsResult']['OrderReferenceDetails']['Destination']['PhysicalDestination'] ) ) {
 				return;
+			}
 
 			$address = $response['GetOrderReferenceDetailsResult']['OrderReferenceDetails']['Destination']['PhysicalDestination'];
 

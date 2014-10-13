@@ -308,6 +308,8 @@ function my_manage_columns( $columns ) {
 
 function my_column_init() {
   add_filter( 'manage_posts_columns' , 'my_manage_columns' );
+  add_filter( 'manage_pages_columns' , 'my_manage_columns' );
+  
 }
 add_action( 'admin_init' , 'my_column_init' );
 
