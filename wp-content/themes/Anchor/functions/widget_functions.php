@@ -119,34 +119,35 @@ class anchor_slider extends WP_Widget {
                 <div class="flex-caption">
                     <div class="slide_content">
                      <span>
-						<?php 
-							$cat_name = array();
-							foreach(get_the_category($post->ID) as $_category):
-									$cat_name[] = $_category->cat_name;
-							endforeach;
-							echo implode(",",$cat_name);
-						?>
-                     </span>
-                        <h4><a href="<?php the_permalink(); ?>">
-							<?php
-								if(strlen(get_the_title($post->ID)) > 30)
-								 {
-									echo substr(get_the_title($post->ID),0,30)."...";
-                                 }
-                                else
-                                 {
-                                 	echo get_the_title($post->ID);
-                                 }
-                             ?>    
-                             </a>        
-                        </h4>
-                        <hr>
-                        <p><?php echo anchor_excerpt(20); ?></p>
-                        <a href="<?php the_permalink(); ?>" class="button readmore"><?php _e('READ MORE',T_DOMAIN); ?></a>
-                     </div>
-                </div>
-            </li>
-        <?php endwhile; ?>
+            						<?php 
+            							$cat_name = array();
+            							foreach(get_the_category($post->ID) as $_category):
+            									$cat_name[] = $_category->cat_name;
+            							endforeach;
+            							echo implode(",",$cat_name);
+            						?>
+                                 </span>
+                                    <h4><a href="<?php the_permalink(); ?>">
+            							<?php
+            								// if(strlen(get_the_title($post->ID)) > 30)
+            //                  {
+            //                   echo substr(get_the_title($post->ID),0,30)."...";
+            //                                  }
+            //                                 else
+            //                                  {
+              // HioWeb: Get Full title always
+                                             	echo get_the_title($post->ID);
+            // }
+                                         ?>    
+                                         </a>        
+                                    </h4>
+                                    <hr>
+                                    <p><?php echo anchor_excerpt(1000); //HioWeb get full excerpt 10.13 ?></p>
+                                    <a href="<?php the_permalink(); ?>" class="button readmore"><?php _e('READ MORE',T_DOMAIN); ?></a>
+                                 </div>
+                            </div>
+                        </li>
+                    <?php endwhile; ?>
     </ul>
     </div>
    <?php

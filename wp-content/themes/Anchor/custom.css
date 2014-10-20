@@ -51,6 +51,10 @@ div#menu-secondary .wrap {
 	font-family: "Comic Sans MS", sans-serif;
 }
 
+.entry-content p {
+  color: #000000;
+}
+
 .blog-listing li {
 	margin: 0 4.1% 25px 0;
 }
@@ -94,7 +98,11 @@ div#sidebar-subsidiary, div#sidebar-subsidiary-2c {
 }
 
 .flexslider .slides img {
-	max-width:685px !important;
+	max-width:660px !important;
+}
+
+.flex-caption .slide_content {
+  padding: 42px 0px;
 }
 
 div.flex-caption {
